@@ -1,5 +1,5 @@
 <template>
     <div>
-        Home
+        Activities
     </div>
 </template>

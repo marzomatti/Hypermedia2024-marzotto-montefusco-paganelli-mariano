@@ -1,5 +1,5 @@
 <template>
     <div>
-        Home
+        About us
     </div>
 </template>
