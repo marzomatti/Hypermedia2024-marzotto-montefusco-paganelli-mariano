@@ -1,0 +1,14 @@
+/* styles.css */
+@tailwind base;
+@tailwind components;
+
+/* Define custom colors */
+@layer utilities {
+  .text-custom-purple-light {
+    --tw-text-opacity: 1;
+    color: #7d80da;
+  }
+  /* Define other custom colors similarly */
+}
+
+@tailwind utilities;
