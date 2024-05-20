@@ -1,36 +1,55 @@
 <template>
-    <nav class="font-mono">
-      <ul class="flex space-x-4">
-        <li>
-          <NuxtLink to="/" class="link">Home</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/people/" class="link">People</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/activities/" class="link">Activities</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/chat/" class="link">Chatbot</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/contact" class="link">Contact us</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/about" class="link">About us</NuxtLink>
-        </li>
-      </ul>
+  <div class="min-h-full">
+    <nav class="bg-gray-800">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <img class="h-8 w-8" src="../assets/images/test_logo.png" alt="Company Logo" />
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="hidden md:flex ml-10 space-x-4">
+              <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']">{{ item.name }}</NuxtLink>
+            </div>
+          </div>
+          
+          <div class="-mr-2 flex md:hidden">
+            <!-- Mobile menu button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+              <span class="absolute -inset-0.5" />
+              <span class="sr-only">Open main menu</span>
+              <svg v-if="!mobileMenuOpen" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+              <svg v-else class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div v-if="mobileMenuOpen" class="md:hidden">
+        <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+          <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+        </div>
+      </div>
     </nav>
-  </template>
-  
-  <style scoped>
-  .link {
-    @apply p-2 text-lg hover:bg-custom-purple hover:text-white rounded-md;
-  }
-  
-  /* Style the active link */
-  .link.active {
-    @apply bg-custom-purple text-white;
-  }
-  </style>
-  
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const mobileMenuOpen = ref(false)
+const open = ref(false)
+
+const navigation = [
+  { name: 'Home', href: '/', current: true },
+  { name: 'People', href: '/people/', current: false },
+  { name: 'Activities', href: '/activities/', current: false },
+  { name: 'Chatbot', href: '/chat/', current: false },
+  { name: 'Contact us', href: '/contact', current: false },
+  { name: 'About us', href: '/about', current: false },
+]
+</script>

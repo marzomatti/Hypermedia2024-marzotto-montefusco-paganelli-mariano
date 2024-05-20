@@ -1,11 +1,14 @@
-import { defineNuxtConfig } from 'nuxt3'
-
 // tailwind.config.js
 
 module.exports = {
-  mode: 'jit',
-  purge: ['./src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './components/**/*.{vue,js,ts,jsx,tsx}',
+    './layouts/**/*.{vue,js,ts,jsx,tsx}',
+    './pages/**/*.{vue,js,ts,jsx,tsx}',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+    './app.vue',
+  ],
   theme: {
     extend: {
       // Add your custom colors or extend existing colors here
@@ -18,9 +21,9 @@ module.exports = {
       },
     },
   },
+  darkMode: false, // or 'media' or 'class'
   variants: {
     extend: {},
   },
   plugins: [],
 }
-
