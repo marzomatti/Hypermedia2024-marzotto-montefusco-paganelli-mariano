@@ -1,12 +1,15 @@
 <template>
     <div>
       <header>
-        <Menu />
+        <AppHeader />
       </header>
   
       <main>
-        <slot />
+                <slot />
       </main>
+      <footer>
+        <AppFooter />
+      </footer>
     </div>
   </template>
   
