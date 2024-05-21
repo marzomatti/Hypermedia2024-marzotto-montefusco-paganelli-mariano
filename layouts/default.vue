@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="flex flex-col min-h-screen">
       <header>
         <AppHeader />
       </header>
   
-      <main>
+      <main class="flex-grow">
                 <slot />
       </main>
       <footer>
