@@ -1,11 +1,11 @@
 <template>
-    <div class="bg-custom-background-color">
+    <div class="flex flex-col min-h-screen">
       <header>
         <AppHeader />
       </header>
   
-      <main>
-        <slot />
+      <main class="flex-grow">
+                <slot />
       </main>
       <footer>
         <AppFooter />
