@@ -1,5 +1,170 @@
 <template>
     <div>
-        Contact us
+      <h1>Contact us</h1>
+      <ul class="contact-list">
+        <li v-for="contact in contacts" :key="contact.id" class="contact-item">
+          <b>{{ contact.center }}</b> / {{ contact.role }}<br>
+          <span v-if="contact.name">{{ contact.name }}<br></span>
+          {{ contact.street }}<br>
+          {{ contact.phone }}<br>
+          <a :href="'mailto:' + contact.email">{{ contact.email }}</a>
+        </li>
+      </ul>
+      <hr class="separator" />
+      <h2>Do you need help? Send us a message!</h2>
+      <form @submit.prevent="submitForm" class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" v-model="form.name" required />
+        </div>
+        <div class="form-group">
+          <label for="surname">Surname</label>
+          <input type="text" id="surname" v-model="form.surname" required />
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" v-model="form.address" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" v-model="form.subject" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" v-model="form.message" required></textarea>
+        </div>
+        <button type="submit">Send</button>
+      </form>
     </div>
-</template>
+  </template>
+  
+  <script>
+  export default {
+    name: 'ContactList',
+    data() {
+      return {
+        contacts: [
+          {
+            id: 1,
+            center: 'Training and Development Center',
+            role: 'Head of Training and Development',
+            name: 'John Doe',
+            street: '123 Main St',
+            phone: '555-1234',
+            email: 'john.doe@example.com'
+          },
+          {
+            id: 2,
+            center: 'Research and Innovation Center',
+            role: 'Lead Researcher',
+            name: 'Jane Smith',
+            street: '456 Elm St',
+            phone: '555-5678',
+            email: 'jane.smith@example.com'
+          },
+          {
+            id: 3,
+            center: 'Community Outreach Center',
+            role: 'Coordinator',
+            name: 'Alice Johnson',
+            street: '789 Oak St',
+            phone: '555-8765',
+            email: 'alice.johnson@example.com'
+          }
+        ],
+        form: {
+          name: '',
+          surname: '',
+          address: '',
+          subject: '',
+          message: ''
+        }
+      };
+    },
+    methods: {
+      submitForm() {
+        // Handle form submission
+        // For example, you can send the form data to a server
+        console.log('Form submitted:', this.form);
+      }
+    }
+  };
+  </script>
+  
+  <style scoped>
+  h1 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px; /* Add margin-bottom to create space */
+  }
+  .contact-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px; /* Optional additional margin to ensure spacing */
+  }
+  .contact-item {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .contact-item b {
+    font-size: 1.2em;
+  }
+  
+  .separator {
+    margin: 40px 0;
+    border: none;
+    border-top: 2px solid #ccc;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-form {
+    max-width: 500px; /* Make the form a bit smaller */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px; /* Add padding inside the form */
+    border: 1px solid #ccc; /* Add a border */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 5px; /* Rounded corners */
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  textarea {
+    resize: vertical;
+  }
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  </style>
+  
