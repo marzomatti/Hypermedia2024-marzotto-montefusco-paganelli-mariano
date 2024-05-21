@@ -28,7 +28,7 @@
                 >
               </li>
               <li>
-                <a href="#" class="text-gray-300 hover:text-gray-500"
+                <a href="/contact" class="text-gray-300 hover:text-gray-500"
                   >Contact Us</a
                 >
               </li>
