@@ -3,7 +3,7 @@
 <template>
     <div class="container">
         <h1 style="font-size: 24px; text-decoration: underline;">About us</h1>
-        <img src="../assets/images/group_pic.jpeg" alt="Group Image">
+        <img src="/group_pic.jpeg" alt="Group Image">
     </div>
     <div class="description">
         <h2 style="font-size: 24px; text-decoration: underline;">Our Mission</h2>

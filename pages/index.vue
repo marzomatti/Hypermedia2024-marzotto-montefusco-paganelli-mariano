@@ -1,10 +1,11 @@
 <template>
+    
     <div>
       <h1>Mission</h1>
       <p>...text...</p>
     </div>
 
-    <PeoplePreview />
+    <SectionsPreview/>
 
     <div>
       <h2>Practical information</h2>
@@ -13,6 +14,7 @@
   </template>
   
   <script setup>
+import SectionsPreview from '~/components/SectionsPreview.vue';
   </script>
   
   <style scoped>
