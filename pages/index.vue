@@ -1,20 +1,12 @@
 <template>
-    
-    <div>
-      <h1>Mission</h1>
-      <p>...text...</p>
-    </div>
+    <TheMission/>
 
     <SectionsPreview/>
 
-    <div>
-      <h2>Practical information</h2>
-      <p>...text...</p>
-    </div>
+    <ThePraticalnformation/>
   </template>
   
   <script setup>
-import SectionsPreview from '~/components/SectionsPreview.vue';
   </script>
   
   <style scoped>

@@ -1,13 +1,8 @@
 <template>
-  <div class="grid grid-cols-1 mdgrid-cols-3 gap-8">
-    <h2>{{ title }}</h2>
-    <img 
-    :src="imageUrl" 
-    alt="img"
-    class="w-full h-48 object-cover rounded-lg">
-    <p class="mt-2 text-gray-700 dark:text-gray-300">
-      {{ description }}
-    </p>
+  <div class="bg-gray-100 rounded-lg shadow-lg p-6">
+    <img :src="imageUrl" :alt="title" class="w-full h-48 object-cover rounded-t-lg mb-4" />
+    <h3 class="text-xl font-semibold mb-2">{{ title }}</h3>
+    <p class="text-gray-700">{{ description }}</p>
   </div>
 </template>
 
@@ -16,5 +11,9 @@ defineProps({
   title: String,
   description: String,
   imageUrl: String,
-});
+})
 </script>
+
+<style scoped>
+/* You can add any additional scoped styles here if needed */
+</style>

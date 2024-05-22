@@ -1,51 +1,42 @@
 <template>
-    <div class="bg-white min-h-screen">
-      <!-- <header class="bg-white shadow">
-        <div class="container mx-auto py-4">
-          <h1 class="text-2xl font-semibold text-gray-800">
-            
-          </h1>
-        </div>
-      </header> -->
-      <main class="container mx-auto py-8">
-        <div class="flex space-x-4">
-          <ul v-for="section in sections" :key="section.title">
-            <li>
-                <SectionCard
-                :title="section.title"
-                :description="section.description"
-                :imageUrl="section.imageUrl"
-                />
-            </li>
-          </ul>
-        </div>
-        
-      </main>
-    </div>
-  </template>
+  <div class="bg-white min-h-screen">
+    <main class="container mx-auto py-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <SectionCard
+          v-for="section in sections"
+          :key="section.title"
+          :title="section.title"
+          :description="section.description"
+          :imageUrl="section.imageUrl"
+        />
+      </div>
+    </main>
+  </div>
+</template>
 
-  <script setup>    
-    const sections = ref([
-      {
-          title: "People",
-          description: "people description people description people description people description people description people description",
-            imageUrl: "/group_pic.jpeg",
-      },
-      {
-          title: "Services",
-          description: "services description services description services description services description services description services description",
-            imageUrl: "/group_pic.jpeg",
-      },
-      {
-          title: "Projects",
-          description: "projects description projects description projects description projects description projects description projects description",
-            imageUrl: "/group_pic.jpeg",
-      },
-    ]
+<script setup>
+import { ref } from 'vue'
+import SectionCard from '@/components/SectionCard.vue'
 
-  )
-  </script>
-  
-  <style scoped>
-  </style>
-  
+const sections = ref([
+  {
+    title: "People",
+    description: "People description people description people description people description people description people description",
+    imageUrl: "/group_pic.jpeg",
+  },
+  {
+    title: "Services",
+    description: "Services description services description services description services description services description services description",
+    imageUrl: "/group_pic.jpeg",
+  },
+  {
+    title: "Projects",
+    description: "Projects description projects description projects description projects description projects description projects description",
+    imageUrl: "/group_pic.jpeg",
+  },
+])
+</script>
+
+<style scoped>
+
+</style>

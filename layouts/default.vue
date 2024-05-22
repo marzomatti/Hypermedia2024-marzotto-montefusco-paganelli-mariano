@@ -5,8 +5,9 @@
       </header>
   
       <main class="flex-grow">
-                <slot />
+        <slot />
       </main>
+      
       <footer>
         <AppFooter />
       </footer>
