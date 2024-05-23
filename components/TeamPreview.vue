@@ -4,7 +4,7 @@
     <div>
       <h3 class="text-xl font-semibold mb-2">{{ title }}</h3>
       <p class="text-gray-700">{{ description }}</p>
-      <router-link :to="link" class="text-blue-500 hover:underline mt-2 inline-block">See all</router-link>
+      <NuxtLink  :to="link" class="text-blue-500 hover:underline mt-2 inline-block">See all></NuxtLink>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto mb-6">
-      <h3 class="text-2xl font-semibold mb-4">Projects</h3>
+      <h3 class="text-2xl font-semibold mb-4">Most Relevant Projects</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div v-for="project in projects" :key="project.id" class="border p-4 rounded-lg">
           <h4 class="text-xl font-semibold">{{ project.title }}</h4>
