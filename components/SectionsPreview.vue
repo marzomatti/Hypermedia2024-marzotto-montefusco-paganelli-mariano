@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white min-h-screen">
+  <section class="py-12 bg-white">
     <main class="container mx-auto py-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <SectionCard
@@ -11,12 +11,11 @@
         />
       </div>
     </main>
-  </div>
+  </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import SectionCard from '@/components/SectionCard.vue'
+
 
 const sections = ref([
   {

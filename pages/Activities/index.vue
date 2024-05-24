@@ -11,8 +11,6 @@
   </template>
   
   <script setup>
-  import ServicePreview from '@/components/ServicesPreview.vue'
-  import ProjectPreview from '@/components/ProjectsPreview.vue'
   </script>
   
   <style scoped>

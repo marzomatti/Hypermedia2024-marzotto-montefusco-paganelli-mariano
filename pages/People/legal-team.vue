@@ -1,10 +1,10 @@
 <template>
-  <TeamSection :people="psychologists" :team-name="teamName"/>
+  <TeamSection :people="legals" :team-name="teamName"/>
 </template>
   
   <script setup>
-  const teamName = 'Psychologists';
-  const psychologists = [
+  const teamName = 'Legal Team';
+  const legals = [
     {
       id: 1,
       name: 'John',
