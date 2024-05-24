@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-50 min-h-screen py-8">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 max-w-5xl">
       
       <!-- Breadcrumb Navigation -->
       <nav class="text-gray-500 mb-4">
