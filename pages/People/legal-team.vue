@@ -11,7 +11,7 @@
       surname: 'Doe',
       imageUrl: '../face1.jpg',
       description: 'John is an experienced clinical psychologist.',
-      link: '/psychologists/john-doe'
+      link: '/people/person1'
     },
     {
       id: 2,
@@ -19,7 +19,7 @@
       surname: 'Smith',
       imageUrl: '../face1.jpg',
       description: 'Jane specializes in child psychology.',
-      link: '/psychologists/jane-smith'
+      link: '/people/person1'
     },
     {
       id: 3,
@@ -27,7 +27,7 @@
       surname: 'Johnson',
       imageUrl: '../face1.jpg',
       description: 'Alice has a background in neuropsychology.',
-      link: '/psychologists/alice-johnson'
+      link: '/people/person1'
     },
     {
       id: 4,
@@ -35,7 +35,7 @@
       surname: 'Brown',
       imageUrl: '../face1.jpg',
       description: 'Robert focuses on behavioral therapy.',
-      link: '/psychologists/robert-brown'
+      link: '/people/person1'
     },
     {
       id: 5,
@@ -43,7 +43,7 @@
       surname: 'Davis',
       imageUrl: '../face1.jpg',
       description: 'Emily is an expert in trauma therapy.',
-      link: '/psychologists/emily-davis'
+      link: '/people/person1'
     },
     {
       id: 6,
@@ -51,7 +51,7 @@
       surname: 'Wilson',
       imageUrl: '../face1.jpg',
       description: 'Michael specializes in anxiety disorders.',
-      link: '/psychologists/michael-wilson'
+      link: '/people/person1'
     },
     {
       id: 7,
@@ -59,7 +59,7 @@
       surname: 'Miller',
       imageUrl: '../face1.jpg',
       description: 'Sarah works with depression and mood disorders.',
-      link: '/psychologists/sarah-miller'
+      link: '/people/person1'
     },
     {
       id: 8,
@@ -67,7 +67,7 @@
       surname: 'Garcia',
       imageUrl: '../face1.jpg',
       description: 'David is skilled in cognitive behavioral therapy.',
-      link: '/psychologists/david-garcia'
+      link: 'people/person1'
     },
     {
       id: 9,
@@ -75,7 +75,7 @@
       surname: 'Martinez',
       imageUrl: '../face1.jpg',
       description: 'Laura has extensive experience in family therapy.',
-      link: '/psychologists/laura-martinez'
+      link: 'people/person1'
     },
   ];
   </script>

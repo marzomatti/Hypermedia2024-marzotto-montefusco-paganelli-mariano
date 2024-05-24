@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-50 min-h-screen py-12">
-    <div class="container mx-auto px-4">
+    <div class="container max-w-5xl mx-auto px-4">
       <h1 class="text-3xl font-extrabold text-center mb-8">Contact Us</h1>
       <div class="flex flex-col space-y-6">
         <!-- Horizontal layout for contact cards -->
