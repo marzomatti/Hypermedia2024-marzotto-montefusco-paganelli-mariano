@@ -3,7 +3,7 @@
       <img :src="imageUrl" alt="Face Image" class="w-24 h-24 rounded-full mb-4 object-cover">
       <h3 class="text-xl font-bold mb-2">{{ name }} {{ surname }}</h3>
       <p class="text-gray-700 mb-4">{{ description }}</p>
-      <router-link :to="link" class="text-blue-500 hover:underline">See more</router-link>
+      <NuxtLink :to="link" class="text-blue-500 hover:underline">See more</NuxtLink>
     </div>
   </template>
   
