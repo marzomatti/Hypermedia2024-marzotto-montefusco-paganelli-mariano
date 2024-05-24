@@ -1,8 +1,6 @@
 <template>
     <TheMission/>
-
     <SectionsPreview/>
-
     <ThePraticalnformation/>
   </template>
   
