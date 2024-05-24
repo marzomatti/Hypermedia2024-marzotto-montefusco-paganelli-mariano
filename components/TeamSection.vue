@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-50 min-h-screen py-12">
-    <div class="container mx-auto px-4">
+    <div class="container max-w-5xl before:mx-auto px-4">
       <h1 class="text-3xl font-extrabold text-center mb-8">Our {{ teamName }}</h1>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <PersonCard
