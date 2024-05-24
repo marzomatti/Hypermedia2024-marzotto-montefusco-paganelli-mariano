@@ -11,7 +11,7 @@
         />
       </div>
     </main>
-  </section>
+  </div>
 </template>
 
 <script setup>
