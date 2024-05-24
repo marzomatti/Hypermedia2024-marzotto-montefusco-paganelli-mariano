@@ -47,7 +47,7 @@ const navigation = [
   { name: 'People', href: '/people/', current: false },
   { name: 'Activities', href: '/activities/', current: false },
   { name: 'Chatbot', href: '/chat/', current: false },
-  { name: 'Contact us', href: '/contact', current: false },
-  { name: 'About us', href: '/about', current: false },
+  { name: 'Contact us', href: '/contact-us', current: false },
+  { name: 'About us', href: '/about-us', current: false },
 ]
 </script>

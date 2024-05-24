@@ -11,12 +11,11 @@
         />
       </div>
     </main>
-  </div>
+  </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import SectionCard from '@/components/SectionCard.vue'
+
 
 const sections = ref([
   {

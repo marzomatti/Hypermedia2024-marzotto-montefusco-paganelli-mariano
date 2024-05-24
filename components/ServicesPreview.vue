@@ -7,7 +7,7 @@
           <p class="text-gray-700">{{ service.description }}</p>
         </div>
       </div>
-      <router-link to="/services" class="text-blue-500 hover:underline mt-4 inline-block">See all</router-link>
+      <router-link to="/activities/services/" class="text-blue-500 hover:underline mt-4 inline-block">See all</router-link>
     </div>
   </template>
   
