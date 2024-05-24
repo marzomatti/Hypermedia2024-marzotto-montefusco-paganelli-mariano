@@ -1,61 +1,68 @@
 <template>
-  <footer class="bg-gray-800 pb-4">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mt-8 border-t border-gray-200 pt-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="col-span-1">
-            <h3 class="text-sm font-semibold text-gray-500">Get Involved</h3>
-            <p class="mt-4 text-gray-300">EmpowerHer Support Center</p>
-            <div class="flex space-x-4 mt-4">
-              <a href="#" class="text-gray-300 hover:text-gray-500"> </a>
-              <a href="#" class="text-gray-300 hover:text-gray-500"> </a>
-            </div>
+  <footer class="bg-gray-900 text-white py-10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-between">
+        <!-- About Us Section -->
+        <div class="w-full md:w-1/4 mb-8 md:mb-0">
+          <h2 class="text-xl font-bold mb-4">About us</h2>
+          <p class="text-gray-400">
+            Sed ut perspiciatis unde omnis iste natus error accusantium doloremque laudantium, totam rem
+            ipsa quae ab illo inventore veritatis et quasi architecto vitae dicta sunt explicabo
+          </p>
+          <button class="mt-4 bg-gray-800 text-white px-4 py-2">Read more</button>
+        </div>
+        <!-- Subscribe Section -->
+        <div class="w-full md:w-1/4 mb-8 md:mb-0">
+          <h2 class="text-xl font-bold mb-4">Subscribe To Our Newsletter</h2>
+          <p class="text-gray-400">
+            Subscribe to our newsletter and get exclusive deals you won't find anywhere else straight to your inbox!
+          </p>
+          <div class="mt-4">
+            <input type="email" placeholder="Email address" class="bg-gray-800 text-white px-4 py-2 w-full" />
+            <button class="mt-2 bg-gray-800 text-white px-4 py-2 w-full">Subscribe</button>
           </div>
-          <div class="col-span-1">
-            <h3 class="text-sm font-semibold text-gray-500">Get Help</h3>
-            <ul class="mt-4 space-y-2">
-              <li>
-                <a href="#" class="text-gray-300 hover:text-gray-500">FAQs</a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-300 hover:text-gray-500"
-                  >Support Services</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-300 hover:text-gray-500"
-                  >Empowerment Guides</a
-                >
-              </li>
-              <li>
-                <a href="/contact" class="text-gray-300 hover:text-gray-500"
-                  >Contact Us</a
-                >
-              </li>
-            </ul>
+        </div>
+        <!-- Links Section -->
+        <div class="w-full md:w-1/4 mb-8 md:mb-0">
+          <h2 class="text-xl font-bold mb-4">Links</h2>
+          <ul class="text-gray-400">
+            <li><a href="#" class="block mb-2">How to Buy Firearms Online?</a></li>
+            <li><a href="#" class="block mb-2">How to Buy Ammunition?</a></li>
+            <li><a href="#" class="block mb-2">Terms and Conditions</a></li>
+            <li><a href="#" class="block mb-2">Shipping & Returns</a></li>
+            <li><a href="#" class="block mb-2">About Us</a></li>
+            <li><a href="#" class="block mb-2">Contact Us</a></li>
+            <li><a href="#" class="block">Sitemap</a></li>
+          </ul>
+        </div>
+        <!-- Contact Section -->
+        <div class="w-full md:w-1/4">
+          <h2 class="text-xl font-bold mb-4">Contact us</h2>
+          <ul class="text-gray-400">
+            <li class="mb-2"><i class="fas fa-map-marker-alt"></i> 912 Fremont St Apt 2, Manhattan, KS 66502, United States of America</li>
+            <li class="mb-2"><i class="fas fa-phone-alt"></i> (123) 454-789</li>
+            <li class="mb-2"><i class="fas fa-envelope"></i> info@companyname.com</li>
+          </ul>
+          <div class="mt-4">
+            <img src="/public/legal_team.jpg" alt="Map" class="w-full h-32 object-cover"/>
           </div>
-          <div class="col-span-1">
-            <h3 class="text-sm font-semibold text-gray-500">Community</h3>
-            <ul class="mt-4 space-y-2">
-              <li>
-                <a href="#" class="text-gray-300 hover:text-gray-500"
-                  >Privacy Policy</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-300 hover:text-gray-500"
-                  >Site Map</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-300 hover:text-gray-500"
-                  >Newsletter</a
-                >
-              </li>
-            </ul>
-          </div>
+        </div>
+      </div>
+      <!-- Footer Bottom -->
+      <div class="mt-8 flex flex-wrap justify-between items-center border-t border-gray-800 pt-4">
+        <p class="text-gray-400 text-sm">&copy; Copyright 2024</p>
+        <div class="flex space-x-4 text-gray-400">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </div>
   </footer>
 </template>
+
+<style scoped>
+footer a:hover {
+  text-decoration: underline;
+}
+</style>
