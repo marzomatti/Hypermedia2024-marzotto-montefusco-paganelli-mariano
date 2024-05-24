@@ -9,7 +9,9 @@
           </div>
           <div class="flex items-center">
             <div class="hidden md:flex ml-10 space-x-4">
-              <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']">{{ item.name }}</NuxtLink>
+              <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" @click="setCurrentPage(item.name)" :class="[ item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium' ]">
+                {{ item.name }}
+              </NuxtLink>
             </div>
           </div>
           
@@ -30,7 +32,7 @@
       </div>
       <div v-if="mobileMenuOpen" class="md:hidden">
         <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-          <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+          <a v-for="item in navigation" :key="item.name" :href="item.href" @click="setCurrentPage(item.name)" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
         </div>
       </div>
     </nav>
@@ -38,16 +40,12 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useNavigationStore } from '../src/stores/NavigationStore'
 
 const mobileMenuOpen = ref(false)
 const open = ref(false)
 
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'People', href: '/people/', current: false },
-  { name: 'Activities', href: '/activities/', current: false },
-  { name: 'Chatbot', href: '/chat/', current: false },
-  { name: 'Contact us', href: '/contact-us', current: false },
-  { name: 'About us', href: '/about-us', current: false },
-]
+const store = useNavigationStore()
+const navigation = ref(store.navigation)
+const setCurrentPage = ref(store.setCurrentPage)
 </script>
