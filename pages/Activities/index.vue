@@ -84,6 +84,9 @@
 </template>
 
 <script setup>
+useHead({
+  title: 'Activities',
+})
 import { ref } from 'vue'
 
 const services = ref([

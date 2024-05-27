@@ -46,6 +46,9 @@
 </template>
 
 <script setup>
+useHead({
+  title: 'Services',
+})
 import { ref } from 'vue'
 
 const services = ref([

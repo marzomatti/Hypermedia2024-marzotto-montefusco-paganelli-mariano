@@ -48,6 +48,10 @@
 </template>
 
 <script setup>
+useHead({
+  title: 'Personal Info',
+})
+
 import { useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
 

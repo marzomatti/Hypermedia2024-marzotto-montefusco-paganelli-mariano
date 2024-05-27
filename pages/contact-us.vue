@@ -43,61 +43,55 @@
   </div>
 </template>
 
-<script>
-import ContactCard from '@/components/ContactCard.vue';
+<script setup>
+useHead({
+  title: 'Contact Us',
+})
 
-export default {
-  name: 'contact-us',
-  components: {
-    ContactCard,
+import { ref } from 'vue';
+
+const contacts = ref([
+  {
+    id: 1,
+    center: 'Emergency Response Unit',
+    role: 'Unit Director',
+    name: 'Luca Rossi',
+    street: 'Via Roma 1',
+    phone: '06-1234567',
+    email: 'luca.rossi@example.com',
   },
-  data() {
-    return {
-      contacts: [
-        {
-          id: 1,
-          center: 'Emergency Response Unit',
-          role: 'Unit Director',
-          name: 'Luca Rossi',
-          street: 'Via Roma 1',
-          phone: '06-1234567',
-          email: 'luca.rossi@example.com',
-        },
-        {
-          id: 2,
-          center: 'Counseling and Support Services',
-          role: 'Chief Psychologist',
-          name: 'Maria Bianchi',
-          street: 'Corso Vittorio Emanuele, 10',
-          phone: '02-7654321',
-          email: 'maria.bianchi@example.com',
-        },
-        {
-          id: 3,
-          center: 'Legal Assistance Department',
-          role: 'Lead Legal Advisor',
-          name: 'Giovanna Verdi',
-          street: 'Piazza Garibaldi, 20',
-          phone: '055-9876543',
-          email: 'giovanni.verdi@example.com',
-        },
-      ],
-      form: {
-        name: '',
-        surname: '',
-        address: '',
-        subject: '',
-        message: '',
-      },
-    };
+  {
+    id: 2,
+    center: 'Counseling and Support Services',
+    role: 'Chief Psychologist',
+    name: 'Maria Bianchi',
+    street: 'Corso Vittorio Emanuele, 10',
+    phone: '02-7654321',
+    email: 'maria.bianchi@example.com',
   },
-  methods: {
-    submitForm() {
-      // Handle form submission
-      // For example, you can send the form data to a server
-      console.log('Form submitted:', this.form);
-    },
+  {
+    id: 3,
+    center: 'Legal Assistance Department',
+    role: 'Lead Legal Advisor',
+    name: 'Giovanna Verdi',
+    street: 'Piazza Garibaldi, 20',
+    phone: '055-9876543',
+    email: 'giovanni.verdi@example.com',
   },
+]);
+
+const form = ref({
+  name: '',
+  surname: '',
+  address: '',
+  subject: '',
+  message: '',
+});
+
+const submitForm = () => {
+  // Handle form submission
+  // For example, you can send the form data to a server
+  console.log('Form submitted:', form.value);
 };
 </script>
 
