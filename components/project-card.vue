@@ -4,7 +4,7 @@
       <p class="text-sm text-gray-600">{{ project.description }}</p>
       <p class="text-sm text-gray-500">Date: {{ project.date }}</p>
       <p class="text-sm text-gray-500">Related Person: {{ project.relatedPerson }}</p>
-      <img :src="/test_logo.jpg" alt="Project image" class="mt-2 w-full h-32 object-cover">
+      <img :src="test_logo" alt="Project image" class="mt-2 w-full h-32 object-cover">
     </div>
   </template>
   
