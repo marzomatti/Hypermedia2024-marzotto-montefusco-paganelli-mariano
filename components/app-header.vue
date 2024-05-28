@@ -10,8 +10,12 @@
           <div class="flex items-center">
             <div class="hidden md:flex ml-10 space-x-4">
               <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" @click="setCurrentPage(item.name)" :class="[ item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium' ]">
-                {{ item.name }}
+                <DropdownMenu v-if="item.name === 'Activities'">
+                  <NuxtLink to="/activities">Activities</NuxtLink>
+                </DropdownMenu>
+                <span v-else>{{ item.name }}</span>
               </NuxtLink>
+              <DropdownMenu/>
             </div>
           </div>
           
