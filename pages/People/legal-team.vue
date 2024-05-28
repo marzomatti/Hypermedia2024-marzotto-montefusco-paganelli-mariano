@@ -1,5 +1,5 @@
 <template>
-<TeamSection :people="legals" :team-name="teamName"/>
+<TeamList :people="legals" :team-name="teamName"/>
 </template>
 
 <script setup>

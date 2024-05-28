@@ -24,7 +24,7 @@ useHead({
     },
     {
       rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Inter&display=swap',
       crossorigin: ''
     }
   ]
@@ -37,7 +37,7 @@ useHead({
   }
 
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter';
   }
 </style>
 

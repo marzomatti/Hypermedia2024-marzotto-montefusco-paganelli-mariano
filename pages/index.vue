@@ -1,15 +1,14 @@
 <template>
   <div class="container max-w-7xl mx-auto px-4">
-    <TheMission/>
+    <Mission/>
     <SectionsPreview/>
-    <ThePraticalnformation/>
+    <PraticalInformation/>
   </div>
-
   </template>
   
   <script setup>
   useSeoMeta({
-  title: 'Home - NoWomanAlone',
+  title: 'Home',
   description: 'This is the home page',
   ogTitle: 'Home - NoWomanAlone',
   ogDescription: '[og:description]',
