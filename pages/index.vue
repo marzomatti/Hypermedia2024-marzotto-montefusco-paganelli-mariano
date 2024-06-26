@@ -1,15 +1,20 @@
 <template>
+  <main>
   <div>
     <HeroSection/>
-    <div class="container max-w-7xl mx-auto px-4">
-      <Mission/>
-      <SectionsPreview/>
-      <PraticalInformation/>
+    <div>
+        <Temporary/>
+        <SectionsPreview/>
+        <PraticalInformation/> 
     </div>
   </div>
+  </main>
+
   </template>
   
   <script setup>
+import Temporary from '~/components/temporary.vue';
+
   useSeoMeta({
   title: 'Home',
   description: 'This is the home page',
