@@ -1,8 +1,11 @@
 <template>
-  <div class="container max-w-7xl mx-auto px-4">
-    <Mission/>
-    <SectionsPreview/>
-    <PraticalInformation/>
+  <div>
+    <HeroSection/>
+    <div class="container max-w-7xl mx-auto px-4">
+      <Mission/>
+      <SectionsPreview/>
+      <PraticalInformation/>
+    </div>
   </div>
   </template>
   

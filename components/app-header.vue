@@ -1,15 +1,16 @@
 <template>
-    <nav class="bg-gray-800">
+    <nav class="bg-white">
       <div class="mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 items-center justify-between">
+        <div class="flex h-24 items-center justify-between">
           <div class="flex items-center">
-            <div class="flex-shrink-0">
-              <img class="h-8 w-8" src="/test_logo.png" alt="Company Logo" />
+            <div class="flex-shrink-0 flex items-center">
+              <img class="h-24 w-24 ml-20" src="/assets/img/logo.png" alt="Company Logo" />
+              <span class="text-red-500 text-2xl ml-4">No Women Alone</span>
             </div>
           </div>
           <div class="flex items-center">
-            <div class="hidden md:flex ml-10 space-x-4">
-              <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" @click="setCurrentPage(item.name)" :class="[ item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium' ]">
+            <div class="hidden md:flex ml-10 space-x-4 mr-20">
+              <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" @click="setCurrentPage(item.name)" class="text-black hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium' ]">
                 <DropdownMenu v-if="item.name === 'Activities'">
                   <NuxtLink to="/activities">Activities</NuxtLink>
                 </DropdownMenu>

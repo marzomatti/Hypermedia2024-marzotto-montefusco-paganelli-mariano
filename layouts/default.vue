@@ -16,7 +16,7 @@
 
 <script setup>
 useHead({
-  titleTemplate: '%s - NoWomanAlone',
+  titleTemplate: 'NoWomanAlone - %s',
   link: [
     {
       rel: 'preconnect',
