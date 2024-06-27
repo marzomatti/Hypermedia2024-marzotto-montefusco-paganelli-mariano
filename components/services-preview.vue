@@ -1,27 +1,38 @@
 <template>
-    <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto mb-6">
-      <h3 class="text-2xl font-semibold mb-4">Services</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div v-for="service in services" :key="service.id" class="border p-4 rounded-lg">
-          <h4 class="text-xl font-semibold">{{ service.title }}</h4>
-          <p class="text-gray-700">{{ service.description }}</p>
+  <section class="bg-red-500 py-12">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-white mb-8">Our Services</h2>
+      <p class="text-lg text-white mb-8">Allow us to help you. Break the silence. We are here for you.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+        <div v-for="service in services" :key="service.id" class="bg-gray-100 p-6 rounded-lg shadow-lg">
+          <img src="/assets/img/psychologists_preview.jpg" alt="Service Image" class="w-full object-cover mb-4 rounded-lg"/>
+          <h3 class="text-xl font-semibold text-gray-800">{{ service.name }}</h3>
         </div>
       </div>
-      <router-link to="/activities/services/" class="text-blue-500 hover:underline mt-4 inline-block">See all</router-link>
+      <nuxt-link to="/activities/services" class="inline-block border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:text-red-500 hover:bg-white transition duration-300">
+        See all services
+      </nuxt-link>
     </div>
-  </template>
-  
-  <script setup>
-  const services = [
-    { id: 1, title: 'Service 1', description: 'Description of service 1.' },
-    { id: 2, title: 'Service 2', description: 'Description of service 2.' },
-    { id: 3, title: 'Service 3', description: 'Description of service 3.' },
-    { id: 4, title: 'Service 4', description: 'Description of service 4.' },
-    { id: 5, title: 'Service 5', description: 'Description of service 5.' },
-  ]
-  </script>
-  
-  <style scoped>
-  
-  </style>
-  
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'ServicesPreview',
+  data() {
+    return {
+      services: [ // Sample data -> Replace with actual data from database
+        { id: 1, name: 'Get in touch with our psychologists', image: '/assets/img/logo.png' },
+        { id: 2, name: 'Call our emergency support assistance', image: '/stop_violence.avif' },
+        { id: 3, name: 'Join a support group', image: '/stop_violence.avif' },
+        { id: 4, name: 'Get legal counsel', image: '/stop_violence.avif' },
+        { id: 5, name: 'Get medical help', image: '/stop_violence.avif' },
+      ],
+    };
+  },
+};
+</script>
+
+<style scoped>
+/* Additional styles if needed */
+</style>

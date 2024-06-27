@@ -1,6 +1,6 @@
 <template>
-    <h2 class="text-4xl font-semibold text-center text-gray-800 mt-12">Our Mission</h2>
     <section class="bg-white py-12">
+    <h2 class="text-4xl font-semibold text-center text-gray-800 mb-12">Our Mission</h2>
       <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <!-- Mission Block -->
@@ -15,7 +15,7 @@
           </div>
           <!-- Vision Block -->
           <div class="flex flex-col items-center">
-            <img src="assets/img/question.png" alt="Vision Icon" class="h-24 w-24 mb-4"/>
+            <img src="assets/img/helpline.png" alt="Vision Icon" class="h-24 w-24 mb-4"/>
             <h3 class="text-2xl font-bold text-gray-800 mb-2"><span class="text-blue-500">How?</span></h3>
             <p class="text-gray-600">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 

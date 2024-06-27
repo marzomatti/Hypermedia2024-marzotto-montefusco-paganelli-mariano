@@ -4,6 +4,7 @@
     <HeroSection/>
     <div>
         <Temporary/>
+        <ServicesPreview/>
         <SectionsPreview/>
         <PraticalInformation/> 
     </div>
