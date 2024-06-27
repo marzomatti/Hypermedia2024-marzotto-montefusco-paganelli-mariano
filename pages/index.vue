@@ -3,9 +3,9 @@
   <div>
     <HeroSection/>
     <div>
-        <Temporary/>
-        <ServicesPreview/>
-        <SectionsPreview/>
+        <Mission/>
+        <ActivitiesPreview/>
+         People preview
         <PraticalInformation/> 
     </div>
   </div>
@@ -14,7 +14,7 @@
   </template>
   
   <script setup>
-import Temporary from '~/components/temporary.vue';
+import Temporary from '~/components/mission.vue';
 
   useSeoMeta({
   title: 'Home',

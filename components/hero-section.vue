@@ -5,7 +5,7 @@
         <h1 class="text-5xl font-bold">You are not alone!</h1>
         <p class="mt-4 text-lg">We are here to help you</p>
         <div class="mt-6">
-          <nuxt-link to="/about" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg--700">Get help</nuxt-link>
+          <nuxt-link to="/about" class="bg-red-400 text-white px-4 py-2 rounded-md hover:bg--700">Get help</nuxt-link>
         </div>
       </div>
     </div>
