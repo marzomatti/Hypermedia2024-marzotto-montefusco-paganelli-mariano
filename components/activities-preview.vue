@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-red-400 py-12">
+    <section class="bg-red-400 py-12 px-12">
       <div class="container mx-auto text-center">
         <h2 class="text-4xl font-bold text-white mb-8">Our Activities</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">

@@ -5,8 +5,7 @@
     <div>
         <Mission/>
         <ActivitiesPreview/>
-         People preview
-        <PraticalInformation/> 
+        <PeoplePreview/>
     </div>
   </div>
   </main>

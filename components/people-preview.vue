@@ -1,52 +1,40 @@
 <template>
-  <section class="py-12 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-extrabold text-center mb-6">Meet our leadership</h2>
-      <p class="text-center text-gray-600 mb-12">
-        We’re a dynamic group of individuals who are passionate about what we do
-        and dedicated to delivering the best results for our clients.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div v-for="leader in leaders" :key="leader.name" class="bg-white p-6 rounded-lg shadow-lg">
-          <img :src="leader.image" :alt="leader.name" class="w-full h-48 object-cover rounded-t-lg mb-4" />
-          <h3 class="text-xl font-semibold">{{ leader.name }}</h3>
-          <p class="text-gray-500 mb-2">{{ leader.title }}</p>
-          <p class="text-gray-700">{{ leader.description }}</p>
+  <section class="bg-white py-12 px-12">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-800 mb-2">Our people that will help you</h2>
+      <p class="text-lg text-black font-semibold">Break the silence</p>
+      <div class="grid md:grid-cols-4 grid-cols-2 lg:gap-4 gap-2 w-auto md:mx-x_padding_page mx-x_padding_page_mobile bg-white lg:p-10 p-2 rounded-xl">
+        <div v-for="person in people" :key="person.id" class="bg-white p-4 rounded-lg shadow-lg">
+          <img src="/public/face1.jpg" alt="Person Image" class="w-full h-48 object-cover rounded-lg"/>
         </div>
       </div>
+      <nuxt-link to="/people" class="inline-block border-2 border-red-400 text-red-400 px-6 py-3 rounded-full font-semibold hover:bg-red-400 hover:text-white transition duration-300">
+        See our people ->
+      </nuxt-link>
     </div>
   </section>
 </template>
 
-<script setup>
-const leaders = [
-  {
-    name: 'Leonard Krasner',
-    title: 'Senior Designer',
-    description:
-      'Quia illum aut in beatae. Possimus dolores aliquid accusantium aut in ut non assumenda. Enim iusto molestias aut deleniti eos aliquid magnam molestiae. At et non possimus ab. Magni labore molestiae nulla qui.',
-    image: '/images/leonard-krasner.jpg',
+<script>
+export default {
+  name: 'PeoplePreview',
+  data() {
+    return {
+      people: [
+        { id: 1, image: '/public/face1.jpg' },
+        { id: 2, image: '/public/face1.jpg' },
+        { id: 3, image: '/public/face1.jpg' },
+        { id: 4, image: '/public/face1.jpg' },
+        { id: 5, image: '/public/face1.jpg' },
+        { id: 6, image: '/public/face1.jpg' },
+        { id: 7, image: '/public/face1.jpg' },
+        { id: 8, image: '/public/face1.jpg' },
+      ],
+    };
   },
-  {
-    name: 'Floyd Miles',
-    title: 'Principal Designer',
-    description:
-      'Turpis lectus et amet elementum. Mi duis integer sed in vitae consequat. Nam vitae, in felis mi dui tempus. Porta at turpis eu odio. Et, sed duis in blandit bibendum accumsan. Purus viverra facilisi suspendisse quis est.',
-    image: '/images/floyd-miles.jpg',
-  },
-  {
-    name: 'Emily Selman',
-    title: 'VP, User Experience',
-    description:
-      'Aliquet adipiscing lectus praesent cras sed quis lectus egestas erat. Bibendum curabitur eget habitant feugiat nec faucibus eu lorem suscipit. Vitae vitae tempor enim eget lacus nulla leo.',
-    image: '/images/emily-selman.jpg',
-  },
-  {
-    name: 'Kristin Watson',
-    title: 'VP, Human Resources',
-    description:
-      'Quis bibendum velit diam tellus sed ut. Faucibus posuere enim, vitae enim eget neque tortor. Metus lectus mattis id id. Tellus ornare etiam id velit ut enim lacinia congue ultrices. Sit morbi vel elit a maecenas mauris elit lectus magna.',
-    image: '/images/kristin-watson.jpg',
-  },
-]
+};
 </script>
+
+<style scoped>
+/* Additional styles if needed */
+</style>
