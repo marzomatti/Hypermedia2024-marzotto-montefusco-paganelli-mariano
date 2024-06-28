@@ -2,7 +2,7 @@
   <section class="bg-white py-12 px-12">
     <div class="container mx-auto text-center">
       <h2 class="text-4xl font-bold text-gray-800 mb-2">Our people that will help you</h2>
-      <p class="text-lg text-black font-semibold">Break the silence</p>
+      <p class="text-lg text-red-400 font-semibold">Break the silence</p>
       <div class="grid md:grid-cols-4 grid-cols-2 lg:gap-4 gap-2 w-auto md:mx-x_padding_page mx-x_padding_page_mobile bg-white lg:p-10 p-2 rounded-xl">
         <div v-for="person in people" :key="person.id" class="bg-white p-4 rounded-lg shadow-lg">
           <img src="/public/face1.jpg" alt="Person Image" class="w-full h-48 object-cover rounded-lg"/>
