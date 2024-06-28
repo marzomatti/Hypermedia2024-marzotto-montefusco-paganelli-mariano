@@ -1,19 +1,39 @@
 <template>
-  <TeamList :people="legals" :team-name="teamName"/>
+  <main class="bg-gray-50 min-h-screen py-8">
+    <div class="container mx-auto px-4">
+      <!-- Header Section -->
+      <header class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold text-gray-900">Meet Our Volunteers</h1>
+        <p class="text-lg text-gray-600 mt-4">
+          Our dedicated volunteers are the heart and soul of our organization. They come from various backgrounds and are committed to making a positive impact in the lives of women affected by violence.
+        </p>
+      </header>
+      
+      <!-- Volunteers Grid Layout -->
+      <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div v-for="volunteer in volunteers" :key="volunteer.id" class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-200">
+          <img :src="volunteer.imageUrl" :alt="volunteer.name" class="w-24 h-24 rounded-full mx-auto mb-4">
+          <h2 class="text-xl font-bold text-gray-900">{{ volunteer.name }} {{ volunteer.surname }}</h2>
+          <p class="text-gray-600 mb-4">{{ volunteer.description }}</p>
+          <nuxt-link :to="volunteer.link" class="inline-block bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition-colors duration-200">Discover More</nuxt-link>
+        </div>
+      </section>
+    </div>
+  </main>
 </template>
-  
+
 <script setup>
 useHead({
   title: 'Volunteers',
 })
 
 const teamName = 'Volunteers';
-const legals = [
+const volunteers = [
   {
     id: 1,
     name: 'John',
     surname: 'Doe',
-    imageUrl: '../face1.jpg',
+    imageUrl: '/face1.jpg',
     description: 'John is an experienced clinical psychologist.',
     link: '/people/person1'
   },
@@ -21,7 +41,7 @@ const legals = [
     id: 2,
     name: 'Jane',
     surname: 'Smith',
-    imageUrl: '../face1.jpg',
+    imageUrl: '/face1.jpg',
     description: 'Jane specializes in child psychology.',
     link: '/people/person1'
   },
@@ -29,7 +49,7 @@ const legals = [
     id: 3,
     name: 'Alice',
     surname: 'Johnson',
-    imageUrl: '../face1.jpg',
+    imageUrl: '/face1.jpg',
     description: 'Alice has a background in neuropsychology.',
     link: '/people/person1'
   },
@@ -37,7 +57,7 @@ const legals = [
     id: 4,
     name: 'Robert',
     surname: 'Brown',
-    imageUrl: '../face1.jpg',
+    imageUrl: '/face1.jpg',
     description: 'Robert focuses on behavioral therapy.',
     link: '/people/person1'
   },
@@ -45,7 +65,7 @@ const legals = [
     id: 5,
     name: 'Emily',
     surname: 'Davis',
-    imageUrl: '../face1.jpg',
+    imageUrl: '/face1.jpg',
     description: 'Emily is an expert in trauma therapy.',
     link: '/people/person1'
   },
@@ -53,7 +73,7 @@ const legals = [
     id: 6,
     name: 'Michael',
     surname: 'Wilson',
-    imageUrl: '../face1.jpg',
+    imageUrl: '/face1.jpg',
     description: 'Michael specializes in anxiety disorders.',
     link: '/people/person1'
   },
@@ -61,7 +81,7 @@ const legals = [
     id: 7,
     name: 'Sarah',
     surname: 'Miller',
-    imageUrl: '../face1.jpg',
+    imageUrl: '/face1.jpg',
     description: 'Sarah works with depression and mood disorders.',
     link: '/people/person1'
   },
@@ -69,7 +89,7 @@ const legals = [
     id: 8,
     name: 'David',
     surname: 'Garcia',
-    imageUrl: '../face1.jpg',
+    imageUrl: '/face1.jpg',
     description: 'David is skilled in cognitive behavioral therapy.',
     link: '/people/person1'
   },
@@ -77,7 +97,7 @@ const legals = [
     id: 9,
     name: 'Laura',
     surname: 'Martinez',
-    imageUrl: '../face1.jpg',
+    imageUrl: '/face1.jpg',
     description: 'Laura has extensive experience in family therapy.',
     link: '/people/person1'
   },
@@ -90,8 +110,10 @@ const legals = [
 }
 
 h1 {
-  @apply text-3xl font-extrabold text-center mb-8;
+  @apply text-4xl font-extrabold text-center mb-8;
 }
 
+p {
+  @apply text-lg text-gray-600 text-center mb-8;
+}
 </style>
-  
