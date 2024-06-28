@@ -95,3 +95,11 @@ const store = useNavigationStore()
 const navigation = ref(store.navigation)
 const setCurrentPage = ref(store.setCurrentPage)
 </script>
+
+<style>
+body {
+  margin-top: 96px; /* Altezza del tuo header */
+}
+</style>
+
+
