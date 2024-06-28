@@ -2,12 +2,7 @@
     <nav class="bg-white">
       <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex h-24 items-center justify-between">
-          <div class="flex items-center">
-            <div class="flex-shrink-0 flex items-center">
-              <img class="h-24 w-24 ml-20" src="/assets/img/logo.png" alt="Company Logo" />
-              <span class="text-red-400 text-2xl ml-4">No Woman Alone</span>
-            </div>
-          </div>
+          <Logo/>
           <div class="flex items-center">
             <div class="hidden md:flex ml-10 space-x-4 mr-20">
               <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" @click="setCurrentPage(item.name)" class="text-black hover:bg-red-400 hover:text-white rounded-md px-3 py-2 text-sm font-medium' ]">
