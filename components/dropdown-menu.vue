@@ -2,20 +2,14 @@
   <div @mouseover="clearHideTimeout" @mouseleave="delayedHideDropdown" class="relative">
     <slot></slot>
     <div v-if="showDropdown" class="absolute left-0 mt-2 w-96 bg-white shadow-lg rounded-lg z-50">
-      <div class="p-4 grid grid-cols-2 gap-6">
-        <div>
-          <h3 class="text-sm font-bold text-gray-700 mb-2">Services</h3>
+      <div class="p-4 flex space-x-6">
+        <div v-for="category in categories" :key="category.name" class="w-1/2">
+          <NuxtLink :to="category.href" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md text-sm font-bold mb-2">{{ category.name }}</NuxtLink>
           <ul class="space-y-2">
-            <li v-for="(service, index) in services" :key="index" class="flex items-start p-2 rounded-lg hover:bg-gray-100">
-              <span class="text-gray-700">{{ service }}</span>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-sm font-bold text-gray-700 mb-2">Projects</h3>
-          <ul class="space-y-2">
-            <li v-for="(project, index) in projects" :key="index" class="flex items-start p-2 rounded-lg hover:bg-gray-100">
-              <span class="text-gray-700">{{ project }}</span>
+            <li v-for="item in category.items" :key="item.name">
+              <NuxtLink :to="item.href" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">
+                {{ item.name }}
+              </NuxtLink>
             </li>
           </ul>
         </div>
@@ -30,21 +24,12 @@ import { ref } from 'vue'
 const showDropdown = ref(false)
 let hideTimeout = null
 
-const services = [
-  'Analytics',
-  'Engagement',
-  'Security',
-  'Integration',
-  'Automation'
-]
-
-const projects = [
-  'Project A',
-  'Project B',
-  'Project C',
-  'Project D',
-  'Project E'
-]
+const props = defineProps({
+  categories: {
+    type: Array,
+    required: true
+  }
+})
 
 function delayedHideDropdown() {
   hideTimeout = setTimeout(() => {

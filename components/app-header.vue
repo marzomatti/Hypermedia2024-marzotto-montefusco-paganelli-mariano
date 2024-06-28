@@ -5,19 +5,25 @@
         <Logo />
         <div class="flex items-center">
           <div class="hidden md:flex ml-10 space-x-4 mr-20">
-            <NuxtLink
-              v-for="item in navigation"
-              :key="item.name"
-              :to="item.href"
-              @click="setCurrentPage(item.name)"
-              class="text-black hover:bg-red-400 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-            >
-              <DropdownMenu v-if="item.name === 'Activities'">
-                <NuxtLink to="/activities">Activities</NuxtLink>
+            <template v-for="item in navigation">
+              <NuxtLink
+                v-if="item.name !== 'Activities'"
+                :key="item.name"
+                :to="item.href"
+                @click="setCurrentPage(item.name)"
+                class="text-black hover:bg-red-400 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+              >
+                <span>{{ item.name }}</span>
+              </NuxtLink>
+              <DropdownMenu v-else :key="item.id" :categories="activityCategories" @click="setCurrentPage(item.name)">
+                <NuxtLink class="text-black hover:bg-red-400 hover:text-white rounded-md px-3 py-2 text-sm font-medium flex items-center">
+                  <span>{{ item.name }}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </NuxtLink>
               </DropdownMenu>
-              <span v-else>{{ item.name }}</span>
-            </NuxtLink>
-            <DropdownMenu />
+            </template>
           </div>
         </div>
 
@@ -83,7 +89,6 @@
   </nav>
 </template>
 
-
 <script setup>
 import { ref } from 'vue'
 import { useNavigationStore } from '../src/stores/NavigationStore'
@@ -94,6 +99,31 @@ const open = ref(false)
 const store = useNavigationStore()
 const navigation = ref(store.navigation)
 const setCurrentPage = ref(store.setCurrentPage)
+
+const activityCategories = [
+  {
+    name: 'Services',
+    href: '/activities/services',
+    items: [
+      { name: 'Analytics', href: '/activities/analytics' },
+      { name: 'Engagement', href: '/activities/engagement' },
+      { name: 'Security', href: '/activities/security' },
+      { name: 'Integration', href: '/activities/integration' },
+      { name: 'Automation', href: '/activities/automation' }
+    ]
+  },
+  {
+    name: 'Projects',
+    href: '/activities/projects',
+    items: [
+      { name: 'Project A', href: '/activities/project-a' },
+      { name: 'Project B', href: '/activities/project-b' },
+      { name: 'Project C', href: '/activities/project-c' },
+      { name: 'Project D', href: '/activities/project-d' },
+      { name: 'Project E', href: '/activities/project-e' }
+    ]
+  }
+]
 </script>
 
 <style>
@@ -101,5 +131,3 @@ body {
   margin-top: 96px; /* Altezza del tuo header */
 }
 </style>
-
-
