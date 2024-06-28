@@ -9,8 +9,12 @@ export default defineNuxtConfig({
     '~/assets/css/tailwind.css'
   ],
   supabase: {
-    redirect: false
-  },
+    url: "https://fiknxhhagkhsxoyjjbdi.supabase.co",
+      key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZpa254aGhhZ2toc3hveWpqYmRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY5MTU5MjUsImV4cCI6MjAzMjQ5MTkyNX0.7VHCpKWuRH8lhDEgWHZf4_gQJKRibpIlSgg1Pc5UyZI"
+      ,
+      redirect: false
+  
+    },
   build: {
     postcss: {
       postcssOptions: {
