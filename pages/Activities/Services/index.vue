@@ -1,8 +1,7 @@
 <template>
-  <div class="bg-gray-50 min-h-screen py-8">
-    <div class="container mx-auto px-4">
-      
-      <!-- Breadcrumb Navigation -->
+  <main>
+    <div class="flex flex-col w-full">
+      <!-- Breadcrumbs -->
       <nav class="text-gray-500 mb-4">
         <ol class="list-reset flex">
           <li><nuxt-link to="/" class="hover:text-gray-900">Home</nuxt-link></li>
@@ -14,41 +13,56 @@
       </nav>
 
       <!-- Header Section -->
-      <header class="mb-12">
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Our Services</h1>
-        <hr class="border-gray-300">
-      </header>
-
-      <!-- Services Grid Layout -->
-      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-        <div v-for="service in services" :key="service.id" class="bg-white p-6 rounded-lg shadow-md text-center">
-          <img :src="service.icon" alt="Service Icon" class="w-16 h-16 mx-auto mb-4">
-          <h2 class="text-xl font-bold">{{ service.title }}</h2>
-          <p class="text-gray-600">{{ service.description }}</p>
+      <div class="flex flex-col bg-red-500 lg:py-12 py-8">
+        <div class="lg:px-24 px-4">
+          <!-- Title of the page -->
+          <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Services</h1>
+          <!-- Description of the page -->
+          <div class="flex justify-center mt-4">
+            <h2 class="text-white text-center lg:text-2xl text-xl">
+              We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you.
+            </h2>
+          </div>
         </div>
-      </section>
+      </div>
+
+      <!-- Services List -->
+      <div v-for="(service, index) in services" :key="service.id" :class="index % 2 === 0 ? 'bg-gray-100' : 'bg-white'" class="lg:px-24 px-4 py-12">
+        <div class="flex flex-col lg:flex-row items-center">
+          <img :src="service.icon" alt="Service Icon" class="w-16 h-16 lg:w-24 lg:h-24 mr-4 mb-4 lg:mb-0 lg:mr-8">
+          <div class="flex-1">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ service.title }}</h2>
+            <p class="text-gray-600 text-lg mb-4">{{ service.description }}</p>
+            <nuxt-link :to="'/services/' + service.id" class="text-red-600 hover:underline font-bold">Discover more →</nuxt-link>
+          </div>
+          <img src="/stop_violence.avif" alt="Service Image" class="w-32 h-32 lg:w-48 lg:h-48 ml-4 lg:ml-8 rounded-lg shadow-md">
+        </div>
+      </div>
 
       <!-- How We Help You Section -->
-      <section class="bg-white p-8 rounded-lg shadow-md">
-        <h2 class="text-2xl font-extrabold text-gray-900 mb-4">How We Help You?</h2>
-        <p class="text-gray-600 mb-4">
-          Description of all services with access links in the paragraph. 
-          <nuxt-link to="/services/1" class="text-indigo-600 hover:underline">Service 1</nuxt-link>, 
-          <nuxt-link to="/services/2" class="text-indigo-600 hover:underline">Service 2</nuxt-link>, 
-          <nuxt-link to="/services/3" class="text-indigo-600 hover:underline">Service 3</nuxt-link>, 
-          <nuxt-link to="/services/4" class="text-indigo-600 hover:underline">Service 4</nuxt-link>, and 
-          <nuxt-link to="/services/5" class="text-indigo-600 hover:underline">Service 5</nuxt-link>.
-        </p>
-        <img src="/public/support.jpg" alt="Helping Image" class="w-full h-auto rounded-lg">
-      </section>
+      <div class="lg:px-24 px-4 py-12 bg-white">
+        <section class="bg-white p-8 rounded-lg shadow-md">
+          <h2 class="text-2xl font-extrabold text-gray-900 mb-4">How We Help You?</h2>
+          <p class="text-gray-600 mb-4">
+            Our comprehensive services are designed to provide you with the support and resources you need. Learn more about our services:
+            <nuxt-link to="/services/1" class="text-red-600 hover:underline">Service 1</nuxt-link>,
+            <nuxt-link to="/services/2" class="text-red-600 hover:underline">Service 2</nuxt-link>,
+            <nuxt-link to="/services/3" class="text-red-600 hover:underline">Service 3</nuxt-link>,
+            <nuxt-link to="/services/4" class="text-red-600 hover:underline">Service 4</nuxt-link>, and
+            <nuxt-link to="/services/5" class="text-red-600 hover:underline">Service 5</nuxt-link>.
+          </p>
+          <img src="/stop_violence.avif" alt="Helping Image" class="w-full h-auto rounded-lg">
+        </section>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup>
 useHead({
   title: 'Services',
 })
+
 import { ref } from 'vue'
 
 const services = ref([
