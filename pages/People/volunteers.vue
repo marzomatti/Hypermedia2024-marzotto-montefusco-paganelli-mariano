@@ -3,22 +3,19 @@
     <div class="container mx-auto px-4">
       <!-- Header Section -->
       <header class="text-center mb-12">
-        <h1 class="text-5xl font-extrabold text-gray-900 mb-4">Meet Our Volunteers</h1>
-        <p class="text-xl text-gray-600">
+        <h1 class="text-4xl font-extrabold text-gray-900">Meet Our Volunteers</h1>
+        <p class="text-lg text-gray-600 mt-4">
           Our dedicated volunteers are the heart and soul of our organization. They come from various backgrounds and are committed to making a positive impact in the lives of women affected by violence.
         </p>
       </header>
-
+      
       <!-- Volunteers Grid Layout -->
       <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <div v-for="volunteer in volunteers" :key="volunteer.id" class="relative bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-          <img :src="volunteer.imageUrl" :alt="volunteer.name" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-red-500">
-          <h2 class="text-2xl font-bold text-gray-900 mb-2">{{ volunteer.name }} {{ volunteer.surname }}</h2>
+        <div v-for="volunteer in volunteers" :key="volunteer.id" class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-200">
+          <img :src="volunteer.imageUrl" :alt="volunteer.name" class="w-24 h-24 rounded-full mx-auto mb-4">
+          <h2 class="text-xl font-bold text-gray-900">{{ volunteer.name }} {{ volunteer.surname }}</h2>
           <p class="text-gray-600 mb-4">{{ volunteer.description }}</p>
-          <nuxt-link :to="volunteer.link" class="inline-block bg-red-500 text-white py-2 px-6 rounded-full hover:bg-red-600 transition-colors duration-200">Discover More</nuxt-link>
-          <div class="absolute bottom-0 right-0 p-2">
-            <img src="/path/to/decorative-icon.png" alt="decorative icon" class="w-8 h-8 opacity-50">
-          </div>
+          <nuxt-link :to="volunteer.link" class="inline-block bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition-colors duration-200">Discover More</nuxt-link>
         </div>
       </section>
     </div>
@@ -112,39 +109,12 @@ const volunteers = [
   @apply mx-auto px-4;
 }
 
-header h1 {
-  @apply text-5xl font-extrabold text-center mb-8;
+h1 {
+  @apply text-4xl font-extrabold text-center mb-8;
 }
 
-header p {
-  @apply text-xl text-gray-600 text-center mb-8;
-}
-
-section div {
-  @apply relative bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300;
-}
-
-section img {
-  @apply w-24 h-24 rounded-full mx-auto mb-4 border-4 border-red-500;
-}
-
-section h2 {
-  @apply text-2xl font-bold text-gray-900 mb-2;
-}
-
-section p {
-  @apply text-gray-600 mb-4;
-}
-
-section a {
-  @apply inline-block bg-red-500 text-white py-2 px-6 rounded-full hover:bg-red-600 transition-colors duration-200;
-}
-
-section .absolute {
-  @apply bottom-0 right-0 p-2;
-}
-
-section .absolute img {
-  @apply w-8 h-8 opacity-50;
+p {
+  @apply text-lg text-gray-600 text-center mb-8;
 }
 </style>
+
