@@ -1,15 +1,7 @@
 <template>
   <div class="bg-gray-50 min-h-screen py-8">
     <div class="container mx-auto px-4">
-      
-      <!-- Breadcrumb Navigation -->
-      <nav class="text-gray-500 mb-4">
-        <ol class="list-reset flex">
-          <li><nuxt-link to="/" class="hover:text-gray-900">Home</nuxt-link></li>
-          <li><span class="mx-2">/</span></li>
-          <li class="text-gray-900">Projects</li>
-        </ol>
-      </nav>
+      <Breadcrumb/>
 
       <!-- Header Section -->
       <header class="mb-12 text-center">

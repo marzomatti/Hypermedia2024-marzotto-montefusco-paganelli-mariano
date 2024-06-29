@@ -1,10 +1,10 @@
 <template>
-    <section class="bg-red-400 py-12 px-12">
+    <section class="bg-primary-color py-12 px-12">
       <div class="container mx-auto text-center">
         <h2 class="text-4xl font-bold text-white mb-8">Our Activities</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <!-- Services Block -->
-           <NuxtLink to="/Activities/Services" class="hover:shadow-md hover:transform hover:scale-101 transition duration-200">
+           <NuxtLink to="/Activities/Services" class="hover:shadow-md hover:transform transform transition duration-500 hover:scale-101">
             <div class="bg-white p-6 rounded-lg shadow-lg">
             <img src="/services_preview.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">Services</h3>
@@ -13,7 +13,7 @@
            </NuxtLink>
 
           <!-- Projects Block -->
-           <NuxtLink to="/Activities/Projects" class="hover:shadow-md hover:transform hover:scale-104 transition duration-200">
+           <NuxtLink to="/Activities/Projects" class="hover:shadow-md hover:transform transform transition duration-500 hover:scale-101">
             <div class="bg-white p-6 rounded-lg shadow-lg">
             <img src="/projects_preview.jpg" alt="Projects Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">Projects</h3>
@@ -21,9 +21,9 @@
             </div>
            </NuxtLink>
         </div>
-        <nuxt-link to="/activities" class="inline-block border-2 border-white text-white px-6 py-3 rounded-full  hover:bg-white hover:text-red-400 transition duration-300">
+        <NuxtLink to="/activities" class="inline-block border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-color transition duration-300">
           See all activities ->
-        </nuxt-link>
+        </NuxtLink>
       </div>
     </section>
   </template>

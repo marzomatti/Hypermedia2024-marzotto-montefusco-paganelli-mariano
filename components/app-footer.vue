@@ -14,33 +14,41 @@
             <ul class="w-full space-y-2">
               <li>
                 <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/portfolio"
-                    class="text-gray-700 hover:text-gray-900 active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
-                    Portfolio
-                  </NuxtLink>
-                </div>
-              </li>
-              <li>
-                <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/areas"
-                    class="text-gray-700 hover:text-gray-900 active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
-                    Areas
+                  <NuxtLink to="/activities"
+                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    Activities
                   </NuxtLink>
                 </div>
               </li>
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/team"
-                    class="text-gray-700 hover:text-gray-900 active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
-                    Our Team
+                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    Our team
                   </NuxtLink>
                 </div>
               </li>
               <li>
                 <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/about"
-                    class="text-gray-700 hover:text-gray-900 active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
-                    About Us
+                  <NuxtLink to="/team"
+                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    Chatbot
+                  </NuxtLink>
+                </div>
+              </li>
+              <li>
+                <div class="flex flex-row md:justify-center">
+                  <NuxtLink to="/about-us"
+                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    About us
+                  </NuxtLink>
+                </div>
+              </li>
+              <li class="py-2">
+                <div class="flex flex-row md:justify-center">
+                  <NuxtLink to="/donate"
+                    class="inline-block border-2 border-primary-color text-primary-color px-6 py-3 rounded-full font-semibold hover:text-white hover:bg-primary-color transition duration-300">
+                    Donate
                   </NuxtLink>
                 </div>
               </li>
@@ -61,13 +69,13 @@
               </li>
               <li class="text-gray-700">
                 <div class="flex flex-row md:justify-center">
-                  Via Larga 12, Milan Italy
+                  Via G. Celoria 3, Milan Italy
                 </div>
               </li>
               <li class="py-2">
                 <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/contact"
-                    class="py-2 px-4 my-auto bg-primary-color text-white hover:text-primary-color hover:bg-white text-sm border-2 border-primary-color rounded-full transition ease-in-out duration-200">
+                  <NuxtLink to="/contact-us"
+                    class="inline-block border-2 border-primary-color text-primary-color px-6 py-3 rounded-full font-semibold hover:text-white hover:bg-primary-color transition duration-300">
                     Stay in Touch
                   </NuxtLink>
                 </div>
@@ -80,7 +88,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/"
-                    class="text-gray-700 hover:text-gray-900 active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Facebook
                   </NuxtLink>
                 </div>
@@ -88,7 +96,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/"
-                    class="text-gray-700 hover:text-gray-900 active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Twitter
                   </NuxtLink>
                 </div>
@@ -96,7 +104,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/"
-                    class="text-gray-700 hover:text-gray-900 active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Instagram
                   </NuxtLink>
                 </div>
@@ -104,7 +112,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/"
-                    class="text-gray-700 hover:text-gray-900 active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     LinkedIn
                   </NuxtLink>
                 </div>
@@ -114,7 +122,7 @@
         </div>
       </div>
       <hr class="w-full border-gray-300 my-1 mt-12">
-      <div class="flex justify-center md:flex-row flex-col md:space-x-4 space-x-0 items-center text-gray-600">
+      <div class="flex justify-center md:flex-row flex-col md:space-x-4 space-x-0 items-center text-gray-600 mt-8">
         <p>
           Copyright &copy; 2024 No Woman Alone
         </p>
@@ -142,19 +150,5 @@ export default {
 </script>
 
 <style scoped>
-.bg-primary-color {
-  background-color: #ff4c4c;
-}
 
-.text-primary-color {
-  color: #ff4c4c;
-}
-
-a:hover {
-  color: #d32f2f;
-}
-
-hr {
-  border-color: #e2e8f0;
-}
 </style>

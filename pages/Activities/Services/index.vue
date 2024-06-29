@@ -1,16 +1,7 @@
 <template>
   <main>
     <div class="flex flex-col w-full">
-      <!-- Breadcrumbs -->
-      <nav class="text-gray-500 mb-4">
-        <ol class="list-reset flex">
-          <li><nuxt-link to="/" class="hover:text-gray-900">Home</nuxt-link></li>
-          <li><span class="mx-2">/</span></li>
-          <li><nuxt-link to="/activities" class="hover:text-gray-900">Activities</nuxt-link></li>
-          <li><span class="mx-2">/</span></li>
-          <li class="text-gray-900">Services</li>
-        </ol>
-      </nav>
+      <Breadcrumb/>
 
       <!-- Header Section -->
       <div class="flex flex-col bg-red-500 lg:py-12 py-8">

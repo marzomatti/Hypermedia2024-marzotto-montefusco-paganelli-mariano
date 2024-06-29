@@ -6,8 +6,8 @@ export const useNavigationStore = defineStore({
     mobileMenuOpen: false,
     navigation: [
       { name: 'Home', href: '/', current: true },
-      { name: 'People', href: '/people/', current: false },
       { name: 'Activities', href: '/activities/', current: false },
+      { name: 'Our team', href: '/team/', current: false },
       { name: 'Chatbot', href: '/chat/', current: false },
       { name: 'Contact us', href: '/contact-us', current: false },
       { name: 'About us', href: '/about-us', current: false },

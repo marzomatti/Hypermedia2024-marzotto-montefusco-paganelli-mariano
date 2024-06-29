@@ -4,10 +4,10 @@
     <div v-if="showDropdown" class="absolute left-0 mt-2 w-96 bg-white shadow-lg rounded-lg z-50">
       <div class="p-4 flex space-x-6">
         <div v-for="category in categories" :key="category.name" class="w-1/2">
-          <NuxtLink :to="category.href" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md text-sm font-bold mb-2">{{ category.name }}</NuxtLink>
+          <NuxtLink :to="category.href" class="block px-4 py-2 hover:bg-primary-color hover:text-white rounded-md text-sm font-bold mb-2">{{ category.name }}</NuxtLink>
           <ul class="space-y-2">
             <li v-for="item in category.items" :key="item.name">
-              <NuxtLink :to="item.href" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">
+              <NuxtLink :to="item.href" class="block px-4 py-2 hover:bg-primary-color hover:text-white rounded-md">
                 {{ item.name }}
               </NuxtLink>
             </li>

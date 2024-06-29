@@ -1,15 +1,15 @@
 <template>
   <section class="bg-white py-12 px-12">
     <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold text-gray-800 mb-2">Our people that will help you</h2>
-      <p class="text-lg text-red-400 font-semibold">Break the silence</p>
+      <h2 class="text-4xl font-bold text-gray-800 mb-2">Our team</h2>
+      <p class="text-lg">Our dedicated team of professionals is here to support and guide you. <br>Break the silence and reach out to us for help.</p>
       <div class="grid md:grid-cols-4 grid-cols-2 lg:gap-4 gap-2 w-auto md:mx-x_padding_page mx-x_padding_page_mobile bg-white lg:p-10 p-2 rounded-xl">
         <div v-for="person in people" :key="person.id" class="bg-white p-4 rounded-lg shadow-lg">
           <img src="/public/face1.jpg" alt="Person Image" class="w-full h-48 object-cover rounded-lg"/>
         </div>
       </div>
-      <nuxt-link to="/people" class="inline-block border-2 border-red-400 text-red-400 px-6 py-3 rounded-full font-semibold hover:bg-red-400 hover:text-white transition duration-300">
-        See our people ->
+      <nuxt-link to="/team" class="inline-block border-2 border-primary-color text-primary-color px-6 py-3 rounded-full font-semibold hover:bg-primary-color hover:text-white transition duration-300">
+        See our team ->
       </nuxt-link>
     </div>
   </section>

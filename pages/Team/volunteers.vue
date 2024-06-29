@@ -105,16 +105,7 @@ const volunteers = [
 </script>
 
 <style scoped>
-.container {
-  @apply mx-auto px-4;
-}
 
-h1 {
-  @apply text-4xl font-extrabold text-center mb-8;
-}
 
-p {
-  @apply text-lg text-gray-600 text-center mb-8;
-}
 </style>
 
