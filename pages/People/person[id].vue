@@ -1,50 +1,51 @@
 <template>
-  <div class="bg-gray-50 min-h-screen py-8">
+  <main class="bg-gray-50 min-h-screen py-8">
     <div class="container mx-auto px-4 max-w-5xl">
       
       <!-- Breadcrumb Navigation -->
       <nav class="text-gray-500 mb-4">
-        <ol class="list-reset flex">
+        <ol class="flex space-x-2">
           <li><nuxt-link to="/" class="hover:text-gray-900">Home</nuxt-link></li>
-          <li><span class="mx-2">/</span></li>
+          <li>/</li>
           <li><nuxt-link to="/people" class="hover:text-gray-900">People</nuxt-link></li>
-          <li><span class="mx-2">/</span></li>
+          <li>/</li>
           <li class="text-gray-900">{{ person.name }}</li>
         </ol>
       </nav>
 
       <!-- Profile Section -->
-      <div class="flex flex-col md:flex-row mb-12">
+      <div class="bg-white p-6 rounded-lg shadow-lg mb-12 flex flex-col md:flex-row items-start">
+        <div class="md:flex-1 md:mr-8">
+          <img :src="person.photo" alt="Profile Photo" class="w-full h-auto rounded-lg shadow-md mb-4 md:mb-0">
+        </div>
         <div class="md:flex-1">
-          <h1 class="text-3xl font-extrabold text-gray-900">{{ person.name }} {{ person.surname }}, {{ person.role }}</h1>
+          <h1 class="text-4xl font-extrabold text-gray-900">{{ person.name }} {{ person.surname }}</h1>
+          <h2 class="text-2xl text-gray-700">{{ person.role }}</h2>
           <div class="mt-4">
-            <h2 class="text-xl font-bold text-gray-700">Contact</h2>
-            <p class="text-gray-600">Email: <a :href="'mailto:' + person.email" class="text-indigo-600 hover:underline">{{ person.email }}</a></p>
+            <h3 class="text-xl font-bold text-gray-700">Contact</h3>
+            <p class="text-gray-600">Email: <a :href="'mailto:' + person.email" class="text-red-600 hover:underline">{{ person.email }}</a></p>
           </div>
           <div class="mt-4">
-            <h2 class="text-xl font-bold text-gray-700">Description</h2>
+            <h3 class="text-xl font-bold text-gray-700">Description</h3>
             <p class="text-gray-600">{{ person.description }}</p>
           </div>
-        </div>
-        <div class="md:flex-1 md:ml-8 mt-8 md:mt-0">
-          <img :src="person.photo" alt="Profile Photo" class="w-full h-auto rounded-lg shadow-md">
-          <a :href="person.cv" download class="mt-4 inline-block bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">Download CV</a>
+          <a :href="person.cv" download class="mt-6 inline-block bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition-colors duration-200">Download CV</a>
         </div>
       </div>
 
       <!-- Related Activities Section -->
       <section>
-        <h2 class="text-2xl font-extrabold text-gray-900 mb-4">Related Activities</h2>
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Related Activities</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div v-for="activity in person.activities" :key="activity.id" class="bg-white p-6 rounded-lg shadow-md">
+          <div v-for="activity in person.activities" :key="activity.id" class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <img :src="activity.image" alt="Activity Image" class="w-full h-32 object-cover rounded-lg mb-4">
-            <h3 class="text-xl font-bold text-gray-900">{{ activity.title }}</h3>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ activity.title }}</h3>
             <p class="text-gray-600">{{ activity.description }}</p>
           </div>
         </div>
       </section>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup>
@@ -91,10 +92,71 @@ const route = useRoute()
 onMounted(() => {
   // Fetch person data based on route.params.id
   // Example: person.value = await fetchPerson(route.params.id)
-
 })
 </script>
 
 <style scoped>
-/* Scoped styles if needed */
+.container {
+  @apply mx-auto px-4;
+}
+
+nav ol {
+  @apply flex space-x-2;
+}
+
+nav li a:hover {
+  @apply text-gray-900;
+}
+
+.profile-card {
+  @apply bg-white p-6 rounded-lg shadow-lg mb-12 flex flex-col md:flex-row items-start;
+}
+
+.profile-photo {
+  @apply w-full h-auto rounded-lg shadow-md mb-4 md:mb-0;
+}
+
+.profile-info {
+  @apply md:flex-1;
+}
+
+.profile-info h1 {
+  @apply text-4xl font-extrabold text-gray-900;
+}
+
+.profile-info h2 {
+  @apply text-2xl text-gray-700;
+}
+
+.profile-info h3 {
+  @apply text-xl font-bold text-gray-700 mt-4;
+}
+
+.profile-info p {
+  @apply text-gray-600;
+}
+
+.profile-info a {
+  @apply mt-6 inline-block bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition-colors duration-200;
+}
+
+.activities-section h2 {
+  @apply text-3xl font-extrabold text-gray-900 mb-6;
+}
+
+.activity-card {
+  @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300;
+}
+
+.activity-card img {
+  @apply w-full h-32 object-cover rounded-lg mb-4;
+}
+
+.activity-card h3 {
+  @apply text-2xl font-bold text-gray-900 mb-2;
+}
+
+.activity-card p {
+  @apply text-gray-600;
+}
 </style>
