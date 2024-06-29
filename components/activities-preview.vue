@@ -6,7 +6,7 @@
           <!-- Services Block -->
            <NuxtLink to="/Activities/Services" class="hover:shadow-md hover:transform hover:scale-101 transition duration-200">
             <div class="bg-white p-6 rounded-lg shadow-lg">
-            <img src="/stop_violence.avif" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
+            <img src="/services_preview.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">Services</h3>
             <p class="text-gray-600">Description for the services offered.</p>
             </div>
@@ -15,7 +15,7 @@
           <!-- Projects Block -->
            <NuxtLink to="/Activities/Projects" class="hover:shadow-md hover:transform hover:scale-104 transition duration-200">
             <div class="bg-white p-6 rounded-lg shadow-lg">
-            <img src="/stop_violence.avif" alt="Projects Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
+            <img src="/projects_preview.jpg" alt="Projects Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">Projects</h3>
             <p class="text-gray-600">Description for the projects.</p>
             </div>

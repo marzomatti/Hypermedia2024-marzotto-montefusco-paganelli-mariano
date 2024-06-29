@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Grande Immagine di Intestazione -->
-    <div class="bg-no-repeat bg-top bg-cover w-full h-[45rem]" :style="'background-image: url(/stop_violence.avif)'">
+    <div class="bg-no-repeat bg-top bg-cover w-full h-[45rem]" :style="'background-image: url(/stop.jpg)'">
       <div class="flex flex-col justify-center items-center text-center px-4 lg:px-16 h-full bg-black bg-opacity-50">
         <h1 class="text-4xl text-white py-8 md:py-32 md:text-5xl">
           No Woman Alone: Empowering Women, Ending Violence

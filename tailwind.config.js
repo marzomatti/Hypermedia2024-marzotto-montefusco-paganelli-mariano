@@ -11,4 +11,7 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  fontFamily: {
+    sans: ['"DM Sans"', "sans-serif"],
+  },
 }
