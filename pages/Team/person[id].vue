@@ -29,7 +29,7 @@
             <h3 class="text-xl font-bold text-gray-700">Description</h3>
             <p class="text-gray-600">{{ person.description }}</p>
           </div>
-          <a :href="person.cv" download class="mt-6 inline-block bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition-colors duration-200">Download CV</a>
+          <a :href="person.cv" download class="mt-6 inline-block bg-primary-color text-white py-2 px-4 rounded-full hover:bg-red-600 transition-colors duration-200">Download CV</a>
         </div>
       </div>
 
@@ -96,67 +96,5 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.container {
-  @apply mx-auto px-4;
-}
 
-nav ol {
-  @apply flex space-x-2;
-}
-
-nav li a:hover {
-  @apply text-gray-900;
-}
-
-.profile-card {
-  @apply bg-white p-6 rounded-lg shadow-lg mb-12 flex flex-col md:flex-row items-start;
-}
-
-.profile-photo {
-  @apply w-full h-auto rounded-lg shadow-md mb-4 md:mb-0;
-}
-
-.profile-info {
-  @apply md:flex-1;
-}
-
-.profile-info h1 {
-  @apply text-4xl font-extrabold text-gray-900;
-}
-
-.profile-info h2 {
-  @apply text-2xl text-gray-700;
-}
-
-.profile-info h3 {
-  @apply text-xl font-bold text-gray-700 mt-4;
-}
-
-.profile-info p {
-  @apply text-gray-600;
-}
-
-.profile-info a {
-  @apply mt-6 inline-block bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition-colors duration-200;
-}
-
-.activities-section h2 {
-  @apply text-3xl font-extrabold text-gray-900 mb-6;
-}
-
-.activity-card {
-  @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300;
-}
-
-.activity-card img {
-  @apply w-full h-32 object-cover rounded-lg mb-4;
-}
-
-.activity-card h3 {
-  @apply text-2xl font-bold text-gray-900 mb-2;
-}
-
-.activity-card p {
-  @apply text-gray-600;
-}
 </style>

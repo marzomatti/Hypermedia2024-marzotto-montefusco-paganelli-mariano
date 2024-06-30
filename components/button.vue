@@ -1,0 +1,9 @@
+<template>
+    <nuxt-link to="/team" class="inline-block border-2 border-primary-color text-primary-color px-6 py-3 rounded-full font-semibold hover:bg-primary-color hover:text-white transition duration-300">
+    {{ text }}
+    </nuxt-link>
+</template>
+
+<script setup>
+    const text = defineProps();
+</script>

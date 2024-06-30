@@ -7,13 +7,13 @@
         <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
           <img src="/public/stop_violence.avif" alt="Staff" class="w-full h-64 object-cover mb-4 rounded-lg"/>
           <h3 class="text-2xl font-semibold text-gray-800 mb-2">Staff</h3>
-          <nuxt-link to="/people/staff" class="text-red-400 hover:underline">Learn more &rarr;</nuxt-link>
+          <nuxt-link to="/team/staff" class="text-red-400 hover:underline">Learn more &rarr;</nuxt-link>
         </div>
         <!-- Volunteers Block -->
         <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
           <img src="/public/stop_violence.avif" alt="Volunteers" class="w-full h-64 object-cover mb-4 rounded-lg"/>
           <h3 class="text-2xl font-semibold text-gray-800 mb-2">Volunteers</h3>
-          <nuxt-link to="/people/volunteers" class="text-red-400 hover:underline">Learn more &rarr;</nuxt-link>
+          <nuxt-link to="/team/volunteers" class="text-red-400 hover:underline">Learn more &rarr;</nuxt-link>
         </div>
       </div>
     </div>
