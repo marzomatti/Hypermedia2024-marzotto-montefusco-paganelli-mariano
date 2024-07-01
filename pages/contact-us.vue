@@ -11,10 +11,10 @@
       </div>
       <!-- Form + immagine -->
       <div class="md:flex mb-8">
-        <div class="md:w-2/5 p-7">
-          <img class="rounded-3xl w-full" src="/NoWomanAlone.jpg" alt="Contact Image" />
+        <div class="md:w-1/2 p-7">
+          <img class="rounded-3xl w-full" src="/public/stop_violence.avif" alt="Contact Image" />
         </div>
-        <div class="md:w-3/5 p-7">
+        <div class="md:w-1/2 p-7">
           <form @submit.prevent="submitForm" class="bg-white p-6 rounded-lg shadow-lg">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="form-group">

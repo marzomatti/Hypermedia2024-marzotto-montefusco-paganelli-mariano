@@ -8,7 +8,8 @@
             <div class="bg-white p-6 rounded-lg shadow-lg">
             <img src="/services_preview.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">Services</h3>
-            <p class="text-gray-600">Description for the services offered.</p>
+            <p class="text-gray-600">
+              Offering counseling, legal help, and recovery programs to support and empower women.</p>
             </div>
            </NuxtLink>
 
@@ -17,7 +18,7 @@
             <div class="bg-white p-6 rounded-lg shadow-lg">
             <img src="/projects_preview.jpg" alt="Projects Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">Projects</h3>
-            <p class="text-gray-600">Description for the projects.</p>
+            <p class="text-gray-600">Raising awareness and advocating for women's rights through community projects.</p>
             </div>
            </NuxtLink>
         </div>

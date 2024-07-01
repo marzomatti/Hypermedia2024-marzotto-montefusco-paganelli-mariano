@@ -8,31 +8,21 @@
         <Button :text="'See our projects ->'" />
       </div>
       <!-- Right Side: Project Buttons -->
-      <div class="w-full md:w-1/2 flex flex-col space-y-4 px-4">
-        <button class="flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-4 py-2 hover:bg-blue-500 hover:text-white hover:bg-primary-color transition duration-300">
-          <span class="text-2xl mr-2">+</span> <span class="text-xl">Project Name 1</span>
-        </button>
-        <button class="flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-4 py-2 hover:bg-blue-500 hover:text-white hover:bg-primary-color transition duration-300">
-          <span class="text-2xl mr-2">+</span> <span class="text-xl">Project Name 2</span>
-        </button>
-        <button class="flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-4 py-2 hover:bg-blue-500 hover:text-white hover:bg-primary-color transition duration-300">
-          <span class="text-2xl mr-2">+</span> <span class="text-xl">Project Name 3</span>
-        </button>
-        <button class="flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-4 py-2 hover:bg-blue-500 hover:text-white hover:bg-primary-color transition duration-300">
-          <span class="text-2xl mr-2">+</span> <span class="text-xl">Project Name 4</span>
-        </button>
-        <button class="flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-4 py-2 hover:bg-blue-500 hover:text-white hover:bg-primary-color transition duration-300">
-          <span class="text-2xl mr-2">+</span> <span class="text-xl">Project Name 5</span>
-        </button>
+      <div class="w-full md:w-1/3 flex flex-col space-y-4 pr-4">
+        <img src="assets/img/ehimetalor-akhere-unuabona-lWRandyLSQ8-unsplash.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
       </div>
     </div>
   </section>
 </template>
 
-<script>
-export default {
-  name: 'ProjectsPreview',
-};
+<script setup>
+  const projects = ref([
+    { id: 1, name: 'Project 1' },
+    { id: 2, name: 'Project 2' },
+    { id: 3, name: 'Project 3' },
+    { id: 4, name: 'Project 4' },
+    { id: 5, name: 'Project 5' },
+  ])
 </script>
 
 <style scoped>
