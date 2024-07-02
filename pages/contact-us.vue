@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="container mx-auto px-4 py-12">
+    <div class="container mx-auto px-12 py-12">
       <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-8">Contact Us</h1>
       <!-- Titolo con immagine -->
       <div class="flex flex-col items-center mb-8">
@@ -12,7 +12,7 @@
       <!-- Form + immagine -->
       <div class="md:flex mb-8">
         <div class="md:w-1/2 p-7">
-          <img class="rounded-3xl w-full" src="/stop_violence.avif" alt="Contact Image" />
+          <img class="rounded-3xl w-full" src="/public/stop_violence.avif" alt="Contact Image" />
         </div>
         <div class="md:w-1/2 p-7">
           <form @submit.prevent="submitForm" class="bg-white p-6 rounded-lg shadow-lg">

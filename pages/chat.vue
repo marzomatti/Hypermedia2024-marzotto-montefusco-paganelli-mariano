@@ -186,17 +186,17 @@
       <!-- Text section -->
       <div class="w-1/3 pr-8">
         <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Are you in trouble? <br> Chat now with our virtual assistant!</h1>
-        <p class="text-gray-700 text-lg mb-4">
+        <p class="text-gray-700 text-base mb-4">
           Our virtual assistant is designed to provide you with immediate support and guidance. Whether you need information about services, help with a specific issue, or just someone to talk to, our assistant is here to help. You can ask about:
         </p>
-        <ul class="list-disc list-inside text-gray-700 text-lg mb-4">
+        <ul class="list-disc list-inside text-gray-700 text-base mb-4">
           <li>Information on our services and how to access them.</li>
           <li>Advice on dealing with specific situations.</li>
           <li>Contact information for emergency support.</li>
           <li>Emotional support and counseling options.</li>
           <li>Guidance on legal rights and resources.</li>
         </ul>
-        <p class="text-gray-700 text-lg mb-4">
+        <p class="text-gray-700 text-base mb-4">
           Please enter your question in the chat box below, and our assistant will respond as soon as possible. If your situation is urgent, please contact emergency services immediately.
         </p>
       </div>

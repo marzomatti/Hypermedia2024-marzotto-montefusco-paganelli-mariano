@@ -1,47 +1,45 @@
 <template>
   <main>
-  <div>
-    <HeroSection/>
     <div>
+      <HeroSection/>
+      <div>
         <Mission/>
         <ActivitiesPreview/>
         <PeoplePreview/>
+        <!-- TODO: Add a section to show how many women we have already helped -->
+      </div>
     </div>
-  </div>
   </main>
-
-  </template>
+</template>
   
-  <script setup>
-import Temporary from '~/components/mission.vue';
-
+<script setup>
   useSeoMeta({
-  title: 'Home',
-  description: 'This is the home page',
-  ogTitle: 'Home - NoWomanAlone',
-  ogDescription: '[og:description]',
-  ogImage: '[og:image]',
-  ogUrl: '[og:url]',
-  twitterTitle: 'Home - NoWomanAlone',
-  twitterDescription: '[twitter:description]',
-  twitterImage: '[twitter:image]',
-  twitterCard: 'summary'
-})
+    title: 'Home',
+    description: 'This is the home page',
+    ogTitle: 'Home - NoWomanAlone',
+    ogDescription: '[og:description]',
+    ogImage: '[og:image]',
+    ogUrl: '[og:url]',
+    twitterTitle: 'Home - NoWomanAlone',
+    twitterDescription: '[twitter:description]',
+    twitterImage: '[twitter:image]',
+    twitterCard: 'summary'
+  })
 
-useHead({
-  htmlAttrs: {
-    lang: 'en'
-  },
-  link: [
-    {
-      rel: 'icon',
-      type: 'image/png',
-      href: '/favicon.png'
-    }
-  ]
-})
-  </script>
+  useHead({
+    htmlAttrs: {
+      lang: 'en'
+    },
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/favicon.png'
+      }
+    ]
+  })
+</script>
   
-  <style scoped>
-  </style>
+<style scoped>
+</style>
   
