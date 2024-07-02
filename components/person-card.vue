@@ -3,7 +3,7 @@
     <img :src="imageUrl" alt="Face Image" class="w-24 h-24 rounded-full mb-4 object-cover">
     <h3 class="text-xl font-bold text-gray-800 mb-2">{{ name }} {{ surname }}</h3>
     <p class="text-gray-600 mb-4">{{ description }}</p>
-    <Button text="See moore" :link="link" class="mt-4"/>
+    <Button text="See more" :link="link" class="mt-4"/>
   </div>
 </template>
 
