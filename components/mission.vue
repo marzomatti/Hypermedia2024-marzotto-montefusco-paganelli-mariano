@@ -1,6 +1,7 @@
 <template>
     <section class="bg-white py-12 px-12">
-    <h2 class="text-4xl font-semibold text-center text-gray-800 mb-12">Our Mission</h2>
+   <!--<h2 class="text-4xl font-semibold text-center text-gray-800 mb-12">Our Mission</h2>--> 
+   <h2 class="text-2xl font-semibold lg:text-[40px] mx-auto text-center mb-12">Our Mission</h2>
       <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <!-- Mission Block -->

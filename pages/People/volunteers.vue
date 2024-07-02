@@ -1,4 +1,4 @@
-emplate>
+<template>
   <main class="bg-gray-50 min-h-screen py-8">
     <div class="container mx-auto px-4">
       <!-- Header Section -->
