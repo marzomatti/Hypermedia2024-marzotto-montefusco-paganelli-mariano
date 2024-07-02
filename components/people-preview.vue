@@ -1,35 +1,30 @@
 <template>
   <section class="bg-white py-12 px-12">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold text-gray-800 mb-2">Our team</h2>
-      <p class="text-lg">Our dedicated team of professionals is here to support and guide you. <br> <span class="text-primary-color">Break the silence</span> and reach out to us for help.</p>
-      <div class="grid md:grid-cols-4 grid-cols-2 lg:gap-4 gap-2 w-auto md:mx-x_padding_page mx-x_padding_page_mobile bg-white lg:p-10 p-2 rounded-xl">
-        <div v-for="person in people" :key="person.id" class="bg-white p-4 rounded-lg shadow-lg">
-          <img src="/public/face1.jpg" alt="Person Image" class="w-full h-48 object-cover rounded-lg"/>
+    <div class="container mx-auto flex items-center">
+      <div class="w-1/2 text-left pr-8">
+        <h2 class="text-4xl font-bold text-gray-800 mb-2">Our team</h2>
+        <p class="text-lg mb-6">Our dedicated team of professionals is here to support and guide you. <br> <span class="text-primary-color">Break the silence</span> and reach out to us for help.</p>
+        <Button text="See our team" link="/team"></Button>
+        
+      </div>
+      <div class="w-1/2 flex justify-center">
+        <div class="border border-gray-300 rounded-lg overflow-hidden shadow-lg">
+          <img :src="backgroundUrl" alt="Our team" class="object-cover w-full h-auto"/>
         </div>
       </div>
-      <Button :text="'See our team ->'"/>
     </div>
   </section>
 </template>
 
 <script>
+import backgroundUrl from '~/assets/img/homepage_2.jpg';
 export default {
   name: 'PeoplePreview',
   data() {
     return {
-      people: [
-        { id: 1, image: '/public/face1.jpg' },
-        { id: 2, image: '/public/face1.jpg' },
-        { id: 3, image: '/public/face1.jpg' },
-        { id: 4, image: '/public/face1.jpg' },
-        { id: 5, image: '/public/face1.jpg' },
-        { id: 6, image: '/public/face1.jpg' },
-        { id: 7, image: '/public/face1.jpg' },
-        { id: 8, image: '/public/face1.jpg' },
-      ],
+      backgroundUrl
     };
-  },
+  }
 };
 </script>
 

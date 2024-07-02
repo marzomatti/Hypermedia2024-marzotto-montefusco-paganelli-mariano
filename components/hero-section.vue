@@ -3,9 +3,10 @@
     <div class="flex items-center justify-center h-full">
       <div class="absolute bottom-20 left-5 p-10 text-left text-white">
         <h1 class="text-5xl font-bold text-primary-color">You are not alone!</h1>
-        <p class="mt-4 text-lg text-primary-color">We are here to help you</p>
+        <p class="mt-4 text-primary-color tex">We are here to help you</p>
         <div class="mt-6">
-          <NuxtLink to="/about-us" class="bg-primary-color text-white px-4 py-2 rounded-md hover:bg-red-400">See our services -></NuxtLink>
+          
+          <Button text="Explore our services" link="/services"></Button>
         </div>
       </div>
     </div>
