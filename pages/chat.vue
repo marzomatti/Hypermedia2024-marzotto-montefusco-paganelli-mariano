@@ -216,7 +216,7 @@
         <!-- Chat input -->
         <div class="flex mt-4">
           <input v-model="currentQuestion" type="text" placeholder="Enter your question..." @keyup.enter="sendMessage" class="flex-1 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
-          <button @click="sendMessage" class="ml-4 p-3 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600">Send</button>
+          <button @click="sendMessage" class="ml-4 p-3 bg-primary-color text-white rounded-lg shadow-md hover:bg-red-600">Send</button>
         </div>
       </div>
     </div>
