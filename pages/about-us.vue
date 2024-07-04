@@ -88,7 +88,7 @@
         At No Woman Alone, our team consists of highly skilled and compassionate professionals dedicated to supporting women affected by violence. Our experts bring a wealth of experience in various fields, including psychology, social work, and advocacy. We work tirelessly to provide comprehensive care and guidance, helping women to heal and thrive. Our team is here to listen, support, and empower you every step of the way. Learn more about the individuals who make our mission possible and their unwavering commitment to creating a safer world for all women.
       </div>
       <div class="text-center">
-        <nuxt-link to="/people" class="inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-red-400 hover:text-white transition duration-300">
+        <nuxt-link to="/people" class="inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
           Meet Our Staff &rarr;
         </nuxt-link>
       </div>
