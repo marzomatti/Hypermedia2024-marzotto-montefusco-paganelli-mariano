@@ -11,7 +11,6 @@ export const useNavigationStore = defineStore({
       { name: 'Chatbot', href: '/chat/', current: false },
       { name: 'Contact us', href: '/contact-us', current: false },
       { name: 'About us', href: '/about-us', current: false },
-      { name: 'Donate', href: '/donate', current: false },
     ]
   }),
   actions: {

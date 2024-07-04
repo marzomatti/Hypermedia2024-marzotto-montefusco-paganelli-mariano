@@ -3,8 +3,8 @@
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex h-24 items-center justify-between">
         <Logo />
-        <div class="flex items-center">
-          <div class="hidden md:flex ml-10 space-x-4 mr-20">
+        <div class="flex items-center justify-center">
+          <div class="hidden md:flex items-center mr-8">
             <template v-for="item in navigation">
               <NuxtLink
                 v-if="item.name !== 'Activities'"
@@ -77,7 +77,9 @@
           :href="item.href"
           @click="setCurrentPage(item.name)"
           :class="[
-            item.current, 'hover:bg-primary-color hover:text-white',
+            item.current
+              ? 'bg-primary-color text-white'
+              : 'hover:bg-primary-color hover:text-white',
             'block rounded-md px-3 py-2 text-base font-medium'
           ]"
           :aria-current="item.current ? 'page' : undefined"
