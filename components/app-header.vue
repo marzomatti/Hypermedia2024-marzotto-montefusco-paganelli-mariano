@@ -77,9 +77,7 @@
           :href="item.href"
           @click="setCurrentPage(item.name)"
           :class="[
-            item.current
-              ? 'bg-primary-color text-white'
-              : 'hover:bg-primary-color hover:text-white',
+            item.current, 'hover:bg-primary-color hover:text-white',
             'block rounded-md px-3 py-2 text-base font-medium'
           ]"
           :aria-current="item.current ? 'page' : undefined"
