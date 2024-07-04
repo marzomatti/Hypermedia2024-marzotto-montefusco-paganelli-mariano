@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-orange-100 py-12">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:space-y-0 space-y-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:space-y-0 space-y-6">
         <div>
           <Logo />
           <p class="mr-3.5 px-3.5 mt-4 text-gray-700">
@@ -44,14 +44,6 @@
                   </NuxtLink>
                 </div>
               </li>
-              <li class="py-2">
-                <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/donate"
-                    class="inline-block border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full font-semibold hover:text-white hover:bg-secondary-color transition duration-300">
-                    Donate
-                  </NuxtLink>
-                </div>
-              </li>
             </ul>
           </div>
           <div class="flex md:flex-col flex-row md:items-center md:space-x-0 space-x-6 space-y-0 md:space-y-8 md:w-1/3">
@@ -59,7 +51,7 @@
             <ul class="w-full space-y-2">
               <li class="text-gray-700">
                 <div class="flex flex-row md:justify-center">
-                  Email: nowoman@alone.com
+                  Email: no@alone.com
                 </div>
               </li>
               <li class="text-gray-700">
