@@ -16,9 +16,8 @@
 
   <main>
     <div class="flex flex-col w-full">
-
       <!-- Projects List -->
-      <div v-for="(project, index) in projects" :key="project.id" :class="index % 2 === 0 ? 'bg-red-100' : 'bg-white'" class="lg:px-24 px-4 py-12">
+      <div v-for="(project, index) in projects" :key="project.id" :class="getBackgroundColor(index)" class="lg:px-24 px-4 py-12">
         <div class="flex flex-col lg:flex-row items-center">
           <div class="flex-1">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ project.name }}</h2>
@@ -27,7 +26,7 @@
             <!-- <nuxt-link :to="'/services/' + service.id" class="text-red-600 hover:underline font-bold">Discover more →</nuxt-link> -->
           </div>
           <div class="pl-32 pr-4">
-          <img src="/stop_violence.avif" alt="Service Image" class="w-64 h-64 lg:w-72 lg:h-48 ml-4 lg:ml-8 rounded-lg shadow-md">
+            <img src="/stop_violence.avif" alt="Service Image" class="w-64 h-64 lg:w-72 lg:h-48 ml-4 lg:ml-8 rounded-3xl shadow-md">
           </div>
         </div>
       </div>
@@ -41,7 +40,6 @@ useHead({
 })
 
 import { ref } from 'vue'
-
 
 const supabase = useSupabaseClient()
 
@@ -60,8 +58,15 @@ const { data, pending } = await useAsyncData('projects', async () => {
 })
 
 projects.value = data.value
+
+const getBackgroundColor = (index) => {
+  const colors = ['bg-gray-100', 'bg-white'];
+  return colors[index % colors.length];
+}
 </script>
 
 <style scoped>
-/* Scoped styles if needed */
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
 </style>
