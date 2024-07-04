@@ -79,7 +79,7 @@
 
     <!-- Sezione "Our Expert Team" -->
     <div class="bg-gray-200 w-full px-4 lg:px-16 py-8">
-      <div class="flex flex-wrap justify-center gap-20 items-center py-12">
+<div class="flex flex-wrap justify-center gap-20 items-center py-12">
         <img class="rounded-3xl w-full max-w-lg object-cover" src="/assets/img/about_2.jpg" alt="Team Image 1" />
         <img class="rounded-3xl w-full max-w-lg object-cover" src="/assets/img/about_3.jpg" alt="Team Image 2" />
       </div>
