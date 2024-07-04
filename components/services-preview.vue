@@ -8,22 +8,15 @@
         <Button :text="'See our services ->'" />
       </div>
       <!-- Right Side: Service Buttons -->
-      <div class="w-full md:w-1/2 flex flex-col space-y-4 px-4">
-        <button class="flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-4 py-2 hover:bg-blue-500 hover:text-white transition hover:bg-primary-color duration-300">
-          <span class="text-2xl mr-2">+</span> <span class="text-xl">Service Name 1</span>
-        </button>
-        <button class="flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-4 py-2 hover:bg-blue-500 hover:text-white transition hover:bg-primary-color duration-300">
-          <span class="text-2xl mr-2">+</span> <span class="text-xl">Service Name 2</span>
-        </button>
-        <button class="flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-4 py-2 hover:bg-blue-500 hover:text-white transition hover:bg-primary-color duration-300">
-          <span class="text-2xl mr-2">+</span> <span class="text-xl">Service Name 3</span>
-        </button>
-        <button class="flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-4 py-2 hover:bg-blue-500 hover:text-white transition hover:bg-primary-color duration-300">
-          <span class="text-2xl mr-2">+</span> <span class="text-xl">Service Name 4</span>
-        </button>
-        <button class="flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-4 py-2 hover:bg-blue-500 hover:text-white transition hover:bg-primary-color duration-300">
-          <span class="text-2xl mr-2">+</span> <span class="text-xl">Service Name 5</span>
-        </button>
+      <div class="w-full md:w-1/2 flex justify-end">
+        <div class="w-2/3 flex flex-col space-y-4 px-4">
+          <div v-for="service in services" :key="service.id" class="flex items-center space-x-2">
+            <img src="/public/medical_help.png" alt="Service Icon" class="w-16 h-16 cursor-pointer"/>
+            <button class="flex-1 flex items-center border-2 border-blue-500 text-blue-500 rounded-full px-6 py-4 hover:bg-blue-500 hover:text-white transition hover:bg-primary-color duration-300">
+              <span class="text-xl">{{ service.title }}</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
