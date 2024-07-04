@@ -15,7 +15,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/activities"
-                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Activities
                   </NuxtLink>
                 </div>
@@ -23,7 +23,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/team"
-                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Our team
                   </NuxtLink>
                 </div>
@@ -31,7 +31,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/team"
-                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Chatbot
                   </NuxtLink>
                 </div>
@@ -39,7 +39,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/about-us"
-                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     About us
                   </NuxtLink>
                 </div>
@@ -47,7 +47,7 @@
               <li class="py-2">
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/donate"
-                    class="inline-block border-2 border-primary-color text-primary-color px-6 py-3 rounded-full font-semibold hover:text-white hover:bg-primary-color transition duration-300">
+                    class="inline-block border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full font-semibold hover:text-white hover:bg-secondary-color transition duration-300">
                     Donate
                   </NuxtLink>
                 </div>
@@ -75,7 +75,7 @@
               <li class="py-2">
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/contact-us"
-                    class="inline-block border-2 border-primary-color text-primary-color px-6 py-3 rounded-full font-semibold hover:text-white hover:bg-primary-color transition duration-300">
+                    class="inline-block border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full font-semibold hover:text-white hover:bg-secondary-color transition duration-300">
                     Stay in Touch
                   </NuxtLink>
                 </div>
@@ -88,7 +88,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/"
-                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Facebook
                   </NuxtLink>
                 </div>
@@ -96,7 +96,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/"
-                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Twitter
                   </NuxtLink>
                 </div>
@@ -104,7 +104,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/"
-                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Instagram
                   </NuxtLink>
                 </div>
@@ -112,7 +112,7 @@
               <li>
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/"
-                    class="text-gray-700 hover:text-primary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+                    class="text-gray-700 hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     LinkedIn
                   </NuxtLink>
                 </div>

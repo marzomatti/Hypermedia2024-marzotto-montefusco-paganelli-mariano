@@ -7,8 +7,8 @@
         <NuxtLink to="/Activities/Services" class="hover:shadow-md hover:transform transform transition duration-500 hover:scale-101">
           <div class="bg-white p-6 rounded-3xl shadow-lg">
             <img src="/services_preview.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-3xl"/>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Services</h3>
-            <p class="text-gray-600">
+            <h3 class="text-xl font-semibold text-blue mb-2">Services</h3>
+            <p class="text-blue">
               Offering counseling, legal help, and recovery programs to support and empower women.</p>
           </div>
         </NuxtLink>
@@ -17,8 +17,8 @@
         <NuxtLink to="/Activities/Projects" class="hover:shadow-md hover:transform transform transition duration-500 hover:scale-101">
           <div class="bg-white p-6 rounded-3xl shadow-lg">
             <img src="/projects_preview.jpg" alt="Projects Image" class="w-full h-64 object-cover mb-4 rounded-3xl"/>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Projects</h3>
-            <p class="text-gray-600">
+            <h3 class="text-xl font-semibold text-blue mb-2">Projects</h3>
+            <p class="text-blue">
               Raising awareness and actively advocating for women's rights through community projects.</p>
           </div>
         </NuxtLink>
