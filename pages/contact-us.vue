@@ -11,7 +11,7 @@
       <!-- Form + immagine -->
       <div class="md:flex mb-8 items-stretch">
         <div class="md:w-1/2 p-7 flex items-stretch">
-          <img class="rounded-3xl w-full h-full object-cover" src="/public/stop_violence.avif" alt="Contact Image" />
+          <img class="rounded-3xl w-full h-full object-cover" src="/assets/img/hero-image.avif" alt="Contact Image" />
         </div>
         <div class="md:w-1/2 p-7">
           <form @submit.prevent="submitForm" class="bg-white p-6 rounded-3xl shadow-lg h-full">
