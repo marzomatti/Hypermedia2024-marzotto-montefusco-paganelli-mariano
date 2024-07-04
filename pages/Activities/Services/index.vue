@@ -1,9 +1,18 @@
 <template>
+      <div class="flex flex-col bg-primary-color lg:py-12 py-8">
+        <div class="lg:px-24 px-4">
+          <!-- Title of the page -->
+          <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Services</h1>
+          <!-- Description of the page -->
+          <div class="flex justify-center mt-4">
+            <h2 class="text-white text-center lg:text-2xl text-xl">
+              We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you.
+            </h2>
+          </div>
+        </div>
+      </div>
   <main>
-    <div class="flex flex-col w-full py-12">
-
-      <h2 class="text-4xl font-semibold text-center text-gray-800 mb-12">Our Services</h2>
-
+    <div class="flex flex-col w-full">
       <!-- Services List -->
       <div v-for="(service, index) in services" :key="service.id" :class="index % 2 === 0 ? 'bg-red-100' : 'bg-white'" class="lg:px-24 px-4 py-12">
         <div class="flex flex-col lg:flex-row items-center">

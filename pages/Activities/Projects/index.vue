@@ -1,15 +1,29 @@
 <template>
-  <main>
-    <div class="flex flex-col w-full py-12">
-      <h2 class="text-4xl font-semibold text-center text-gray-800 mb-12">Our Services</h2>
+  <header>
+    <div class="flex flex-col bg-primary-color lg:py-12 py-8">
+      <div class="lg:px-24 px-4">
+        <!-- Title of the page -->
+        <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Projects</h1>
+        <!-- Description of the page -->
+        <div class="flex justify-center mt-4">
+          <h2 class="text-white text-center lg:text-2xl text-xl">
+            Explore our initiatives dedicated to supporting women affected by violence. Join us in making a difference.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </header>
 
-      <!-- Services List -->
-      <div v-for="(service, index) in services" :key="service.id" :class="index % 2 === 0 ? 'bg-red-100' : 'bg-white'" class="lg:px-24 px-4 py-12">
+  <main>
+    <div class="flex flex-col w-full">
+
+      <!-- Projects List -->
+      <div v-for="(project, index) in projects" :key="project.id" :class="index % 2 === 0 ? 'bg-red-100' : 'bg-white'" class="lg:px-24 px-4 py-12">
         <div class="flex flex-col lg:flex-row items-center">
           <div class="flex-1">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ service.name }}</h2>
-            <p class="text-gray-600 text-lg mb-4">{{ service.description }}</p>
-            <Button :text="'Discover more ->'" :link="service.link"></Button>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ project.name }}</h2>
+            <p class="text-gray-600 text-lg mb-4">{{ project.description }}</p>
+            <Button :text="'Discover more ->'" :link="project.link"></Button>
             <!-- <nuxt-link :to="'/services/' + service.id" class="text-red-600 hover:underline font-bold">Discover more →</nuxt-link> -->
           </div>
           <div class="pl-32 pr-4">
@@ -23,7 +37,7 @@
 
 <script setup>
 useHead({
-  title: 'Services',
+  title: 'Projects',
 })
 
 import { ref } from 'vue'
@@ -31,11 +45,11 @@ import { ref } from 'vue'
 
 const supabase = useSupabaseClient()
 
-const services = ref([])
+const projects = ref([])
 
-const { data, pending } = await useAsyncData('services', async () => {
+const { data, pending } = await useAsyncData('projects', async () => {
   const { data, error } = await supabase
-    .from('services')
+    .from('projects')
     .select()
     
   if (error) {
@@ -45,7 +59,7 @@ const { data, pending } = await useAsyncData('services', async () => {
   return data
 })
 
-services.value = data.value
+projects.value = data.value
 </script>
 
 <style scoped>

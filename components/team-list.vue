@@ -1,7 +1,7 @@
 <template>
+
   <div class="bg-gray-50 min-h-screen py-12">
     <div class="container max-w-5xl before:mx-auto px-4">
-      <h1 class="text-3xl font-extrabold text-center mb-8">Our {{ teamName }}</h1>
       <div>
         <section v-if="pending">Loading...</section>
         <section v-else-if="error">Something went wrong... Try again!</section>
@@ -35,6 +35,10 @@ const props = defineProps({
     required: true
   },
   teamName : {
+    type: String,
+    required: true
+  },
+  description: {
     type: String,
     required: true
   }

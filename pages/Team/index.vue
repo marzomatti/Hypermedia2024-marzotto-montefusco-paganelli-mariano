@@ -1,6 +1,7 @@
 <template>
   <section class="bg-white py-12 px-12">
-    <h2 class="text-4xl font-semibold text-center text-gray-800 mb-12">Our Team</h2>
+    <h1 class="font-sans font-extrabold no-italic text-[40px] md:text-[56px] md:leading-[66px] text-center">Our Team</h1>
+
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
         <!-- Staff Block -->

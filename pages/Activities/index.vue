@@ -1,14 +1,24 @@
 <template>
-  <section class="bg-white py-12">
-    <h2 class="text-4xl font-semibold text-center text-gray-800 mb-12">Activities</h2>
+      <div class="flex flex-col bg-primary-color lg:py-12 py-8">
+        <div class="lg:px-24 px-4">
+          <!-- Title of the page -->
+          <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Activites</h1>
+          <!-- Description of the page -->
+          <div class="flex justify-center mt-4">
+            <h2 class="text-white text-center lg:text-2xl text-xl">
+              text
+            </h2>
+          </div>
+        </div>
+      </div>
+  <section class="bg-white py-12 px-12">
     <div class="container mx-auto">
       <!-- Services Section -->
       <ServicesPreview/>
       <!-- Most Relevant Projects Section -->
-      <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+      <div class="p-6 rounded-lg">
         <div class="flex justify-between items-center mb-4">
-          <h3 class="text-2xl font-semibold text-gray-800">Most Relevant Projects</h3>
-          <nuxt-link to="/projects" class="text-red-400 hover:underline">See all projects &rarr;</nuxt-link>
+          <h2 class="text-4xl font-semibold text-center text-gray-800 mb-4">Most Relevant Projects</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Project 1 -->

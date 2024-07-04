@@ -1,5 +1,6 @@
 <template>
-  <TeamList :people="staff" :team-name="teamName"/>
+  <CustomTitle title="Our staff" subtitle="Testssssssssssssssssssssssssssss"/>
+  <TeamList :people="staff" :team-name="teamName" :description="description"/>
 </template>
   
 <script setup>
@@ -26,6 +27,7 @@ const { data, pending } = await useAsyncData('staff', async () => {
 
 staff.value = data.value
 
+const description = 'Meet our dedicated staff committed to supporting and advocating for women affected by violence.'
 </script>
 
 <style scoped>
