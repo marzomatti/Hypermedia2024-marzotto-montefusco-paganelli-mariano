@@ -1,42 +1,44 @@
 <template>
-    <section class="bg-primary-color py-12 px-12">
-      <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-bold text-white mb-8">Our Activities</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <!-- Services Block -->
-           <NuxtLink to="/Activities/Services" class="hover:shadow-md hover:transform transform transition duration-500 hover:scale-101">
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-            <img src="/services_preview.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
+  <section class="bg-primary-color py-12 px-12">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-white mb-8">Our Activities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <!-- Services Block -->
+        <NuxtLink to="/Activities/Services" class="hover:shadow-md hover:transform transform transition duration-500 hover:scale-101">
+          <div class="bg-white p-6 rounded-3xl shadow-lg">
+            <img src="/services_preview.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-3xl"/>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">Services</h3>
             <p class="text-gray-600">
               Offering counseling, legal help, and recovery programs to support and empower women.</p>
-            </div>
-           </NuxtLink>
+          </div>
+        </NuxtLink>
 
-          <!-- Projects Block -->
-          <NuxtLink to="/Activities/Projects" class="hover:shadow-md hover:transform transform transition duration-500 hover:scale-101">
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-            <img src="/projects_preview.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
+        <!-- Projects Block -->
+        <NuxtLink to="/Activities/Projects" class="hover:shadow-md hover:transform transform transition duration-500 hover:scale-101">
+          <div class="bg-white p-6 rounded-3xl shadow-lg">
+            <img src="/projects_preview.jpg" alt="Projects Image" class="w-full h-64 object-cover mb-4 rounded-3xl"/>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">Projects</h3>
             <p class="text-gray-600">
-              Raising awareness and actively advocating for women's rights through community projects.n</p>
-            </div>
-           </NuxtLink>
-        </div>
-        <NuxtLink to="/activities" class="inline-block border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-color transition duration-300">
-          See all activities ->
+              Raising awareness and actively advocating for women's rights through community projects.</p>
+          </div>
         </NuxtLink>
       </div>
-    </section>
-  </template>
-  
-  <script>
-  export default {
-    name: 'ActivitiesPreview',
-  };
-  </script>
-  
-  <style scoped>
-  /* Additional styles if needed */
-  </style>
-  
+      <NuxtLink to="/activities" class="inline-block border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-color transition duration-300">
+        See all activities ->
+      </NuxtLink>
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'ActivitiesPreview',
+};
+</script>
+
+<style scoped>
+/* Additional styles if needed */
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+</style>

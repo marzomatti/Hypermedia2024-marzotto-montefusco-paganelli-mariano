@@ -20,6 +20,7 @@
                 <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
                 <input type="text" id="name" v-model="form.name" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
               </div>
+              
               <div class="form-group">
                 <label for="surname" class="block text-gray-700 font-bold mb-2">Surname</label>
                 <input type="text" id="surname" v-model="form.surname" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
