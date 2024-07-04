@@ -1,13 +1,13 @@
 <template>
     <section class="bg-white py-12 px-12">
    <!--<h2 class="text-4xl font-semibold text-center text-gray-800 mb-12">Our Mission</h2>--> 
-   <h2 class="text-2xl font-semibold lg:text-[40px] mx-auto text-center mb-12">Our Mission</h2>
+   <h2 class="text-2xl font-semibold lg:text-[40px] mx-auto text-center mb-12 text-blue">Our Mission</h2>
       <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <!-- Mission Block -->
           <div class="flex flex-col items-center">
             <img src="assets/img/goal.png" alt="Mission Icon" class="h-24 w-24 mb-4"/>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2"><span class="text-bleck">Why?</span></h3>
+            <h3 class="text-2xl font-bold text-blue mb-2"><span class="text-blue">Why?</span></h3>
             <p>
               Many women face physical, emotional, and 
               psychological violence daily. Our goal is 
@@ -18,7 +18,7 @@
           <!-- Vision Block -->
           <div class="flex flex-col items-center">
             <img src="assets/img/helpline.png" alt="Vision Icon" class="h-24 w-24 mb-4"/>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2"><span class="text-black">How?</span></h3>
+            <h3 class="text-2xl font-bold text-blue mb-2"><span class="text-blue">How?</span></h3>
             <p>
               We offer legal assistance, psychological 
               counseling, and recovery programs through 
@@ -29,7 +29,7 @@
           <!-- Values Block -->
           <div class="flex flex-col items-center">
             <img src="/assets/img/ancestors.png" alt="Values Icon" class="h-24 w-24 mb-4"/>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2"><span class="text-black">Who?</span></h3>
+            <h3 class="text-2xl font-bold text-blue mb-2"><span class="text-blue">Who?</span></h3>
             <p>
               Our team includes counselors, legal experts, 
               and volunteers committed to supporting women. 

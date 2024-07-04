@@ -20,6 +20,7 @@ module.exports = {
       "headings-black": "#494850",
       gray: "#9795B5",
       red: "#d62828",
+      blue: "#003049",
       gray: {
         100: "#f3f4f6",
         200: "#e5e7eb",
