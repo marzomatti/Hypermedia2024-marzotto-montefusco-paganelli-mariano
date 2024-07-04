@@ -11,7 +11,7 @@
       <div class="w-full md:w-1/2 flex justify-end">
         <div class="w-2/3 flex flex-col space-y-4 px-4">
           <div v-for="service in services" :key="service.id" class="flex items-center space-x-2">
-            <img src="assets/img/services/medical_help_logo.png" alt="Service Icon" class="w-16 h-16 cursor-pointer"/>
+            <img :src="service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer"/>
             <button class="flex-1 flex items-center border-2 border-blue-500 text-black rounded-full px-6 py-4 hover:bg-blue-500 hover:text-white transition hover:bg-primary-color duration-300">
               <span class="text-xl">{{ service.name }}</span>
             </button>
@@ -23,8 +23,13 @@
 </template>
 
 <script setup>
-const supabase = useSupabaseClient()
 
+
+function getLogoUrl(logo) {
+  return "assets/img/services/" + logo;
+}
+
+const supabase = useSupabaseClient()
 const services = ref([])
 
 const { data, pending } = await useAsyncData('services', async () => {
