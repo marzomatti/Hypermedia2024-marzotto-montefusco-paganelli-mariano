@@ -119,7 +119,7 @@ onMounted(() => {
 .page-title {
   font-size: 2rem;
   font-weight: bold;
-  color: #333;
+  color: #333333;
   margin-bottom: 20px;
   text-align: center; 
   line-height: 1.5;
@@ -179,8 +179,8 @@ input[type="text"] {
 
 .send-button-custom {
   background-color: white;
-  color: #ff4d4d;
-  border: 2px solid #ff4d4d;
+  color: #d62828;
+  border: 2px solid #d62828;
   cursor: pointer;
   font-size: 1rem;
   margin-left: 8px;
@@ -188,7 +188,7 @@ input[type="text"] {
 }
 
 .send-button-custom:hover {
-  background-color: #ff4d4d;
+  background-color: #d62828;
   color: white;
 }
 
@@ -197,7 +197,7 @@ input[type="text"] {
 }
 
 input:focus {
-  border-color: #ff4d4d;
+  border-color: #d62828;
   box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.4);
 }
 </style>
