@@ -11,7 +11,7 @@
       <!-- Form + immagine -->
       <div class="md:flex mb-8 items-stretch">
         <div class="md:w-1/2 p-7 flex items-stretch">
-          <img class="rounded-3xl w-full h-full object-cover" src="assets/img/hero-image.avif" alt="Contact Image" />
+          <img class="rounded-3xl w-full h-full object-cover" src="/public/stop_violence.avif" alt="Contact Image" />
         </div>
         <div class="md:w-1/2 p-7">
           <form @submit.prevent="submitForm" class="bg-white p-6 rounded-3xl shadow-lg h-full">
@@ -24,14 +24,10 @@
                 <label for="surname" class="block text-gray-700 font-bold mb-2">Surname</label>
                 <input type="text" id="surname" v-model="form.surname" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
               </div>
-              <div class="form-group">
-                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-                <input type="email" id="email" v-model="form.email" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
-              </div>
-              <div class="form-group">
-                <label for="company" class="block text-gray-700 font-bold mb-2">Company</label>
-                <input type="text" id="company" v-model="form.company" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
-              </div>
+            </div>
+            <div class="form-group mt-4">
+              <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+              <input type="email" id="email" v-model="form.email" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
             </div>
             <div class="form-group mt-4">
               <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
@@ -92,7 +88,6 @@ const form = ref({
   name: '',
   surname: '',
   email: '',
-  company: '',
   message: '',
 });
 
