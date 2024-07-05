@@ -1,25 +1,23 @@
 <template>
-  <nav class="flex" aria-label="Breadcrumb">
+  <nav class="flex bg-white py-2 px-4 w-full shadow" aria-label="Breadcrumb">
     <ol class="inline-flex items-center space-x-1 md:space-x-3">
-      <li class="inline-flex items-center">
-        <NuxtLink to="/" class="text-gray-700 hover:text-gray-900 inline-flex items-center">
-          <svg class="w-4 h-4 mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path d="M10 20a1 1 0 01-.71-.29l-9-9a1 1 0 011.42-1.42L10 17.58l8.29-8.29a1 1 0 111.42 1.42l-9 9A1 1 0 0110 20z" />
-          </svg>
-          Home
-        </NuxtLink>
-      </li>
       <li v-for="(breadcrumb, index) in breadcrumbs" :key="index" class="inline-flex items-center">
-        <span class="mx-1 text-gray-500">/</span>
-        <NuxtLink :to="breadcrumb.path" class="text-gray-700 hover:text-gray-900">
+        <svg class="w-4 h-4 text-blue mx-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+          <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" />
+        </svg>
+        <NuxtLink v-if="index < breadcrumbs.length - 1" :to="breadcrumb.path" class="text-blue hover:text-secondary-color underline">
           {{ breadcrumb.name }}
         </NuxtLink>
+        <span v-else class="text-blue font-medium">
+          {{ breadcrumb.name }}
+        </span>
       </li>
     </ol>
   </nav>
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -33,3 +31,8 @@ const breadcrumbs = computed(() => {
   })
 })
 </script>
+
+<style scoped>
+
+
+</style>
