@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex bg-white py-2 px-4 w-full shadow" aria-label="Breadcrumb">
+  <nav class="flex bg-gray-100 py-2 px-4 w-full shadow" aria-label="Breadcrumb">
     <ol class="inline-flex items-center space-x-1 md:space-x-3">
       <li v-for="(breadcrumb, index) in breadcrumbs" :key="index" class="inline-flex items-center">
         <svg class="w-4 h-4 text-blue mx-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
