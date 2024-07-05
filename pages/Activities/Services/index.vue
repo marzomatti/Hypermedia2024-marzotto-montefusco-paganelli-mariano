@@ -1,33 +1,39 @@
 <template>
-  <div class="flex flex-col bg-primary-color lg:py-12 py-8">
-    <div class="lg:px-24 px-4">
-      <!-- Title of the page -->
-      <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Services</h1>
-      <!-- Description of the page -->
-      <div class="flex justify-center mt-4">
-        <h2 class="text-white text-center lg:text-2xl text-xl">
-          We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you.
-        </h2>
-      </div>
-    </div>
-  </div>
-  <main>
-    <div class="flex flex-col w-full">
-      <!-- Services List -->
-      <div v-for="(service, index) in services" :key="service.id" :class="index % 2 === 0 ? 'bg-red-100' : 'bg-gray-100'" class="lg:px-24 px-4 py-12">
-        <div class="flex flex-col lg:flex-row items-center">
-          <div class="flex-1">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ service.name }}</h2>
-            <p class="text-gray-600 text-lg mb-4">{{ service.description }}</p>
-            <Button :text="'Discover more ->'" :link="service.link"></Button>
-          </div>
-          <div class="pl-32 pr-4">
-            <img src="/stop_violence.avif" alt="Service Image" class="w-64 h-64 lg:w-72 lg:h-48 ml-4 lg:ml-8 rounded-3xl shadow-md">
-          </div>
+  <div>
+    <div class="flex flex-col bg-primary-color lg:py-12 py-8">
+      <div class="lg:px-24 px-4">
+        <!-- Title of the page -->
+        <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Services</h1>
+        <!-- Description of the page -->
+        <div class="flex justify-center mt-4">
+          <h2 class="text-white text-center lg:text-2xl text-xl">
+            We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you.
+          </h2>
         </div>
       </div>
     </div>
-  </main>
+    <main class="py-12 px-4 lg:px-24 bg-white">
+      <!-- Services List -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 justify-center">
+        <div v-for="(service, index) in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition duration-300 flex items-center">
+          <img :src="service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer mr-4"/>
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ service.name }}</h2>
+            <p class="text-gray-600">{{ service.description }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- How Section -->
+      <section class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">How?</h2>
+        <p class="text-lg text-gray-700">Our services are designed to provide comprehensive support to women affected by violence. From group chats and psychological support to legal aid and medical assistance, we are here to help you navigate through difficult times with the care and expertise you need. Each service is tailored to address specific needs, ensuring that you receive the right kind of support when you need it most. Explore the sections above to learn more about how each service can assist you in your journey towards healing and empowerment.</p>
+      </section>
+      <!-- Image Section -->
+      <div class="flex justify-center">
+        <img src="/public/serviceindex_img.jpg" alt="Supporting Image" class="rounded-3xl shadow-lg w-full max-w-4xl">
+      </div>
+    </main>
+  </div>
 </template>
 
 <script setup>
@@ -47,9 +53,11 @@ const { data, pending } = await useAsyncData('services', async () => {
     .select()
     
   if (error) {
+    console.error(error);
     return []
   }
 
+  console.log(data);  // Aggiungi questo per verificare i dati restituiti
   return data
 })
 
@@ -57,16 +65,19 @@ services.value = data.value
 </script>
 
 <style scoped>
-/* Scoped styles if needed */
 .rounded-3xl {
   border-radius: 1.5rem;
 }
 
-.bg-red-100 {
-  background-color: #ffffff
+.bg-white {
+  background-color: #ffffff;
 }
 
-.bg-gray-100 {
-  background-color: #f7fafc;
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.hover\:shadow-xl:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 </style>
