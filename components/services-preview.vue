@@ -5,12 +5,12 @@
       <div class="w-full md:w-1/2 mb-8 md:mb-0 px-4">
         <h2 class="text-4xl font-bold text-blue mb-4">Our Services</h2>
         <p class="text-lg text-blue mb-4">We offer comprehensive support, including legal assistance, counseling, and recovery programs. Let our expert team help you find safety and empowerment. Discover how we can assist you on your journey.</p>
-        <Button :text="'See our services ->'" />
+        <Button :text="'See our services ->'" :link="'/activities/services'"/>
       </div>
       <!-- Right Side: Service Buttons -->
       <div class="w-full md:w-1/2 flex justify-end">
         <div class="w-2/3 flex flex-col space-y-4 px-4">
-          <div v-for="service in services" :key="service.id" class="flex items-center space-x-2">
+          <div v-for="service in servs" :key="service.id" class="flex items-center space-x-2">
             <img :src="service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer"/>
             <button class="flex-1 flex items-center border-2 border-secondary-color text-blue rounded-full px-6 py-4 hover:bg-secondary-color hover:text-white transition hover:bg-secondary-color duration-300">
               <span class="text-xl">{{ service.name }}</span>
@@ -24,27 +24,14 @@
 
 <script setup>
 
-
-function getLogoUrl(logo) {
-  return "assets/img/services/" + logo;
-}
-
 const supabase = useSupabaseClient()
-const services = ref([])
 
-const { data, pending } = await useAsyncData('services', async () => {
-  const { data, error } = await supabase
-    .from('services')
-    .select()
-    
-  if (error) {
-    return []
-  }
+let { data: services, error } = await supabase
+  .from('services')
+  .select('*')
 
-  return data
-})
+const servs = services;
 
-services.value = data.value
 </script>
 
 <style scoped>

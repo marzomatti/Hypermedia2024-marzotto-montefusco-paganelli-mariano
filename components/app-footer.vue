@@ -101,14 +101,6 @@
                   </NuxtLink>
                 </div>
               </li>
-              <li>
-                <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/"
-                    class="text-gray-700 hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
-                    LinkedIn
-                  </NuxtLink>
-                </div>
-              </li>
             </ul>
           </div>
         </div>
@@ -135,10 +127,9 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'Footer',
-};
+<script setup>
+
+
 </script>
 
 <style scoped>

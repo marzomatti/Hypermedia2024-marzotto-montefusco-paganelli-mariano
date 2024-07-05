@@ -1,4 +1,5 @@
 <template>
+  <main>
   <div class="flex flex-col bg-primary-color lg:py-12 py-8">
     <div class="lg:px-24 px-4">
       <!-- Title of the page -->
@@ -11,7 +12,6 @@
       </div>
     </div>
   </div>
-  <main>
     <!-- Services Section -->
     <section class="bg-white py-12 px-12">
       <div class="container mx-auto">

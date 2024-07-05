@@ -1,4 +1,5 @@
 <template>
+  <main>
   <div class="flex flex-col bg-primary-color lg:py-12 py-8">
     <div class="lg:px-24 px-4">
       <!-- Title of the page -->
@@ -11,7 +12,6 @@
       </div>
     </div>
   </div>
-  <main>
     <div class="flex flex-col w-full">
       <!-- Services List -->
       <div v-for="(service, index) in services" :key="service.id" :class="index % 2 === 0 ? 'bg-red-100' : 'bg-gray-100'" class="lg:px-24 px-4 py-12">
