@@ -11,11 +11,11 @@
           <h2 class="text-3xl text-blue mb-6">{{ person.role }}</h2>
           <div class="mt-4">
             <h3 class="text-2xl font-bold text-blue">Contact</h3>
-            <p class="text-gray-600 text-xl">Email: <a :href="'mailto:' + person.email" class="text-secondary-color hover:underline">{{ person.email }}</a></p>
+            <p class="text-blue text-xl">Email: <a :href="'mailto:' + person.email" class="text-secondary-color hover:underline">{{ person.email }}</a></p>
           </div>
           <div class="mt-6">
             <h3 class="text-2xl font-bold text-blue">Description</h3>
-            <p class="text-gray-600 text-xl">{{ person.description }}</p>
+            <p class="text-blue text-xl">{{ person.description }}</p>
           </div>
         </div>
       </div>
@@ -27,10 +27,21 @@
           <nuxt-link v-for="activity in person.activities" :key="activity.id" :to="'/activity/' + activity.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <img :src="activity.image" alt="Activity Image" class="w-full h-48 object-cover rounded-3xl mb-4">
             <h3 class="text-2xl font-bold text-blue mb-2">{{ activity.title }}</h3>
-            <p class="text-gray-600">{{ activity.description }}</p>
+            <p class="text-blue">{{ activity.description }}</p>
           </nuxt-link>
         </div>
       </section>
+
+      <!-- Navigation Arrows -->
+      <div class="flex justify-between mt-12">
+        <button v-if="hasPreviousPerson" @click="navigateTo(previousPersonId)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
+          &larr; Previous Person
+        </button>
+        <div class="flex-1"></div>
+        <button v-if="hasNextPerson" @click="navigateTo(nextPersonId)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
+          Next Person &rarr;
+        </button>
+      </div>
     </div>
   </main>
 </template>
@@ -40,26 +51,61 @@ useHead({
   title: 'Personal Info',
 })
 const supabase = useSupabaseClient()
+const route = useRoute()
+const router = useRouter()
 
-const person = ref();
-const route = useRoute();
+const person = ref({})
+const hasPreviousPerson = ref(false)
+const hasNextPerson = ref(false)
+const previousPersonId = ref(null)
+const nextPersonId = ref(null)
 
-const { data, pending } = await useAsyncData('staff', async () => {
+const fetchPersonData = async () => {
   const { data, error } = await supabase
     .from('staff')
     .select()
     .eq('id', route.params.id)
-    .single();
+    .single()
 
   if (error) {
-    return []
+    console.error(error)
+  } else {
+    person.value = data
+    checkNavigation(data.id)
   }
+}
 
-  return data
-})
+const checkNavigation = async (currentPersonId) => {
+  const { data: staff, error } = await supabase
+    .from('staff')
+    .select('id')
+    .order('id', { ascending: true })
 
-person.value = data.value
+  if (error) {
+    console.error(error)
+  } else {
+    const personIds = staff.map(s => s.id)
+    const currentIndex = personIds.indexOf(currentPersonId)
 
+    hasPreviousPerson.value = currentIndex > 0
+    hasNextPerson.value = currentIndex < personIds.length - 1
+
+    if (hasPreviousPerson.value) {
+      previousPersonId.value = personIds[currentIndex - 1]
+    }
+    if (hasNextPerson.value) {
+      nextPersonId.value = personIds[currentIndex + 1]
+    }
+  }
+}
+
+const navigateTo = (id) => {
+  if (id) {
+    router.push(`/team/person${id}`)
+  }
+}
+
+onMounted(fetchPersonData)
 </script>
 
 <style scoped>
@@ -68,13 +114,6 @@ person.value = data.value
 }
 
 
-.text-secondary-color {
-  color: var(--color-secondary);
-}
-
-.bg-secondary-color {
-  background-color: var(--color-secondary);
-}
 
 .shadow-lg {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -91,4 +130,5 @@ person.value = data.value
 .aspect-portrait {
   aspect-ratio: 3 / 4;
 }
+
 </style>
