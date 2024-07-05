@@ -32,10 +32,9 @@
             <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ project.name }}</h2>
             <p class="text-gray-600 text-lg mb-4">{{ project.description }}</p>
             <Button :text="'Discover more ->'" :link="project.link"></Button>
-            <!-- <nuxt-link :to="'/services/' + service.id" class="text-red-600 hover:underline font-bold">Discover more →</nuxt-link> -->
           </div>
           <div class="pl-32 pr-4">
-            <img src="/stop_violence.avif" alt="Project Image" class="w-64 h-64 lg:w-72 lg:h-48 ml-4 lg:ml-8 rounded-3xl shadow-md">
+            <img :src="project.image" alt="Project Image" class="w-80 h-80 lg:w-96 lg:h-64 ml-4 lg:ml-8 rounded-3xl shadow-md">
           </div>
         </div>
       </div>
@@ -89,7 +88,6 @@ const getBackgroundColor = (index) => {
 .rounded-3xl {
   border-radius: 1.5rem;
 }
-
 
 .focus\:ring-primary-color:focus {
   box-shadow: 0 0 0 2px rgba(255, 76, 76, 0.5);
