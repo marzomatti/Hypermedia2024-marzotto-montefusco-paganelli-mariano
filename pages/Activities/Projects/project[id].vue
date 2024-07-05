@@ -82,7 +82,7 @@ const checkNavigation = async (currentProjectId) => {
 
 const navigateTo = (id) => {
   if (id) {
-    router.push(`/projects/${id}`);
+    router.push(`/activities/projects/project`+ `${id}`);
   }
 };
 </script>

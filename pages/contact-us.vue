@@ -68,7 +68,7 @@
           <div class="bg-white p-4 rounded-3xl shadow-lg h-full">
             <h3 class="text-xl font-semibold mb-4 text-blue">Our location</h3>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.3835724117585!2d9.191949900000001!3d45.462076599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6a8d6c8a797%3A0x853071d1537e8bc0!2sVia%20Larga%2C%2012%2C%2020122%20Milano%20MI!5e0!3m2!1sit!2sit!4v1685293835994!5m2!1sit!2sit"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.6390609265204!2d9.225940975760482!3d45.477074332580294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6f3883528e3%3A0x395935933a2f55dc!2sGiovanni%2C%20Via%20Giovanni%20Celoria%2C%203%2C%2020133%20Milano%20MI!5e0!3m2!1sen!2sit!4v1720198817410!5m2!1sen!2sit"
               width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
             </iframe>
           </div>

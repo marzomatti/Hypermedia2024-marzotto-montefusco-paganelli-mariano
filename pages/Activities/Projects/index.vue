@@ -31,7 +31,7 @@
           <div class="flex-1">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ project.name }}</h2>
             <p class="text-gray-600 text-lg mb-4">{{ project.description_s }}</p>
-            <Button :text="'Discover more ->'" :link="project.link"></Button>
+            <Button :text="'Discover more ->'" :link="getProjectLink(project.id)"></Button>
           </div>
           <div class="pl-32 pr-4">
             <img :src="project.image" alt="Project Image" class="w-80 h-80 lg:w-96 lg:h-64 ml-4 lg:ml-8 rounded-3xl shadow-md">
@@ -81,6 +81,10 @@ const filteredProjects = computed(() => {
 const getBackgroundColor = (index) => {
   const colors = ['bg-gray-100', 'bg-white'];
   return colors[index % colors.length];
+}
+
+function getProjectLink(id) {
+  return `/activities/projects/project` + `${id}`
 }
 </script>
 
