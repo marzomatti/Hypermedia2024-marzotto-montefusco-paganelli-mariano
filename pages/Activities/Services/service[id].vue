@@ -2,15 +2,15 @@
   <Breadcrumb />
 
   <main class="py-12 px-4 lg:px-24 bg-white min-h-screen">
-    <div class="flex flex-col lg:flex-row items-start justify-between mb-12">
+    <div class="flex flex-col items-start justify-between mb-12">
       <!-- Sezione Sinistra: Dettagli del Servizio -->
       <div class="lg:w-2/3">
         <h1 class="text-5xl font-bold text-blue mb-4">{{ service.name }}</h1>
         <h2 class="text-2xl text-blue mb-2">Responsible Person: {{ service.responsible }}</h2>
         <p class="text-lg text-blue mb-6">{{ service.description }}</p>
       </div>
-      <!-- Sezione Destra: Immagine del Servizio -->
-      <div class="lg:w-1/3 lg:pl-8">
+      <!-- Sezione Immagine: Immagine del Servizio -->
+      <div class="w-full mt-8">
         <img :src="service.image" alt="Service Image" class="w-full h-auto rounded-3xl shadow-lg">
       </div>
     </div>
