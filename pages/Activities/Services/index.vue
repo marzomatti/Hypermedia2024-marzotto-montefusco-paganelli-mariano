@@ -14,19 +14,19 @@
     </div>
     <main class="py-12 px-4 lg:px-24 bg-white">
       <!-- Services List -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 justify-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 justify-center text-blue">
         <div v-for="service in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition duration-300 flex items-center">
           <img :src="service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer mr-4"/>
           <div>
-            <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ service.name }}</h2>
-            <p class="text-gray-600">{{ service.description }}</p>
+            <h2 class="text-2xl font-bold text-blue mb-2">{{ service.name }}</h2>
+            <p class="text-blue">{{ service.description }}</p>
           </div>
         </div>
       </div>
       <!-- How Section -->
       <section class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-gray-800 mb-4">How?</h2>
-        <p class="text-lg text-gray-700">Our services are designed to provide comprehensive support to women affected by violence. From group chats and psychological support to legal aid and medical assistance, we are here to help you navigate through difficult times with the care and expertise you need. Each service is tailored to address specific needs, ensuring that you receive the right kind of support when you need it most. Explore the sections above to learn more about how each service can assist you in your journey towards healing and empowerment.</p>
+        <h2 class="text-4xl font-bold text-blue mb-4">How?</h2>
+        <p class="text-lg text-blue">Our services are designed to provide comprehensive support to women affected by violence. From group chats and psychological support to legal aid and medical assistance, we are here to help you navigate through difficult times with the care and expertise you need. Each service is tailored to address specific needs, ensuring that you receive the right kind of support when you need it most. Explore the sections above to learn more about how each service can assist you in your journey towards healing and empowerment.</p>
       </section>
       <!-- Image Section -->
       <div class="flex justify-center">

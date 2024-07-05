@@ -67,9 +67,6 @@ person.value = data.value
   border-radius: 1.5rem;
 }
 
-.text-blue {
-  color: var(--color-blue);
-}
 
 .text-secondary-color {
   color: var(--color-secondary);
