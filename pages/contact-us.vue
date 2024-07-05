@@ -34,7 +34,7 @@
               <label for="message" class="block ttext-blue font-bold mb-2">Message</label>
               <textarea id="message" v-model="form.message" required class="w-full p-3 border rounded-3xl h-32 resize-none focus:border-primary-color focus:ring-primary-color"></textarea>
             </div>
-            <button type="submit" class="w-full bg-secondary-color text-white p-3 rounded-3xl hover:bg-secondary-color mt-4">Send</button>
+            <button type="submit" class="w-full inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">Send</button>
           </form>
         </div>
       </div>
