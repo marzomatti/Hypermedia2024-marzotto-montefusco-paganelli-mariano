@@ -30,7 +30,7 @@
         <div class="flex flex-col lg:flex-row items-center">
           <div class="flex-1">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ project.name }}</h2>
-            <p class="text-gray-600 text-lg mb-4">{{ project.description }}</p>
+            <p class="text-gray-600 text-lg mb-4">{{ project.description_s }}</p>
             <Button :text="'Discover more ->'" :link="project.link"></Button>
           </div>
           <div class="pl-32 pr-4">
