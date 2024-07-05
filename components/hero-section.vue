@@ -1,9 +1,7 @@
 <template>
   <section class="relative bg-cover bg-center h-screen" :style="heroStyle">
-    <div class="flex items-center justify-center h-full">
-      <div class="absolute top-0 center-5 p-10 text-left text-white">
-        <h1 class="text-5xl font-bold text-secondary-color">You are not alone!</h1>
-      </div>
+    <div class="flex items-end justify-center h-full pb-16">
+      <h1 class="text-5xl font-bold text-blue text-center animate-fadeInUp">You are not alone!</h1>
     </div>
   </section>
 </template>
@@ -32,7 +30,20 @@ export default {
 </script>
 
 <style scoped>
-section {
-  background-image: url('./assets/img/hero-image.avif');
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out;
+}
+
+
 </style>
