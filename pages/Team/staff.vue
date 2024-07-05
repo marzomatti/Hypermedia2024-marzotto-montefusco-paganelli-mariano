@@ -5,7 +5,7 @@
       Meet our dedicated staff committed to supporting and advocating for women affected by violence. Our team is composed of experienced professionals who are passionate about making a difference. Each member brings a unique set of skills and expertise to provide comprehensive support and create a safe and empowering environment for all. We are here to help, listen, and guide you every step of the way.
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <nuxt-link v-for="person in staff" :key="person.id" :to="`/staff/${person.id}`" class="bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105">
+      <nuxt-link v-for="person in staff" :key="person.id" :to="`/team/person${person.id}`" class="bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105">
         <img :src="person.image" alt="Staff Photo" class="w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
         <h3 class="text-xl font-semibold text-blue">{{ person.name }} {{ person.surname }}</h3>
         <p class="text-blue">{{ person.role }}</p>
