@@ -8,7 +8,7 @@
       <!-- Description of the page -->
       <div class="flex justify-center mt-4">
         <h2 class="text-white text-center lg:text-2xl text-xl">
-          Our center provides comprehensive support for women affected by domestic violence. We offer a variety of services, including psychological support, group chats, informal support calls, legal aid, medical assistance, and safe housing. Additionally, we run projects focused on education, youth outreach, community awareness, survivor mentorship, and wellness retreats, all aimed at empowering and supporting survivors.
+          We support women affected by domestic violence with psychological counseling, group chats, legal aid, medical assistance, safe housing, educational programs, community outreach, and wellness retreats.
         </h2>
       </div>
     </div>
