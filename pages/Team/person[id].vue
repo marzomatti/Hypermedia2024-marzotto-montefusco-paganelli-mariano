@@ -4,7 +4,7 @@
       <!-- Profile Section -->
       <div class="bg-white p-8 rounded-3xl shadow-lg mb-12 flex flex-col md:flex-row items-center">
         <div class="md:flex-1 md:mr-8">
-          <img :src="person.photo" alt="Profile Photo" class="w-full h-auto rounded-3xl shadow-md mb-4 md:mb-0">
+          <img :src="person.image" alt="Profile Photo" class="w-full h-auto rounded-3xl shadow-md mb-4 md:mb-0">
         </div>
         <div class="md:flex-1 text-center md:text-left">
           <h1 class="text-5xl font-extrabold text-blue mb-4">{{ person.name }} {{ person.surname }}</h1>
@@ -39,47 +39,27 @@
 useHead({
   title: 'Personal Info',
 })
+const supabase = useSupabaseClient()
 
-import { useRoute } from 'vue-router'
-import { ref, onMounted } from 'vue'
+const person = ref();
+const route = useRoute();
 
-// Mock data, replace with your data fetching logic
-const person = ref({
-  name: 'John',
-  surname: 'Doe',
-  role: 'Senior Developer',
-  email: 'john.doe@example.com',
-  description: 'John Doe is a senior developer with over 10 years of experience in full-stack development. He specializes in both front-end and back-end technologies and has a passion for building robust, scalable applications. John is known for his attention to detail, problem-solving skills, and ability to lead projects from concept to completion. In addition to his technical expertise, John is also an advocate for best practices in coding and software development. He frequently speaks at industry conferences and contributes to open-source projects. In his free time, John enjoys mentoring junior developers and exploring new technologies. He is committed to continuous learning and believes in the power of technology to make a positive impact on society. His goal is to create innovative solutions that not only meet the needs of users but also drive business success.',
-  photo: '../NoWomanAlone.jpg',
-  cv: '/path/to/cv.pdf',
-  activities: [
-    {
-      id: 1,
-      title: 'Project Alpha',
-      description: 'A comprehensive project focused on developing cutting-edge solutions for real-world problems. John led the team to successfully deliver the project on time and within budget.',
-      image: '../support.jpg'
-    },
-    {
-      id: 2,
-      title: 'Workshop Beta',
-      description: 'An engaging workshop about the latest trends in web development. John shared his insights and provided hands-on training to participants.',
-      image: '../support.jpg'
-    },
-    {
-      id: 3,
-      title: 'Seminar Gamma',
-      description: 'A detailed seminar covering advanced topics in software engineering. John\'s presentation was highly appreciated for its clarity and depth.',
-      image: '../support.jpg'
-    }
-  ]
+const { data, pending } = await useAsyncData('staff', async () => {
+  const { data, error } = await supabase
+    .from('staff')
+    .select()
+    .eq('id', route.params.id)
+    .single();
+
+  if (error) {
+    return []
+  }
+
+  return data
 })
 
-const route = useRoute()
+person.value = data.value
 
-onMounted(() => {
-  // Fetch person data based on route.params.id
-  // Example: person.value = await fetchPerson(route.params.id)
-})
 </script>
 
 <style scoped>
