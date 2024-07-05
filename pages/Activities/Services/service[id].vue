@@ -2,16 +2,18 @@
   <Breadcrumb />
 
   <main class="py-12 px-4 lg:px-24 bg-white min-h-screen">
-    <div class="flex flex-col items-start justify-between mb-12">
+    <div class="flex flex-col lg:flex-row items-start justify-between mb-12">
       <!-- Sezione Sinistra: Dettagli del Servizio -->
-      <div class="lg:w-2/3">
+      <div class="lg:w-2/3 flex flex-col justify-center">
         <h1 class="text-5xl font-bold text-blue mb-4">{{ service.name }}</h1>
         <h2 class="text-2xl text-blue mb-2">Responsible Person: {{ service.responsible }}</h2>
-        <p class="text-lg text-blue mb-6">{{ service.description }}</p>
+        <p class="text-xl text-blue mb-6">{{ service.description }}</p>
       </div>
-      <!-- Sezione Immagine: Immagine del Servizio -->
-      <div class="w-full mt-8">
-        <img :src="service.image" alt="Service Image" class="w-full h-auto rounded-3xl shadow-lg">
+      <!-- Sezione Destra: Immagine del Servizio -->
+      <div class="lg:w-1/3 lg:pl-8 flex items-center">
+        <div class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden">
+          <img :src="service.image" alt="Service Image" class="absolute inset-0 w-full h-full object-cover">
+        </div>
       </div>
     </div>
 
@@ -21,10 +23,17 @@
       <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <!-- Blocco Obiettivo -->
-          <div v-for="goal in goals" :key="goal.id" class="flex flex-col items-center">
-            <img :src="goal.icon" alt="Goal Icon" class="h-24 w-24 mb-4" />
-            <h3 class="text-2xl font-bold text-blue mb-2">{{ goal.title }}</h3>
-            <p>{{ goal.description }}</p>
+          <div class="flex flex-col items-center">
+            <img src="public/service_fix1.png" alt="Goal Icon" class="h-24 w-24 mb-4" />
+            <h3 class="text-xl font-semibold text-blue mb-2">{{ service.goal1 }}</h3>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="public/service_fix2.png" alt="Goal Icon" class="h-24 w-24 mb-4" />
+            <h3 class="text-xl font-semibold text-blue mb-2">{{ service.goal2 }}</h3>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="public/service_fix3.png" alt="Goal Icon" class="h-24 w-24 mb-4" />
+            <h3 class="text-xl font-semibold text-blue mb-2">{{ service.goal3 }}</h3>
           </div>
         </div>
       </div>
@@ -108,7 +117,7 @@ const checkNavigation = async (currentServiceId) => {
 
 const navigateTo = (id) => {
   if (id) {
-    router.push(`/activities/services/service`+ `${id}`);
+    router.push('/activities/services/service'+ `${id}`);
   }
 };
 </script>
