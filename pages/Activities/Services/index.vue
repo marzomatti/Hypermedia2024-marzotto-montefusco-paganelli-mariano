@@ -20,7 +20,7 @@
           <img :src="service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer mr-4"/>
           <div>
             <h2 class="text-2xl font-bold text-blue mb-2">{{ service.name }}</h2>
-            <p class="text-blue">{{ service.description }}</p>
+            <p class="text-blue">{{ service.description_s }}</p>
           </div>
         </div>
       </div>
