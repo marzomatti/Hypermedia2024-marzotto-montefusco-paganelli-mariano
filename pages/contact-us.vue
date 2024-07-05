@@ -99,12 +99,10 @@ const submitForm = () => {
 
 <style scoped>
 .bg-primary-color {
-  background-color: #ff4c4c;
+  background-color: #d32f2f;
 }
 
-.text-primary-color {
-  color: #ff4c4c;
-}
+
 
 button:hover {
   background-color: #d32f2f;
@@ -117,7 +115,7 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: #ff4c4c;
+  border-color: #d32f2f;
   box-shadow: 0 0 0 3px rgba(255, 76, 76, 0.2);
 }
 
