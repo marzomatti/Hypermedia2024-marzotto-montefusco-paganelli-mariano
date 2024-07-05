@@ -30,7 +30,7 @@
               </li>
               <li>
                 <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/team"
+                  <NuxtLink to="/chat"
                     class="text-blue hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Chatbot
                   </NuxtLink>
@@ -56,7 +56,7 @@
               </li>
               <li class="text-blue">
                 <div class="flex flex-row md:justify-center">
-                  Tel: +12 123 456 789
+                  Tel: +39 123 4567890
                 </div>
               </li>
               <li class="text-blue">
@@ -79,7 +79,7 @@
             <ul class="w-full space-y-2">
               <li>
                 <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/"
+                  <NuxtLink to="https://it-it.facebook.com/"
                     class="text-blue hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
                     Facebook
                   </NuxtLink>
@@ -87,17 +87,17 @@
               </li>
               <li>
                 <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/"
+                  <NuxtLink to="https://www.instagram.com"
                     class="text-blue hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
-                    Twitter
+                    Instagram
                   </NuxtLink>
                 </div>
               </li>
               <li>
                 <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/"
+                  <NuxtLink to="https://www.twitter.com"
                     class="text-blue hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
-                    Instagram
+                    𝕏
                   </NuxtLink>
                 </div>
               </li>

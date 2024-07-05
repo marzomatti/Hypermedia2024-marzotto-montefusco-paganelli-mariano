@@ -31,7 +31,7 @@
               <input type="email" id="email" v-model="form.email" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
             </div>
             <div class="form-group mt-4">
-              <label for="message" class="block ttext-blue font-bold mb-2">Message</label>
+              <label for="message" class="block text-blue font-bold mb-2">Message</label>
               <textarea id="message" v-model="form.message" required class="w-full p-3 border rounded-3xl h-32 resize-none focus:border-primary-color focus:ring-primary-color"></textarea>
             </div>
             <button type="submit" class="w-full inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">Send</button>
@@ -47,7 +47,7 @@
           </div>
           <div class="bg-white p-4 rounded-3xl shadow-lg m-2 h-full flex flex-col justify-center">
             <h3 class="text-xl font-semibold mb-2 text-blue">Call us</h3>
-            <p class="text-blue">+12 123 456 789</p>
+            <p class="text-blue">+39 123 4567890</p>
           </div>
           <div class="bg-white p-4 rounded-3xl shadow-lg m-2 h-full flex flex-col justify-center">
             <h3 class="text-xl font-semibold mb-2 text-blue">Follow us</h3>
@@ -123,9 +123,6 @@ textarea:focus {
   background-color: #ffffff;
 }
 
-.text-blue {
-  color: var(--color-blue);
-}
 
 .bg-secondary-color {
   background-color: var(--color-secondary);
