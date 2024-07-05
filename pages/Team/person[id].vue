@@ -1,4 +1,5 @@
 <template>
+  <Breadcrumb/>
   <main class="bg-gray-50 min-h-screen py-8">
     <div class="container mx-auto px-4 max-w-6xl">
       <!-- Profile Section -->

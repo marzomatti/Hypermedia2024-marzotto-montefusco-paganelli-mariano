@@ -1,4 +1,5 @@
 <template>
+  <Breadcrumb/>
   <section class="py-12 px-4 lg:px-24">
     <h1 class="text-4xl font-bold text-center mb-8">Our Volunteers</h1>
     <p class="text-lg text-center mb-12">

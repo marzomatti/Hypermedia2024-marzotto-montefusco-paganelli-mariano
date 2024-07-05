@@ -1,4 +1,5 @@
 <template>
+  <Breadcrumb/>
 <TeamList :people="legals" :team-name="teamName"/>
 </template>
 

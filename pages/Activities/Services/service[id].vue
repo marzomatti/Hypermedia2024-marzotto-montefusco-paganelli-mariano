@@ -1,6 +1,5 @@
 <template>
   <Breadcrumb />
-
   <main class="py-12 px-4 lg:px-24 bg-white min-h-screen">
     <div class="flex flex-col lg:flex-row items-start justify-between mb-12">
       <!-- Sezione Sinistra: Dettagli del Servizio -->
