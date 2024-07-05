@@ -19,7 +19,7 @@
         <div class="max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl" style="background-color: #ffcccc;">
           <div class="px-6 py-8 rounded-3xl">
             <div class="font-bold text-2xl mb-4 text-secondary-color">Compassion</div>
-            <p class="text-gray-700 text-base text-blue">
+            <p class="text-base text-blue">
               Compassion is at the heart of everything we do. We believe in providing a supportive and understanding environment where women can feel safe and valued. Our team is dedicated to offering empathy and care to every individual we serve.
             </p>
           </div>
@@ -27,7 +27,7 @@
         <div class="max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl" style="background-color:  #ffffe6;">
           <div class="px-6 py-8 rounded-3xl">
             <div class="font-bold text-2xl mb-4 text-primary-color">Empowerment</div>
-            <p class="text-gray-700 text-base text-blue">
+            <p class="text-base text-blue">
               We are committed to empowering women by providing them with the tools and resources they need to regain control of their lives. Through education, support groups, and advocacy, we strive to help women build a future free from violence.
             </p>
           </div>
@@ -35,7 +35,7 @@
         <div class="max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl" style="background-color: #ffe6cc;">
           <div class="px-6 py-8 rounded-3xl">
             <div class="font-bold text-2xl mb-4 text-orange-200">Change</div>
-            <p class="text-gray-700 text-base text-blue">
+            <p class="text-base text-blue">
               Our goal is to bring about lasting change in our community. We work tirelessly to raise awareness, educate the public, and advocate for policies that protect women and prevent violence. Together, we can create a safer world for everyone.
             </p>
           </div>

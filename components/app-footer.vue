@@ -105,8 +105,8 @@
           </div>
         </div>
       </div>
-      <hr class="w-full border-gray-300 my-1 mt-12">
-      <div class="flex justify-center md:flex-row flex-col md:space-x-4 space-x-0 items-center text-blue mt-8">
+      <hr class="w-full border-gray-300 my-1 mt-4">
+      <div class="flex justify-center md:flex-row flex-col md:space-x-4 space-x-0 items-center text-blue mt-4">
         <p>
           Copyright &copy; 2024 No Woman Alone
         </p>
@@ -128,7 +128,6 @@
 </template>
 
 <script setup>
-
 
 </script>
 
