@@ -1,4 +1,5 @@
 <template>
+  <Breadcrumb/>
   <main>
   <div class="flex flex-col bg-primary-color lg:py-12 py-8">
     <div class="lg:px-24 px-4">

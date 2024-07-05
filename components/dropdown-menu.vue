@@ -7,7 +7,7 @@
           <NuxtLink :to="category.href" class="block px-4 py-2 hover:bg-secondary-color hover:text-white rounded-md text-sm font-bold mb-2">{{ category.name }}</NuxtLink>
           <ul class="space-y-2">
             <li v-for="service in services" :key="service.id">
-              <NuxtLink :to="service.href" class="block px-4 py-2 hover:bg-secondary-color hover:text-white rounded-md">
+              <NuxtLink :to="getServiceLink(service.id)" class="block px-4 py-2 hover:bg-secondary-color hover:text-white rounded-md">
                 {{ service.name }}
               </NuxtLink>
             </li>
@@ -58,6 +58,9 @@ const { data: services, pending } = await useAsyncData('services', async () => {
   return data
 })
 
+function getServiceLink(serviceId){
+  return "services/service" + serviceId;
+}
 </script>
 
 <style scoped>

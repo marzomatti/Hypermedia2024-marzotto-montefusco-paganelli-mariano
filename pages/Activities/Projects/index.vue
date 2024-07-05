@@ -1,4 +1,5 @@
 <template>
+  <Breadcrumb/>
   <header>
     <div class="flex flex-col bg-primary-color lg:py-12 py-8">
       <div class="lg:px-24 px-4">
@@ -13,7 +14,6 @@
       </div>
     </div>
   </header>
-
   <main>
     <div class="flex flex-col w-full py-8">
       <!-- Search Bar -->

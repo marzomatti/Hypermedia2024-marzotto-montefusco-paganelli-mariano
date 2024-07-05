@@ -15,16 +15,6 @@ export default defineNuxtConfig({
       redirect: false
   
     },
-  build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
-  } as any,
 
 
   app: {
