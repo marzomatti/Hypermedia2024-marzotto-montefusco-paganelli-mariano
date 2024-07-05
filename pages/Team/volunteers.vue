@@ -1,25 +1,17 @@
 <template>
-  <main class="bg-gray-50 min-h-screen py-8">
-    <div class="container mx-auto px-4">
-      <!-- Header Section -->
-      <header class="text-center mb-12">
-        <h1 class="text-4xl font-extrabold text-gray-900">Meet Our Volunteers</h1>
-        <p class="text-lg text-gray-600 mt-4">
-          Our dedicated volunteers are the heart and soul of our organization. They come from various backgrounds and are committed to making a positive impact in the lives of women affected by violence.
-        </p>
-      </header>
-      
-      <!-- Volunteers Grid Layout -->
-      <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <div v-for="volunteer in volunteers" :key="volunteer.id" class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-200">
-          <img :src="volunteer.imageUrl" :alt="volunteer.name" class="w-24 h-24 rounded-full mx-auto mb-4">
-          <h2 class="text-xl font-bold text-gray-900">{{ volunteer.name }} {{ volunteer.surname }}</h2>
-          <p class="text-gray-600 mb-4">{{ volunteer.description }}</p>
-          <nuxt-link :to="volunteer.link" class="inline-block bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition-colors duration-200">Discover More</nuxt-link>
-        </div>
-      </section>
+  <section class="py-12 px-4 lg:px-24">
+    <h1 class="text-4xl font-bold text-center mb-8">Our Volunteers</h1>
+    <p class="text-lg text-center mb-12">
+      Meet our dedicated volunteers who play a crucial role in supporting and advocating for women affected by violence. Our volunteers bring a diverse range of skills and a deep commitment to making a positive impact. They work tirelessly alongside our staff to provide comprehensive support and create a safe and empowering environment for all. We are grateful for their passion, dedication, and the invaluable contributions they make every day.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div v-for="person in volunteers" :key="person.id" class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <img :src="person.photo" alt="Volunteer Photo" class="w-full h-64 object-cover rounded-lg mb-4">
+        <h3 class="text-xl font-semibold text-gray-800">{{ person.name }} {{ person.surname }}</h3>
+        <p class="text-gray-600">{{ person.role }}</p>
+      </div>
     </div>
-  </main>
+  </section>
 </template>
 
 <script setup>
@@ -27,85 +19,55 @@ useHead({
   title: 'Volunteers',
 })
 
-const teamName = 'Volunteers';
-const volunteers = [
-  {
-    id: 1,
-    name: 'John',
-    surname: 'Doe',
-    imageUrl: '/face1.jpg',
-    description: 'John is an experienced clinical psychologist.',
-    link: '/people/person1'
-  },
-  {
-    id: 2,
-    name: 'Jane',
-    surname: 'Smith',
-    imageUrl: '/face1.jpg',
-    description: 'Jane specializes in child psychology.',
-    link: '/people/person1'
-  },
-  {
-    id: 3,
-    name: 'Alice',
-    surname: 'Johnson',
-    imageUrl: '/face1.jpg',
-    description: 'Alice has a background in neuropsychology.',
-    link: '/people/person1'
-  },
-  {
-    id: 4,
-    name: 'Robert',
-    surname: 'Brown',
-    imageUrl: '/face1.jpg',
-    description: 'Robert focuses on behavioral therapy.',
-    link: '/people/person1'
-  },
-  {
-    id: 5,
-    name: 'Emily',
-    surname: 'Davis',
-    imageUrl: '/face1.jpg',
-    description: 'Emily is an expert in trauma therapy.',
-    link: '/people/person1'
-  },
-  {
-    id: 6,
-    name: 'Michael',
-    surname: 'Wilson',
-    imageUrl: '/face1.jpg',
-    description: 'Michael specializes in anxiety disorders.',
-    link: '/people/person1'
-  },
-  {
-    id: 7,
-    name: 'Sarah',
-    surname: 'Miller',
-    imageUrl: '/face1.jpg',
-    description: 'Sarah works with depression and mood disorders.',
-    link: '/people/person1'
-  },
-  {
-    id: 8,
-    name: 'David',
-    surname: 'Garcia',
-    imageUrl: '/face1.jpg',
-    description: 'David is skilled in cognitive behavioral therapy.',
-    link: '/people/person1'
-  },
-  {
-    id: 9,
-    name: 'Laura',
-    surname: 'Martinez',
-    imageUrl: '/face1.jpg',
-    description: 'Laura has extensive experience in family therapy.',
-    link: '/people/person1'
-  },
-];
+const supabase = useSupabaseClient()
+
+const volunteers = ref([])
+
+const { data, pending } = await useAsyncData('volunteers', async () => {
+  const { data, error } = await supabase
+    .from('volunteers')
+    .select()
+    
+  if (error) {
+    return []
+  }
+
+  return data
+})
+
+volunteers.value = data.value
 </script>
 
 <style scoped>
+.rounded-lg {
+  border-radius: 1.5rem;
+}
 
+.bg-white {
+  background-color: #ffffff;
+}
 
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.text-gray-800 {
+  color: #2d3748;
+}
+
+.text-gray-600 {
+  color: #718096;
+}
+
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 </style>
-
