@@ -7,7 +7,7 @@
       <!-- Description of the page -->
       <div class="flex justify-center mt-4">
         <h2 class="text-white text-center lg:text-2xl text-xl">
-          text
+          We support women affected by domestic violence with psychological counseling, group chats, legal aid, medical assistance, safe housing, educational programs, community outreach, and wellness retreats.
         </h2>
       </div>
     </div>
