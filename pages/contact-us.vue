@@ -1,15 +1,15 @@
 <template>
   <main>
-    <div class="container mx-auto px-12 py-12">
+    <div class="container mx-auto px-4 py-12">
       <h1 class="text-4xl font-extrabold text-center text-blue mb-8">Contact Us</h1>
       <!-- Titolo con immagine -->
       <div class="flex flex-col items-center mb-8">
-        <p class="text-center text-lg text-blue max-w-5xl">
+        <p class="text-center text-lg text-blue max-w-3xl">
           We appreciate your interest in reaching out to us. To ensure a smooth and efficient communication process, we kindly request you to fill out the form below with your relevant information. This will help us better understand your needs and provide you with the most appropriate assistance. We are here to support you and provide the help you need.
         </p>
       </div>
       <!-- Form + immagine -->
-      <div class="md:flex mb-8 items-stretch">
+      <div class="md:flex mb-8 items-stretch justify-center">
         <div class="md:w-1/2 p-7 flex items-stretch">
           <img class="rounded-3xl w-full h-full object-cover" src="/assets/img/hero-image.avif" alt="Contact Image" />
         </div>
@@ -39,37 +39,37 @@
         </div>
       </div>
       <!-- Cards di contatto e mappa -->
-      <div class="md:flex mb-8 space-y-4 md:space-y-0">
+      <div class="md:flex mb-8 space-y-4 md:space-y-0 justify-center">
         <div class="md:w-1/2 flex flex-col space-y-4">
-          <div class="bg-white p-6 rounded-3xl shadow-lg m-4 h-full flex flex-col justify-center">
+          <div class="bg-white p-4 rounded-3xl shadow-lg m-2 h-full flex flex-col justify-center">
             <h3 class="text-xl font-semibold mb-2 text-blue">Email us</h3>
             <p class="text-blue">nowoman@alone.com</p>
           </div>
-          <div class="bg-white p-6 rounded-3xl shadow-lg m-4 h-full flex flex-col justify-center">
+          <div class="bg-white p-4 rounded-3xl shadow-lg m-2 h-full flex flex-col justify-center">
             <h3 class="text-xl font-semibold mb-2 text-blue">Call us</h3>
             <p class="text-blue">+12 123 456 789</p>
           </div>
-          <div class="bg-white p-6 rounded-3xl shadow-lg m-4 h-full flex flex-col justify-center">
+          <div class="bg-white p-4 rounded-3xl shadow-lg m-2 h-full flex flex-col justify-center">
             <h3 class="text-xl font-semibold mb-2 text-blue">Follow us</h3>
             <div class="flex justify-center space-x-4">
               <a href="https://it-it.facebook.com/" target="_blank">
-                <img class="w-12 h-12 rounded-full hover:shadow-2xl" src="public/facebook.png" alt="Facebook" />
+                <img class="w-8 h-8 rounded-full hover:shadow-2xl" src="public/facebook.png" alt="Facebook" />
               </a>
               <a href="https://www.instagram.com" target="_blank">
-                <img class="w-12 h-12 rounded-full hover:shadow-2xl" src="public/instagram.png" alt="Instagram" />
+                <img class="w-8 h-8 rounded-full hover:shadow-2xl" src="public/instagram.png" alt="Instagram" />
               </a>
               <a href="https://www.twitter.com" target="_blank">
-                <img class="w-12 h-12 rounded-full hover:shadow-2xl" src="public/twitter.png" alt="Twitter" />
+                <img class="w-8 h-8 rounded-full hover:shadow-2xl" src="public/twitter.png" alt="Twitter" />
               </a>
             </div>
           </div>
         </div>
-        <div class="md:w-1/2 p-7">
-          <div class="bg-white p-6 rounded-3xl shadow-lg h-full">
+        <div class="md:w-1/2 p-4">
+          <div class="bg-white p-4 rounded-3xl shadow-lg h-full">
             <h3 class="text-xl font-semibold mb-4 text-blue">Our location</h3>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.3835724117585!2d9.191949900000001!3d45.462076599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6a8d6c8a797%3A0x853071d1537e8bc0!2sVia%20Larga%2C%2012%2C%2020122%20Milano%20MI!5e0!3m2!1sit!2sit!4v1685293835994!5m2!1sit!2sit"
-              width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+              width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
             </iframe>
           </div>
         </div>
@@ -119,5 +119,21 @@ textarea:focus {
   outline: none;
   border-color: #ff4c4c;
   box-shadow: 0 0 0 3px rgba(255, 76, 76, 0.2);
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.text-blue {
+  color: var(--color-blue);
+}
+
+.bg-secondary-color {
+  background-color: var(--color-secondary);
+}
+
+.justify-center {
+  justify-content: center;
 }
 </style>
