@@ -52,10 +52,8 @@
   </main>
 </template>
 
-<script>
-export default {
-  name: 'ActivitiesPage'
-}
+<script setup>
+
 </script>
 
 <style scoped>

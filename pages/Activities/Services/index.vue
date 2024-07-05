@@ -16,12 +16,14 @@
     <main class="py-12 px-4 lg:px-24 bg-white">
       <!-- Services List -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 justify-center text-blue">
-        <div v-for="service in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition duration-300 flex items-center">
-          <img :src="service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer mr-4"/>
-          <div>
-            <h2 class="text-2xl font-bold text-blue mb-2">{{ service.name }}</h2>
-            <p class="text-blue">{{ service.description_s }}</p>
-          </div>
+        <div v-for="service in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition duration-500 flex items-center hover:scale-105">
+          <NuxtLink :to="getServiceLink(service.id)" class="flex items-center">
+            <img :src="service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer mr-4"/>
+            <div>
+              <h2 class="text-2xl font-bold text-blue mb-2">{{ service.name }}</h2>
+              <p class="text-blue">{{ service.description_s }}</p>
+            </div>
+          </NuxtLink>
         </div>
       </div>
       <!-- How Section -->
@@ -63,6 +65,10 @@ const { data, pending } = await useAsyncData('services', async () => {
 })
 
 services.value = data.value
+
+function getServiceLink(id) {
+  return `/activities/services/service` + `${id}`
+}
 </script>
 
 <style scoped>
