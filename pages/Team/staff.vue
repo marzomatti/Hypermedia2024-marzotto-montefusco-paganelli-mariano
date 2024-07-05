@@ -6,7 +6,7 @@
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
       <nuxt-link v-for="person in staff" :key="person.id" :to="`/staff/${person.id}`" class="bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105">
-        <img :src="person.photo" alt="Staff Photo" class="w-full h-64 object-cover rounded-lg mb-4">
+        <img :src="person.image" alt="Staff Photo" class="w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
         <h3 class="text-xl font-semibold text-gray-800">{{ person.name }} {{ person.surname }}</h3>
         <p class="text-gray-600">{{ person.role }}</p>
       </nuxt-link>
@@ -57,6 +57,10 @@ staff.value = data.value
 
 .text-gray-600 {
   color: #718096;
+}
+
+.aspect-portrait {
+  aspect-ratio: 3 / 4;
 }
 
 @media (min-width: 640px) {
