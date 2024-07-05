@@ -11,7 +11,7 @@
           <h2 class="text-3xl text-blue mb-6">{{ person.role }}</h2>
           <div class="mt-4">
             <h3 class="text-2xl font-bold text-blue">Contact</h3>
-            <p class="text-blue text-xl">Email: <a :href="'mailto:' + person.email" class="text-secondary-color hover:underline">{{ person.email }}</a></p>
+            <p class="text-blue text-xl">Email: <a :href="'mailto:' + person.email" class="text-blue hover:underline">{{ person.email }}</a></p>
           </div>
           <div class="mt-6">
             <h3 class="text-2xl font-bold text-blue">Description</h3>
