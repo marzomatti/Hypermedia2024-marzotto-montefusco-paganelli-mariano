@@ -86,13 +86,7 @@ const legals = [
 </script>
 
 <style scoped>
-.container {
-  @apply mx-auto px-4;
-}
 
-h1 {
-  @apply text-3xl font-extrabold text-center mb-8;
-}
 
 </style>
   

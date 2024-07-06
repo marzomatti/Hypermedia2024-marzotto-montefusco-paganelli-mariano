@@ -1,30 +1,56 @@
 <template>
-  <section class=" py-12">
-    <div class="container mx-auto flex flex-col md:flex-row items-start justify-between">
-      <!-- Left Side: Title and Description -->
-      <div class="w-full md:w-1/2 mb-8 md:mb-0 px-4">
-        <h2 class="text-4xl font-bold text-gray-800 mb-4">Most Relevant Projects</h2>
-        <p class="text-lg text-blue-600 mb-4">Discover our most impactful projects. We are dedicated to making a difference through various initiatives and collaborations. Explore how our projects are changing lives and communities.</p>
-        <Button :text="'See our projects ->'" />
-      </div>
-      <!-- Right Side: Project Buttons -->
-      <div class="w-full md:w-1/3 flex flex-col space-y-4 pr-4">
-        <img src="assets/img/ehimetalor-akhere-unuabona-lWRandyLSQ8-unsplash.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-lg"/>
+  <section class="bg-gray-100 py-12 px-12">
+    <div class="container mx-auto">
+      <div class="p-6 rounded-lg">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-4xl font-semibold text-center text-blue mb-4">Most Relevant Projects</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <nuxt-link
+            v-for="project in projects"
+            :key="project.id"
+            :to="`/activities/projects/project-${project.id}`"
+            class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105"
+          >
+            <img :src="project.image" alt="project.name" class="w-full h-128 object-cover mb-2 rounded-3xl" />
+            <h4 class="text-xl font-semibold text-blue mb-2">{{ project.name }}</h4>
+            <p class="text-blue mb-2">{{ project.description_s }}</p>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-  const projects = ref([
-    { id: 1, name: 'Project 1' },
-    { id: 2, name: 'Project 2' },
-    { id: 3, name: 'Project 3' },
-    { id: 4, name: 'Project 4' },
-    { id: 5, name: 'Project 5' },
-  ])
+
+const supabase = useSupabaseClient()
+
+const projects = ref([])
+
+const fetchProjectsData = async () => {
+  const { data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .limit(3)
+
+    if (error) {
+    console.error(error)
+  } else {
+    projects.value = data
+  }
+}
+
+onMounted(fetchProjectsData)
 </script>
 
 <style scoped>
 /* Additional styles if needed */
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.h-128 {
+  height: 32rem;
+}
 </style>

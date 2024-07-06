@@ -23,22 +23,31 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+const supabase = useSupabaseClient();
 const router = useRouter();
 
-const supabase = useSupabaseClient();
+const services = ref([]);
 
-let { data: services, error } = await supabase
-  .from('services')
-  .select('*');
+const fetchServicesData = async () => {
+  const { data, error } = await supabase
+    .from('services')
+    .select('*');
 
-const servs = services;
+  if (error) {
+    console.error(error);
+  } else {
+    services.value = data;
+  }
+};
+
 
 const navigateTo = (id) => {
   if (id) {
     router.push(`/activities/services/service${id}`);
   }
-};
+}
+
+onMounted(fetchServicesData);
 </script>
 
 <style scoped>
