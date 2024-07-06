@@ -4,8 +4,8 @@
       <h2 class="text-4xl font-bold text-white mb-8">Our Activities</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <!-- Services Block -->
-        <NuxtLink to="/Activities/Services" class="rounded-3xl hover:shadow-xl transition duration-500 flex items-center hover:scale-105">
-          <div class="bg-white p-6 rounded-3xl shadow-lg">
+        <NuxtLink to="/Activities/Services" class="rounded-3xl   flex items-center ">
+          <div class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105">
             <img src="/services_preview.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-3xl"/>
             <h3 class="text-xl font-semibold text-blue mb-2">Services</h3>
             <p class="text-blue">
@@ -14,8 +14,8 @@
         </NuxtLink>
         
         <!-- Projects Block -->
-        <NuxtLink to="/Activities/Projects" class="rounded-3xl hover:shadow-xl transition duration-500 flex items-center hover:scale-105">
-          <div class="bg-white p-6 rounded-3xl shadow-lg">
+        <NuxtLink to="/Activities/Projects" class="rounded-3xl flex items-center ">
+          <div class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition duration-500 hover:scale-105">
             <img src="/projects_preview.jpg" alt="Projects Image" class="w-full h-64 object-cover mb-4 rounded-3xl"/>
             <h3 class="text-xl font-semibold text-blue mb-2">Projects</h3>
             <p class="text-blue">
