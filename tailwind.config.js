@@ -49,6 +49,10 @@ module.exports = {
       sans: ['"DM Sans"', "sans-serif"],
     },
     extend: {
+      screens: {
+        'tl': '1042px', //custom screen size for logo title 
+        'md': '783px', 
+      },
       spacing: {
         x_padding_page: "9rem",
         y_padding_page: "5rem",
