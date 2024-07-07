@@ -76,11 +76,7 @@
           :key="item.name"
           :href="item.href"
           @click="setCurrentPage(item.name)"
-          :class="[
-            'hover:bg-secondary-color hover:text-white',
-            'block rounded-md px-3 py-2 text-base font-medium'
-          ]"
-          :aria-current="item.current ? 'page' : undefined"
+          class="hover:bg-secondary-color hover:text-white block rounded-md px-3 py-2 text-base font-medium "
         >{{ item.name }}</a>
       </div>
     </div>
@@ -88,7 +84,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { useNavigationStore } from '../src/stores/NavigationStore'
 
 const mobileMenuOpen = ref(false)
@@ -102,30 +97,16 @@ const activityCategories = [
   {
     name: 'Services',
     href: '/activities/services',
-    items: [
-      { name: 'Analytics', href: '/activities/analytics' },
-      { name: 'Engagement', href: '/activities/engagement' },
-      { name: 'Security', href: '/activities/security' },
-      { name: 'Integration', href: '/activities/integration' },
-      { name: 'Automation', href: '/activities/automation' }
-    ]
   },
   {
     name: 'Projects',
     href: '/activities/projects',
-    items: [
-      { name: 'Project A', href: '/activities/project-a' },
-      { name: 'Project B', href: '/activities/project-b' },
-      { name: 'Project C', href: '/activities/project-c' },
-      { name: 'Project D', href: '/activities/project-d' },
-      { name: 'Project E', href: '/activities/project-e' }
-    ]
   }
 ]
 </script>
 
 <style>
 body {
-  margin-top: 96px; /* Altezza del tuo header */
+  margin-top: 96px;
 }
 </style>

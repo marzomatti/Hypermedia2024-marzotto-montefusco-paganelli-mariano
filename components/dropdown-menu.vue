@@ -45,26 +45,49 @@ function clearHideTimeout() {
   showDropdown.value = true
 }
 
-const { data: services, pending } = await useAsyncData('services', async () => {
+const supabase = useSupabaseClient()
+const route = useRoute()
+const router = useRouter()
+
+const services = ref([])
+const fetchServicesData = async () => {
   const { data, error } = await supabase
     .from('services')
-    .select()
-    
-  if (error) {
-    console.error('Error fetching services:', error)
-    return []
-  }
+    .select('*')
 
-  return data
-})
+  if (error) {
+    console.error(error)
+  } else {
+    services.value = data
+  }
+}
+
+const projects = ref([])
+const fetchProjectsData = async () => {
+  const { data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .limit(3)
+
+  if (error) {
+    console.error(error)
+  } else {
+    projects.value = data
+  }
+}
+
 
 function getServiceLink(serviceId){
   return "services/service" + serviceId;
 }
+
+onMounted(() => {
+  fetchServicesData()
+  fetchProjectsData()
+})
 </script>
 
 <style scoped>
-/* Optional: Customize the dropdown style here */
 .dropdown-menu {
   transition: opacity 0.3s ease;
   opacity: 0;
