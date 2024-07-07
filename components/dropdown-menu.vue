@@ -1,14 +1,16 @@
 <template>
-  <div class="relative" @mouseover="clearHideTimeout" @mouseleave="delayedHideDropdown">
-    <slot></slot>
-    <div v-if="showDropdown" class="absolute left-0 mt-2 w-max bg-white shadow-lg rounded-lg z-50">
+  <div class="relative" @mouseover="clearHideTimeout" @mouseleave="delayedHideDropdown" ref="dropdownContainer">
+    <slot @click="toggleDropdown"></slot>
+    <div v-if="showDropdown" :class="[dropdownPosition, 'absolute', 'mt-2', 'w-max', 'bg-white', 'shadow-lg', 'rounded-lg', 'z-50']">
       <div class="p-4 flex space-x-6">
-        <div v-for="category in categories" :key="category.name" class="w-1/2">
-          <NuxtLink :to="category.href" class="block px-4 py-2 hover:bg-secondary-color hover:text-white text-blue rounded-md text-sm font-bold mb-2">{{ category.name }}</NuxtLink>
+        <div v-for="category in categories" :key="category.name" class="w-48">
+          <NuxtLink :to="getCategoryLink(category.name)" >
+            <h3 class="block px-4 py-2 text-blue font-bold mb-2 rounded-md hover:bg-secondary-color hover:text-white">{{ category.name }}</h3>
+          </NuxtLink>
           <ul class="space-y-2">
-            <li v-for="service in services" :key="service.id">
-              <NuxtLink :to="getServiceLink(service.id)" class="text-blue block px-4 py-2 hover:bg-secondary-color hover:text-white rounded-md">
-                {{ service.name }}
+            <li v-for="item in getItems(category.name)" :key="item.id">
+              <NuxtLink :to="getItemLink(category.name, item.id)" class="text-blue block px-4 py-2 hover:bg-secondary-color hover:text-white rounded-md">
+                {{ item.name }}
               </NuxtLink>
             </li>
           </ul>
@@ -19,10 +21,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, watch, nextTick } from 'vue'
 
 const showDropdown = ref(false)
 let hideTimeout = null
+const dropdownContainer = ref(null)
+const dropdownPosition = ref('left-0')
 
 const props = defineProps({
   categories: {
@@ -30,6 +34,15 @@ const props = defineProps({
     required: true
   }
 })
+
+function toggleDropdown() {
+  showDropdown.value = !showDropdown.value
+  if (showDropdown.value) {
+    nextTick(() => {
+      adjustDropdownPosition()
+    })
+  }
+}
 
 function delayedHideDropdown() {
   hideTimeout = setTimeout(() => {
@@ -46,10 +59,9 @@ function clearHideTimeout() {
 }
 
 const supabase = useSupabaseClient()
-const route = useRoute()
-const router = useRouter()
-
 const services = ref([])
+const projects = ref([])
+
 const fetchServicesData = async () => {
   const { data, error } = await supabase
     .from('services')
@@ -62,12 +74,10 @@ const fetchServicesData = async () => {
   }
 }
 
-const projects = ref([])
 const fetchProjectsData = async () => {
   const { data, error } = await supabase
     .from('projects')
     .select('*')
-    .limit(3)
 
   if (error) {
     console.error(error)
@@ -76,18 +86,65 @@ const fetchProjectsData = async () => {
   }
 }
 
+function getItems(categoryName) {
+  if (categoryName === 'Services') {
+    return services.value
+  } else if (categoryName === 'Projects') {
+    return projects.value
+  }
+  return []
+}
 
-function getServiceLink(serviceId){
-  return "services/service" + serviceId;
+function getItemLink(categoryName, itemId) {
+  if (categoryName === 'Services') {
+    return `/activities/services/service-${itemId}`
+  } else if (categoryName === 'Projects') {
+    return `/activities/projects/project-${itemId}`
+  }
+  return '#'
+}
+
+function getCategoryLink(categoryName) {
+  if (categoryName === 'Services') {
+    return '/activities/services'
+  } else if (categoryName === 'Projects') {
+    return '/activities/projects'
+  }
+  return '#'
+}
+
+function adjustDropdownPosition() {
+  const dropdownRect = dropdownContainer.value.getBoundingClientRect()
+  const viewportWidth = window.innerWidth
+  if (dropdownRect.right > viewportWidth) {
+    dropdownPosition.value = 'right-0'
+  } else {
+    dropdownPosition.value = 'left-0'
+  }
 }
 
 onMounted(() => {
   fetchServicesData()
   fetchProjectsData()
+  adjustDropdownPosition()
+})
+
+watch(showDropdown, (newValue) => {
+  if (newValue) {
+    adjustDropdownPosition()
+  }
 })
 </script>
 
 <style scoped>
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
 .dropdown-menu {
   transition: opacity 0.3s ease;
   opacity: 0;

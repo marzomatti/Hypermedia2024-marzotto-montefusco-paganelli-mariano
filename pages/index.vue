@@ -6,7 +6,6 @@
         <Mission/>
         <ActivitiesPreview/>
         <PeoplePreview/>
-        <!-- TODO: Add a section to show how many women we have already helped -->
       </div>
     </div>
   </main>
