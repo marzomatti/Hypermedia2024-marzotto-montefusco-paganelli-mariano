@@ -8,7 +8,7 @@
         <Button :text="'See our services ->'" :link="'/activities/services'"/>
       </div>
       <!-- Right Side: Service Buttons -->
-      <div class="w-full md:w-1/2 flex justify-end">
+      <div class="w-full md:w-1/2 flex md:justify-end justify-center">
         <div class="w-2/3 flex flex-col space-y-4 px-4">
           <div v-for="service in services" :key="service.id" class="flex items-center space-x-2">
             <img :src="service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer"/>
