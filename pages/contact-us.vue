@@ -43,11 +43,11 @@
         <div class="md:w-1/2 flex flex-col space-y-4">
           <div class="bg-white p-4 rounded-3xl shadow-lg m-2 h-full flex flex-col justify-center">
             <h3 class="text-xl font-semibold mb-2 text-blue">Email us</h3>
-            <p class="text-blue">nowoman@alone.com</p>
+            <p class="text-blue flex justify-center">no@alone.com</p>
           </div>
           <div class="bg-white p-4 rounded-3xl shadow-lg m-2 h-full flex flex-col justify-center">
             <h3 class="text-xl font-semibold mb-2 text-blue">Call us</h3>
-            <p class="text-blue">+39 123 4567890</p>
+            <p class="text-blue flex justify-center">+39 123 4567890</p>
           </div>
           <div class="bg-white p-4 rounded-3xl shadow-lg m-2 h-full flex flex-col justify-center">
             <h3 class="text-xl font-semibold mb-2 text-blue">Follow us</h3>
@@ -119,16 +119,5 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(255, 76, 76, 0.2);
 }
 
-.bg-white {
-  background-color: #ffffff;
-}
 
-
-.bg-secondary-color {
-  background-color: var(--color-secondary);
-}
-
-.justify-center {
-  justify-content: center;
-}
 </style>

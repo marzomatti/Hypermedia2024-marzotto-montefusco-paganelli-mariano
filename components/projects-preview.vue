@@ -5,7 +5,7 @@
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-4xl font-semibold text-center text-blue mb-4">Most Relevant Projects</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <nuxt-link
             v-for="project in projects"
             :key="project.id"
@@ -17,13 +17,15 @@
             <p class="text-blue mb-2">{{ project.description_s }}</p>
           </nuxt-link>
         </div>
+        <div class="flex justify-center">
+          <Button :text="'See our projects ->'" :link="'/activities/projects'" class="mt-4"/>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-
 const supabase = useSupabaseClient()
 
 const projects = ref([])
@@ -45,7 +47,6 @@ onMounted(fetchProjectsData)
 </script>
 
 <style scoped>
-/* Additional styles if needed */
 .rounded-3xl {
   border-radius: 1.5rem;
 }

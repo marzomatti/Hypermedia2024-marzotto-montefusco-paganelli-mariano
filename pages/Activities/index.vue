@@ -30,9 +30,7 @@
 </script>
 
 <style scoped>
-.bg-white {
-  background-color: #ffffff;
-}
+
 
 .bg-gray-100 {
   background-color: #f7fafc;
