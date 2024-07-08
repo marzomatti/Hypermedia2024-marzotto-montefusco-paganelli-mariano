@@ -97,9 +97,9 @@ function getItems(categoryName) {
 
 function getItemLink(categoryName, itemId) {
   if (categoryName === 'Services') {
-    return `/activities/services/service-${itemId}`
+    return `/activities/services/${itemId}`
   } else if (categoryName === 'Projects') {
-    return `/activities/projects/project-${itemId}`
+    return `/activities/projects/${itemId}`
   }
   return '#'
 }
