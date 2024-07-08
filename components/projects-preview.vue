@@ -7,7 +7,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <nuxt-link
-            v-for="project in projects"
+            v-for="project in mostRelevantProjects"
             :key="project.id"
             :to="`/activities/projects/project-${project.id}`"
             class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105"
@@ -26,24 +26,19 @@
 </template>
 
 <script setup>
-const supabase = useSupabaseClient()
+const { data: projects, error, loading } = useFetch('/api/projects');
+const router = useRouter();
 
-const projects = ref([])
-
-const fetchProjectsData = async () => {
-  const { data, error } = await supabase
-    .from('projects')
-    .select('*')
-    .limit(3)
-
-    if (error) {
-    console.error(error)
-  } else {
-    projects.value = data
+const navigateTo = (id) => {
+  if (id) {
+    router.push(`/activities/projects/project${id}`);
   }
-}
+};
 
-onMounted(fetchProjectsData)
+const mostRelevantProjects = computed(() => {
+  return Array.isArray(projects.value) ? projects.value.slice(0, 3) : [];
+});
+console.log(projects)
 </script>
 
 <style scoped>

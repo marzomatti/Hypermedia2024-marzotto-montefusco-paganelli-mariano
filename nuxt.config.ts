@@ -4,6 +4,8 @@ export default defineNuxtConfig({
     public: {
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_KEY,
+      openaiApiKey: process.env.VUE_APP_OPENAI_API_KEY || '',
+      openaiAssistantId: process.env.VUE_APP_OPENAI_ASSISTANT_ID || '',
     },
   },
   devtools: { enabled: true },
@@ -14,12 +16,6 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/tailwind.css'
   ],
-  runtimeConfig: {
-    public: {
-      openaiApiKey: process.env.VUE_APP_OPENAI_API_KEY || '',
-      openaiAssistantId: process.env.VUE_APP_OPENAI_ASSISTANT_ID || '',
-    },
-  },
   supabase: {
     url: "https://fiknxhhagkhsxoyjjbdi.supabase.co",
       key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZpa254aGhhZ2toc3hveWpqYmRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY5MTU5MjUsImV4cCI6MjAzMjQ5MTkyNX0.7VHCpKWuRH8lhDEgWHZf4_gQJKRibpIlSgg1Pc5UyZI"

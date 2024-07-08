@@ -10,7 +10,9 @@
       <!-- Right Side: Service Buttons -->
       <div class="w-full md:w-1/2 flex md:justify-end justify-center">
         <div class="w-2/3 flex flex-col space-y-4 px-4">
-          <div v-for="service in services" :key="service.id" class="flex items-center space-x-2">
+          <div v-if="loading">Loading...</div>
+          <div v-else-if="error">{{ error }}</div>
+          <div v-else v-for="service in services" :key="service.id" class="flex items-center space-x-2">
             <img :src="service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer"/>
             <button @click="navigateTo(service.id)" class="flex-1 flex items-center border-2 border-secondary-color text-blue rounded-full px-6 py-4 hover:text-white transition hover:bg-secondary-color duration-300">
               <span class="text-xl">{{ service.name }}</span>
@@ -23,31 +25,14 @@
 </template>
 
 <script setup>
-const supabase = useSupabaseClient();
+const { data: services, error, loading } = useFetch('/api/services');
 const router = useRouter();
-
-const services = ref([]);
-
-const fetchServicesData = async () => {
-  const { data, error } = await supabase
-    .from('services')
-    .select('*');
-
-  if (error) {
-    console.error(error);
-  } else {
-    services.value = data;
-  }
-};
-
 
 const navigateTo = (id) => {
   if (id) {
     router.push(`/activities/services/service${id}`);
   }
-}
-
-onMounted(fetchServicesData);
+};
 </script>
 
 <style scoped>
