@@ -2,13 +2,7 @@
   <div>
     <Breadcrumb/>
     <main class="py-12 px-4 lg:px-24 bg-white min-h-screen">
-      <div v-if="loading" class="text-center">
-        <p>Loading...</p>
-      </div>
-      <div v-if="error" class="text-center text-red-500">
-        <p>Failed to load project details</p>
-      </div>
-      <div v-if="!loading && !error && currProject" class="flex flex-col items-start justify-between mb-12">
+      <div class="flex flex-col items-start justify-between mb-12">
         <!-- Section: Project Details -->
         <div class="lg:w-2/3">
           <h1 class="text-5xl font-bold text-blue mb-4">{{ currProject.name }}</h1>
@@ -24,7 +18,7 @@
       </div>
 
       <!-- Navigation Arrows -->
-      <div v-if="!loading && !error && currProject" class="flex justify-between mt-12">
+      <div class="flex justify-between mt-12">
         <NuxtLink v-if="currProject.previousProject > 0" :to="getProjectLink(currProject.previousProject)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
           &larr; Previous Project
         </NuxtLink>
@@ -35,32 +29,26 @@
       </div>
     </main>
   </div>
+
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import { useFetch } from 'nuxt3';
-
 const route = useRoute();
-const router = useRouter();
-const id = ref(route.params.id);
-const { data: projects, error, pending: loading } = await useFetch('/api/projects');
+const id = route.params.id
+const { data: projects, error, loading } = await useFetch('/api/projects');
 
 const currProject = computed(() => {
   if (Array.isArray(projects.value)) {
-    const filteredProjects = projects.value.filter((p) => p.id == id.value);
+    const filteredProjects = projects.value.filter((p) => p.id == route.params.id);
     return filteredProjects.length > 0 ? filteredProjects[0] : null;
   }
   return null;
 });
 
-watch(route, (newRoute) => {
-  id.value = newRoute.params.id;
-});
+const router = useRouter();
 
 function getProjectLink(id) {
-  return `/activities/projects/${id}`;
+  return `/activities/projects/` + `${id}`
 }
 </script>
 
