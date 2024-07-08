@@ -80,15 +80,15 @@
     </section>
 
     <!-- Frecce di Navigazione -->
-    <!-- <div class="flex justify-between mt-12">
-      <button v-if="hasPreviousService" @click="navigateTo(previousServiceId)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-3 py-1 rounded-full hover:bg-secondary-color hover:text-white transition duration-300 text-sm">
-        &larr; Previous Service
-      </button>
-      <div class="flex-1"></div>
-      <button v-if="hasNextService" @click="navigateTo(nextServiceId)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-3 py-1 rounded-full hover:bg-secondary-color hover:text-white transition duration-300 text-sm">
-        Next Service &rarr;
-      </button>
-    </div> -->
+    <div class="flex justify-between mt-12">
+        <NuxtLink v-if="currService.previousService > 0" :to="getServiceLink(currService.previousService)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
+          &larr; Previous Project
+        </NuxtLink>
+        <div class="flex-1"></div>
+        <NuxtLink v-if="currService.nextService > 0" :to="getServiceLink(currService.nextService)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
+          Next Project &rarr;
+        </NuxtLink>
+      </div>
   </main>
   </div>
 
@@ -117,11 +117,9 @@ const currService = computed(() => {
 
 const router = useRouter();
 
-const navigateTo = (id) => {
-  if (id) {
-    router.push(`/activities/services/${id}`);
-  }
-};
+function getServiceLink(id) {
+  return `/activities/services/` + `${id}`
+}
 
 // const supabase = useSupabaseClient();
 

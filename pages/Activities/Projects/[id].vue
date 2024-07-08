@@ -45,8 +45,6 @@ const currProject = computed(() => {
   return null;
 });
 
-const router = useRouter();
-
 function getProjectLink(id) {
   return `/activities/projects/` + `${id}`
 }
