@@ -7,11 +7,11 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default defineEventHandler(async (event) => {
     const id = event.context.params.id
-    const { data, error } = await supabase.from('services').select().eq('id', id).limit(1).single();
+    const { data, error } = await supabase.from('projects').select().eq('id', id).limit(1).single();
     if (error) {
         throw createError({
         statusCode: 500,
-        statusMessage: 'Failed to fetch services',
+        statusMessage: 'Failed to fetch projects',
         });
     }
     return data;

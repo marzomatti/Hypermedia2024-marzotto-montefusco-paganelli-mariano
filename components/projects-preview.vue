@@ -9,7 +9,7 @@
           <nuxt-link
             v-for="project in mostRelevantProjects"
             :key="project.id"
-            :to="`/activities/projects/project-${project.id}`"
+            :to="`/activities/projects/${project.id}`"
             class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105"
           >
             <img :src="project.image" alt="project.name" class="w-full h-128 object-cover mb-2 rounded-3xl" />
@@ -31,7 +31,7 @@ const router = useRouter();
 
 const navigateTo = (id) => {
   if (id) {
-    router.push(`/activities/projects/project${id}`);
+    router.push(`/activities/projects/${id}`);
   }
 };
 

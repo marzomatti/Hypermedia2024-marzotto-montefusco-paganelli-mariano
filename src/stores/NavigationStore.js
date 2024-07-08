@@ -13,13 +13,4 @@ export const useNavigationStore = defineStore({
       { name: 'About us', href: '/about-us', current: false },
     ]
   }),
-  actions: {
-    setCurrentPage(pageName) {
-      this.currentPage = pageName;
-      this.navigation = this.navigation.map(item => ({
-        ...item,
-        current: item.name === pageName ? true : false
-      }));
-    }
-  }
 })
