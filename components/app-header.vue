@@ -69,7 +69,7 @@
         </div>
       </div>
     </div>
-    <div v-if="mobileMenuOpen" class="md:hidden">
+    <div v-if="mobileMenuOpen" class="md:hidden shadow">
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
         <a
           v-for="item in navigation"
