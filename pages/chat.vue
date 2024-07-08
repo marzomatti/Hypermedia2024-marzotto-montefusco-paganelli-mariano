@@ -56,6 +56,16 @@
 
 <script setup>
 import { ref, onMounted, nextTick } from 'vue';
+import { OpenAI } from 'openai';
+
+const openai = new OpenAI({
+  apiKey:'sk-proj-0engWsRVnYJ6PM8zsnWBT3BlbkFJkESHXXQoBye3mIi5U4Jz',
+  dangerouslyAllowBrowser: true,
+});
+
+const assistantId = 'asst_aas6p6OnZSSROh9DvIFpoZlO';
+const assistant = await openai.beta.assistants.retrieve(assistantId);
+const thread = await openai.beta.threads.create();
 
 const currentQuestion = ref('');
 const messages = ref([]);
@@ -76,6 +86,7 @@ const sendMessage = async () => {
     scrollToBottom();
 
     const answer = await getAnswerFromOpenAI(question);
+    
     messages.value.push({
       id: Date.now() + 1,
       type: 'answer',
@@ -88,21 +99,24 @@ const sendMessage = async () => {
 };
 
 const getAnswerFromOpenAI = async (question) => {
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer YOUR_OPENAI_API_KEY`
-    },
-    body: JSON.stringify({
-      model: "gpt-4",
-      messages: [{ role: "user", content: question }],
-      max_tokens: 100
-    })
+  const response = await openai.beta.threads.messages.create(thread.id, {
+    role: 'user',
+    content: question,
   });
 
-  const data = await response.json();
-  return data.choices[0].message.content.trim();
+  return new Promise((resolve, reject) => {
+    let answer = '';
+
+    const run = openai.beta.threads.runs.stream(thread.id, {
+      assistant_id: assistant.id,
+    });
+
+    run.on('textDelta', (textDelta) => {
+      answer += textDelta.value;
+    })
+    .on('end', () => resolve(answer))
+    .on('error', (err) => reject(err));
+  });
 };
 
 const scrollToBottom = () => {
