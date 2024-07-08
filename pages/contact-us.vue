@@ -4,7 +4,7 @@
       <h1 class="text-4xl font-extrabold text-center text-blue mb-8">Contact Us</h1>
       <!-- Titolo con immagine -->
       <div class="flex flex-col items-center mb-8">
-        <p class="text-center text-lg text-blue max-w-3xl">
+        <p class="text-lg text-center text-blue mb-8">
           We appreciate your interest in reaching out to us. To ensure a smooth and efficient communication process, we kindly request you to fill out the form below with your relevant information. This will help us better understand your needs and provide you with the most appropriate assistance. We are here to support you and provide the help you need.
         </p>
       </div>
