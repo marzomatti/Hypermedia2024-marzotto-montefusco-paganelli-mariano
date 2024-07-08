@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-const { data: projects, error, loading } = useFetch('/api/projects');
+const { data: projects, error, loading } = await useFetch('/api/projects');
 const router = useRouter();
 
 const navigateTo = (id) => {
@@ -38,7 +38,6 @@ const navigateTo = (id) => {
 const mostRelevantProjects = computed(() => {
   return Array.isArray(projects.value) ? projects.value.slice(0, 3) : [];
 });
-console.log(projects)
 </script>
 
 <style scoped>

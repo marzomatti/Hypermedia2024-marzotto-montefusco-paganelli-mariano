@@ -59,26 +59,10 @@ useHead({
   title: 'Projects',
 })
 
-import { ref, computed } from 'vue'
 
-const supabase = useSupabaseClient()
+const { data: projects, error, loading } = await useFetch('/api/projects');
 
-const projects = ref([])
 const searchQuery = ref('')
-
-const { data, pending } = await useAsyncData('projects', async () => {
-  const { data, error } = await supabase
-    .from('projects')
-    .select()
-    
-  if (error) {
-    return []
-  }
-
-  return data
-})
-
-projects.value = data.value
 
 const filteredProjects = computed(() => {
   if (!searchQuery.value) {

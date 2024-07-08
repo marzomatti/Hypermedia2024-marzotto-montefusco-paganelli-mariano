@@ -25,12 +25,12 @@
 </template>
 
 <script setup>
-const { data: services, error, loading } = useFetch('/api/services');
+const { data: services, error, loading } = await useFetch('/api/services');
 const router = useRouter();
 
 const navigateTo = (id) => {
   if (id) {
-    router.push(`/activities/services/service${id}`);
+    router.push(`/activities/services/${id}`);
   }
 };
 </script>

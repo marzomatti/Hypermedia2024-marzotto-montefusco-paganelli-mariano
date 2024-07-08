@@ -1,6 +1,6 @@
 <template>
-  <Breadcrumb/>
   <div>
+    <Breadcrumb/>
     <div class="flex flex-col bg-primary-color lg:py-12 py-8">
       <div class="lg:px-24 px-4">
         <!-- Title of the page -->
@@ -44,30 +44,11 @@ useHead({
   title: 'Services',
 })
 
-import { ref } from 'vue'
-
-const supabase = useSupabaseClient()
-
-const services = ref([])
-
-const { data, pending } = await useAsyncData('services', async () => {
-  const { data, error } = await supabase
-    .from('services')
-    .select()
-    
-  if (error) {
-    console.error(error);
-    return []
-  }
-
-  console.log(data);  // Aggiungi questo per verificare i dati restituiti
-  return data
-})
-
-services.value = data.value
+const { data: services, error, loading } = await useFetch('/api/services');
+const router = useRouter();
 
 function getServiceLink(id) {
-  return `/activities/services/service` + `${id}`
+  return `/activities/services/` + `${id}`
 }
 </script>
 

@@ -1,13 +1,13 @@
 <template>
+  <div>
   <Breadcrumb />
-
   <main class="py-12 px-4 lg:px-24 bg-white min-h-screen">
     <div class="flex flex-col lg:flex-row items-start justify-between mb-12">
       <!-- Sezione Sinistra: Dettagli del Servizio -->
       <div class="lg:w-2/3 flex flex-col justify-center">
-        <h1 class="text-5xl font-bold text-blue mb-4">{{ service.name }}</h1>
-        <h2 class="text-2xl text-blue mb-2">Responsible Person: {{ service.responsible }}</h2>
-        <p class="text-lg text-blue mb-6">{{ service.description }}</p>
+        <h1 class="text-5xl font-bold text-blue mb-4">{{ currService.name }}</h1>
+        <h2 class="text-2xl text-blue mb-2">Responsible Person: {{ currService.responsible }}</h2>
+        <p class="text-lg text-blue mb-6">{{ currService.description }}</p>
 
         <!-- Testo -->
         <div class="flex items-center mb-4">
@@ -52,7 +52,7 @@
       <!-- Sezione Destra: Immagine del Servizio -->
       <div class="lg:w-1/2 lg:pl-8 flex items-center">
         <div class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden">
-          <img :src="service.image" alt="Service Image" class="absolute inset-0 w-full h-full object-cover">
+          <img :src="currService.image" alt="Service Image" class="absolute inset-0 w-full h-full object-cover">
         </div>
       </div>
     </div>
@@ -65,22 +65,22 @@
           <!-- Blocco Obiettivo -->
           <div class="flex flex-col items-center">
             <img src="public/service_fix1.png" alt="Goal Icon" class="h-24 w-24 mb-4" />
-            <h3 class="text-2xl font-bold text-blue mb-2">{{ service.goal1 }}</h3>
+            <h3 class="text-2xl font-bold text-blue mb-2">{{ currService.goal1 }}</h3>
           </div>
           <div class="flex flex-col items-center">
             <img src="public/service_fix2.png" alt="Goal Icon" class="h-24 w-24 mb-4" />
-            <h3 class="text-2xl font-bold text-blue mb-2">{{ service.goal2 }}</h3>
+            <h3 class="text-2xl font-bold text-blue mb-2">{{ currService.goal2 }}</h3>
           </div>
           <div class="flex flex-col items-center">
             <img src="public/service_fix3.png" alt="Goal Icon" class="h-24 w-24 mb-4" />
-            <h3 class="text-2xl font-bold text-blue mb-2">{{ service.goal3 }}</h3>
+            <h3 class="text-2xl font-bold text-blue mb-2">{{ currService.goal3 }}</h3>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Frecce di Navigazione -->
-    <div class="flex justify-between mt-12">
+    <!-- <div class="flex justify-between mt-12">
       <button v-if="hasPreviousService" @click="navigateTo(previousServiceId)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-3 py-1 rounded-full hover:bg-secondary-color hover:text-white transition duration-300 text-sm">
         &larr; Previous Service
       </button>
@@ -88,15 +88,14 @@
       <button v-if="hasNextService" @click="navigateTo(nextServiceId)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-3 py-1 rounded-full hover:bg-secondary-color hover:text-white transition duration-300 text-sm">
         Next Service &rarr;
       </button>
-    </div>
+    </div> -->
   </main>
+  </div>
+
+
 </template>
 
 <script setup>
-const route = useRoute();
-const router = useRouter();
-const service = ref({});
-const services = ref([]);
 const form = ref({
   name: '',
   surname: '',
@@ -104,83 +103,102 @@ const form = ref({
   service: '',
   message: ''
 });
+const { data: services, error, loading } = await useFetch('/api/services');
 
-const supabase = useSupabaseClient();
+const route = useRoute()
 
-const hasPreviousService = ref(false);
-const hasNextService = ref(false);
-const previousServiceId = ref(null);
-const nextServiceId = ref(null);
-
-const submitForm = () => {
-  console.log('Form submitted:', form.value);
-};
-
-onMounted(async () => {
-  const { data: serviceData, error: serviceError } = await supabase
-    .from('services')
-    .select()
-    .eq('id', route.params.id)
-    .single();
-
-  if (serviceError) {
-    console.error(serviceError);
-  } else {
-    service.value = serviceData;
-    checkNavigation(serviceData.id);
+const currService = computed(() => {
+  if (Array.isArray(services.value)) {
+    const filteredServices = services.value.filter((p) => p.id == route.params.id);
+    return filteredServices.length > 0 ? filteredServices[0] : null;
   }
-
-  const { data: servicesData, error: servicesError } = await supabase
-    .from('services')
-    .select();
-
-  if (servicesError) {
-    console.error(servicesError);
-  } else {
-    services.value = servicesData;
-  }
-
-  const { data: goalsData, error: goalsError } = await supabase
-    .from('goals')
-    .select()
-    .eq('service_id', route.params.id);
-
-  if (goalsError) {
-    console.error(goalsError);
-  } else {
-    goals.value = goalsData;
-  }
+  return null;
 });
 
-const checkNavigation = async (currentServiceId) => {
-  const { data: services, error: servicesError } = await supabase
-    .from('services')
-    .select('id')
-    .order('id', { ascending: true });
-
-  if (servicesError) {
-    console.error(servicesError);
-  } else {
-    const serviceIds = services.map(s => s.id);
-    const currentIndex = serviceIds.indexOf(currentServiceId);
-
-    hasPreviousService.value = currentIndex > 0;
-    hasNextService.value = currentIndex < serviceIds.length - 1;
-
-    if (hasPreviousService.value) {
-      previousServiceId.value = serviceIds[currentIndex - 1];
-    }
-    if (hasNextService.value) {
-      nextServiceId.value = serviceIds[currentIndex + 1];
-    }
-  }
-};
+const router = useRouter();
 
 const navigateTo = (id) => {
   if (id) {
-    router.push('/activities/services/service'+ `${id}`);
+    router.push(`/activities/services/${id}`);
   }
 };
+
+// const supabase = useSupabaseClient();
+
+// const hasPreviousService = ref(false);
+// const hasNextService = ref(false);
+// const previousServiceId = ref(null);
+// const nextServiceId = ref(null);
+
+// const submitForm = () => {
+//   console.log('Form submitted:', form.value);
+// };
+
+// onMounted(async () => {
+//   const { data: serviceData, error: serviceError } = await supabase
+//     .from('services')
+//     .select()
+//     .eq('id', route.params.id)
+//     .single();
+
+//   if (serviceError) {
+//     console.error(serviceError);
+//   } else {
+//     service.value = serviceData;
+//     checkNavigation(serviceData.id);
+//   }
+
+//   const { data: servicesData, error: servicesError } = await supabase
+//     .from('services')
+//     .select();
+
+//   if (servicesError) {
+//     console.error(servicesError);
+//   } else {
+//     services.value = servicesData;
+//   }
+
+//   const { data: goalsData, error: goalsError } = await supabase
+//     .from('goals')
+//     .select()
+//     .eq('service_id', route.params.id);
+
+//   if (goalsError) {
+//     console.error(goalsError);
+//   } else {
+//     goals.value = goalsData;
+//   }
+// });
+
+// const checkNavigation = async (currentServiceId) => {
+//   const { data: services, error: servicesError } = await supabase
+//     .from('services')
+//     .select('id')
+//     .order('id', { ascending: true });
+
+//   if (servicesError) {
+//     console.error(servicesError);
+//   } else {
+//     const serviceIds = services.map(s => s.id);
+//     const currentIndex = serviceIds.indexOf(currentServiceId);
+
+//     hasPreviousService.value = currentIndex > 0;
+//     hasNextService.value = currentIndex < serviceIds.length - 1;
+
+//     if (hasPreviousService.value) {
+//       previousServiceId.value = serviceIds[currentIndex - 1];
+//     }
+//     if (hasNextService.value) {
+//       nextServiceId.value = serviceIds[currentIndex + 1];
+//     }
+//   }
+// };
+
+// const navigateTo = (id) => {
+//   if (id) {
+//     router.push('/activities/services/'+ `${id}`);
+//   }
+// };
 </script>
 
 <style scoped>

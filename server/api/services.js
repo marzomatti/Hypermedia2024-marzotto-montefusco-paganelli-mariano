@@ -1,4 +1,3 @@
-// server/api/services.js
 import { createClient } from '@supabase/supabase-js';
 const config = useRuntimeConfig();
 
