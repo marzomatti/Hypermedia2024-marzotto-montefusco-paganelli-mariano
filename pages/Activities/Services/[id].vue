@@ -104,8 +104,9 @@ const form = ref({
   message: ''
 });
 const { data: services, error, loading } = await useFetch('/api/services');
-
 const route = useRoute()
+
+
 
 const currService = computed(() => {
   if (Array.isArray(services.value)) {
