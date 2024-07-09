@@ -9,7 +9,7 @@
             <p class="max-w-lg mt-4 text-xl font-normal text-orange-100 sm:mt-8">Join us in providing support, resources, and a safe haven for women affected by violence.</p>
             <div class="relative inline-flex items-center justify-center mt-8 sm:mt-12 group">
               <div class="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:shadow-lg group-hover:shadow-cyan-500/50"></div>
-              <NuxtLink to="contact-us" title="" class="relative inline-flex items-center justify-center px-8 py-3 text-base font-bold text-orange-100 bg-secondary-color border border-transparent rounded-full hover:bg-white hover:text-secondary-color" role="button"> Contact Us </NuxtLink>
+              <NuxtLink to="contact-us" title="" class="relative inline-flex items-center justify-center px-8 py-3 text-base font-normal text-orange-100 bg-blue border border-transparent rounded-full hover:bg-white hover:text-blue" role="button"> Contact Us </NuxtLink>
             </div>
           </div>
         </div>
