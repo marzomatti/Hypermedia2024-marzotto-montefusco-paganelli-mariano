@@ -22,24 +22,21 @@
         </div>
       </div>
 
-      <!-- Related Activities Section -->
-      <!-- <section>
-        <h2 class="text-4xl font-extrabold text-blue mb-8">Related Activities</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div v-for="service in services" :key="service.id">
-            
-          </div>
-        </div>
-      </section> -->
-
-      <section>
+      <section v-if="filteredServices.length > 0 || filteredProjects.length > 0">
         <h2 class="text-4xl font-extrabold text-blue mb-8">Related Activities</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <nuxt-link v-for="service in filteredServices" :key="service.id" :to="'/activities/services/' + service.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
-            <div v-if="isRelated(service.id)">
+            <div v-if="isServiceRelated(service.id)">
               <img :src="service.image" alt="Activity Image" class="w-full h-48 object-cover rounded-3xl mb-4">
               <h3 class="text-2xl font-bold text-blue mb-2">{{ service.name }}</h3>
               <p class="text-blue">{{ service.description_s }}</p>
+            </div>
+          </nuxt-link>
+          <nuxt-link v-for="project in filteredProjects" :key="project.id" :to="'/activities/projects/' + project.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+            <div v-if="isProjectRelated(project.id)">
+              <img :src="project.image" alt="Activity Image" class="w-full h-48 object-cover rounded-3xl mb-4">
+              <h3 class="text-2xl font-bold text-blue mb-2">{{ project.name }}</h3>
+              <p class="text-blue">{{ project.description_s }}</p>
             </div>
           </nuxt-link>
         </div>
@@ -68,18 +65,33 @@ useHead({
 const route = useRoute()
 const { data: currPerson} = await useFetch('/api/staff/' + route.params.id);
 const { data: services, error, loading } = await useFetch('/api/services');
+const { data: projects, error1, loading1 } = await useFetch('/api/projects');
 
 
-function isRelated(id) {
+function isServiceRelated(id) {
   if (Array.isArray(services.value) && Array.isArray(currPerson.value.relatedServices)) {
     return currPerson.value.relatedServices.includes(id);
   }
   return false;
 }
 
+function isProjectRelated(id) {
+  if (Array.isArray(projects.value) && Array.isArray(currPerson.value.relatedProjects)) {
+    return currPerson.value.relatedProjects.includes(id);
+  }
+  return false;
+}
+
 const filteredServices = computed(() => {
   if (Array.isArray(services.value)) {
-    return services.value.filter((p) => isRelated(p.id));
+    return services.value.filter((p) => isServiceRelated(p.id));
+  }
+  return [];
+});
+
+const filteredProjects = computed(() => {
+  if (Array.isArray(projects.value)) {
+    return projects.value.filter((p) => isProjectRelated(p.id));
   }
   return [];
 });
