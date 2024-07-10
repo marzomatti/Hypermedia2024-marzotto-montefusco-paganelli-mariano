@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import backgroundUrl from '~/assets/img/homepage_1.png';
+import backgroundUrl from '~/assets/img/homepage_12.png';
 export default {
   name: 'HeroSection',
   data() {
@@ -33,7 +33,7 @@ export default {
         backgroundImage: `url(${this.backgroundUrl})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center top',
+        backgroundPosition: 'center',
         height: '80vh'
       };
     }
