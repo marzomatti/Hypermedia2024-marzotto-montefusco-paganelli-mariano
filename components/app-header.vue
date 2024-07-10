@@ -7,15 +7,23 @@
           <div class="hidden md:flex items-center mr-8">
             <template v-for="item in navigation">
               <NuxtLink
-                v-if="item.name !== 'Activities'"
+                v-if="item.name !== 'Activities' && item.name !== 'Our team'"
                 :key="item.name"
                 :to="item.href"
                 class="text-blue hover:bg-secondary-color hover:text-white rounded-md px-3 py-2 text-sm font-medium"
               >
                 <span>{{ item.name }}</span>
               </NuxtLink>
-              <DropdownMenu v-else :key="item.id" :categories="activityCategories">
-                <NuxtLink to="/Activities" class="text-blue hover:bg-secondary-color hover:text-white rounded-md px-3 py-2 text-sm font-medium flex items-center">
+              <DropdownMenu v-else-if="item.name === 'Activities'" :key="item.id" :categories="activityCategories">
+                <NuxtLink to="/activities" class="text-blue hover:bg-secondary-color hover:text-white rounded-md px-3 py-2 text-sm font-medium flex items-center">
+                  <span>{{ item.name }}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </NuxtLink>
+              </DropdownMenu>
+              <DropdownMenu v-else :key="item.href" :categories="teamCategories">
+                <NuxtLink to="/team" class="text-blue hover:bg-secondary-color hover:text-white rounded-md px-3 py-2 text-sm font-medium flex items-center">
                   <span>{{ item.name }}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -101,6 +109,26 @@ const activityCategories = [
     href: '/activities/projects',
   }
 ]
+
+const teamCategories = [
+  {
+    name: 'Staff',
+    href: '/team/staff',
+  },
+  {
+    name: 'Volunteers',
+    href: '/team/volunteers',
+  }
+]
+
+function getLink(name){
+  switch(name){
+    case 'Activities':
+      return '/activities'
+    case 'Our team':
+      return '/team'
+  }
+}
 </script>
 
 <style>
