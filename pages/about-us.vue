@@ -26,7 +26,7 @@
         </div>
         <div class="max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl" style="background-color:  #ffffe6;">
           <div class="px-6 py-8 rounded-3xl">
-            <div class="font-bold text-2xl mb-4 text-primary-color">Empowerment</div>
+            <div class="font-bold text-2xl mb-4 text-yellow">Empowerment</div>
             <p class="text-base text-blue">
               We are committed to empowering women by providing them with the tools and resources they need to regain control of their lives. Through education, support groups, and advocacy, we strive to help women build a future free from violence.
             </p>

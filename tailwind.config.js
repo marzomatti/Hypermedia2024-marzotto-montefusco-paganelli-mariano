@@ -14,7 +14,7 @@ module.exports = {
       current: "currentColor",
       white: "#ffffff",
       black: "#000000",
-      "primary-color": "#BCB17C",
+      "primary-color": "#F77F00",
       "secondary-color": "#d62828",
       "tertiary-color" :"#EAE2B7",
       "headings-black": "#494850",
@@ -22,6 +22,7 @@ module.exports = {
       gray: "#9795B5",
       red: "#d62828",
       blue: "#003049",
+      yellow: "#F77F00",
       gray: {
         100: "#f3f4f6",
         200: "#e5e7eb",
@@ -42,7 +43,7 @@ module.exports = {
       },
       orange: {
         100: "#f5f1e0",
-        200: "#f77f00"
+        200: "#f77f00",
       }
     },
     fontFamily: {
