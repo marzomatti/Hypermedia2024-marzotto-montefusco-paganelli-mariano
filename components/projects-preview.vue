@@ -5,19 +5,19 @@
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-4xl font-semibold text-center text-blue mb-4">Most Relevant Projects</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <nuxt-link
             v-for="project in mostRelevantProjects"
             :key="project.id"
             :to="`/activities/projects/${project.id}`"
             class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105"
           >
-            <img :src="'/projects' + project.image" alt="project.name" class="w-full h-128 object-cover mb-2 rounded-3xl" />
+            <img :src="'/projects' + project.image" alt="project.name" class="w-full h-60 object-cover mb-2 rounded-3xl mb-4" />
             <h4 class="text-xl font-semibold text-blue mb-2">{{ project.name }}</h4>
             <p class="text-blue mb-2">{{ project.description_s }}</p>
           </nuxt-link>
         </div>
-        <div class="flex justify-center">
+        <div class="flex justify-center mt-6">
           <Button :text="'See our projects ->'" :link="'/activities/projects'" class="mt-4"/>
         </div>
       </div>

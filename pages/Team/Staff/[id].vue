@@ -34,7 +34,7 @@
           </nuxt-link>
           <nuxt-link v-for="project in filteredProjects" :key="project.id" :to="'/activities/projects/' + project.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <div v-if="isProjectRelated(project.id)">
-              <img :src="'/projects' +project.image" alt="Activity Image" class="w-full h-48 object-cover rounded-3xl mb-4">
+              <img :src="'/projects'+ project.image" alt="Activity Image" class="w-full h-48 object-cover rounded-3xl mb-4">
               <h3 class="text-2xl font-bold text-blue mb-2">{{ project.name }}</h3>
               <p class="text-blue">{{ project.description_s }}</p>
             </div>
