@@ -8,8 +8,11 @@
         <NuxtLink v-if="index < breadcrumbs.length - 1" :to="breadcrumb.path" class="text-blue hover:text-secondary-color underline">
           {{ breadcrumb.name }}
         </NuxtLink>
-        <span v-else class="text-blue font-medium">
+        <span v-else-if="!isCustomized" class="text-blue font-medium">
           {{ breadcrumb.name }}
+        </span>
+        <span v-else class="text-blue font-medium">
+          {{ label }}
         </span>
       </li>
     </ol>
@@ -30,6 +33,21 @@ const breadcrumbs = computed(() => {
     return { path: to, name: name.charAt(0).toUpperCase() + name.slice(1) }
   })
 })
+
+const props = defineProps({
+  isCustomized: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+  label: {
+    type: String,
+    required: false,
+    default: ""
+  }
+}
+
+)
 </script>
 
 <style scoped>
