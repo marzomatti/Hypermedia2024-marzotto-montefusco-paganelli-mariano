@@ -6,7 +6,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <!-- Mission Block -->
           <div class="flex flex-col items-center">
-            <img src="assets/img/goal.png" alt="Mission Icon" class="h-24 w-24 mb-4"/>
+            <img src="assets/img/homepage/goal.png" alt="Mission Icon" class="h-24 w-24 mb-4"/>
             <h3 class="text-2xl font-bold text-blue mb-2"><span class="text-blue">Why?</span></h3>
             <p>
               Many women face physical, emotional, and 
@@ -17,7 +17,7 @@
           </div>
           <!-- Vision Block -->
           <div class="flex flex-col items-center">
-            <img src="assets/img/helpline.png" alt="Vision Icon" class="h-24 w-24 mb-4"/>
+            <img src="assets/img/homepage/helpline.png" alt="Vision Icon" class="h-24 w-24 mb-4"/>
             <h3 class="text-2xl font-bold text-blue mb-2"><span class="text-blue">How?</span></h3>
             <p>
               We offer legal assistance, psychological 

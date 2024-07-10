@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import backgroundUrl from '~/assets/img/homepage_12.png';
+import backgroundUrl from '~/assets/img/homepage/homepage_12.png';
 export default {
   name: 'HeroSection',
   data() {

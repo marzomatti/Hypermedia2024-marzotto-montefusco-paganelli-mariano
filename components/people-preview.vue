@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import backgroundUrl from '~/assets/img/homepage_2.jpg';
+import backgroundUrl from '~/assets/img/homepage/homepage_2.jpg';
 export default {
   name: 'PeoplePreview',
   data() {

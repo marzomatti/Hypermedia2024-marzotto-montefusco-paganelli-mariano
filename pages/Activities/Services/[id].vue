@@ -12,6 +12,20 @@
             Responsible Person: {{ currService.responsible }}
           </h2>
           <p class="text-lg text-blue mb-6">{{ currService.description }}</p>
+          <h2 class="text-2xl text-blue mb-2">
+            Goals of the service
+          </h2>
+          <ul>
+            <li>
+              {{ currService.goal1 }}
+            </li>
+            <li>
+              {{ currService.goal2 }}
+            </li>
+            <li>
+              {{ currService.goal3 }}
+            </li>
+          </ul>
         </div>
         <!-- Sezione Destra: Immagine del Servizio -->
         <div class="lg:w-1/2 lg:pl-8 flex items-center">
@@ -19,7 +33,7 @@
             class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden"
           >
             <img
-              :src="currService.image"
+              :src="'../../assets/img/services' + currService.image"
               alt="Service Image"
               class="absolute inset-0 w-full h-full object-cover"
             />
@@ -157,7 +171,7 @@
               {{ testimonial.name }}, {{ testimonial.age }} years
             </div>
             <img
-              :src="testimonial.photo_link"
+              :src="'../../assets/img/services/testimonials' + testimonial.photo_link"
               :alt="
                 'Photo of testimonial ' +
                 testimonial.name +
