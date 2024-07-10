@@ -56,6 +56,8 @@ module.exports = {
       screens: {
         'tl': '1062px', //custom screen size for logo title 
         'md': '803px', 
+        'sv': '914px',
+        'ch': '505px',
       },
       spacing: {
         x_padding_page: "9rem",
