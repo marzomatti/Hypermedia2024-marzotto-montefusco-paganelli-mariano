@@ -37,7 +37,7 @@
             class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden"
           >
             <img
-              :src="'../../assets/img/services' + currService.image"
+              :src="currService.image"
               alt="Service Image"
               class="absolute inset-0 w-full h-full object-cover"
             />

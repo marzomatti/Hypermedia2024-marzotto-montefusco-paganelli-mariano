@@ -15,7 +15,7 @@
           <div v-if="loading">Loading...</div>
           <div v-else-if="error">{{ error }}</div>
           <div v-else v-for="service in services" :key="service.id" class="flex items-center">
-            <img :src="'assets/img/services' + service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer pr-2"/>
+            <img :src="service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer pr-2"/>
             <NuxtLink :to="getLink(service.id)" class="flex-1 flex items-center justify-center border-2 border-secondary-color text-blue rounded-full px-6 py-4 hover:text-white transition hover:bg-secondary-color duration-300">
               <span class="text-xl">{{ service.name }}</span>
             </NuxtLink>

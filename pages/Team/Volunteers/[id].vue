@@ -6,7 +6,7 @@
       <!-- Profile Section -->
       <div class="bg-white p-8 rounded-3xl shadow-lg mb-12 flex flex-col md:flex-row items-center">
         <div class="md:flex-1 md:mr-8">
-          <img :src="currPerson.image" alt="Profile Photo" class="w-full h-auto rounded-3xl shadow-md mb-4 md:mb-0">
+          <img :src="'/team/volunteers' + currPerson.image" alt="Profile Photo" class="w-full h-auto rounded-3xl shadow-md mb-4 md:mb-0">
         </div>
         <div class="md:flex-1 text-center md:text-left">
           <h1 class="text-5xl font-extrabold text-blue mb-4">{{ currPerson.name }} {{ currPerson.surname }}</h1>

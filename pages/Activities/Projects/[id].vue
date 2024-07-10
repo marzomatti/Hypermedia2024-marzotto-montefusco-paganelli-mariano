@@ -14,7 +14,7 @@
         </div>
         <!-- Section: Project Image -->
         <div class="lg:w-2/3 pt-32 lg:mt-0">
-          <img :src="'../../assets/img/projects' + currProject.image" alt="Project Image" class="w-full h-auto rounded-3xl shadow-lg">
+          <img :src="'/projects' + currProject.image" alt="Project Image" class="w-full h-auto rounded-3xl shadow-lg">
         </div>
       </div>
 
