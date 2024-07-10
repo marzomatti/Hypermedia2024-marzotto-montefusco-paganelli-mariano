@@ -6,6 +6,7 @@ export default defineNuxtConfig({
       supabaseKey: process.env.SUPABASE_KEY,
       openaiApiKey: process.env.OPENAI_API_KEY,
       openaiAssistantId: process.env.OPENAI_ASSISTANT_ID,
+      assetsUrl: process.env.ASSETS_URL,
     },
   },
   devtools: { enabled: true },

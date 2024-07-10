@@ -134,8 +134,8 @@
             class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden"
           >
             <img
-              :src="currService.image"
-              alt="Service Image"
+            alt="Service Image"
+            :src="'../../assets/img/services' + currService.image"
               class="absolute inset-0 w-full h-full object-cover"
             />
           </div>
@@ -156,7 +156,7 @@
           <div class="px-4 py-8 bg-white rounded-3xl">
             <div class="font-bold text-2xl mb-4 text-blue">{{ testimonial.name }}, {{ testimonial.age }} years</div>
             <img
-              :src="testimonial.photo_link"
+              :src="'../../assets/img/services/testimonials' + testimonial.photo_link"
               :alt="' Photo of testimonnial ' + testimonial.name + ', ' + testimonial.age + ' years old'"
               class="w-full h-48 object-cover rounded-3xl mb-4"
             />

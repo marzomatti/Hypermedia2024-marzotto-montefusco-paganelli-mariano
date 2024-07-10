@@ -12,7 +12,7 @@
             :to="`/activities/projects/${project.id}`"
             class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105"
           >
-            <img :src="project.image" alt="project.name" class="w-full h-128 object-cover mb-2 rounded-3xl" />
+            <img :src="'assets/img/projects' + project.image" alt="project.name" class="w-full h-128 object-cover mb-2 rounded-3xl" />
             <h4 class="text-xl font-semibold text-blue mb-2">{{ project.name }}</h4>
             <p class="text-blue mb-2">{{ project.description_s }}</p>
           </nuxt-link>
