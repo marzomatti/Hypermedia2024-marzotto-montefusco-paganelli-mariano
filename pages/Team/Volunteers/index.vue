@@ -8,7 +8,7 @@
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <nuxt-link v-for="person in volunteers" :key="person.id" :to="`/team/volunteers/${person.id}`" class="bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105">
-          <img :src="person.image" alt="Volunteer Photo" class="w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
+          <img :src="'/team/volunteers' + person.image" alt="Volunteer Photo" class="w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
           <h3 class="text-xl font-semibold text-blue">{{ person.name }} {{ person.surname }}</h3>
           <p class="text-blue">{{ person.role }}</p>
         </nuxt-link>

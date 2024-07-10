@@ -10,7 +10,7 @@
         <!-- Staff Block -->
         <div class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 flex flex-col items-center">
           <div class="flex-shrink-0 w-full">
-            <img src="/assets/img/team/people_staff.jpg" alt="Staff" class="w-full h-128 object-cover mb-2 rounded-3xl"/>
+            <img src="/team/people_staff.jpg" alt="Staff" class="w-full h-128 object-cover mb-2 rounded-3xl"/>
           </div>
           <h3 class="text-2xl font-semibold text-blue mb-2">Staff</h3>
           <p class="text-blue mb-2">Meet our dedicated staff members who work tirelessly to provide support and services to women in need.</p>
@@ -19,7 +19,7 @@
         <!-- Volunteers Block -->
         <div class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 flex flex-col items-center">
           <div class="flex-shrink-0 w-full">
-            <img src="/assets/img/team/people_volounteers.jpg" alt="Volunteers" class="w-full h-128 object-cover mb-2 rounded-3xl object-top"/>
+            <img src="/team/people_volounteers.jpg" alt="Volunteers" class="w-full h-128 object-cover mb-2 rounded-3xl object-top"/>
           </div>
           <h3 class="text-2xl font-semibold text-blue mb-2">Volunteers</h3>
           <p class="text-blue mb-2">Discover the passionate volunteers who help us make a difference in the lives of women facing violence.</p>
