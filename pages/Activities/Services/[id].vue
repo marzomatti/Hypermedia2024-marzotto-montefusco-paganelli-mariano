@@ -17,15 +17,15 @@
           </h2>
           <ul class="list-none text-lg text-blue ml-4">
             <li class="mb-2 flex items-start">
-              <img src="/assets/img/services/service_list_icon.png" alt="Goal Icon" class="h-6 w-6 mr-2" />
+              <img src="/assets/img/service_list_icon.png" alt="Goal Icon" class="h-8 w-8 mr-2" />
               <span>{{ currService.goal1 }}</span>
             </li>
             <li class="mb-2 flex items-start">
-              <img src="/assets/img/services/service_list_icon.png" alt="Goal Icon" class="h-6 w-6 mr-2" />
+              <img src="/assets/img/service_list_icon.png" alt="Goal Icon" class="h-8 w-8 mr-2" />
               <span>{{ currService.goal2 }}</span>
             </li>
             <li class="mb-2 flex items-start">
-              <img src="/assets/img/services/service_list_icon.png" alt="Goal Icon" class="h-6 w-6 mr-2" />
+              <img src="/assets/img/service_list_icon.png" alt="Goal Icon" class="h-8 w-8 mr-2" />
               <span>{{ currService.goal3 }}</span>
             </li>
           </ul>
