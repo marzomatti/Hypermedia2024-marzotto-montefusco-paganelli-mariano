@@ -4,8 +4,8 @@ export default defineNuxtConfig({
     public: {
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_KEY,
-      openaiApiKey: process.env.VUE_APP_OPENAI_API_KEY || '',
-      openaiAssistantId: process.env.VUE_APP_OPENAI_ASSISTANT_ID || '',
+      openaiApiKey: process.env.OPENAI_API_KEY,
+      openaiAssistantId: process.env.OPENAI_ASSISTANT_ID,
     },
   },
   devtools: { enabled: true },
