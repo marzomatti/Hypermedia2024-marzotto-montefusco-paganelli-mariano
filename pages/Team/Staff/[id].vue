@@ -27,14 +27,14 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <nuxt-link v-for="service in filteredServices" :key="service.id" :to="'/activities/services/' + service.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <div v-if="isServiceRelated(service.id)">
-              <img :src="service.image" alt="Activity Image" class="w-full h-48 object-cover rounded-3xl mb-4">
+              <img :src="'/services' + service.image" alt="Activity Image" class="w-full h-48 object-cover rounded-3xl mb-4">
               <h3 class="text-2xl font-bold text-blue mb-2">{{ service.name }}</h3>
               <p class="text-blue">{{ service.description_s }}</p>
             </div>
           </nuxt-link>
           <nuxt-link v-for="project in filteredProjects" :key="project.id" :to="'/activities/projects/' + project.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <div v-if="isProjectRelated(project.id)">
-              <img :src="project.image" alt="Activity Image" class="w-full h-48 object-cover rounded-3xl mb-4">
+              <img :src="'/projects' +project.image" alt="Activity Image" class="w-full h-48 object-cover rounded-3xl mb-4">
               <h3 class="text-2xl font-bold text-blue mb-2">{{ project.name }}</h3>
               <p class="text-blue">{{ project.description_s }}</p>
             </div>

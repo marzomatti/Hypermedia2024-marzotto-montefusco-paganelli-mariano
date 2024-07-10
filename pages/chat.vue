@@ -5,7 +5,7 @@
       <div class="lg:px-24 px-4">
         <!-- Title of the page -->
         <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">
-          Are you in trouble?<br />
+          Are you a victim of domestic violence?<br />
           Chat now with our virtual assistant!
         </h1>
       </div>

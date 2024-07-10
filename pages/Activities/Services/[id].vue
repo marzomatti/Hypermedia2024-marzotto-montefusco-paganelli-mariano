@@ -12,20 +12,24 @@
             Responsible Person: {{ currService.responsible }}
           </h2>
           <p class="text-lg text-blue mb-6">{{ currService.description }}</p>
-          <h2 class="text-2xl text-blue mb-2">
-            Goals of the service
+          <h2 class="text-4xl font-bold text-blue mb-4 mt-8">
+            What We Aim to Achieve
           </h2>
-          <ul>
-            <li>
-              {{ currService.goal1 }}
+          <ul class="list-none text-lg text-blue ml-4">
+            <li class="mb-2 flex items-start">
+              <img src="/assets/img/service_list_icon.png" alt="Goal Icon" class="h-8 w-8 mr-2" />
+              <span>{{ currService.goal1 }}</span>
             </li>
-            <li>
-              {{ currService.goal2 }}
+            <li class="mb-2 flex items-start">
+              <img src="/assets/img/service_list_icon.png" alt="Goal Icon" class="h-8 w-8 mr-2" />
+              <span>{{ currService.goal2 }}</span>
             </li>
-            <li>
-              {{ currService.goal3 }}
+            <li class="mb-2 flex items-start">
+              <img src="/assets/img/service_list_icon.png" alt="Goal Icon" class="h-8 w-8 mr-2" />
+              <span>{{ currService.goal3 }}</span>
             </li>
           </ul>
+
         </div>
         <!-- Sezione Destra: Immagine del Servizio -->
         <div class="lg:w-1/2 lg:pl-8 flex items-center">
@@ -33,7 +37,7 @@
             class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden"
           >
             <img
-              :src="currService.image"
+              :src="'/services' + currService.image"
               alt="Service Image"
               class="absolute inset-0 w-full h-full object-cover"
             />
@@ -171,7 +175,7 @@
               {{ testimonial.name }}, {{ testimonial.age }} years
             </div>
             <img
-              :src="'../../assets/img/services/testimonials' + testimonial.photo_link"
+              :src="'/services/testimonials' + testimonial.photo_link"
               :alt="
                 'Photo of testimonial ' +
                 testimonial.name +
