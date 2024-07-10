@@ -45,7 +45,6 @@ useHead({
 })
 
 const { data: services, error, loading } = await useFetch('/api/services');
-const router = useRouter();
 
 function getServiceLink(id) {
   return `/activities/services/` + `${id}`
