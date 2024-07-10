@@ -6,7 +6,7 @@ const supabaseKey = config.public.supabaseKey;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default defineEventHandler(async (event) => {
-  const { data, error } = await supabase.from('team').select('*').lt('id', 13);
+  const { data, error } = await supabase.from('team').select('*').lt('id', 13).order('id', { ascending: true });
   if (error) {
     throw createError({
       statusCode: 500,
