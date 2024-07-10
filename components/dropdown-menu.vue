@@ -102,6 +102,10 @@ function getCategoryLink(categoryName) {
     return '/activities/services'
   } else if (categoryName === 'Projects') {
     return '/activities/projects'
+  } else if (categoryName === 'Staff') {
+    return '/team/staff'
+  } else if (categoryName === 'Volunteers') {
+    return '/team/volunteers'
   }
   return '#'
 }
