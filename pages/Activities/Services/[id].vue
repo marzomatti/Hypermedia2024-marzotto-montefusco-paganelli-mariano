@@ -37,7 +37,7 @@
             class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden"
           >
             <img
-              :src="currService.image"
+              :src="'/services' + currService.image"
               alt="Service Image"
               class="absolute inset-0 w-full h-full object-cover"
             />
@@ -175,7 +175,7 @@
               {{ testimonial.name }}, {{ testimonial.age }} years
             </div>
             <img
-              :src="'../../assets/img/services/testimonials' + testimonial.photo_link"
+              :src="'/services/testimonials' + testimonial.photo_link"
               :alt="
                 'Photo of testimonial ' +
                 testimonial.name +
