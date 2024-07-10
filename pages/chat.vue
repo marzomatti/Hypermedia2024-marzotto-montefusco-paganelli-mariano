@@ -58,24 +58,24 @@
               </div>
               <div
                 v-else-if="message.type === 'answer'"
+                id="response"
                 class="bg-yellow-100 text-yellow-900 p-3 rounded-lg shadow-md mb-2"
-              >
-                {{ message.content }}
-              </div>
+                v-html="message.content"
+              ></div>
             </div>
           </div>
           <!-- Chat input -->
-          <div class="flex mt-4">
+          <div class="flex mt-4 flex-col ch:flex-row justify-center">
             <input
               v-model="currentQuestion"
               type="text"
-              placeholder="Enter your question..."
+              placeholder="Enter your question here..."
               @keyup.enter="sendMessage"
-              class="flex-1 p-3 border border-gray-300 rounded-3xl shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+              class="flex-1 p-3 border border-gray-300 rounded-3xl shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent mb-2 ch:mb-0 ml-2"
             />
             <button
               @click="sendMessage"
-              class="send-button-custom p-3 rounded-lg shadow-md"
+              class="send-button-custom p-3 rounded-lg shadow-md mr-2"
             >
               Send
             </button>
@@ -83,6 +83,16 @@
         </div>
       </div>
     </section>
+    <div v-for="message in messages" :key="message.id" class="mb-4">
+      <div
+        v-if="message.type === 'answer'"
+        class="bg-red-100 text-red-900 p-3 rounded-lg shadow-md mb-2"
+      >
+        <slot>
+          {{ message.content }}
+        </slot>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -95,8 +105,6 @@ const openai = new OpenAI({
   apiKey: config.public.openaiApiKey,
   dangerouslyAllowBrowser: true,
 });
-
-console.log(config);
 
 const assistantId = config.public.openaiAssistantId;
 const assistant = await openai.beta.assistants.retrieve(assistantId);
@@ -121,17 +129,26 @@ const sendMessage = async () => {
     scrollToBottom();
 
     const answer = await getAnswerFromOpenAI(question);
-
+    const htmlAnswer = convertResponseToHTML(answer).trim();
     messages.value.push({
       id: Date.now() + 1,
       type: "answer",
-      content: answer,
+      content: htmlAnswer,
     });
-
+    vueInstance.htmlContent = messages.content;
     await nextTick();
     scrollToBottom();
   }
 };
+
+function convertResponseToHTML(response) {
+  let html = response.replace(/\n/g, "<br>");
+  html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  html = html.replace(/\*(.*?)\*/g, "<em>$1</em>");
+  // Remove citations [4:0†source], [4:7†source], etc.
+  html = html.replace(/\【\d+:\d+\†source\】/g, "");
+  return html;
+}
 
 const getAnswerFromOpenAI = async (question) => {
   const response = await openai.beta.threads.messages.create(thread.id, {
