@@ -75,8 +75,7 @@ const filteredProjects = computed(() => {
     return projects.value
   }
   return projects.value.filter(project => 
-    project.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    project.description.toLowerCase().includes(searchQuery.value.toLowerCase())
+    project.name.toLowerCase().includes(searchQuery.value.toLowerCase())
   )
 })
 
