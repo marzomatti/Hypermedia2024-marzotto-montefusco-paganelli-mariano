@@ -35,9 +35,7 @@ function navigateToService(id) {
   background-color: #ffffff;
 }
 
-.text-blue {
-  color: #1e3a8a;
-}
+
 
 .rounded-3xl {
   border-radius: 1.5rem;
