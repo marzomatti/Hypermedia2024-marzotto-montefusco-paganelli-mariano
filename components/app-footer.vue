@@ -24,15 +24,15 @@
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/team"
                     class="text-blue hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
-                    Our team
+                    Our Team
                   </NuxtLink>
                 </div>
               </li>
               <li>
                 <div class="flex flex-row md:justify-center">
-                  <NuxtLink to="/chat"
+                  <NuxtLink to="/virtual-assistant"
                     class="text-blue hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
-                    Chatbot
+                    Virtual Assistant
                   </NuxtLink>
                 </div>
               </li>
@@ -40,7 +40,7 @@
                 <div class="flex flex-row md:justify-center">
                   <NuxtLink to="/about-us"
                     class="text-blue hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
-                    About us
+                    About Us
                   </NuxtLink>
                 </div>
               </li>

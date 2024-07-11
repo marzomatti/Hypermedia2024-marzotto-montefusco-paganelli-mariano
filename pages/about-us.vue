@@ -139,11 +139,11 @@ const values = [
 
 const teamImages = [
   {
-    src: '/public/about_2.jpg',
+    src: '/about_2.jpg',
     alt: 'Team Image 1'
   },
   {
-    src: '/public/about_3.jpg',
+    src: '/about_3.jpg',
     alt: 'Team Image 2'
   }
 ];
