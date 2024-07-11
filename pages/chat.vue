@@ -82,16 +82,6 @@
         </div>
       </div>
     </section>
-    <div v-for="message in messages" :key="message.id" class="mb-4">
-      <div
-        v-if="message.type === 'answer'"
-        class="bg-red-100 text-red-900 p-3 rounded-lg shadow-md mb-2"
-      >
-        <slot>
-          {{ message.content }}
-        </slot>
-      </div>
-    </div>
   </main>
 </template>
 

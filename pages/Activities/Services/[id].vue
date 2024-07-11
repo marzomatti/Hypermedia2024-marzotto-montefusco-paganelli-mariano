@@ -8,8 +8,9 @@
           <h1 class="text-5xl font-bold text-blue mb-4">
             {{ currService.name }}
           </h1>
-          <h2 class="text-2xl text-blue mb-2">
-            Responsible Person: {{ currService.responsible }}
+          <h2 class="text-2xl text-blue my-6 mr-2 font-bold">Responsible of the service: 
+            <NuxtLink :to="`/team/staff/${currService.responsible_person.id}`" class="hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
+              {{ currService.responsible_person.name }} {{ currService.responsible_person.surname }}</NuxtLink>
           </h2>
           <p class="text-lg text-blue mb-6">{{ currService.description }}</p>
           <h2 class="text-4xl font-bold text-blue mb-4 mt-8">
