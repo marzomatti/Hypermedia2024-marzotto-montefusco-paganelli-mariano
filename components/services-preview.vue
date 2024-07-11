@@ -1,25 +1,22 @@
 <template>
-  <section class="bg-white py-4">
-    <div class="container mx-auto flex flex-col sv:flex-row items-center justify-between">
-      <!-- Left Side: Title and Description -->
-      <div class="w-full sv:w-1/2 mb-8 sv:mb-0 px-4 flex flex-col justify-center h-full">
-        <h2 class="text-4xl font-bold text-blue mb-4">Our Services</h2>
+  <section class="bg-white py-12">
+    <div class="container mx-auto">
+      <!-- Titolo e Descrizione -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold text-blue mb-4">Our Services</h1>
         <p class="text-lg text-blue mb-4">We offer comprehensive support, including legal assistance, counseling, and recovery programs. Let our expert team help you find safety and empowerment. Discover how we can assist you on your journey with personalized services tailored to your needs. Our goal is to provide a safe and supportive environment where you can heal and thrive.</p>
-        <div class="flex justify-left">
-          <Button :text="'See our services ->'" :link="'/activities/services'" class="w-auto"/>
-        </div>
+        <Button :text="'See our services ->'" :link="'/activities/services'" class="w-auto mx-auto"/>
       </div>
-      <!-- Right Side: Service Buttons -->
-      <div class="w-full md:w-2/3 flex pl-8 sv:justify-end justify-center">
-        <div class="flex flex-col space-y-4 px-4">
-          <div v-if="loading">Loading...</div>
-          <div v-else-if="error">{{ error }}</div>
-          <div v-else v-for="service in services" :key="service.id" class="flex items-center">
-            <img :src="'/services'+service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer "/>
-            <NuxtLink :to="getLink(service.id)" class="flex-1 flex items-center justify-center border-2 border-secondary-color text-blue rounded-full px-6 py-4 hover:text-white transition hover:bg-secondary-color duration-300">
-              <span class="text-xl">{{ service.name }}</span>
-            </NuxtLink>
-          </div>
+      <!-- Lista di Servizi -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+        <div v-if="loading" class="col-span-full">Loading...</div>
+        <div v-else-if="error" class="col-span-full">{{ error }}</div>
+        <div v-else v-for="service in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 flex flex-col items-center">
+          <img :src="'/services' + service.logo" alt="Service Icon" class="w-24 h-24 mb-4"/>
+          <h3 class="text-2xl font-semibold text-blue mb-2">{{ service.name }}</h3>
+          <NuxtLink :to="getLink(service.id)" class="inline-block mt-4 border-2 border-secondary-color text-secondary-color px-6 py-2 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
+            Discover more →
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -29,12 +26,48 @@
 <script setup>
 const { data: services, error, loading } = await useFetch('/api/services');
 
-const config = useRuntimeConfig()
-
 function getLink(id){
   return `/activities/services/${id}`
 }
 </script>
 
 <style scoped>
+.bg-white {
+  background-color: #ffffff;
+}
+
+.text-blue {
+  color: #1e3a8a;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.transition {
+  transition: all 0.3s ease;
+}
+
+.hover\:shadow-xl:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>

@@ -29,7 +29,19 @@
       <!-- How Section -->
       <section class="text-center mb-12">
         <h2 class="text-4xl font-bold text-blue mb-4">How?</h2>
-        <p class="text-lg text-blue">Our services are designed to provide comprehensive support to women affected by violence. From group chats and psychological support to legal aid and medical assistance, we are here to help you navigate through difficult times with the care and expertise you need. Each service is tailored to address specific needs, ensuring that you receive the right kind of support when you need it most. Explore the sections above to learn more about how each service can assist you in your journey towards healing and empowerment.</p>
+        <p class="text-lg text-blue">
+  Our services are meticulously designed to provide comprehensive and holistic support to women affected by violence. We understand that each individual's experience is unique, which is why we offer a wide array of services to meet diverse needs. From supportive <b style="color: #d62828; font-weight: 900;">group chats</b> where you can connect with others who have similar experiences, to one-on-one <b style="color: #d62828; font-weight: 900;">psychological counseling sessions</b> aimed at helping you process trauma and rebuild your emotional strength, our psychological services are here to nurture your mental health.<br><br>
+
+  Legal challenges often accompany instances of domestic violence, and our <b style="color: #d62828; font-weight: 900;">legal aid services</b> are dedicated to helping you navigate through these complexities with confidence. Our team of experienced lawyers will provide you with expert advice and representation, ensuring that your rights are protected and that you can move forward with legal matters in a safe and informed manner.<br><br>
+
+  Medical assistance is another critical aspect of our support system. We offer access to comprehensive <b style="color: #d62828; font-weight: 900;">healthcare services</b>, including <b style="color: #d62828; font-weight: 900;">emergency medical care</b>, regular <b style="color: #d62828; font-weight: 900;">health check-ups</b>, and specialized treatments for injuries and other health issues resulting from abuse. Our compassionate healthcare professionals are here to attend to your physical well-being with the utmost care and respect.<br><br>
+
+  Additionally, our <b style="color: #d62828; font-weight: 900;">Safe Haven Housing Program</b> is designed to offer secure and supportive housing options for those who need to escape abusive environments. We collaborate with local shelters and housing agencies to provide both temporary and long-term housing solutions, ensuring that you have a safe place to stay while you rebuild your life.<br><br>
+
+  Each of our services is tailored to address specific needs, ensuring that you receive the right kind of support when you need it most. We believe in a personalized approach to care, recognizing that the path to healing and empowerment is different for everyone. Explore the sections above to learn more about how each service can assist you in your journey towards healing and empowerment. We are committed to walking alongside you every step of the way, providing the expertise, care, and compassion you need to overcome these challenging times and emerge stronger.
+</p>
+
+
       </section>
       <!-- Image Section -->
       <div class="flex justify-center">
