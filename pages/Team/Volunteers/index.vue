@@ -11,8 +11,8 @@
           v-for="(person, index) in volunteers"
           :key="person.id"
           :to="`/team/volunteers/${person.id}`"
-          v-show="isVolunteerVisible(index)"
           class="bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-700 hover:scale-105 animate-fadeIn"
+          :style="{ visibility: isVolunteerVisible(index) ? 'visible' : 'hidden' }"
         >
           <img :src="'/team/volunteers' + person.image" alt="Volunteer Photo" class="w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
           <h3 class="text-xl font-semibold text-blue">{{ person.name }} {{ person.surname }}</h3>
