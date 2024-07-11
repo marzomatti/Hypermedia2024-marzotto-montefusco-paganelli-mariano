@@ -7,7 +7,7 @@
           <div class="hidden md:flex items-center mr-8">
             <template v-for="item in navigation">
               <NuxtLink
-                v-if="item.name !== 'Activities' && item.name !== 'Our team'"
+                v-if="item.name !== 'Activities' && item.name !== 'Our Team'"
                 :key="item.name"
                 :to="item.href"
                 class=" text-blue hover:bg-secondary-color hover:text-white rounded-md px-3 py-2 text-sm font-medium"
