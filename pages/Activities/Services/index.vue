@@ -29,7 +29,7 @@
       <!-- How Section -->
       <section class="text-center mb-12">
         <h2 class="text-4xl font-bold text-blue mb-4">How?</h2>
-        <p class="text-lg text-blue">
+        <p class="text-lg text-left text-blue">
           Our services are meticulously designed to provide comprehensive and holistic support to women affected by violence. We understand that each individual's experience is unique, which is why we offer a wide array of services to meet diverse needs. From supportive <b style="color: #d62828; font-weight: 900;">group chats</b> where you can connect with others who have similar experiences, to one-on-one <b style="color: #d62828; font-weight: 900;">psychological counseling sessions</b> aimed at helping you process trauma and rebuild your emotional strength, our psychological services are here to nurture your mental health.<br><br>
 
           Legal challenges often accompany instances of domestic violence, and our <b style="color: #d62828; font-weight: 900;">legal aid services</b> are dedicated to helping you navigate through these complexities with confidence. Our team of experienced lawyers will provide you with expert advice and representation, ensuring that your rights are protected and that you can move forward with legal matters in a safe and informed manner.<br><br>
