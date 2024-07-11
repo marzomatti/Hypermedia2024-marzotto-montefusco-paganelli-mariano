@@ -2,18 +2,18 @@
   <div>
     <Breadcrumb :is-customized="true" :label="currService.name" />
     <main class="pt-12 px-4 lg:px-24 bg-white min-h-screen">
-      <div class="flex flex-col lg:flex-row items-start justify-between mb-12">
+      <div class="flex flex-col lg:flex-row items-start justify-between">
         <!-- Sezione Sinistra: Dettagli del Servizio -->
         <div class="lg:w-2/3 flex flex-col justify-center">
-          <h1 class="text-5xl font-bold text-blue mb-4">
+          <h1 class="text-5xl font-bold text-blue mb-2 mt-4">
             {{ currService.name }}
           </h1>
-          <h2 class="text-2xl text-blue my-6 mr-2 font-bold">Responsible of the service: 
+          <h2 class="text-2xl text-blue my-2 mr-2 font-bold">Responsible of the service: 
             <NuxtLink :to="`/team/staff/${currService.responsible_person.id}`" class="hover:text-secondary-color active:font-bold hover:transform hover:scale-105 hover:font-bold transition duration-200">
               {{ currService.responsible_person.name }} {{ currService.responsible_person.surname }}</NuxtLink>
           </h2>
-          <p class="text-lg text-blue mb-6">{{ currService.description }}</p>
-          <h2 class="text-4xl font-bold text-blue mb-4 mt-8">
+          <p class="text-lg text-blue mb-6 mt-2">{{ currService.description }}</p>
+          <h2 class="text-4xl font-bold text-blue mb-4 mt-10">
             What We Aim to Achieve
           </h2>
           <ul class="list-none text-lg text-blue ml-4">
@@ -33,7 +33,7 @@
 
         </div>
         <!-- Sezione Destra: Immagine del Servizio -->
-        <div class="lg:w-1/2 lg:pl-8 flex items-center">
+        <div class="lg:w-1/2 lg:pl-8 flex items-center-top">
           <div
             class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden"
           >
