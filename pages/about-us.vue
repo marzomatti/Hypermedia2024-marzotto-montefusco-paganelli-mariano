@@ -26,10 +26,9 @@
       </div>
     </div>
 
-
     <!-- Sezione "Our Values" -->
     <transition name="fade" @after-enter="showValues = true">
-      <div v-if="showValues" class="bg-white w-full px-4 lg:px-16 py-8">
+      <div v-show="true" class="bg-white w-full px-4 lg:px-16 py-8">
         <h1
           class="text-4xl py-8 md:py-12 md:text-5xl font-bold text-center text-blue"
         >
@@ -37,46 +36,17 @@
         </h1>
         <div class="flex flex-wrap justify-around">
           <div
+            v-for="(value, index) in values"
+            :key="index"
             class="max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-            style="background-color: #ffcccc"
+            :style="{ backgroundColor: value.color, visibility: isValueVisible(index) ? 'visible' : 'hidden' }"
           >
             <div class="px-6 py-8 rounded-3xl">
-              <div class="font-bold text-2xl mb-4 text-secondary-color">
-                Compassion
+              <div class="font-bold text-2xl mb-4" :class="value.textColor">
+                {{ value.title }}
               </div>
               <p class="text-base text-blue">
-                Compassion is at the heart of everything we do. We believe in
-                providing a supportive and understanding environment where women
-                can feel safe and valued. Our team is dedicated to offering
-                empathy and care to every individual we serve.
-              </p>
-            </div>
-          </div>
-          <div
-            class="max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-            style="background-color: #ffffe6"
-          >
-            <div class="px-6 py-8 rounded-3xl">
-              <div class="font-bold text-2xl mb-4 text-yellow">Empowerment</div>
-              <p class="text-base text-blue">
-                We are committed to empowering women by providing them with the
-                tools and resources they need to regain control of their lives.
-                Through education, support groups, and advocacy, we strive to help
-                women build a future free from violence.
-              </p>
-            </div>
-          </div>
-          <div
-            class="max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-            style="background-color: #ffe6cc"
-          >
-            <div class="px-6 py-8 rounded-3xl">
-              <div class="font-bold text-2xl mb-4 text-orange-200">Change</div>
-              <p class="text-base text-blue">
-                Our goal is to bring about lasting change in our community. We
-                work tirelessly to raise awareness, educate the public, and
-                advocate for policies that protect women and prevent violence.
-                Together, we can create a safer world for everyone.
+                {{ value.description }}
               </p>
             </div>
           </div>
@@ -86,7 +56,7 @@
 
     <!-- Sezione "Our Expert Team" -->
     <transition name="fade" @after-enter="showTeam = true">
-      <div v-if="showTeam" class="bg-gray-200 w-full px-4 lg:px-16 py-8">
+      <div v-show="true" class="bg-gray-200 w-full px-4 lg:px-16 py-8">
         <h1
           class="text-3xl py-8 md:py-12 md:text-5xl font-bold text-center text-blue"
         >
@@ -94,14 +64,12 @@
         </h1>
         <div class="flex flex-wrap justify-center gap-20 items-center py-12">
           <img
+            v-for="(image, index) in teamImages"
+            :key="index"
             class="rounded-3xl w-full max-w-lg object-cover"
-            src="/assets/img/about_2.jpg"
-            alt="Team Image 1"
-          />
-          <img
-            class="rounded-3xl w-full max-w-lg object-cover"
-            src="/assets/img/about_3.jpg"
-            alt="Team Image 2"
+            :src="image.src"
+            :alt="image.alt"
+            :style="{ visibility: isTeamImageVisible(index) ? 'visible' : 'hidden' }"
           />
         </div>
         <div
@@ -148,6 +116,44 @@ const showFirstText = ref(false);
 const showValues = ref(false);
 const showTeam = ref(false);
 
+const values = [
+  {
+    title: 'Compassion',
+    description: 'Compassion is at the heart of everything we do. We believe in providing a supportive and understanding environment where women can feel safe and valued. Our team is dedicated to offering empathy and care to every individual we serve.',
+    color: '#ffcccc',
+    textColor: 'text-secondary-color'
+  },
+  {
+    title: 'Empowerment',
+    description: 'We are committed to empowering women by providing them with the tools and resources they need to regain control of their lives. Through education, support groups, and advocacy, we strive to help women build a future free from violence.',
+    color: '#ffffe6',
+    textColor: 'text-yellow'
+  },
+  {
+    title: 'Change',
+    description: 'Our goal is to bring about lasting change in our community. We work tirelessly to raise awareness, educate the public, and advocate for policies that protect women and prevent violence. Together, we can create a safer world for everyone.',
+    color: '#ffe6cc',
+    textColor: 'text-orange-200'
+  }
+];
+
+const teamImages = [
+  {
+    src: '/public/about_2.jpg',
+    alt: 'Team Image 1'
+  },
+  {
+    src: '/public/about_3.jpg',
+    alt: 'Team Image 2'
+  }
+];
+
+const visibleValueIndices = ref([]);
+const visibleTeamImageIndices = ref([]);
+
+const isValueVisible = (index) => visibleValueIndices.value.includes(index);
+const isTeamImageVisible = (index) => visibleTeamImageIndices.value.includes(index);
+
 onMounted(() => {
   setTimeout(() => {
     showTitle.value = true;
@@ -155,6 +161,16 @@ onMounted(() => {
   setTimeout(() => {
     showFirstText.value = true;
   }, 300);
+  values.forEach((_, index) => {
+    setTimeout(() => {
+      visibleValueIndices.value.push(index);
+    }, index * 500); // Delay each card by 500ms
+  });
+  teamImages.forEach((_, index) => {
+    setTimeout(() => {
+      visibleTeamImageIndices.value.push(index);
+    }, index * 500); // Delay each image by 500ms
+  });
   setTimeout(() => {
     showValues.value = true;
   }, 600);
