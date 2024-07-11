@@ -11,12 +11,9 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
         <div v-if="loading" class="col-span-full">Loading...</div>
         <div v-else-if="error" class="col-span-full">{{ error }}</div>
-        <div v-else v-for="service in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 flex flex-col items-center">
+        <div v-else v-for="service in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 flex flex-col items-center cursor-pointer" @click="navigateToService(service.id)">
           <img :src="'/services' + service.logo" alt="Service Icon" class="w-24 h-24 mb-4"/>
           <h3 class="text-2xl font-semibold text-blue mb-2">{{ service.name }}</h3>
-          <NuxtLink :to="getLink(service.id)" class="inline-block mt-4 border-2 border-secondary-color text-secondary-color px-6 py-2 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
-            Discover more →
-          </NuxtLink>
         </div>
       </div>
     </div>
@@ -26,8 +23,10 @@
 <script setup>
 const { data: services, error, loading } = await useFetch('/api/services');
 
-function getLink(id){
-  return `/activities/services/${id}`
+const router = useRouter();
+
+function navigateToService(id) {
+  router.push(`/activities/services/${id}`);
 }
 </script>
 
@@ -69,5 +68,9 @@ function getLink(id){
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 </style>
