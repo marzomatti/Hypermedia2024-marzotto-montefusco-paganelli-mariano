@@ -7,10 +7,10 @@ export const useNavigationStore = defineStore({
     navigation: [
       { name: 'Home', href: '/', current: true },
       { name: 'Activities', href: '/activities/', current: false },
-      { name: 'Our team', href: '/team/', current: false },
-      { name: 'Chatbot', href: '/chat/', current: false },
-      { name: 'About us', href: '/about-us', current: false },
-      { name: 'Contact us', href: '/contact-us', current: false },
+      { name: 'Our Team', href: '/team/', current: false },
+      { name: 'Virtual Assistant', href: '/chat/', current: false },
+      { name: 'About Us', href: '/about-us', current: false },
+      { name: 'Contact Us', href: '/contact-us', current: false },
     ]
   }),
 })

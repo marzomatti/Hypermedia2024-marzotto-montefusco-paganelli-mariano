@@ -10,7 +10,7 @@
                 v-if="item.name !== 'Activities' && item.name !== 'Our team'"
                 :key="item.name"
                 :to="item.href"
-                class="text-blue hover:bg-secondary-color hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                class=" text-blue hover:bg-secondary-color hover:text-white rounded-md px-3 py-2 text-sm font-medium"
               >
                 <span>{{ item.name }}</span>
               </NuxtLink>

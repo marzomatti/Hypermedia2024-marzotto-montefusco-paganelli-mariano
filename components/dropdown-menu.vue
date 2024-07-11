@@ -1,11 +1,11 @@
 <template>
-  <div class="relative" @mouseover="clearHideTimeout" @mouseleave="delayedHideDropdown" ref="dropdownContainer">
+  <div class="relative orange-100" @mouseover="clearHideTimeout" @mouseleave="delayedHideDropdown" ref="dropdownContainer">
     <slot @click="toggleDropdown"></slot>
-    <div v-if="showDropdown" :class="[dropdownPosition, 'absolute', 'mt-2', 'w-max', 'bg-white', 'shadow-lg', 'rounded-lg', 'z-50']">
-      <div class="p-4 flex flex-col space-y-4">
-        <div v-for="category in categories" :key="category.name" class="w-48">
+    <div v-if="showDropdown" :class="[dropdownPosition, 'absolute', 'mt-2', 'w-max', 'bg-orange-100', 'shadow-lg', 'rounded-lg', 'z-50']">
+      <div class="p-4 flex flex-col space-y-4 orange-100">
+        <div v-for="category in categories" :key="category.name" class="w-48 ">
           <NuxtLink :to="getCategoryLink(category.name)" >
-            <h3 class="block px-4 py-2 text-blue mb-2 rounded-md hover:bg-secondary-color hover:text-white">{{ category.name }}</h3>
+            <h3 class="block px-4 py-2 text-blue  mb-2 rounded-md hover:bg-secondary-color hover:text-white">{{ category.name }}</h3>
           </NuxtLink>
         </div>
       </div>
