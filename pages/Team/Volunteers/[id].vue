@@ -22,18 +22,6 @@
         </div>
       </div>
 
-      <!-- Related Activities Section -->
-      <!-- <section>
-        <h2 class="text-4xl font-extrabold text-blue mb-8">Related Activities</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <nuxt-link v-for="activity in person.activities" :key="activity.id" :to="'/activity/' + activity.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
-            <img :src="activity.image" alt="Activity Image" class="w-full h-48 object-cover rounded-3xl mb-4">
-            <h3 class="text-2xl font-bold text-blue mb-2">{{ activity.title }}</h3>
-            <p class="text-blue">{{ activity.description }}</p>
-          </nuxt-link>
-        </div>
-      </section> -->
-
       <!-- Navigation Arrows -->
       <div class="flex justify-between mt-12">
         <NuxtLink v-if="currPerson.previousPerson > 0" :to="getPersonLink(currPerson.previousPerson)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
@@ -78,8 +66,6 @@ function getPersonLink(id) {
 .rounded-3xl {
   border-radius: 1.5rem;
 }
-
-
 
 .shadow-lg {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);

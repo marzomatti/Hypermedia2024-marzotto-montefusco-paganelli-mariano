@@ -7,17 +7,16 @@
         Meet our dedicated volunteers who play a crucial role in supporting and advocating for women affected by violence. Our volunteers bring a diverse range of skills and a deep commitment to making a positive impact. They work tirelessly alongside our staff to provide comprehensive support and create a safe and empowering environment for all. We are grateful for their passion, dedication, and the invaluable contributions they make every day.
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        <nuxt-link
+        <PersonCard
           v-for="(person, index) in volunteers"
           :key="person.id"
-          :to="`/team/volunteers/${person.id}`"
-          class="bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-700 hover:scale-105 animate-fadeIn"
-          :style="{ visibility: isVolunteerVisible(index) ? 'visible' : 'hidden' }"
-        >
-          <img :src="'/team/volunteers' + person.image" alt="Volunteer Photo" class="w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
-          <h3 class="text-xl font-semibold text-blue">{{ person.name }} {{ person.surname }}</h3>
-          <p class="text-blue">{{ person.role }}</p>
-        </nuxt-link>
+          :link="`/team/volunteers/${person.id}`"
+          :imageSrc="`/team/volunteers/${person.image}`"
+          :name="person.name"
+          :surname="person.surname"
+          :role="person.role"
+          :isVisible="isVolunteerVisible(index)"
+        />
       </div>
     </section>
   </div>

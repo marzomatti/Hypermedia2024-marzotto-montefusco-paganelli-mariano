@@ -1,37 +1,55 @@
 <template>
-  <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
-    <img :src="imageUrl" alt="Face Image" class="w-24 h-24 rounded-full mb-4 object-cover">
-    <h3 class="text-xl font-bold text-gray-800 mb-2">{{ name }} {{ surname }}</h3>
-    <p class="text-gray-600 mb-4">{{ description }}</p>
-    <Button text="See more" :link="link" class="mt-4"/>
-  </div>
+  <nuxt-link
+    :to="link"
+    class="bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-700 hover:scale-105 animate-fadeIn"
+    :style="{ visibility: isVisible ? 'visible' : 'hidden' }"
+  >
+    <img :src="imageSrc" alt="Volunteer Photo" class="w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
+    <h3 class="text-xl font-semibold text-blue">{{ name }} {{ surname }}</h3>
+    <p class="text-blue">{{ role }}</p>
+  </nuxt-link>
 </template>
 
 <script setup>
 defineProps({
-  name: {
-    type: String,
-    required: true
-  },
-  surname: {
-    type: String,
-    required: true
-  },
-  imageUrl: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true
-  },
-  link: {
-    type: String,
-    required: true
-  }
+  link: String,
+  imageSrc: String,
+  name: String,
+  surname: String,
+  role: String,
+  isVisible: Boolean,
 });
 </script>
 
 <style scoped>
-/* Additional styles if needed */
+.rounded-lg {
+  border-radius: 1.5rem;
+}
+
+.aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>

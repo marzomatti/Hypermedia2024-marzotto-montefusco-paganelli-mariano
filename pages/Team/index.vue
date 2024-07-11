@@ -8,23 +8,24 @@
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
         <!-- Staff Block -->
-        <div class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 flex flex-col items-center">
-          <div class="flex-shrink-0 w-full">
-            <img src="/team/people_staff.jpg" alt="Staff" class="w-full h-128 object-cover mb-2 rounded-3xl"/>
-          </div>
-          <h3 class="text-2xl font-semibold text-blue mb-2">Staff</h3>
-          <p class="text-blue mb-2">Meet our dedicated staff members who work tirelessly to provide support and services to women in need.</p>
-          <Button text="Discover more ->" link="/team/staff" class="mt-2"/>
-        </div>
+        <TeamCard 
+          title="Staff" 
+          description="Meet our dedicated staff members who work tirelessly to provide support and services to women in need."
+          imageSrc="/team/people_staff.jpg"
+          altText="Staff"
+          buttonText="Discover more ->"
+          buttonLink="/team/staff"
+        />
         <!-- Volunteers Block -->
-        <div class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 flex flex-col items-center">
-          <div class="flex-shrink-0 w-full">
-            <img src="/team/people_volounteers.jpg" alt="Volunteers" class="w-full h-128 object-cover mb-2 rounded-3xl object-top"/>
-          </div>
-          <h3 class="text-2xl font-semibold text-blue mb-2">Volunteers</h3>
-          <p class="text-blue mb-2">Discover the passionate volunteers who help us make a difference in the lives of women facing violence.</p>
-          <Button text="Discover more ->" link="/team/volunteers" class="mt-2"/>
-        </div>
+        <TeamCard 
+          title="Volunteers" 
+          description="Discover the passionate volunteers who help us make a difference in the lives of women facing violence."
+          imageSrc="/team/people_volounteers.jpg"
+          altText="Volunteers"
+          buttonText="Discover more ->"
+          buttonLink="/team/volunteers"
+          imageClass="object-top"
+        />
       </div>
     </div>
   </section>
@@ -34,7 +35,6 @@
 </script>
 
 <style scoped>
-/* Additional styles if needed */
 .rounded-3xl {
   border-radius: 1.5rem;
 }
