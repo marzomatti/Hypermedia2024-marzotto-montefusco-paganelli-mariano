@@ -33,7 +33,7 @@
 
         </div>
         <!-- Sezione Destra: Immagine del Servizio -->
-        <div class="lg:w-1/2 lg:pl-8 flex items-center-top">
+        <div class="lg:w-1/2 lg:pl-8 flex items-center">
           <div
             class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden"
           >
