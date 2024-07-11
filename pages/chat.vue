@@ -17,20 +17,19 @@
         <!-- Text section -->
         <div class="w-full md:w-1/3 pr-8 mb-8 md:mb-0 text-center md:text-left">
           <p class="text-gray-700 text-lg mb-4 font-bold">
-            Our virtual assistant is designed to provide you with immediate
-            support and guidance.
+            Our virtual assistant is designed to provide you with immediate legal
+           support and guidance.
           </p>
           <p class="text-gray-700 text-lg mb-4">
-            Whether you need information about services, help with a specific
-            issue, or just someone to talk to, our assistant is here to help.
-            You can ask about:
+            Whether you need information about your legal rights, assistance with starting 
+            legal procedures, or general legal support, our assistant is here to help. You 
+            can ask about:
           </p>
           <ul class="list-disc list-inside text-gray-700 text-lg mb-4">
-            <li>Information on our services and how to access them.</li>
-            <li>Advice on dealing with specific situations.</li>
-            <li>Contact information for emergency support.</li>
-            <li>Emotional support and counseling options.</li>
-            <li>Guidance on legal rights and resources.</li>
+            <li>Information on your legal rights and how to assert them</li>
+            <li>Advice on initiating legal proceedings in cases of domestic abuse</li>
+            <li>Contact information for legal support services </li>
+            <li>Guidance on accessing legal resources </li>
           </ul>
           <p class="text-gray-700 text-lg mb-4">
             Please enter your question in the chat box below, and our assistant
