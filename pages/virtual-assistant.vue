@@ -20,7 +20,7 @@
           <p class="text-blue text-lg mb-4 font-bold">
             Our virtual assistant is here to support you with compassion and understanding.
           </p>
-          <p class="text-blue text-lg mb-4">
+          <p class="text-gray-700 text-lg mb-4">
             If you are facing domestic violence, you don't have to go through it alone. Our assistant provides a safe space to ask questions and get guidance on your rights and options.
           </p>
           <p class="text-blue text-lg mb-4">
