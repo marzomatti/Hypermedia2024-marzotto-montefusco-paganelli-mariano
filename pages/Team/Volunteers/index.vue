@@ -28,7 +28,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import Loader from '@/components/loader.vue'; // Assicurati di avere un componente Loader
 
 useHead({
   title: 'Volunteers',
