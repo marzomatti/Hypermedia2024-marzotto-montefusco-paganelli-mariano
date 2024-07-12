@@ -1,13 +1,12 @@
 <template>
   <div>
-    <Breadcrumb/>
+    <Breadcrumb />
     <TitleColor
       title="Our Services"
-      description = "We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you."
+      description="We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you."
     />
     
     <main class="py-12 px-4 lg:px-24 bg-white">
-
       <!-- Services List -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 justify-center text-blue">
         <ServiceCard
@@ -17,7 +16,7 @@
           :logo="'/services' + service.logo"
           :name="service.name"
           :description="service.description_s"
-          :isVisible="isVisible(index)"
+          :class="{ hiddenItem: !isVisible(index) }"
         />
       </div>
 
@@ -64,6 +63,22 @@ onMounted(() => {
       visibleIndices.value.push(index);
     }, index * 500); // Delay each card by 500ms
   });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        entry.target.classList.remove('hiddenItem');
+      }
+    });
+  }, {
+    rootMargin: '-20% 0px -10% 0px'
+  });
+
+  const hiddenElements = document.querySelectorAll('.hiddenItem');
+  hiddenElements.forEach(element => {
+    observer.observe(element);
+  });
 });
 
 function getServiceLink(id) {
@@ -72,19 +87,17 @@ function getServiceLink(id) {
 </script>
 
 <style scoped>
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.hiddenItem {
+  opacity: 0;
+  transition: opacity 1s ease-in-out, filter 1s ease-in-out, transform 1s ease-in-out;
+  filter: blur(10px);
+  transform: translateY(30px);
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.8s ease-out forwards;
+.show {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
 }
 
 .rounded-3xl {
@@ -103,3 +116,4 @@ function getServiceLink(id) {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 </style>
+

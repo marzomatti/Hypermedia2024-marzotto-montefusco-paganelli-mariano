@@ -2,7 +2,7 @@
   <main>
     <TitleColor
       title="Our Activities"
-      description = "We support women affected by domestic violence 
+      description="We support women affected by domestic violence 
                      with psychological counseling, group chats, legal 
                      aid, medical assistance, safe housing, educational 
                      programs, community outreach, and wellness retreats."
