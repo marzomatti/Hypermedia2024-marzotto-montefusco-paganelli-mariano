@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container mx-auto px-4 py-12">
-      <h1 class="text-4xl font-extrabold text-center text-blue mb-8">Contact Us</h1>
+      <h1 class="font-sans font-extrabold no-italic text-[40px] md:text-[56px] md:leading-[66px] text-center text-blue mb-4">Contact Us</h1>
       <!-- Titolo con immagine -->
       <div class="flex flex-col items-center mb-8">
         <p class="text-lg text-center text-blue mb-8">
