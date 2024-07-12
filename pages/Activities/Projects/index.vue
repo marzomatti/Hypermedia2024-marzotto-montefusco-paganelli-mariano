@@ -3,20 +3,11 @@
     <header>
       <Breadcrumb/>
       <TitleColor
-        title="Our Services"
-        description = "We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you."
-      ></TitleColor>
+        title="Our Projects"
+        :description = "text"
+      >
+      <div class="flex flex-col bg-primary-color">
         <div class="lg:px-24 px-4">
-
-          <!-- Title of the page -->
-          <!-- <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Projects</h1> -->
-
-          <!-- Description of the page -->
-          <!-- <div class="flex justify-center mt-4">
-            <h2 class="text-white text-center lg:text-2xl text-xl">
-              Explore our initiatives dedicated to supporting women affected by violence. Join us in making a difference.
-            </h2>
-          </div> -->
 
          <!-- Search Bar -->
           <div class="flex justify-center px-4 lg:px-24 pt-12">
@@ -46,7 +37,10 @@
               </div>
             </div>
           </div>
+        </div>
       </div>
+    </TitleColor>
+      
     </header>
     <main>
       <div class="flex flex-col w-full">
@@ -95,6 +89,8 @@ function getProjectLink(id) {
 const clearSearch = () => {
   searchQuery.value = '';
 };
+
+const text = "Explore our initiatives dedicated to supporting women affected by violence. Join us in making a difference."
 </script>
 
 <style scoped>

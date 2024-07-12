@@ -3,7 +3,7 @@
     <Breadcrumb/>
     <TitleColor
       title="Our Services"
-      description = "We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you."
+      :description = "text"
     />
     
     <main class="py-12 px-4 lg:px-24 bg-white">
@@ -69,6 +69,8 @@ onMounted(() => {
 function getServiceLink(id) {
   return `/activities/services/` + `${id}`
 }
+
+const text = "We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you."
 </script>
 
 <style scoped>

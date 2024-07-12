@@ -4,13 +4,7 @@
     <section class="py-12 px-4 lg:px-24">
       <TitleOne 
         title="Our Volunteers" 
-        description="Meet our dedicated volunteers who play a crucial 
-        role in supporting and advocating for women affected by violence. 
-        Our volunteers bring a diverse range of skills and a deep commitment 
-        to making a positive impact. They work tirelessly alongside our 
-        staff to provide comprehensive support and create a safe and empowering 
-        environment for all. We are grateful for their passion, dedication, 
-        and the invaluable contributions they make every day."
+        :description="text"
       />
       <div v-if="loading" class="flex justify-center items-center">
         <Loader />
@@ -87,6 +81,8 @@ onMounted(() => {
     });
   }, 500);
 });
+
+const text ="Meet our dedicated volunteers who play a crucial role in supporting and advocating for women affected by violence. Our volunteers bring a diverse range of skills and a deep commitment to making a positive impact. They work tirelessly alongside our staff to provide comprehensive support and create a safe and empowering environment for all. We are grateful for their passion, dedication, and the invaluable contributions they make every day."
 </script>
 
 <style scoped>

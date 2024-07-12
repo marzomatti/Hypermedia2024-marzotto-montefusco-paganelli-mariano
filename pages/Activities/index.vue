@@ -2,10 +2,7 @@
   <main>
     <TitleColor
       title="Our Activities"
-      description = "We support women affected by domestic violence 
-                     with psychological counseling, group chats, legal 
-                     aid, medical assistance, safe housing, educational 
-                     programs, community outreach, and wellness retreats."
+      :description = "text"
     />
     <!-- Services Section -->
     <section class="bg-white py-12 px-12">
@@ -41,6 +38,8 @@ onMounted(() => {
     observer.observe(element);
   });
 });
+
+const text = "We support women affected by domestic violence with psychological counseling, group chats, legal aid, medical assistance, safe housing, educational programs, community outreach, and wellness retreats."
 </script>
 
 <style scoped>

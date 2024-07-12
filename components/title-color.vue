@@ -10,13 +10,22 @@
           </h2>
         </div>
       </div>
+    <slot></slot>
     </div>
 </template>
 
 <script setup>
   defineProps({
-    title: String,
-    description: String
+    title: {
+      type: String,
+      required: true,
+      default: ''
+        },
+    description: {
+      type: String,
+      required: true,
+      default: ''
+    }
   });
 </script>
 

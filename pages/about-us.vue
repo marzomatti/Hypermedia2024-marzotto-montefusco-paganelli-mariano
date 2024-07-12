@@ -1,6 +1,5 @@
 <template>
   <main>
-    <!-- Grande Immagine di Intestazione -->
     <div
       class="bg-no-repeat bg-top bg-cover w-full h-[45rem]"
       :style="'background-image: url(/stop.jpg)'"

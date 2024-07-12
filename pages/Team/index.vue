@@ -2,11 +2,7 @@
   <section class="bg-white py-12 px-12">
     <TitleOne 
         title="Our Team" 
-        description="Meet the dedicated individuals who are at the 
-                     heart of our mission to support and empower women. 
-                     Our team, composed of passionate staff and volunteers, 
-                     works tirelessly to provide essential services and 
-                     create a safe environment for those in need."
+        :description= "text"
       />
 
     <div class="container mx-auto">
@@ -36,6 +32,8 @@
 </template>
 
 <script setup>
+
+const text = "Meet the dedicated individuals who are at the heart of our mission to support and empower women. Our team, composed of passionate staff and volunteers, works tirelessly to provide essential services and create a safe environment for those in need."
 </script>
 
 <style scoped>

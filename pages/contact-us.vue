@@ -4,14 +4,7 @@
 
       <TitleOne 
         title="Contact Us" 
-        description="We appreciate your interest in reaching out to us. 
-                     To ensure a smooth and efficient communication process, 
-                     we kindly request you to fill out the form below with 
-                     your relevant information. This will help us better 
-                     understand your needs and provide you with the most 
-                     appropriate assistance. We are here to support you and 
-                     provide the help you need.
-"
+        :description="text"
       />
 
       <!-- Form + image -->
@@ -135,6 +128,8 @@ onMounted(() => {
     observer.observe(element);
   });
 });
+
+const text = "We appreciate your interest in reaching out to us. To ensure a smooth and efficient communication process, we kindly request you to fill out the form below with your relevant information. This will help us better understand your needs and provide you with the most appropriate assistance. We are here to support you and provide the help you need."
 </script>
 
 <style scoped>

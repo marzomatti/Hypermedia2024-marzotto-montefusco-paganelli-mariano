@@ -4,13 +4,7 @@
     <section class="py-12 px-4 lg:px-24">
       <TitleOne 
         title="Our Staff" 
-        description="Meet our dedicated staff committed to supportingand 
-                    advocating for women affected by violence. Our team is 
-                    composed of experienced professionals who are passionate 
-                    about making a difference. Each member brings a unique set 
-                    of skills and expertise to provide comprehensive support and 
-                    create a safe and empowering environment for all. We are here 
-                    to help, listen, and guide you every step of the way."
+        :description="text"
       />
       <div v-if="loading" class="flex justify-center items-center">
         <Loader />
@@ -86,6 +80,8 @@ onMounted(() => {
     });
   }, 500);
 });
+
+const text = "Meet our dedicated staff committed to supportingand advocating for women affected by violence. Our team is composed of experienced professionals who are passionate about making a difference. Each member brings a unique set of skills and expertise to provide comprehensive support and create a safe and empowering environment for all. We are here to help, listen, and guide you every step of the way."
 </script>
 
 <style scoped>
