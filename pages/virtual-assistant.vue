@@ -21,7 +21,7 @@
             Our virtual assistant is here to support you with compassion and understanding.
           </p>
           <p class="text-gray-700 text-lg mb-4">
-            If you are facing domestic violence, you don't have to go through it alone. Our assistant provides a safe space to ask questions and get guidance on your rights and options.
+            If you are facing domestic violence, you don't have to go through it alone. Our assistant provides a safe space to ask any questions and get guidance on your rights and options.
           </p>
           <p class="text-gray-700 text-lg mb-4">
             Whether you need to know more about your legal rights, how to start legal procedures, or where to find help, we're here for you. Just enter your question below.
