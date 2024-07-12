@@ -27,73 +27,68 @@
     </div>
 
     <!-- Sezione "Our Values" -->
-    <transition name="fade" @after-enter="showValues = true">
-      <div v-show="true" class="bg-white w-full px-4 lg:px-16 py-8">
-        <h1
-          class="text-4xl py-8 md:py-12 md:text-5xl font-bold text-center text-blue"
+    <div class="bg-white w-full px-4 lg:px-16 py-8">
+      <h1
+        class="hiddenItem text-4xl py-8 md:py-12 md:text-5xl font-bold text-center text-blue"
+      >
+        Our Values
+      </h1>
+      <div class="flex flex-wrap justify-around">
+        <div
+          v-for="(value, index) in values"
+          :key="index"
+          class="hiddenItem max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
+          :style="{ backgroundColor: value.color }"
         >
-          Our Values
-        </h1>
-        <div class="flex flex-wrap justify-around">
-          <div
-            v-for="(value, index) in values"
-            :key="index"
-            class="max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-            :style="{ backgroundColor: value.color, visibility: isValueVisible(index) ? 'visible' : 'hidden' }"
-          >
-            <div class="px-6 py-8 rounded-3xl">
-              <div class="font-bold text-2xl mb-4" :class="value.textColor">
-                {{ value.title }}
-              </div>
-              <p class="text-base text-blue">
-                {{ value.description }}
-              </p>
+          <div class="px-6 py-8 rounded-3xl">
+            <div class="font-bold text-2xl mb-4" :class="value.textColor">
+              {{ value.title }}
             </div>
+            <p class="text-base text-blue">
+              {{ value.description }}
+            </p>
           </div>
         </div>
       </div>
-    </transition>
+    </div>
 
     <!-- Sezione "Our Expert Team" -->
-    <transition name="fade" @after-enter="showTeam = true">
-      <div v-show="true" class="bg-gray-200 w-full px-4 lg:px-16 py-8">
-        <h1
-          class="text-3xl py-8 md:py-12 md:text-5xl font-bold text-center text-blue"
-        >
-          Meet Our Expert Team
-        </h1>
-        <div class="flex flex-wrap justify-center gap-20 items-center py-12">
-          <img
-            v-for="(image, index) in teamImages"
-            :key="index"
-            class="rounded-3xl w-full max-w-lg object-cover"
-            :src="image.src"
-            :alt="image.alt"
-            :style="{ visibility: isTeamImageVisible(index) ? 'visible' : 'hidden' }"
-          />
-        </div>
-        <div
-          class="text-blue flex flex-col text-xl text-center pb-10 md:pb-12 md:flex-row justify-center px-4 lg:px-16"
-        >
-          At No Woman Alone, our team consists of highly skilled and compassionate
-          professionals dedicated to supporting women affected by violence. Our
-          experts bring a wealth of experience in various fields, including
-          psychology, social work, and advocacy. We work tirelessly to provide
-          comprehensive care and guidance, helping women to heal and thrive. Our
-          team is here to listen, support, and empower you every step of the way.
-          Learn more about the individuals who make our mission possible and their
-          unwavering commitment to creating a safer world for all women.
-        </div>
-        <div class="text-center">
-          <nuxt-link
-            to="/team"
-            class="inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300"
-          >
-            Meet Our Staff &rarr;
-          </nuxt-link>
-        </div>
+    <div class="bg-gray-200 w-full px-4 lg:px-16 py-8">
+      <h1
+        class="hiddenItem text-3xl py-8 md:py-12 md:text-5xl font-bold text-center text-blue"
+      >
+        Meet Our Expert Team
+      </h1>
+      <div class="hiddenItem flex flex-wrap justify-center gap-20 items-center py-12">
+        <img
+          v-for="(image, index) in teamImages"
+          :key="index"
+          class="rounded-3xl w-full max-w-lg object-cover"
+          :src="image.src"
+          :alt="image.alt"
+        />
       </div>
-    </transition>
+      <div
+        class="hiddenItem text-blue flex flex-col text-xl text-center pb-10 md:pb-12 md:flex-row justify-center px-4 lg:px-16"
+      >
+        At No Woman Alone, our team consists of highly skilled and compassionate
+        professionals dedicated to supporting women affected by violence. Our
+        experts bring a wealth of experience in various fields, including
+        psychology, social work, and advocacy. We work tirelessly to provide
+        comprehensive care and guidance, helping women to heal and thrive. Our
+        team is here to listen, support, and empower you every step of the way.
+        Learn more about the individuals who make our mission possible and their
+        unwavering commitment to creating a safer world for all women.
+      </div>
+      <div class="hiddenItem text-center">
+        <nuxt-link
+          to="/team"
+          class="inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300"
+        >
+          Meet Our Staff &rarr;
+        </nuxt-link>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -111,7 +106,6 @@ useHead({
   ],
 });
 
-const showTitle = ref(false);
 const showFirstText = ref(false);
 const showValues = ref(false);
 const showTeam = ref(false);
@@ -148,51 +142,48 @@ const teamImages = [
   }
 ];
 
-const visibleValueIndices = ref([]);
-const visibleTeamImageIndices = ref([]);
-
-const isValueVisible = (index) => visibleValueIndices.value.includes(index);
-const isTeamImageVisible = (index) => visibleTeamImageIndices.value.includes(index);
-
 onMounted(() => {
-  setTimeout(() => {
-    showTitle.value = true;
-  }, 500);
   setTimeout(() => {
     showFirstText.value = true;
   }, 300);
-  values.forEach((_, index) => {
-    setTimeout(() => {
-      visibleValueIndices.value.push(index);
-    }, index * 500); // Delay each card by 500ms
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        entry.target.classList.remove('hiddenItem');
+      }
+    });
+  }, {
+    rootMargin: '-20% 0px -10% 0px'
   });
-  teamImages.forEach((_, index) => {
-    setTimeout(() => {
-      visibleTeamImageIndices.value.push(index);
-    }, index * 500); // Delay each image by 500ms
+
+  const hiddenElements = document.querySelectorAll('.hiddenItem');
+  hiddenElements.forEach(element => {
+    observer.observe(element);
   });
-  setTimeout(() => {
-    showValues.value = true;
-  }, 600);
-  setTimeout(() => {
-    showTeam.value = true;
-  }, 900);
 });
 </script>
 
+
 <style scoped>
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.hiddenItem {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+  filter: blur(5px);
 }
 
-.fade-enter-active {
-  animation: fade 1s ease-out forwards;
+.show {
+  opacity: 1;
+  filter: blur(0px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

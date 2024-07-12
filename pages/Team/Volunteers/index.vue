@@ -6,17 +6,21 @@
       <p class="text-lg text-center mb-12">
         Meet our dedicated volunteers who play a crucial role in supporting and advocating for women affected by violence. Our volunteers bring a diverse range of skills and a deep commitment to making a positive impact. They work tirelessly alongside our staff to provide comprehensive support and create a safe and empowering environment for all. We are grateful for their passion, dedication, and the invaluable contributions they make every day.
       </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        <PersonCard
+      <div v-if="loading" class="flex justify-center items-center">
+        <Loader />
+      </div>
+      <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div
           v-for="(person, index) in volunteers"
           :key="person.id"
-          :link="`/team/volunteers/${person.id}`"
-          :imageSrc="`/team/volunteers/${person.image}`"
-          :name="person.name"
-          :surname="person.surname"
-          :role="person.role"
-          :isVisible="isVolunteerVisible(index)"
-        />
+          class="hiddenCard person-card bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-700 hover:scale-105"
+        >
+          <nuxt-link :to="`/team/volunteers/${person.id}`">
+            <img :data-src="'/team/volunteers/' + person.image" alt="Volunteer Photo" class="lazy w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
+            <h3 class="text-xl font-semibold text-blue">{{ person.name }} {{ person.surname }}</h3>
+            <p class="text-blue">{{ person.role }}</p>
+          </nuxt-link>
+        </div>
       </div>
     </section>
   </div>
@@ -24,6 +28,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import Loader from '@/components/loader.vue'; // Assicurati di avere un componente Loader
 
 useHead({
   title: 'Volunteers',
@@ -31,33 +36,79 @@ useHead({
 
 const { data: volunteers, error, loading } = await useFetch('/api/volunteers');
 
-const visibleVolunteerIndices = ref([]);
-
-const isVolunteerVisible = (index) => visibleVolunteerIndices.value.includes(index);
-
 onMounted(() => {
-  volunteers.value.forEach((_, index) => {
-    setTimeout(() => {
-      visibleVolunteerIndices.value.push(index);
-    }, index * 500); // Delay each card by 500ms
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const index = parseInt(entry.target.dataset.index);
+        for (let i = index; i < index + 3; i++) {
+          if (i < document.querySelectorAll('.person-card').length) {
+            document.querySelectorAll('.person-card')[i].classList.add('show');
+            document.querySelectorAll('.person-card')[i].classList.remove('hiddenCard');
+          }
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    rootMargin: '0px',
+    threshold: 0.1
   });
+
+  setTimeout(() => {
+    const hiddenElements = document.querySelectorAll('.person-card');
+    hiddenElements.forEach((element, index) => {
+      element.dataset.index = index;
+      observer.observe(element);
+    });
+
+    const imgObserver = new IntersectionObserver((entries, imgObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute('data-src');
+          if (src) {
+            img.src = src;
+          }
+          img.classList.add('lazy-loaded');
+          imgObserver.unobserve(entry.target);
+        }
+      });
+    });
+
+    const imgs = document.querySelectorAll('.lazy');
+    imgs.forEach(img => {
+      imgObserver.observe(img);
+    });
+  }, 500);
 });
 </script>
 
 <style scoped>
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+.hiddenCard {
+  opacity: 0;
+  transition: 0;
+  filter: blur(5px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hiddenCard {
+    transition: all 1s ease-in-out;
   }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.8s ease-out forwards;
+.show {
+  opacity: 1;
+  filter: blur(0px);
+}
+
+.lazy {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.lazy-loaded {
+  opacity: 1;
 }
 
 .rounded-lg {

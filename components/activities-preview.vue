@@ -1,25 +1,27 @@
 <template>
-  <section class="bg-primary-color py-12 px-12">
+  <section class="bg-primary-color py-12 px-12 hiddenItem">
     <div class="container mx-auto text-center">
       <h2 class="text-4xl font-bold text-white mb-8">Our Activities</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <!-- Services Block -->
-        <NuxtLink to="/Activities/Services" class="rounded-3xl   flex items-center ">
+        <NuxtLink to="/Activities/Services" class="rounded-3xl flex items-center hiddenItem">
           <div class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105">
-            <img src="/services_preview.jpg" alt="Services Image" class="w-full h-64 object-cover mb-4 rounded-3xl"/>
+            <img data-src="/services_preview.jpg" alt="Services Image" class="lazy w-full h-64 object-cover mb-4 rounded-3xl"/>
             <h3 class="text-xl font-semibold text-blue mb-2">Services</h3>
             <p class="text-blue">
-              Offering counseling, legal help, and recovery programs to support and empower women.</p>
+              Offering counseling, legal help, and recovery programs to support and empower women.
+            </p>
           </div>
         </NuxtLink>
         
         <!-- Projects Block -->
-        <NuxtLink to="/Activities/Projects" class="rounded-3xl flex items-center ">
+        <NuxtLink to="/Activities/Projects" class="rounded-3xl flex items-center hiddenItem">
           <div class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition duration-500 hover:scale-105">
-            <img src="/projects_preview.jpg" alt="Projects Image" class="w-full h-64 object-cover mb-4 rounded-3xl"/>
+            <img data-src="/projects_preview.jpg" alt="Projects Image" class="lazy w-full h-64 object-cover mb-4 rounded-3xl"/>
             <h3 class="text-xl font-semibold text-blue mb-2">Projects</h3>
             <p class="text-blue">
-              Raising awareness and actively advocating for women's rights through community projects.</p>
+              Raising awareness and actively advocating for women's rights through community projects.
+            </p>
           </div>
         </NuxtLink>
       </div>
@@ -30,15 +32,68 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: 'ActivitiesPreview',
-};
+<script setup>
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        entry.target.classList.remove('hiddenItem');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    rootMargin: '-20% 0px -10% 0px'
+  });
+
+  const hiddenElements = document.querySelectorAll('.hiddenItem');
+  hiddenElements.forEach(element => {
+    observer.observe(element);
+  });
+
+  const imgObserver = new IntersectionObserver((entries, imgObserver) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        const src = img.getAttribute('data-src');
+        if (src) {
+          img.src = src;
+        }
+        img.classList.add('lazy-loaded');
+        imgObserver.unobserve(entry.target);
+      }
+    });
+  });
+
+  const imgs = document.querySelectorAll('.lazy');
+  imgs.forEach(img => {
+    imgObserver.observe(img);
+  });
+});
 </script>
 
 <style scoped>
-/* Additional styles if needed */
-.rounded-3xl {
-  border-radius: 1.5rem;
+.hiddenItem {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+  filter: blur(5px);
+  transform: translateY(20px);
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+.lazy {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.lazy-loaded {
+  opacity: 1;
 }
 </style>

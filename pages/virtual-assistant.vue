@@ -17,16 +17,16 @@
         <!-- Text section -->
         <div class="w-full md:w-1/3 pr-8 mb-8 md:mb-0 text-center md:text-left">
           <h2 class="text-2xl font-bold text-blue mb-4">How We Can Help</h2>
-          <p class="text-gray-700 text-lg mb-4 font-bold">
+          <p class="text-blue text-lg mb-4 font-bold">
             Our virtual assistant is here to support you with compassion and understanding.
           </p>
-          <p class="text-gray-700 text-lg mb-4">
+          <p class="text-blue text-lg mb-4">
             If you are facing domestic violence, you don't have to go through it alone. Our assistant provides a safe space to ask questions and get guidance on your rights and options.
           </p>
-          <p class="text-gray-700 text-lg mb-4">
+          <p class="text-blue text-lg mb-4">
             Whether you need to know more about your legal rights, how to start legal procedures, or where to find help, we're here for you. Just enter your question below.
           </p>
-          <p class="text-gray-700 text-lg mb-4">
+          <p class="text-blue text-lg mb-4">
             Remember, in an emergency, always contact the authorities immediately. We are here to offer support and guidance in a non-judgmental and caring manner.
           </p>
         </div>

@@ -1,15 +1,15 @@
 <template>
   <main>
     <div class="container mx-auto px-4 py-12">
-      <h1 class="font-sans font-extrabold no-italic text-[40px] md:text-[56px] md:leading-[66px] text-center text-blue mb-4">Contact Us</h1>
+      <h1 class="hiddenItem font-sans font-extrabold no-italic text-[40px] md:text-[56px] md:leading-[66px] text-center text-blue mb-4">Contact Us</h1>
       <!-- Titolo con immagine -->
-      <div class="flex flex-col items-center mb-8">
+      <div class="hiddenItem flex flex-col items-center mb-8">
         <p class="text-lg text-center text-blue mb-8">
           We appreciate your interest in reaching out to us. To ensure a smooth and efficient communication process, we kindly request you to fill out the form below with your relevant information. This will help us better understand your needs and provide you with the most appropriate assistance. We are here to support you and provide the help you need.
         </p>
       </div>
       <!-- Form + immagine -->
-      <div class="md:flex mb-8 items-stretch justify-center">
+      <div class="hiddenItem md:flex mb-8 items-stretch justify-center">
         <div class="md:w-1/2 p-7 flex items-stretch">
           <img class="rounded-3xl w-full h-full object-cover" src="/assets/img/hero-image.avif" alt="Contact Image" />
         </div>
@@ -39,7 +39,7 @@
         </div>
       </div>
       <!-- Sezione Chatbot -->
-      <div class="bg-orange-100 p-8 rounded-3xl shadow-lg text-center mb-9">
+      <div class="hiddenItem bg-orange-100 p-8 rounded-3xl shadow-lg text-center mb-9">
         <h3 class="text-2xl font-bold mb-4 text-blue">Are you a victim of domestic violence?</h3>
         <p class="text-lg text-blue mb-6">Contact our virtual assistant for legal advice and support. We are here to help you understand your options and take the necessary steps.</p>
         <NuxtLink to="/virtual-assistant" class="inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
@@ -47,7 +47,7 @@
         </NuxtLink>
       </div>
       <!-- Cards di contatto e mappa -->
-      <div class="md:flex mb-8 space-y-4 md:space-y-0 justify-center">
+      <div class="hiddenItem md:flex mb-8 space-y-4 md:space-y-0 justify-center">
         <div class="md:w-1/2 flex flex-col space-y-4">
           <div class="bg-white p-4 rounded-3xl shadow-lg m-2 h-full flex flex-col justify-center">
             <h3 class="text-xl font-semibold mb-2 text-blue">Email us</h3>
@@ -88,7 +88,7 @@
 
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const form = ref({
   name: '',
@@ -111,9 +111,38 @@ const submitForm = () => {
     message: '',
   };
 };
+
+onMounted(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        entry.target.classList.remove('hiddenItem');
+      }
+    });
+  }, {
+    rootMargin: '-20% 0px -10% 0px'
+  });
+
+  const hiddenElements = document.querySelectorAll('.hiddenItem');
+  hiddenElements.forEach(element => {
+    observer.observe(element);
+  });
+});
 </script>
 
 <style scoped>
+.hiddenItem {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+  filter: blur(5px);
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0px);
+}
+
 .bg-primary-color {
   background-color: #d32f2f;
 }

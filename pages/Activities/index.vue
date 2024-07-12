@@ -1,36 +1,65 @@
 <template>
   <main>
-  <div class="flex flex-col bg-primary-color lg:py-12 py-8">
-    <div class="lg:px-24 px-4">
-      <!-- Title of the page -->
-      <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Activities</h1>
-      <!-- Description of the page -->
-      <div class="flex justify-center mt-4">
-        <h2 class="text-white text-center lg:text-2xl text-xl">
-          We support women affected by domestic violence with psychological counseling, group chats, legal aid, medical assistance, safe housing, educational programs, community outreach, and wellness retreats.
-        </h2>
+    <div class="flex flex-col bg-primary-color lg:py-12 py-8">
+      <div class="lg:px-24 px-4">
+        <!-- Title of the page -->
+        <h1 class="hiddenItem lg:text-5xl text-4xl text-white text-center font-bold">Our Activities</h1>
+        <!-- Description of the page -->
+        <div class="hiddenItem flex justify-center mt-4">
+          <h2 class="text-white text-center lg:text-2xl text-xl">
+            We support women affected by domestic violence with psychological counseling, group chats, legal aid, medical assistance, safe housing, educational programs, community outreach, and wellness retreats.
+          </h2>
+        </div>
       </div>
     </div>
-  </div>
     <!-- Services Section -->
     <section class="bg-white py-12 px-12">
       <div class="container mx-auto">
-        <ServicesPreview/>
+        <ServicesPreview class="hiddenItem"/>
       </div>
     </section>
     <!-- Most Relevant Projects Section -->
     <section class="bg-gray-100">
-        <ProjectsPreview/>
+      <ProjectsPreview class="hiddenItem"/>
     </section>
   </main>
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 
+onMounted(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        entry.target.classList.remove('hiddenItem');
+      }
+    });
+  }, {
+    rootMargin: '-20% 0px -10% 0px'
+  });
+
+  const hiddenElements = document.querySelectorAll('.hiddenItem');
+  hiddenElements.forEach(element => {
+    observer.observe(element);
+  });
+});
 </script>
 
 <style scoped>
+.hiddenItem {
+  opacity: 0;
+  transition: opacity 1s ease-in-out, filter 1s ease-in-out, transform 1s ease-in-out;
+  filter: blur(10px);
+  transform: translateY(30px);
+}
 
+.show {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
 
 .bg-gray-100 {
   background-color: #f7fafc;
@@ -69,7 +98,7 @@
 }
 
 .hover\:shadow-xl:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .rounded-3xl {

@@ -23,27 +23,31 @@
   </div>
 </template>
 
-<script>
-import backgroundUrl from '~/assets/img/homepage/homepage_12.png';
-export default {
-  name: 'HeroSection',
-  data() {
-    return {
-      backgroundUrl
-    };
-  },
-  computed: {
-    heroStyle() {
-      return {
-        backgroundImage: `url(${this.backgroundUrl})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        height: '80vh'
-      };
-    }
-  }
-};
+<script setup>
+import { ref, onMounted } from 'vue';
+import backgroundUrl from '~/public/homepage/homepage_12.png';
+
+const isVisible = ref(false);
+const heroStyle = ref({
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  height: '80vh'
+});
+
+onMounted(() => {
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        heroStyle.value.backgroundImage = `url(${backgroundUrl})`;
+        isVisible.value = true;
+        observer.disconnect();
+      }
+    });
+  });
+
+  observer.observe(document.querySelector('.bg-black'));
+});
 </script>
 
 <style scoped>
@@ -86,7 +90,7 @@ export default {
 }
 
 .opacity-50 {
-  opacity: 0.7; /* Aumentata opacità per migliorare visibilità del testo */
+  opacity: 0.7;
 }
 
 .bg-gradient-to-r {

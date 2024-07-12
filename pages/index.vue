@@ -1,44 +1,37 @@
 <template>
   <main>
     <div>
-      <HeroSection/>
+      <HeroSection />
       <div>
-        <Mission/>
-        <ActivitiesPreview/>
-        <PeoplePreview/>
+        <Mission class="hiddenItem" />
+        <ActivitiesPreview class="hiddenItem" />
+        <PeoplePreview class="hiddenItem" />
       </div>
     </div>
   </main>
 </template>
-  
-<script setup>
-  useSeoMeta({
-    title: 'Home',
-    description: 'This is the home page',
-    ogTitle: 'Home - NoWomanAlone',
-    ogDescription: '[og:description]',
-    ogImage: '[og:image]',
-    ogUrl: '[og:url]',
-    twitterTitle: 'Home - NoWomanAlone',
-    twitterDescription: '[twitter:description]',
-    twitterImage: '[twitter:image]',
-    twitterCard: 'summary'
-  })
 
-  useHead({
-    htmlAttrs: {
-      lang: 'en'
-    },
-    link: [
-      {
-        // rel: 'icon',
-        // type: 'image/png',
-        // href: '/favicon.png'
-      }
-    ]
-  })
-</script>
-  
 <style scoped>
+.hiddenItem {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+  filter: blur(5px);
+  transform: translateY(20px);
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+.lazy {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.lazy-loaded {
+  opacity: 1;
+}
 </style>
-  
+
