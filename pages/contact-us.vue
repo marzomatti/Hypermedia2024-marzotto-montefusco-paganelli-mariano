@@ -38,6 +38,14 @@
           </form>
         </div>
       </div>
+      <!-- Sezione Chatbot -->
+      <div class="bg-orange-100 p-8 rounded-3xl shadow-lg text-center mb-9">
+        <h3 class="text-2xl font-bold mb-4 text-blue">Are you a victim of domestic violence?</h3>
+        <p class="text-lg text-blue mb-6">Contact our virtual assistant for legal advice and support. We are here to help you understand your options and take the necessary steps.</p>
+        <NuxtLink to="/virtual-assistant" class="inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
+          Chat with us
+        </NuxtLink>
+      </div>
       <!-- Cards di contatto e mappa -->
       <div class="md:flex mb-8 space-y-4 md:space-y-0 justify-center">
         <div class="md:w-1/2 flex flex-col space-y-4">
@@ -102,8 +110,6 @@ const submitForm = () => {
   background-color: #d32f2f;
 }
 
-
-
 button:hover {
   background-color: #d32f2f;
 }
@@ -118,6 +124,4 @@ textarea:focus {
   border-color: #d32f2f;
   box-shadow: 0 0 0 3px rgba(255, 76, 76, 0.2);
 }
-
-
 </style>
