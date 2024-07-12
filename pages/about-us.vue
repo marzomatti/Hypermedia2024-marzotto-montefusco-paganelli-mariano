@@ -62,8 +62,8 @@
         <img
           v-for="(image, index) in teamImages"
           :key="index"
-          class="rounded-3xl w-full max-w-lg object-cover"
-          :src="image.src"
+          class="lazy rounded-3xl w-full max-w-lg object-cover"
+          :data-src="image.src"
           :alt="image.alt"
         />
       </div>
@@ -106,8 +106,6 @@ useHead({
 });
 
 const showFirstText = ref(false);
-const showValues = ref(false);
-const showTeam = ref(false);
 
 const values = [
   {
@@ -151,6 +149,15 @@ onMounted(() => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
         entry.target.classList.remove('hiddenItem');
+        if (entry.target.tagName === 'IMG') {
+          const img = entry.target;
+          const src = img.getAttribute('data-src');
+          if (src) {
+            img.src = src;
+          }
+          img.classList.add('lazy-loaded');
+        }
+        observer.unobserve(entry.target);
       }
     });
   }, {
@@ -161,20 +168,35 @@ onMounted(() => {
   hiddenElements.forEach(element => {
     observer.observe(element);
   });
+
+  const imgs = document.querySelectorAll('.lazy');
+  imgs.forEach(img => {
+    observer.observe(img);
+  });
 });
 </script>
-
 
 <style scoped>
 .hiddenItem {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out, transform 0.5s ease-in-out;
   filter: blur(5px);
+  transform: translateY(20px);
 }
 
 .show {
   opacity: 1;
   filter: blur(0px);
+  transform: translateY(0);
+}
+
+.lazy {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.lazy-loaded {
+  opacity: 1;
 }
 
 .fade-enter-active,

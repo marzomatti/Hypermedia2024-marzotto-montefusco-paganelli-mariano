@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <Breadcrumb/>
+      <Breadcrumb />
       <TitleColor
         title="Our Projects"
         :description = "text"
@@ -44,8 +44,7 @@
     </header>
     <main>
       <div class="flex flex-col w-full">
-
-          <ProjectBand
+        <ProjectBand
           v-for="(project, index) in filteredProjects"
           :key="project.id"
           :name="project.name"
@@ -53,14 +52,16 @@
           :link="getProjectLink(project.id)"
           :imageSrc="'/projects' + project.image"
           :backgroundColor="getBackgroundColor(index)"
+          :class="{ hiddenItem: !isVisible(index) }"
         />
-
       </div>
     </main>
   </div>
 </template>
 
 <script setup>
+import { ref, computed, onMounted } from 'vue';
+
 useHead({
   title: 'Projects',
 })
@@ -90,10 +91,51 @@ const clearSearch = () => {
   searchQuery.value = '';
 };
 
+const visibleIndices = ref([]);
+
+const isVisible = (index) => visibleIndices.value.includes(index);
+
+onMounted(() => {
+  projects.value.forEach((_, index) => {
+    setTimeout(() => {
+      visibleIndices.value.push(index);
+    }, index * 500); // Delay each card by 500ms
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        entry.target.classList.remove('hiddenItem');
+      }
+    });
+  }, {
+    rootMargin: '-20% 0px -10% 0px'
+  });
+
+  const hiddenElements = document.querySelectorAll('.hiddenItem');
+  hiddenElements.forEach(element => {
+    observer.observe(element);
+  });
+});
+
 const text = "Explore our initiatives dedicated to supporting women affected by violence. Join us in making a difference."
 </script>
 
 <style scoped>
+.hiddenItem {
+  opacity: 0;
+  transition: opacity 1s ease-in-out, filter 1s ease-in-out, transform 1s ease-in-out;
+  filter: blur(10px);
+  transform: translateY(30px);
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
 .rounded-3xl {
   border-radius: 1.5rem;
 }
