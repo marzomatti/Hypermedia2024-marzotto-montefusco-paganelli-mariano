@@ -32,14 +32,14 @@
         </div>
         <!-- Chat section -->
         <div
-          class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md p-8"
-          style="min-height: 600px"
+          class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md p-8 resize-y overflow-auto"
+          style="min-height: 600px; max-height: 1000px;"
         >
           <!-- Chat messages -->
           <div
             ref="chatMessages"
             class="flex-1 bg-gray-100 rounded-3xl p-4 overflow-y-auto"
-            style="max-height: 600px"
+            style="max-height: calc(100% - 60px);"
           >
             <div v-for="message in messages" :key="message.id" class="mb-4">
               <div
@@ -117,7 +117,6 @@ const sendMessage = async () => {
       type: "answer",
       content: htmlAnswer,
     });
-    vueInstance.htmlContent = messages.content;
     await nextTick();
     scrollToBottom();
   }
@@ -248,5 +247,10 @@ input[type="text"] {
 input:focus {
   border-color: #d62828;
   box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.4);
+}
+
+/* Enable resizing */
+.resize-y {
+  resize: vertical;
 }
 </style>
