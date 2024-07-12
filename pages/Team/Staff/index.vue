@@ -2,7 +2,7 @@
   <div>
     <Breadcrumb />
     <section class="py-12 px-4 lg:px-24">
-      <h1 class="text-4xl text-blue font-bold text-center mb-8">Our Staff</h1>
+      <h1 class="font-sans font-extrabold no-italic text-[40px] md:text-[56px] md:leading-[66px] text-center text-blue mb-4">Our Staff</h1>
       <p class="text-lg text-blue text-center mb-12">
         Meet our dedicated staff committed to supporting and advocating for women affected by violence. Our team is composed of experienced professionals who are passionate about making a difference. Each member brings a unique set of skills and expertise to provide comprehensive support and create a safe and empowering environment for all. We are here to help, listen, and guide you every step of the way.
       </p>

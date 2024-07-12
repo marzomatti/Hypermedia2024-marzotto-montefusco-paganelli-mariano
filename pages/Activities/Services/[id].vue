@@ -155,6 +155,7 @@
               Send
             </button>
           </form>
+ 
         </div>
       </div>
     </main>
@@ -194,6 +195,10 @@
 </template>
 
 <script setup>
+import { ref, computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useFetch } from '#imports'; // Nuxt 3 way to fetch data
+
 const form = ref({
   name: "",
   surname: "",
@@ -201,7 +206,24 @@ const form = ref({
   service: "",
   message: "",
 });
-const { data: services, error, loading } = await useFetch("/api/services");
+
+const formSubmitted = ref(false);
+
+const submitForm = () => {
+  console.log('Form submitted:', form.value);
+  alert('Message sent successfully!');
+
+  // Resetta il form
+  form.value = {
+    name: "",
+    surname: "",
+    email: "",
+    service: "",
+    message: "",
+  };
+};
+
+const { data: services, error, pending } = useFetch("/api/services");
 
 const route = useRoute();
 
@@ -224,8 +246,8 @@ function getServiceLink(id) {
 const {
   data: testimonials,
   error1,
-  loading1,
-} = await useFetch("/api/testimonials");
+  pending1,
+} = useFetch("/api/testimonials");
 
 const serviceTestimonials = computed(() => {
   if (Array.isArray(testimonials.value)) {
@@ -291,5 +313,14 @@ button:hover {
 
 textarea {
   resize: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

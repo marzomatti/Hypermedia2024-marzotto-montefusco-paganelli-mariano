@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container mx-auto px-4 py-12">
-      <h1 class="text-4xl font-extrabold text-center text-blue mb-8">Contact Us</h1>
+      <h1 class="font-sans font-extrabold no-italic text-[40px] md:text-[56px] md:leading-[66px] text-center text-blue mb-4">Contact Us</h1>
       <!-- Titolo con immagine -->
       <div class="flex flex-col items-center mb-8">
         <p class="text-lg text-center text-blue mb-8">
@@ -37,6 +37,14 @@
             <button type="submit" class="w-full inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">Send</button>
           </form>
         </div>
+      </div>
+      <!-- Sezione Chatbot -->
+      <div class="bg-orange-100 p-8 rounded-3xl shadow-lg text-center mb-9">
+        <h3 class="text-2xl font-bold mb-4 text-blue">Are you a victim of domestic violence?</h3>
+        <p class="text-lg text-blue mb-6">Contact our virtual assistant for legal advice and support. We are here to help you understand your options and take the necessary steps.</p>
+        <NuxtLink to="/virtual-assistant" class="inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
+          Chat with us
+        </NuxtLink>
       </div>
       <!-- Cards di contatto e mappa -->
       <div class="md:flex mb-8 space-y-4 md:space-y-0 justify-center">
@@ -78,11 +86,8 @@
   </main>
 </template>
 
-<script setup>
-useHead({
-  title: 'Contact Us',
-})
 
+<script setup>
 import { ref } from 'vue';
 
 const form = ref({
@@ -92,8 +97,19 @@ const form = ref({
   message: '',
 });
 
+const formSubmitted = ref(false);
+
 const submitForm = () => {
   console.log('Form submitted:', form.value);
+  alert('Message sent successfully!');
+  
+  // Resetta il form
+  form.value = {
+    name: '',
+    surname: '',
+    email: '',
+    message: '',
+  };
 };
 </script>
 
@@ -101,8 +117,6 @@ const submitForm = () => {
 .bg-primary-color {
   background-color: #d32f2f;
 }
-
-
 
 button:hover {
   background-color: #d32f2f;
@@ -118,6 +132,5 @@ textarea:focus {
   border-color: #d32f2f;
   box-shadow: 0 0 0 3px rgba(255, 76, 76, 0.2);
 }
-
-
 </style>
+

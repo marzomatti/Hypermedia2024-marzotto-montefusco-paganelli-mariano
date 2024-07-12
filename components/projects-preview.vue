@@ -1,9 +1,9 @@
 <template>
-  <section class="bg-gray-100 py-12 px-12">
+  <section class="bg-gray-100 px-12">
     <div class="container mx-auto">
       <div class="p-6 rounded-lg">
-        <div class="flex justify-between items-center mb-4">
-          <h2 class="text-4xl font-semibold text-center text-blue mb-4">Most Relevant Projects</h2>
+        <div class="items-center mb-6 mt-4 ">
+          <h2 class="text-4xl font-extrabold text-blue text-center">Most Relevant Projects</h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <nuxt-link

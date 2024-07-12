@@ -16,37 +16,30 @@
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <!-- Text section -->
         <div class="w-full md:w-1/3 pr-8 mb-8 md:mb-0 text-center md:text-left">
+          <h2 class="text-2xl font-bold text-blue mb-4">How We Can Help</h2>
           <p class="text-gray-700 text-lg mb-4 font-bold">
-            Our virtual assistant is designed to provide you with immediate legal
-           support and guidance.
+            Our virtual assistant is here to support you with compassion and understanding.
           </p>
           <p class="text-gray-700 text-lg mb-4">
-            Whether you need information about your legal rights, assistance with starting 
-            legal procedures, or general legal support, our assistant is here to help. You 
-            can ask about:
+            If you are facing domestic violence, you don't have to go through it alone. Our assistant provides a safe space to ask questions and get guidance on your rights and options.
           </p>
-          <ul class="list-disc list-inside text-gray-700 text-lg mb-4">
-            <li>Information on your legal rights and how to assert them</li>
-            <li>Advice on initiating legal proceedings in cases of domestic abuse</li>
-            <li>Contact information for legal support services </li>
-            <li>Guidance on accessing legal resources </li>
-          </ul>
           <p class="text-gray-700 text-lg mb-4">
-            Please enter your question in the chat box below, and our assistant
-            will respond as soon as possible. If your situation is urgent,
-            please contact emergency services immediately.
+            Whether you need to know more about your legal rights, how to start legal procedures, or where to find help, we're here for you. Just enter your question below.
+          </p>
+          <p class="text-gray-700 text-lg mb-4">
+            Remember, in an emergency, always contact the authorities immediately. We are here to offer support and guidance in a non-judgmental and caring manner.
           </p>
         </div>
         <!-- Chat section -->
         <div
-          class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md p-8"
-          style="min-height: 600px"
+          class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md p-8 resize-y overflow-auto"
+          style="min-height: 600px; max-height: 1000px;"
         >
           <!-- Chat messages -->
           <div
             ref="chatMessages"
             class="flex-1 bg-gray-100 rounded-3xl p-4 overflow-y-auto"
-            style="max-height: 600px"
+            style="max-height: calc(100% - 60px);"
           >
             <div v-for="message in messages" :key="message.id" class="mb-4">
               <div
@@ -124,7 +117,6 @@ const sendMessage = async () => {
       type: "answer",
       content: htmlAnswer,
     });
-    vueInstance.htmlContent = messages.content;
     await nextTick();
     scrollToBottom();
   }
@@ -255,5 +247,10 @@ input[type="text"] {
 input:focus {
   border-color: #d62828;
   box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.4);
+}
+
+/* Enable resizing */
+.resize-y {
+  resize: vertical;
 }
 </style>
