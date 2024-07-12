@@ -84,7 +84,7 @@
           to="/team"
           class="inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300"
         >
-          Meet our team &rarr;
+          Meet our team
         </nuxt-link>
       </div>
     </div>
