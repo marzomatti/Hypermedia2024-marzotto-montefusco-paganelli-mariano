@@ -4,14 +4,17 @@
       <Breadcrumb/>
       <div class="flex flex-col bg-primary-color lg:py-12 py-8">
         <div class="lg:px-24 px-4">
+
           <!-- Title of the page -->
           <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Projects</h1>
+
           <!-- Description of the page -->
           <div class="flex justify-center mt-4">
             <h2 class="text-white text-center lg:text-2xl text-xl">
               Explore our initiatives dedicated to supporting women affected by violence. Join us in making a difference.
             </h2>
           </div>
+
          <!-- Search Bar -->
       <div class="flex justify-center px-4 lg:px-24 pt-12">
         <div class="relative w-full max-w-sm">
@@ -45,21 +48,17 @@
     </header>
     <main>
       <div class="flex flex-col w-full">
-        <!-- Projects List -->
-        <div v-for="(project, index) in filteredProjects" :key="project.id" :class="getBackgroundColor(index)" class="lg:px-24 px-4 py-12">
-          <div class="flex flex-col lg:flex-row items-center">
-            <div class="flex-1">
-              <h2 class="text-3xl font-bold text-blue mb-2">{{ project.name }}</h2>
-              <p class="text-blue text-lg mb-4">{{ project.description_s }}</p>
-              <NuxtLink :to="getProjectLink(project.id)" class="inline-block border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full font-semibold hover:bg-secondary-color hover:text-white transition duration-300">
-                Discover more ->
-              </NuxtLink>
-            </div>
-            <div class="pl-32 pr-4">
-              <img :src="'/projects' + project.image" alt="Project Image" class="w-80 h-80 lg:w-96 lg:h-64 ml-4 lg:ml-8 rounded-3xl shadow-md">
-            </div>
-          </div>
-        </div>
+
+          <ProjectBand
+          v-for="(project, index) in filteredProjects"
+          :key="project.id"
+          :name="project.name"
+          :description="project.description_s"
+          :link="getProjectLink(project.id)"
+          :imageSrc="'/projects' + project.image"
+          :backgroundColor="getBackgroundColor(index)"
+        />
+
       </div>
     </main>
   </div>
@@ -90,11 +89,6 @@ const getBackgroundColor = (index) => {
 function getProjectLink(id) {
   return `/activities/projects/${id}`;
 }
-
-const searchProjects = () => {
-  // Funzione di ricerca da implementare se necessaria
-  console.log('Searching for:', searchQuery.value);
-};
 
 const clearSearch = () => {
   searchQuery.value = '';

@@ -18,6 +18,7 @@
         <ServicesPreview class="hiddenItem"/>
       </div>
     </section>
+
     <!-- Most Relevant Projects Section -->
     <section class="bg-gray-100">
       <ProjectsPreview class="hiddenItem"/>

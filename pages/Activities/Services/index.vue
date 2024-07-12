@@ -3,8 +3,10 @@
     <Breadcrumb/>
     <div class="flex flex-col bg-primary-color lg:py-12 py-8">
       <div class="lg:px-24 px-4">
+
         <!-- Title of the page -->
         <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Services</h1>
+
         <!-- Description of the page -->
         <div class="flex justify-center mt-4">
           <h2 class="text-white text-center lg:text-2xl text-xl">
@@ -13,19 +15,22 @@
         </div>
       </div>
     </div>
+    
     <main class="py-12 px-4 lg:px-24 bg-white">
+
       <!-- Services List -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 justify-center text-blue">
-        <div v-for="(service, index) in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition duration-500 flex items-center hover:scale-105 animate-fadeIn" :style="{ visibility: isVisible(index) ? 'visible' : 'hidden' }">
-          <NuxtLink :to="getServiceLink(service.id)" class="flex items-center">
-            <img :src="'/services' + service.logo" alt="Service Icon" class="w-16 h-16 cursor-pointer mr-4"/>
-            <div>
-              <h2 class="text-2xl font-bold text-blue mb-2">{{ service.name }}</h2>
-              <p class="text-blue">{{ service.description_s }}</p>
-            </div>
-          </NuxtLink>
-        </div>
+        <ServiceCard
+          v-for="(service, index) in services"
+          :key="service.id"
+          :link="getServiceLink(service.id)"
+          :logo="'/services' + service.logo"
+          :name="service.name"
+          :description="service.description_s"
+          :isVisible="isVisible(index)"
+        />
       </div>
+
       <!-- How Section -->
       <section class="text-center mb-12">
         <h2 class="text-4xl font-bold text-blue mb-4">How?</h2>
@@ -41,6 +46,7 @@
           Each of our services is tailored to address specific needs, ensuring that you receive the right kind of support when you need it most. We believe in a personalized approach to care, recognizing that the path to healing and empowerment is different for everyone. Explore the sections above to learn more about how each service can assist you in your journey towards healing and empowerment. We are committed to walking alongside you every step of the way, providing the expertise, care, and compassion you need to overcome these challenging times and emerge stronger.
         </p>
       </section>
+
       <!-- Image Section -->
       <div class="flex justify-center">
         <img src="/services/serviceindex_img.jpg" alt="Supporting Image" class="rounded-3xl shadow-lg w-full max-w-4xl">

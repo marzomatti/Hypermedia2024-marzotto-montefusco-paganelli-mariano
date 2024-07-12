@@ -3,35 +3,30 @@
     <Breadcrumb :is-customized="true" :label="currPerson.name + ' ' + currPerson.surname"/>
   <main class="bg-gray-50 min-h-screen py-8">
     <div class="container mx-auto px-4 max-w-6xl">
-      <!-- Profile Section -->
-      <div class="bg-white p-8 rounded-3xl shadow-lg mb-12 flex flex-col md:flex-row items-center">
-        <div class="md:flex-1 md:mr-8">
-          <img :src="'/team/volunteers' + currPerson.image" alt="Profile Photo" class="w-full h-auto rounded-3xl shadow-md mb-4 md:mb-0">
-        </div>
-        <div class="md:flex-1 text-center md:text-left">
-          <h1 class="text-5xl font-extrabold text-blue mb-4">{{ currPerson.name }} {{ currPerson.surname }}</h1>
-          <h2 class="text-3xl text-blue mb-6">{{ currPerson.role }}</h2>
-          <div class="mt-4">
-            <h3 class="text-2xl font-bold text-blue">Contact</h3>
-            <p class="text-blue text-xl">Email: <a :href="'mailto:' + currPerson.email" class="text-blue hover:underline">{{ currPerson.email }}</a></p>
-          </div>
-          <div class="mt-6">
-            <h3 class="text-2xl font-bold text-blue">Description</h3>
-            <p class="text-blue text-xl">{{ currPerson.description }}</p>
-          </div>
-        </div>
-      </div>
+
+      <ProfileSection
+          :imageSrc="'/team/volunteers' + currPerson.image"
+          :name="currPerson.name"
+          :surname="currPerson.surname"
+          :role="currPerson.role"
+          :email="currPerson.email"
+          :description="currPerson.description"
+        />
 
       <!-- Navigation Arrows -->
       <div class="flex justify-between mt-12">
-        <NuxtLink v-if="currPerson.previousPerson > 0" :to="getPersonLink(currPerson.previousPerson)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
-          &larr; Previous Person
-        </NuxtLink>
+        <Button
+        v-if="currPerson.previousPerson > 0" 
+        :link="getPersonLink(currPerson.previousPerson)"
+        text="&larr; Previous Person"
+        />
         <div class="flex-1"></div>
-        <NuxtLink v-if="currPerson.nextPerson > 0" :to="getPersonLink(currPerson.nextPerson)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
-          Next Person &rarr;
-        </NuxtLink>
-      </div>
+        <Button
+        v-if="currPerson.nextPerson > 0" 
+        :link="getPersonLink(currPerson.nextPerson)" 
+        text="Next Person &rarr;"
+        />
+      </div>    
     </div>
   </main>
   </div>
