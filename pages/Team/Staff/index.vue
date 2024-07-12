@@ -78,7 +78,7 @@ onMounted(() => {
     imgs.forEach(img => {
       imgObserver.observe(img);
     });
-  }, 500);
+  }, 80);
 });
 
 const text = "Meet our dedicated staff committed to supportingand advocating for women affected by violence. Our team is composed of experienced professionals who are passionate about making a difference. Each member brings a unique set of skills and expertise to provide comprehensive support and create a safe and empowering environment for all. We are here to help, listen, and guide you every step of the way."
@@ -124,13 +124,6 @@ const text = "Meet our dedicated staff committed to supportingand advocating for
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.text-gray-800 {
-  color: #2d3748;
-}
-
-.text-gray-600 {
-  color: #718096;
-}
 
 .aspect-portrait {
   aspect-ratio: 3 / 4;

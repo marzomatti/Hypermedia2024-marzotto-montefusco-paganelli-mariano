@@ -2,11 +2,11 @@
   <section class="bg-white py-12 px-12 hiddenItem">
     <div class="container mx-auto flex flex-col md:flex-row items-center">
       <div class="w-full md:w-1/2 text-left md:pr-8 mb-8 md:mb-0 hiddenItem">
-        <h2 class="text-4xl font-bold text-blue mb-2">Our team</h2>
+        <h2 class="font-sans font-extrabold no-italic text-[40px] md:text-[56px] md:leading-[66px] text-blue mb-4">Our team</h2>
         <p class="text-lg mb-6 text-blue">
           Our dedicated team of professionals, including both staff and volunteers, is here to support and guide you. <span class="text-secondary-color">Break the silence</span> and reach out to us for help. We understand that every individual's situation is unique, and we are committed to providing personalized support to meet your specific needs. Our experienced counselors, legal advisors, and advocates are dedicated to helping you navigate through difficult times with compassionate care. Don't hesitate to reach out and let us help you on your journey to healing and empowerment.
         </p>
-        <Button text="See our team" link="/team"></Button>
+        <Button text="Meet our team" link="/team"></Button>
       </div>
       <div class="w-full md:w-1/2 flex justify-center hiddenItem">
         <div class="border border-gray-300 rounded-3xl overflow-hidden shadow-lg">
