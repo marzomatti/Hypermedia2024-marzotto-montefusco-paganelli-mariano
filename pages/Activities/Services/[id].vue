@@ -3,7 +3,7 @@
     <Breadcrumb :is-customized="true" :label="currService.name" />
     <main class="pt-12 px-4 lg:px-24 bg-white min-h-screen">
       <div class="flex flex-col lg:flex-row items-start justify-between">
-        <!-- Sezione Sinistra: Dettagli del Servizio -->
+        <!-- Left Section: Service Details -->
         <div class="lg:w-2/3 flex flex-col justify-center">
           <h1 class="text-5xl font-bold text-blue mb-2 mt-4">
             {{ currService.name }}
@@ -32,7 +32,7 @@
           </ul>
 
         </div>
-        <!-- Sezione Destra: Immagine del Servizio -->
+        <!-- Right Service: Service Picture -->
         <div class="lg:w-1/2 lg:pl-8 flex items-center">
           <div
             class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden"
@@ -158,7 +158,7 @@
         </div>
       </div>
     </main>
-    <!-- Sezione "Testimonials" -->
+    <!-- Section "Testimonials" -->
     <div class="w-full px-4 lg:px-16 py-8">
       <h1
         class="text-4xl py-6 md:py-12 md:text-5xl font-bold text-center text-blue"
@@ -166,48 +166,29 @@
         Testimonials
       </h1>
       <div class="flex flex-wrap justify-around">
-        <div
+        <TestimonialCard
           v-for="testimonial in serviceTestimonials"
           :key="testimonial.id"
-          class="max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 bg-white transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-        >
-          <div class="px-4 py-8 bg-white rounded-3xl">
-            <div class="font-bold text-2xl mb-4 text-blue">
-              {{ testimonial.name }}, {{ testimonial.age }} years
-            </div>
-            <img
-              :src="'/services/testimonials' + testimonial.photo_link"
-              :alt="
-                'Photo of testimonial ' +
-                testimonial.name +
-                ', ' +
-                testimonial.age +
-                ' years old'
-              "
-              class="w-full h-48 object-cover rounded-3xl mb-4"
-            />
-            <p class="text-blue text-base">"{{ testimonial.citation }}"</p>
-          </div>
-        </div>
+          :name="testimonial.name"
+          :age="testimonial.age"
+          :photoSrc="'/services/testimonials' + testimonial.photo_link"
+          :citation="testimonial.citation"
+        />
       </div>
     </div>
-    <!-- Frecce di Navigazione -->
+    <!-- Navigation Arrows -->
     <div class="pb-12 px-4 lg:px-24 bg-white flex justify-between">
-      <NuxtLink
+      <Button
         v-if="currService.previousService > 0"
-        :to="getServiceLink(currService.previousService)"
-        class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300"
-      >
-        &larr; Previous Project
-      </NuxtLink>
+        :link="getServiceLink(currService.previousService)"
+        text="&larr; Previous Project"
+      />
       <div class="flex-1"></div>
-      <NuxtLink
+      <Button
         v-if="currService.nextService > 0"
-        :to="getServiceLink(currService.nextService)"
-        class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300"
-      >
-        Next Project &rarr;
-      </NuxtLink>
+        :link="getServiceLink(currService.nextService)"
+        text="Next Project &rarr;"
+      />      
     </div>
   </div>
 </template>

@@ -2,8 +2,10 @@
   <main>
   <div class="flex flex-col bg-primary-color lg:py-12 py-8">
     <div class="lg:px-24 px-4">
+      
       <!-- Title of the page -->
       <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Activities</h1>
+      
       <!-- Description of the page -->
       <div class="flex justify-center mt-4">
         <h2 class="text-white text-center lg:text-2xl text-xl">
@@ -12,12 +14,14 @@
       </div>
     </div>
   </div>
+
     <!-- Services Section -->
     <section class="bg-white py-12 px-12">
       <div class="container mx-auto">
         <ServicesPreview/>
       </div>
     </section>
+
     <!-- Most Relevant Projects Section -->
     <section class="bg-gray-100">
         <ProjectsPreview/>

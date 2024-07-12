@@ -5,7 +5,7 @@
       <div class="text-center mb-12">
         <h1 class="text-4xl font-extrabold text-blue mb-4">Our Services</h1>
         <p class="text-lg text-blue mb-4">We offer comprehensive support, including legal assistance, counseling, and recovery programs. Let our expert team help you find safety and empowerment. Discover how we can assist you on your journey with personalized services tailored to your needs. Our goal is to provide a safe and supportive environment where you can heal and thrive.</p>
-        <Button :text="'See our services ->'" :link="'/activities/services'" class="w-auto mx-auto"/>
+        <Button :text="'See our services &rarr;'" :link="'/activities/services'"/>
       </div>
       <!-- Lista di Servizi -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">

@@ -24,7 +24,7 @@
         </NuxtLink>
       </div>
       <NuxtLink to="/activities" class="inline-block border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-color transition duration-300">
-        See all activities ->
+        See all activities &rarr;
       </NuxtLink>
     </div>
   </section>

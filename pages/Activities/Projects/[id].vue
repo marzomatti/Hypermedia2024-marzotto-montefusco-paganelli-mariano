@@ -18,17 +18,8 @@
         </div>
       </div>
 
-
-
-
-      <!-- <div class="flex justify-start items-start space-x-8">
-        <div class = "w-1/3">
-          <ContactCard :profile="currProject.responsible_person" class="w-full h-auto rounded-3xl shadow-lg"/>
-        </div>
-        <div class="w-2/3"> -->
-          <h2 class="text-2xl text-blue mb-2 mr-2 font-bold">Team</h2>
-          <p class="text-lg text-blue mb-6">{{ currProject.team }}</p>
-        <!-- </div> -->
+      <h2 class="text-2xl text-blue mb-2 mr-2 font-bold">Team</h2>
+      <p class="text-lg text-blue mb-6">{{ currProject.team }}</p>
 
       <h2 class="text-2xl text-blue mb-2 mr-2 font-bold">Insights</h2>
       <p class="text-lg text-blue mb-6">{{ currProject.insights }}</p>
@@ -36,13 +27,17 @@
 
       <!-- Navigation Arrows -->
       <div class="flex justify-between mt-12">
-        <NuxtLink v-if="currProject.previousProject > 0" :to="getProjectLink(currProject.previousProject)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
-          &larr; Previous Project
-        </NuxtLink>
+        <Button 
+        v-if="currProject.previousProject > 0" 
+        :link="getProjectLink(currProject.previousProject)"
+        text="&larr; Previous Project"
+        />
         <div class="flex-1"></div>
-        <NuxtLink v-if="currProject.nextProject > 0" :to="getProjectLink(currProject.nextProject)" class="nav-button inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
-          Next Project &rarr;
-        </NuxtLink>
+        <Button 
+        v-if="currProject.nextProject > 0" 
+        :link="getProjectLink(currProject.nextProject)"
+        text="Next Project &rarr;"
+        />
       </div>
     </main>
   </div>
