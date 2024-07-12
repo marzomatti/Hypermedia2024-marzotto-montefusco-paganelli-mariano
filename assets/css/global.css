@@ -5,4 +5,9 @@
 
 body {
   min-width: 360px;
+  font-family: 'Nunito', sans-serif;
+}
+
+* {
+  font-family: 'DM Sans', sans-serif;
 }
