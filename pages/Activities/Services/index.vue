@@ -1,20 +1,10 @@
 <template>
   <div>
     <Breadcrumb/>
-    <div class="flex flex-col bg-primary-color lg:py-12 py-8">
-      <div class="lg:px-24 px-4">
-
-        <!-- Title of the page -->
-        <h1 class="lg:text-5xl text-4xl text-white text-center font-bold">Our Services</h1>
-
-        <!-- Description of the page -->
-        <div class="flex justify-center mt-4">
-          <h2 class="text-white text-center lg:text-2xl text-xl">
-            We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you.
-          </h2>
-        </div>
-      </div>
-    </div>
+    <TitleColor
+      title="Our Services"
+      description = "We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you."
+    />
     
     <main class="py-12 px-4 lg:px-24 bg-white">
 

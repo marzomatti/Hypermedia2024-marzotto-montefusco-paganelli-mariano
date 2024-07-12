@@ -1,9 +1,13 @@
 <template>
   <section class="bg-white py-12 px-12">
-    <h1 class="font-sans font-extrabold no-italic text-[40px] md:text-[56px] md:leading-[66px] text-center text-blue mb-4">Our Team</h1>
-    <p class="text-lg text-center text-blue mb-8">
-      Meet the dedicated individuals who are at the heart of our mission to support and empower women. Our team, composed of passionate staff and volunteers, works tirelessly to provide essential services and create a safe environment for those in need.
-    </p>
+    <TitleOne 
+        title="Our Team" 
+        description="Meet the dedicated individuals who are at the 
+                     heart of our mission to support and empower women. 
+                     Our team, composed of passionate staff and volunteers, 
+                     works tirelessly to provide essential services and 
+                     create a safe environment for those in need."
+      />
 
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">

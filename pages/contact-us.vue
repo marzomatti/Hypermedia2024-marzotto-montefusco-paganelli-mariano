@@ -1,14 +1,20 @@
 <template>
   <main>
-    <div class="container mx-auto px-4 py-12">
-      <h1 class="hiddenItem font-sans font-extrabold no-italic text-[40px] md:text-[56px] md:leading-[66px] text-center text-blue mb-4">Contact Us</h1>
-      <!-- Titolo con immagine -->
-      <div class="hiddenItem flex flex-col items-center mb-8">
-        <p class="text-lg text-center text-blue mb-8">
-          We appreciate your interest in reaching out to us. To ensure a smooth and efficient communication process, we kindly request you to fill out the form below with your relevant information. This will help us better understand your needs and provide you with the most appropriate assistance. We are here to support you and provide the help you need.
-        </p>
-      </div>
-      <!-- Form + immagine -->
+    <div class="py-12 px-4 lg:px-24">
+
+      <TitleOne 
+        title="Contact Us" 
+        description="We appreciate your interest in reaching out to us. 
+                     To ensure a smooth and efficient communication process, 
+                     we kindly request you to fill out the form below with 
+                     your relevant information. This will help us better 
+                     understand your needs and provide you with the most 
+                     appropriate assistance. We are here to support you and 
+                     provide the help you need.
+"
+      />
+
+      <!-- Form + image -->
       <div class="hiddenItem md:flex mb-8 items-stretch justify-center">
         <div class="md:w-1/2 p-7 flex items-stretch">
           <img class="rounded-3xl w-full h-full object-cover" src="/assets/img/hero-image.avif" alt="Contact Image" />

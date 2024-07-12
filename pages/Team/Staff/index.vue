@@ -2,16 +2,22 @@
   <div>
     <Breadcrumb />
     <section class="py-12 px-4 lg:px-24">
-      <h1 class="text-4xl text-blue font-bold text-center mb-8">Our Staff</h1>
-      <p class="text-lg text-blue text-center mb-12">
-        Meet our dedicated staff committed to supporting and advocating for women affected by violence. Our team is composed of experienced professionals who are passionate about making a difference. Each member brings a unique set of skills and expertise to provide comprehensive support and create a safe and empowering environment for all. We are here to help, listen, and guide you every step of the way.
-      </p>
+      <TitleOne 
+        title="Our Staff" 
+        description="Meet our dedicated staff committed to supportingand 
+                    advocating for women affected by violence. Our team is 
+                    composed of experienced professionals who are passionate 
+                    about making a difference. Each member brings a unique set 
+                    of skills and expertise to provide comprehensive support and 
+                    create a safe and empowering environment for all. We are here 
+                    to help, listen, and guide you every step of the way."
+      />
       <div v-if="loading" class="flex justify-center items-center">
         <Loader />
       </div>
       <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <div
-          v-for="(person, index) in staff"
+          v-for="person in staff"
           :key="person.id"
           class="hiddenCard person-card bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-700 hover:scale-105"
         >

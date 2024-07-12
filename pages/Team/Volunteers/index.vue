@@ -2,16 +2,22 @@
   <div>
     <Breadcrumb/>
     <section class="py-12 px-4 lg:px-24">
-      <h1 class="font-sans font-extrabold no-italic text-[40px] md:text-[56px] md:leading-[66px] text-center text-blue mb-4">Our Volunteers</h1>
-      <p class="text-lg text-center mb-12">
-        Meet our dedicated volunteers who play a crucial role in supporting and advocating for women affected by violence. Our volunteers bring a diverse range of skills and a deep commitment to making a positive impact. They work tirelessly alongside our staff to provide comprehensive support and create a safe and empowering environment for all. We are grateful for their passion, dedication, and the invaluable contributions they make every day.
-      </p>
+      <TitleOne 
+        title="Our Volunteers" 
+        description="Meet our dedicated volunteers who play a crucial 
+        role in supporting and advocating for women affected by violence. 
+        Our volunteers bring a diverse range of skills and a deep commitment 
+        to making a positive impact. They work tirelessly alongside our 
+        staff to provide comprehensive support and create a safe and empowering 
+        environment for all. We are grateful for their passion, dedication, 
+        and the invaluable contributions they make every day."
+      />
       <div v-if="loading" class="flex justify-center items-center">
         <Loader />
       </div>
       <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <div
-          v-for="(person, index) in volunteers"
+          v-for="person in volunteers"
           :key="person.id"
           class="hiddenCard person-card bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-700 hover:scale-105"
         >
