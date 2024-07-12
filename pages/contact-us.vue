@@ -86,11 +86,8 @@
   </main>
 </template>
 
-<script setup>
-useHead({
-  title: 'Contact Us',
-})
 
+<script setup>
 import { ref } from 'vue';
 
 const form = ref({
@@ -100,8 +97,19 @@ const form = ref({
   message: '',
 });
 
+const formSubmitted = ref(false);
+
 const submitForm = () => {
   console.log('Form submitted:', form.value);
+  alert('Message sent successfully!');
+  
+  // Resetta il form
+  form.value = {
+    name: '',
+    surname: '',
+    email: '',
+    message: '',
+  };
 };
 </script>
 
@@ -125,3 +133,4 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(255, 76, 76, 0.2);
 }
 </style>
+
