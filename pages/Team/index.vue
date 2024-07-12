@@ -1,6 +1,6 @@
 <template>
   <section class="bg-white py-12 px-12">
-    <TitleOne 
+    <TitleOne
         title="Our Team" 
         :description= "text"
       />
