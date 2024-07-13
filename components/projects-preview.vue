@@ -18,7 +18,7 @@
           </nuxt-link>
         </div>
         <div class="hiddenItem flex justify-center mt-6">
-          <Button :text="'See all projects &rarr;'" :link="'/activities/projects'" class="mt-4"/>
+          <Button :text="'See all projects'" :link="'/activities/projects'" class="mt-4"/>
         </div>
       </div>
     </div>

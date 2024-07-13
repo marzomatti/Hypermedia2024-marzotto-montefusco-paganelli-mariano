@@ -67,7 +67,7 @@ visibleIndices.value.push(index);
 });
 
 function getServiceLink(id) {
-return '/activities/services/' + '{id}'
+return '/activities/services/' + `${id}`
 }
 
 </script>
