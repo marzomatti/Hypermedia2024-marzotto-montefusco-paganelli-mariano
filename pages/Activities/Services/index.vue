@@ -67,7 +67,7 @@ visibleIndices.value.push(index);
 });
 
 function getServiceLink(id) {
-return '/activities/services/' + '{id}'
+return '/activities/services/' + `${id}`
 }
 
 const text = "We provide a wide range of services to support women affected by violence. Explore our services to learn how we can help you."
