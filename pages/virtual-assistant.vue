@@ -46,7 +46,7 @@
               <div
                 v-else-if="message.type === 'answer'"
                 id="response"
-                class="bg-yellow-100 text-yellow-900 p-3 rounded-lg shadow-md mb-2"
+                class="bg-orange-100 text-yellow-900 p-3 rounded-lg shadow-md mb-2"
                 v-html="message.content"
               ></div>
             </div>
