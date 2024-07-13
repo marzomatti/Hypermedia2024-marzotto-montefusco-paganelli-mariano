@@ -13,7 +13,7 @@
           description="Meet our dedicated staff members who work tirelessly to provide support and services to women in need."
           imageSrc="/team/people_staff.jpg"
           altText="Staff"
-          buttonText="Discover more ->"
+          buttonText="Discover more"
           buttonLink="/team/staff"
         />
         <!-- Volunteers Block -->
@@ -22,7 +22,7 @@
           description="Discover the passionate volunteers who help us make a difference in the lives of women facing violence."
           imageSrc="/team/people_volounteers.jpg"
           altText="Volunteers"
-          buttonText="Discover more ->"
+          buttonText="Discover more"
           buttonLink="/team/volunteers"
           imageClass="object-top"
         />
