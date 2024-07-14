@@ -13,7 +13,7 @@
         <div
           v-for="person in staff"
           :key="person.id"
-          class="hiddenCard person-card bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-700 hover:scale-105"
+          class="hiddenCard person-card bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-80 hover:scale-105"
         >
           <nuxt-link :to="`/team/staff/${person.id}`">
             <img :data-src="'/team/staff' + person.image" alt="Staff Photo" class="lazy w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
