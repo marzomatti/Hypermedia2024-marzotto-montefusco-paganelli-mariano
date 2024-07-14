@@ -27,7 +27,7 @@
         </div>
         <!-- Chat section -->
         <div
-          class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md p-8 resize-y overflow-auto"
+          class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md p-8 overflow-auto"
           style="min-height: 600px; max-height: 1000px;"
         >
           <!-- Chat messages -->
@@ -227,7 +227,7 @@ input[type="text"] {
   cursor: pointer;
   font-size: 1rem;
   margin-left: 8px;
-  padding: 10px 20px; /* Adjust padding for a wider button */
+  padding: 10px 20px;
 }
 
 .send-button-custom:hover {
@@ -244,8 +244,4 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.4);
 }
 
-/* Enable resizing */
-.resize-y {
-  resize: vertical;
-}
 </style>

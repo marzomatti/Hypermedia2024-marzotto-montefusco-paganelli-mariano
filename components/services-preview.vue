@@ -1,7 +1,7 @@
 <template>
   <section class="bg-white py-2">
     <div class="container mx-auto">
-      <!-- Titolo e Descrizione -->
+      <!-- Title and Description -->
       <div class="text-center mb-6">
         <h1 class="hiddenItem text-4xl font-extrabold text-blue mb-4">Our Services</h1>
         <p class="hiddenItem text-lg text-blue mb-4">We offer comprehensive support, including legal assistance, counseling, and recovery programs. Let our expert team help you find safety and empowerment. Discover how we can assist you on your journey with personalized services tailored to your needs. Our goal is to provide a safe and supportive environment where you can heal and thrive.</p>
@@ -9,13 +9,15 @@
           <Button :text="'Discover more'" :link="'/activities/services'" />
         </div>
       </div>
-      <!-- Lista di Servizi -->
+      <!-- Services List -->
       <div class="hiddenItem grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
         <div v-if="loading" class="col-span-full">Loading...</div>
         <div v-else-if="error" class="col-span-full">{{ error }}</div>
-        <div v-else v-for="service in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 flex flex-col items-center cursor-pointer" @click="navigateToService(service.id)">
-          <img :src="'/services' + service.logo" alt="Service Icon" class="w-24 h-24 mb-4"/>
-          <h3 class="text-2xl font-semibold text-blue mb-2">{{ service.name }}</h3>
+        <div v-else v-for="service in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 flex flex-col items-center">
+          <NuxtLink :to="`/activities/services/${service.id}`" class="flex flex-col items-center">
+            <img :src="'/services' + service.logo" alt="Service Icon" class="w-24 h-24 mb-4"/>
+            <h3 class="text-2xl font-semibold text-blue mb-2">{{ service.name }}</h3>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -24,12 +26,6 @@
 
 <script setup>
 const { data: services, error, loading } = await useFetch('/api/services');
-
-const router = useRouter();
-
-function navigateToService(id) {
-  router.push(`/activities/services/${id}`);
-}
 </script>
 
 <style scoped>
