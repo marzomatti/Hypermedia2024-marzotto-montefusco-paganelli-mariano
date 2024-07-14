@@ -30,8 +30,15 @@
 import { ref, onMounted } from 'vue';
 
 useHead({
-  title: 'Volunteers',
-})
+  title: "Volunteers",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Meet our dedicated volunteers at No Woman Alone. They tirelessly support women affected by violence, providing essential assistance and compassionate care.",
+    },
+  ],
+});
 
 const { data: volunteers, error, loading } = await useFetch('/api/volunteers');
 

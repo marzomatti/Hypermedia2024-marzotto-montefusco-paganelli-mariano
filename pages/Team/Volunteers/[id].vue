@@ -5,7 +5,7 @@
     <div class="container mx-auto px-4 max-w-6xl">
 
       <ProfileSection
-          :imageSrc="'/team/volunteers' + currPerson.image"
+          :imageSrc="'team/volunteers' + currPerson.image"
           :name="currPerson.name"
           :surname="currPerson.surname"
           :role="currPerson.role"
@@ -34,12 +34,7 @@
 </template>
 
 <script setup>
-useHead({
-  title: 'Personal Info',
-})
-
 const { data: volunteers, error1, loading1 } = await useFetch('/api/volunteers');
-
 
 const route = useRoute()
 
@@ -49,6 +44,24 @@ const currPerson = computed(() => {
     return filteredVolunteers.length > 0 ? filteredVolunteers[0] : null;
   }
   return null;
+});
+
+const personName = computed(() => {
+  return currPerson.value ? currPerson.value.name : "";
+});
+const personSurname = computed(() => {
+  return currPerson.value ? currPerson.value.surname : "";
+});
+
+useHead({
+  title: personName + ' ' + personSurname,
+  meta: [
+    {
+      name: "description",
+      content:
+        "Meet " + personName + ' ' + personSurname + ", a dedicated volunteer at No Woman Alone. They tirelessly support women affected by violence, providing essential assistance and compassionate care.",
+    },
+  ],
 });
 
 

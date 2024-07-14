@@ -110,8 +110,34 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import { useFetch } from '#imports'; // Nuxt 3 way to fetch data
+const route = useRoute();
+
+const { data: services, error, pending } =await useFetch("/api/services");
+
+const currService = computed(() => {
+  if (Array.isArray(services.value)) {
+    const filteredServices = services.value.filter(
+      (p) => p.id == route.params.id
+    );
+    return filteredServices.length > 0 ? filteredServices[0] : null;
+  }
+  return null;
+});
+
+const serviceName = computed(() => {
+  return currService.value ? currService.value.name : "";
+});
+
+useHead({
+  title: serviceName,
+  meta: [
+    {
+      name: "description",
+      content:
+        "Discover" + serviceName + "at No Woman Alone. We offer vital support, including legal assistance, counseling, and recovery programs, to help women affected by violence.",
+    },
+  ],
+});
 
 const form = ref({
   name: "",
@@ -136,22 +162,6 @@ const submitForm = () => {
     message: "",
   };
 };
-
-const { data: services, error, pending } = useFetch("/api/services");
-
-const route = useRoute();
-
-const currService = computed(() => {
-  if (Array.isArray(services.value)) {
-    const filteredServices = services.value.filter(
-      (p) => p.id == route.params.id
-    );
-    return filteredServices.length > 0 ? filteredServices[0] : null;
-  }
-  return null;
-});
-
-const router = useRouter();
 
 function getServiceLink(id) {
   return `/activities/services/` + `${id}`;

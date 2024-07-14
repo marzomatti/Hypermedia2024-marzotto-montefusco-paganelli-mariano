@@ -95,7 +95,7 @@
 import { ref, onMounted } from 'vue';
 
 useHead({
-  title: "About Us - No Woman Alone",
+  title: "About Us",
   meta: [
     {
       name: "description",

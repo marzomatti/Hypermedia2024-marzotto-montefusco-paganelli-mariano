@@ -49,8 +49,15 @@
 import { ref, onMounted } from 'vue';
 
 useHead({
-title: 'Services',
-})
+  title: "Services",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Discover our services at No Woman Alone. We provide essential support through legal assistance, counseling, and recovery programs for women affected by violence.",
+    },
+  ],
+});
 
 const { data: services, error, loading } = await useFetch('/api/services');
 

@@ -30,7 +30,7 @@ const props = defineProps({
 
 const imageUrl = computed(() => {
   const config = useRuntimeConfig()
-  return `${config.public.supabaseImagesUrl}/team/staff${props.imageSrc}`
+  return `${config.public.supabaseImagesUrl}${props.imageSrc}`
 })
   
 </script>

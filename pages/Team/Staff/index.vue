@@ -30,6 +30,17 @@
 import { ref, onMounted } from 'vue';
 
 useHead({
+  title: "Staff",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Meet the dedicated staff at No Woman Alone. Our team of experts in legal assistance, counseling, and recovery programs work tirelessly to support women affected by violence.",
+    },
+  ],
+});
+
+useHead({
   title: 'Staff',
 });
 const { data: staff, error, loading } = await useFetch('/api/staff');

@@ -32,6 +32,16 @@
 </template>
 
 <script setup>
+useHead({
+  title: "Team",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Meet the dedicated team at No Woman Alone. Our experts in legal assistance, counseling, and recovery programs work to support women affected by violence. Discover the passionate individuals driving our mission to empower and protect.",
+    },
+  ],
+});
 
 const text = "Meet the dedicated individuals who are at the heart of our mission to support and empower women. Our team, composed of passionate staff and volunteers, works tirelessly to provide essential services and create a safe environment for those in need."
 </script>

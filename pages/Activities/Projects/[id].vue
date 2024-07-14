@@ -45,14 +45,13 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue';
+
 const route = useRoute();
 const id = route.params.id;
 const projects = ref([]);
 const responsible = ref([]);
 
 const { data, error, loading } = await useFetch('/api/projects');
-projects.value = data.value;
-
 const currProject = computed(() => {
   if (Array.isArray(projects.value)) {
     const filteredProjects = projects.value.filter((p) => p.id == id);
@@ -60,6 +59,22 @@ const currProject = computed(() => {
   }
   return null;
 });
+
+projects.value = data.value;
+
+const projectName = computed(() => currProject.value ? currProject.value.name : '');
+
+useHead({
+  title: projectName,
+  meta: [
+    {
+      name: "description",
+      content:
+        "Discover" + projectName + "at No Woman Alone. Providing essential support through legal assistance, counseling, and recovery programs for women affected by violence.",
+    },
+  ],
+});
+
 
 function getProjectLink(id) {
   return `/activities/projects/` + `${id}`;

@@ -5,7 +5,7 @@
     <div class="container mx-auto px-4 max-w-6xl">
 
       <ProfileSection
-          :imageSrc="currPerson.image"
+          :imageSrc="'team/staff' + currPerson.image"
           :name="currPerson.name"
           :surname="currPerson.surname"
           :role="currPerson.role"
@@ -39,13 +39,32 @@
 </template>
 
 <script setup>
-useHead({
-  title: 'Personal Info',
-})
 const route = useRoute()
 const { data: currPerson} = await useFetch('/api/staff/' + route.params.id);
 const { data: services, error, loading } = await useFetch('/api/services');
 const { data: projects, error1, loading1 } = await useFetch('/api/projects');
+
+const personName = computed(() => {
+  return currPerson.value ? currPerson.value.name : "";
+});
+const personSurname = computed(() => {
+  return currPerson.value ? currPerson.value.surname : "";
+});
+const personRole = computed(() => {
+  return currPerson.value ? currPerson.value.role : "";
+});
+
+useHead({
+  title: personName + " " + personSurname,
+  meta: [
+    {
+      name: "description",
+      content:
+        "Meet" + personName + ' ' + personSurname + ","+ personRole + " at No Woman Alone. They are dedicated to supporting women affected by violence with compassion and professionalism.",
+    },
+  ],
+});
+
 
 
 function isServiceRelated(id) {

@@ -56,8 +56,15 @@
 import { ref, computed, onMounted } from 'vue';
 
 useHead({
-  title: 'Projects',
-})
+  title: "Projects",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Explore the projects at No Woman Alone. We offer legal assistance, counseling, and recovery programs. Join us in empowering women through community and advocacy initiatives.",
+    },
+  ],
+});
 
 const { data: projects, error, loading } = await useFetch('/api/projects');
 const searchQuery = ref('');

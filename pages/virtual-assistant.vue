@@ -83,6 +83,14 @@
 import { ref, onMounted, nextTick } from "vue";
 import { OpenAI } from "openai";
 
+useHead({
+    title: "Virtual Assistant",
+    meta: [{
+        name: 'description',
+        content: "Chat with our virtual assistant for support and guidance on domestic violence. Get legal advice, find help, and understand your rights in a safe, compassionate space. In emergencies, contact authorities immediately."
+    }]
+})
+
 const config = useRuntimeConfig();
 const openai = new OpenAI({
   apiKey: config.public.openaiApiKey,

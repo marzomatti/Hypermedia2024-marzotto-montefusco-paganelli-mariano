@@ -21,6 +21,17 @@
 <script setup>
 import { onMounted } from 'vue';
 
+useHead({
+  title: "Activities",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Explore activities at No Woman Alone, including legal assistance, counseling, and recovery programs. Join our community projects and advocacy efforts to support women affected by violence.",
+    },
+  ],
+});
+
 onMounted(() => {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {

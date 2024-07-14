@@ -89,6 +89,14 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
+useHead({
+    title: "Contact Us",
+    meta: [{
+        name: 'description',
+        content: "Learn about No Woman Alone, our mission to support women affected by violence, and the comprehensive services we offer, including legal assistance, counseling, and recovery programs. Join us in our efforts to empower women and create a safe, supportive environment."
+    }]
+})
+
 const form = ref({
   name: '',
   surname: '',
