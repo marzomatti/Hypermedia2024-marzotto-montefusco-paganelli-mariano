@@ -5,7 +5,7 @@
     <div class="container mx-auto px-4 max-w-6xl">
 
       <ProfileSection
-          :imageSrc="'/team/staff' + currPerson.image"
+          :imageSrc="currPerson.image"
           :name="currPerson.name"
           :surname="currPerson.surname"
           :role="currPerson.role"

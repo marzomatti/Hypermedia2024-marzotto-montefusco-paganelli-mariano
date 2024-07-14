@@ -16,7 +16,7 @@
           class="hiddenCard person-card bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-80 hover:scale-105"
         >
           <nuxt-link :to="`/team/staff/${person.id}`">
-            <img :data-src="'/team/staff' + person.image" alt="Staff Photo" class="lazy w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
+            <img :src="getImageLink(person.image)" alt="Staff Photo" class="lazy w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
             <h3 class="text-xl font-semibold text-blue">{{ person.name }} {{ person.surname }}</h3>
             <p class="text-blue">{{ person.role }}</p>
           </nuxt-link>
@@ -82,6 +82,11 @@ onMounted(() => {
 });
 
 const text = "Meet our dedicated staff committed to supportingand advocating for women affected by violence. Our team is composed of experienced professionals who are passionate about making a difference. Each member brings a unique set of skills and expertise to provide comprehensive support and create a safe and empowering environment for all. We are here to help, listen, and guide you every step of the way."
+
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}/team/staff${imageUrl}`
+}
 </script>
 
 <style scoped>
