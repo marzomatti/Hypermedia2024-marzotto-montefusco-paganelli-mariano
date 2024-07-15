@@ -102,13 +102,13 @@
 
     <!-- Navigation Arrows -->
     <div class="pb-12 px-4 lg:px-24 bg-white flex justify-between" v-if="currService">
-      <Button v-if="currService.previousService > 0" :link="getServiceLink(currService.previousService)" text="&larr; Previous Project" />
+      <Button v-if="currService.previousService > 0" :link="getServiceLink(currService.previousService)" text="&larr; Previous Service" />
       <div class="flex-1"></div>
-      <Button v-if="currService.nextService > 0" :link="getServiceLink(currService.nextService)" text="Next Project &rarr;" />
+      <Button v-if="currService.nextService > 0" :link="getServiceLink(currService.nextService)" text="Next Service &rarr;" />
     </div>
   </div>
 </template>
-
+zw
 <script setup>
 import { ref, computed } from 'vue';
 const route = useRoute();
