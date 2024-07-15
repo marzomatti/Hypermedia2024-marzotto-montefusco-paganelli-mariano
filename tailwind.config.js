@@ -37,6 +37,7 @@ module.exports = {
       orange: {
         100: "#f5f1e0",
         200: "#f77f00",
+        300: "#FCBF49",
       }
     },
     fontFamily: {

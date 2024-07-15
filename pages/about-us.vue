@@ -118,7 +118,7 @@ const values = [
     title: 'Empowerment',
     description: 'We are committed to empowering women by providing them with the tools and resources they need to regain control of their lives. Through education, support groups, and advocacy, we strive to help women build a future free from violence.',
     color: '#ffffe6',
-    textColor: 'text-yellow'
+    textColor: 'text-orange-300'
   },
   {
     title: 'Change',
