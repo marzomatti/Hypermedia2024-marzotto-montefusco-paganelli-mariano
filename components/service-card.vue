@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition duration-500 flex items-center hover:scale-105 animate-fadeIn" :style="{ visibility: isVisible ? 'visible' : 'hidden' }">
     <NuxtLink :to="link" class="flex items-center">
-      <img :src="logo" alt="Service Icon" class="w-16 h-16 cursor-pointer mr-4"/>
+      <img :src="getImageLink(logo)" alt="Service Icon" class="w-16 h-16 cursor-pointer mr-4"/>
       <div>
         <h2 class="text-2xl font-bold text-blue mb-2">{{ name }}</h2>
         <p class="text-blue">{{ description }}</p>
@@ -18,6 +18,11 @@ defineProps({
   description: String,
   isVisible: Boolean,
 });
+
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
 </script>
 
 <style scoped>

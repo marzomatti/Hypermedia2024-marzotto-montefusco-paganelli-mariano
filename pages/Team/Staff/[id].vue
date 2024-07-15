@@ -5,7 +5,7 @@
     <div class="container mx-auto px-4 max-w-6xl">
 
       <ProfileSection
-          :imageSrc="'team/staff' + currPerson.image"
+          :imageSrc="'/team/staff' + currPerson.image"
           :name="currPerson.name"
           :surname="currPerson.surname"
           :role="currPerson.role"
@@ -64,7 +64,6 @@ useHead({
     },
   ],
 });
-
 
 
 function isServiceRelated(id) {

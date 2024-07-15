@@ -5,14 +5,14 @@
           {{ name }}, {{ age }} years
         </div>
         <img
-          :src="photoSrc"
+          :src="getImageLink(photoSrc)"
           :alt="'Photo of testimonial ' + name + ', ' + age + ' years old'"
           class="w-full h-48 object-cover rounded-3xl mb-4"
         />
         <p class="text-blue text-base">"{{ citation }}"</p>
       </div>
     </div>
-  </template>
+</template>
   
   <script setup>
   defineProps({
@@ -21,6 +21,11 @@
     photoSrc: String,
     citation: String,
   });
+
+  function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+  }
   </script>
   
   <style scoped>

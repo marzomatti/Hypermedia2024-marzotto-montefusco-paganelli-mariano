@@ -8,12 +8,13 @@
         <NuxtLink v-if="index < breadcrumbs.length - 1" :to="breadcrumb.path" class="text-blue hover:text-secondary-color underline">
           {{ breadcrumb.name }}
         </NuxtLink>
-        <span v-else-if="!isCustomized" class="text-blue font-medium">
-          {{ breadcrumb.name }}
+        <span v-else-if="!isNaN(breadcrumb.name)" class="text-blue font-medium">
+          {{ isLoading ? '' : label }}
         </span>
         <span v-else class="text-blue font-medium">
-          {{ label }}
+          {{ breadcrumb.name }}
         </span>
+
       </li>
     </ol>
   </nav>
@@ -24,6 +25,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+const isLoading = ref(false)
 
 const breadcrumbs = computed(() => {
   const pathArray = route.path.split('/').filter(path => path)
@@ -45,9 +47,14 @@ const props = defineProps({
     required: false,
     default: ""
   }
-}
+})
 
-)
+watch(() => route.path, () => {
+  isLoading.value = true
+  setTimeout(() => {
+    isLoading.value = false
+  }, 1000)
+})
 </script>
 
 <style scoped>

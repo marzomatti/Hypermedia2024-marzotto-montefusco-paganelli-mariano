@@ -10,7 +10,7 @@
       </div>
       <div class="w-full md:w-1/2 flex justify-center hiddenItem">
         <div class="border border-gray-300 rounded-3xl overflow-hidden shadow-lg">
-          <img data-src="/homepage/homepage_2.jpg" alt="Our team" class="lazy object-cover w-full h-auto"/>
+          <img :data-src="getImageLink('/homepage/homepage_2.jpg')" alt="Our team" class="lazy object-cover w-full h-auto"/>
         </div>
       </div>
     </div>
@@ -19,6 +19,11 @@
 
 <script setup>
 import { onMounted } from 'vue';
+
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
 
 onMounted(() => {
   const observer = new IntersectionObserver(entries => {

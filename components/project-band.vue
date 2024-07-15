@@ -7,13 +7,18 @@
           <Button :link="link" text="Read more" />
         </div>
         <div class="pl-32 pr-4">
-          <img :src="imageSrc" alt="Project Image" class="w-80 h-80 lg:w-96 lg:h-64 ml-4 lg:ml-8 rounded-3xl shadow-md">
+          <img :src="getImageLink(imageSrc)" alt="Project Image" class="w-80 h-80 lg:w-96 lg:h-64 ml-4 lg:ml-8 rounded-3xl shadow-md">
         </div>
       </div>
     </div>
   </template>
   
   <script setup>
+  function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
+
   defineProps({
     name: String,
     description: String,

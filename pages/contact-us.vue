@@ -10,7 +10,7 @@
       <!-- Form + image -->
       <div class="hiddenItem md:flex mb-8 items-stretch justify-center">
         <div class="md:w-1/2 p-7 flex items-stretch">
-          <img class="rounded-3xl w-full h-full object-cover" src="/assets/img/hero-image.avif" alt="Contact Image" />
+          <img class="rounded-3xl w-full h-full object-cover" :src="getImageLink('/hero_image.avif')" alt="Contact Image" />
         </div>
         <div class="md:w-1/2 p-7">
           <form @submit.prevent="submitForm" class="bg-white p-6 rounded-3xl shadow-lg h-full">
@@ -60,13 +60,13 @@
             <h3 class="text-xl font-semibold mb-2 text-blue">Follow us</h3>
             <div class="flex justify-center space-x-4">
               <a href="https://it-it.facebook.com/" target="_blank">
-                <img class="w-8 h-8 rounded-full hover:shadow-2xl" src="public/facebook.png" alt="Facebook" />
+                <img class="w-8 h-8 rounded-full hover:shadow-2xl" :src="getImageLink('/facebook.png')" alt="Facebook" />
               </a>
               <a href="https://www.instagram.com" target="_blank">
-                <img class="w-8 h-8 rounded-full hover:shadow-2xl" src="public/instagram.png" alt="Instagram" />
+                <img class="w-8 h-8 rounded-full hover:shadow-2xl" :src="getImageLink('/instagram.png')" alt="Instagram" />
               </a>
               <a href="https://www.twitter.com" target="_blank">
-                <img class="w-8 h-8 rounded-full hover:shadow-2xl" src="public/twitter.png" alt="Twitter" />
+                <img class="w-8 h-8 rounded-full hover:shadow-2xl" :src="getImageLink('/twitter.png')" alt="Twitter" />
               </a>
             </div>
           </div>
@@ -88,6 +88,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+
+const config = useRuntimeConfig();
 
 useHead({
     title: "Contact Us",
@@ -136,6 +138,11 @@ onMounted(() => {
     observer.observe(element);
   });
 });
+
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
 
 const text = "We appreciate your interest in reaching out to us. To ensure a smooth and efficient communication process, we kindly request you to fill out the form below with your relevant information. This will help us better understand your needs and provide you with the most appropriate assistance. We are here to support you and provide the help you need."
 </script>

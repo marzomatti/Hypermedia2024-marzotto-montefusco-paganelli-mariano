@@ -14,7 +14,7 @@
         </div>
         <!-- Section: Project Image -->
         <div class="lg:w-2/3 pt-32 lg:mt-0">
-          <img :src="'/projects' + currProject.image" alt="Project Image" class="w-full h-auto rounded-3xl shadow-lg">
+          <img :src="getImageLink('/projects' + currProject.image)" alt="Project Image" class="w-full h-auto rounded-3xl shadow-lg">
         </div>
       </div>
 
@@ -75,6 +75,10 @@ useHead({
   ],
 });
 
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
 
 function getProjectLink(id) {
   return `/activities/projects/` + `${id}`;

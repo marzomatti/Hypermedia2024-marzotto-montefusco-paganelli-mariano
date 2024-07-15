@@ -39,7 +39,7 @@
 
 <!-- Image Section -->
 <div class="flex justify-center">
-  <img src="/services/serviceindex_img.jpg" alt="Supporting Image" class="rounded-3xl shadow-lg w-full max-w-4xl">
+  <img :src="getImageLink('/services/serviceindex_img.jpg')" alt="Supporting Image" class="rounded-3xl shadow-lg w-full max-w-4xl">
 </div>
 </main>
 </div>
@@ -58,6 +58,11 @@ useHead({
     },
   ],
 });
+
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
 
 const { data: services, error, loading } = await useFetch('/api/services');
 

@@ -33,7 +33,7 @@
           </p>
         </div>
         <div
-          class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md p-8 resize-y overflow-auto"
+          class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md p-8 overflow-auto"
           style="min-height: 600px; max-height: 600px"
         >
           <!-- Chat messages -->

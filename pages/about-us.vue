@@ -2,7 +2,7 @@
   <main>
     <div
       class="bg-no-repeat bg-top bg-cover w-full h-[45rem]"
-      :style="'background-image: url(/stop.jpg)'"
+      :style="{ backgroundImage: `url(${config.public.supabaseImagesUrl}/stop.jpg)` }"
     >
       <div
         class="flex flex-col justify-center items-center text-center px-4 lg:px-16 h-full bg-gray-600 bg-opacity-50"
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <!-- Sezione "Our Expert Team" -->
+    <!-- Section "Our Expert Team" -->
     <div class="bg-gray-200 w-full px-4 lg:px-16 py-8">
       <h1
         class="hiddenItem text-3xl py-8 md:py-12 md:text-5xl font-bold text-center text-blue"
@@ -63,7 +63,7 @@
           v-for="(image, index) in teamImages"
           :key="index"
           class="lazy rounded-3xl w-full max-w-lg object-cover"
-          :data-src="image.src"
+          :data-src="getImageLink(image.src)"
           :alt="image.alt"
         />
       </div>
@@ -174,6 +174,11 @@ onMounted(() => {
     observer.observe(img);
   });
 });
+
+const config = useRuntimeConfig()
+function getImageLink(imageUrl){
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
 </script>
 
 <style scoped>

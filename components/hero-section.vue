@@ -25,28 +25,18 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import backgroundUrl from '~/public/homepage/homepage_12.png';
+
+
+const config = useRuntimeConfig();
+
 
 const isVisible = ref(false);
 const heroStyle = ref({
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
-  height: '80vh'
-});
-
-onMounted(() => {
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        heroStyle.value.backgroundImage = `url(${backgroundUrl})`;
-        isVisible.value = true;
-        observer.disconnect();
-      }
-    });
-  });
-
-  observer.observe(document.querySelector('.bg-black'));
+  height: '80vh',
+  backgroundImage: 'url(' + config.public.supabaseImagesUrl + '/homepage/homepage_12.png)',
 });
 </script>
 

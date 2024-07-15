@@ -16,7 +16,7 @@
           class="hiddenCard person-card bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-80 hover:scale-105"
         >
           <nuxt-link :to="`/team/volunteers/${person.id}`">
-            <img :data-src="'/team/volunteers/' + person.image" alt="Volunteer Photo" class="lazy w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
+            <img :data-src="getImageLink('/team/volunteers/' + person.image)" alt="Volunteer Photo" class="lazy w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
             <h3 class="text-xl font-semibold text-blue">{{ person.name }} {{ person.surname }}</h3>
             <p class="text-blue">{{ person.role }}</p>
           </nuxt-link>
@@ -88,6 +88,11 @@ onMounted(() => {
     });
   }, 0);
 });
+
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
 
 const text ="Meet our dedicated volunteers who play a crucial role in supporting and advocating for women affected by violence. Our volunteers bring a diverse range of skills and a deep commitment to making a positive impact. They work tirelessly alongside our staff to provide comprehensive support and create a safe and empowering environment for all. We are grateful for their passion, dedication, and the invaluable contributions they make every day."
 </script>

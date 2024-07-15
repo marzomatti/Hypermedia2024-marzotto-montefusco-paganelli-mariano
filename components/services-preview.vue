@@ -15,7 +15,7 @@
         <div v-else-if="error" class="col-span-full">{{ error }}</div>
         <div v-else v-for="service in services" :key="service.id" class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105 flex flex-col items-center">
           <NuxtLink :to="`/activities/services/${service.id}`" class="flex flex-col items-center">
-            <img :src="'/services' + service.logo" alt="Service Icon" class="w-24 h-24 mb-4"/>
+            <img :src="getImageLink('/services' + service.logo)" alt="Service Icon" class="w-24 h-24 mb-4"/>
             <h3 class="text-2xl font-semibold text-blue mb-2">{{ service.name }}</h3>
           </NuxtLink>
         </div>
@@ -25,6 +25,11 @@
 </template>
 
 <script setup>
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
+
 const { data: services, error, loading } = await useFetch('/api/services');
 </script>
 

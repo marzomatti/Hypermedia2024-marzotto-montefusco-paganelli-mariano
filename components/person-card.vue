@@ -4,13 +4,18 @@
     class="bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-700 hover:scale-105 animate-fadeIn"
     :style="{ visibility: isVisible ? 'visible' : 'hidden' }"
   >
-    <img :src="imageSrc" alt="Volunteer Photo" class="w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
+    <img :src="getImageLink(imageSrc)" alt="Volunteer Photo" class="w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
     <h3 class="text-xl font-semibold text-blue">{{ name }} {{ surname }}</h3>
     <p class="text-blue">{{ role }}</p>
   </nuxt-link>
 </template>
 
 <script setup>
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
+
 defineProps({
   link: String,
   imageSrc: String,

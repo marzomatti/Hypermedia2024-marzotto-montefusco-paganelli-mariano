@@ -7,7 +7,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         <!-- Mission Block -->
         <div class="flex flex-col items-center hiddenItem">
-          <img data-src="/homepage/goal.png" alt="Mission Icon" class="lazy h-24 w-24 mb-4"/>
+          <img :data-src="getImageLink('/homepage/goal.png')" alt="Mission Icon" class="lazy h-24 w-24 mb-4"/>
 
           <h3 class="text-4xl font-bold text-blue mb-4"><span class="text-blue">Why?</span></h3>
           <p class="text-blue"> 
@@ -19,7 +19,7 @@
         </div>
         <!-- Vision Block -->
         <div class="flex flex-col items-center hiddenItem">
-          <img data-src="/homepage/helpline.png" alt="Vision Icon" class="lazy h-24 w-24 mb-4"/>
+          <img :data-src="getImageLink('/homepage/helpline.png')" alt="Vision Icon" class="lazy h-24 w-24 mb-4"/>
           <h3 class="text-4xl font-bold text-blue mb-4"><span class="text-blue">How?</span></h3>
           <p class="text-blue">
             We offer legal assistance, psychological 
@@ -30,7 +30,7 @@
         </div>
         <!-- Values Block -->
         <div class="flex flex-col items-center hiddenItem">
-          <img data-src="/homepage/ancestors.png" alt="Values Icon" class="lazy h-24 w-24 mb-4"/>
+          <img :data-src="getImageLink('/homepage/ancestors.png')" alt="Values Icon" class="lazy h-24 w-24 mb-4"/>
           <h3 class="text-4xl font-bold text-blue mb-4"><span class="text-blue">Who?</span></h3>
           <p class="text-blue">
             Our team includes counselors, legal experts, 
@@ -47,6 +47,10 @@
 <script setup>
 import { onMounted } from 'vue';
 
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
 
 onMounted(() => {
   const observer = new IntersectionObserver(entries => {

@@ -17,7 +17,7 @@
             class="bg-white p-6 rounded-3xl shadow-lg transition duration-500 hover:shadow-xl hover:scale-105"
           >
             <img
-              :src="'/projects' + project.image"
+              :src="getImageLink('/projects' + project.image)"
               alt="project.name"
               class="w-full h-60 object-cover rounded-3xl mb-2"
             />
@@ -37,6 +37,12 @@
 
 <script setup>
 import { onMounted, computed } from "vue";
+
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
+
 const { data: projects, error, loading } = await useFetch("/api/projects");
 const router = useRouter();
 

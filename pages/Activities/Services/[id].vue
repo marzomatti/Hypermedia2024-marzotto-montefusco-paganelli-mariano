@@ -20,15 +20,15 @@
           </h2>
           <ul class="list-none text-lg text-blue ml-4">
             <li class="mb-2 flex items-start" v-if="currService.goal1">
-              <img src="/assets/img/service_list_icon.png" alt="Goal Icon" class="h-8 w-8 mr-2" />
+              <img :src="getImageLink('/service_list_icon.png')" alt="Goal Icon" class="h-8 w-8 mr-2" />
               <span>{{ currService.goal1 }}</span>
             </li>
             <li class="mb-2 flex items-start" v-if="currService.goal2">
-              <img src="/assets/img/service_list_icon.png" alt="Goal Icon" class="h-8 w-8 mr-2" />
+              <img :src="getImageLink('/service_list_icon.png')" alt="Goal Icon" class="h-8 w-8 mr-2" />
               <span>{{ currService.goal2 }}</span>
             </li>
             <li class="mb-2 flex items-start" v-if="currService.goal3">
-              <img src="/assets/img/service_list_icon.png" alt="Goal Icon" class="h-8 w-8 mr-2" />
+              <img :src="getImageLink('/service_list_icon.png')" alt="Goal Icon" class="h-8 w-8 mr-2" />
               <span>{{ currService.goal3 }}</span>
             </li>
           </ul>
@@ -36,7 +36,7 @@
         <!-- Right Service: Service Picture -->
         <div class="lg:w-1/2 lg:pl-8 flex items-center">
           <div class="relative w-full pb-[133%] rounded-3xl shadow-lg overflow-hidden">
-            <img v-if="currService.image" :src="'/services' + currService.image" alt="Service Image" class="absolute inset-0 w-full h-full object-cover" />
+            <img v-if="currService.image" :src="getImageLink('/services' + currService.image)" alt="Service Image" class="absolute inset-0 w-full h-full object-cover" />
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
       <!-- Form + image -->
       <div class="md:flex items-stretch justify-center">
         <div class="md:w-1/2 p-7 flex items-stretch">
-          <img class="rounded-3xl w-full h-full object-cover" src="/assets/img/singleservice_fiximage.jpg" alt="Service Image" />
+          <img class="rounded-3xl w-full h-full object-cover" :src="getImageLink('/singleservice_fiximage.jpg')" alt="Service Image" />
         </div>
         <div class="md:w-1/2 p-7">
           <form @submit.prevent="submitForm" class="bg-white p-6 rounded-3xl shadow-lg h-full">
@@ -139,6 +139,11 @@ useHead({
     },
   ],
 });
+
+function getImageLink(imageUrl){
+  const config = useRuntimeConfig()
+  return `${config.public.supabaseImagesUrl}${imageUrl}`
+}
 
 const form = ref({
   name: "",
