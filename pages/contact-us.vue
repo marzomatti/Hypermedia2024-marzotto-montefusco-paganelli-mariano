@@ -17,21 +17,21 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="form-group">
                 <label for="name" class="block text-blue font-bold mb-2">Name</label>
-                <input type="text" id="name" v-model="form.name" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
+                <input type="text" id="name" v-model="form.name" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" placeholder="Jane"/>
               </div>
               
               <div class="form-group">
                 <label for="surname" class="block text-blue font-bold mb-2">Surname</label>
-                <input type="text" id="surname" v-model="form.surname" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
+                <input type="text" id="surname" v-model="form.surname" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" placeholder="Doe" />
               </div>
             </div>
             <div class="form-group mt-4">
               <label for="email" class="block text-blue font-bold mb-2">Email</label>
-              <input type="email" id="email" v-model="form.email" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
+              <input type="email" id="email" v-model="form.email" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" placeholder="exaple@mail.com" />
             </div>
             <div class="form-group mt-4">
               <label for="message" class="block text-blue font-bold mb-2">Message</label>
-              <textarea id="message" v-model="form.message" required class="w-full p-3 border rounded-3xl h-32 resize-none focus:border-primary-color focus:ring-primary-color"></textarea>
+              <textarea id="message" v-model="form.message" required class="w-full p-3 border rounded-3xl h-32 resize-none focus:border-primary-color focus:ring-primary-color" placeholder="Write here your request..."></textarea>
             </div>
             <button type="submit" class="w-full inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">Send</button>
           </form>

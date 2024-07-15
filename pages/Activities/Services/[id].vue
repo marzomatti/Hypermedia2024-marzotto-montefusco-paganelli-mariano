@@ -51,35 +51,36 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="form-group">
                 <label for="name" class="block text-blue font-bold mb-2">Name</label>
-                <input type="text" id="name" v-model="form.name" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
+                <input type="text" id="name" v-model="form.name" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" placeholder="Jane" />
               </div>
 
               <div class="form-group">
                 <label for="surname" class="block text-blue font-bold mb-2">Surname</label>
-                <input type="text" id="surname" v-model="form.surname" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
+                <input type="text" id="surname" v-model="form.surname" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" placeholder="Doe" />
               </div>
               <div class="form-group col-span-2">
                 <label for="email" class="block text-blue font-bold mb-2">Email</label>
-                <input type="email" id="email" v-model="form.email" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" />
+                <input type="email" id="email" v-model="form.email" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color" placeholder="example@mail.com"/>
               </div>
             </div>
             <div class="form-group relative mt-4">
               <label for="service" class="block text-blue font-bold mb-2">Service</label>
-              <select id="service" v-model="form.service" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color">
-                <option v-for="service in services" :key="service.id" :value="service.name">
+              <select id="service" v-model="form.service" required class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color"  >
+                <option value="" disabled selected>Select service</option>
+                <option v-for="service in services" :key="service.id" :value="service.name" >
                   {{ service.name }}
                 </option>
                 <option value="Other">Other</option>
               </select>
               <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                <svg class="w-4 h-4 text-blue mt-7 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-4 h-4 text-blue mt-7 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </div>
             </div>
             <div class="form-group mt-4">
               <label for="message" class="block text-blue font-bold mb-2">Message</label>
-              <textarea id="message" v-model="form.message" required class="w-full p-3 border rounded-3xl h-32 resize-none focus:border-primary-color focus:ring-primary-color"></textarea>
+              <textarea id="message" v-model="form.message" required class="w-full p-3 border rounded-3xl h-32 resize-none focus:border-primary-color focus:ring-primary-color" placeholder="Explain here your request..."></textarea>
             </div>
             <button type="submit" class="w-full inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300">
               Send
