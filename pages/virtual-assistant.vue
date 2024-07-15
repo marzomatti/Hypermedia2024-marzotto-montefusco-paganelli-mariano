@@ -265,4 +265,8 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.4);
 }
 
+.bg-red-100 {
+    background-color: #ffcccc;
+  }
+
 </style>
