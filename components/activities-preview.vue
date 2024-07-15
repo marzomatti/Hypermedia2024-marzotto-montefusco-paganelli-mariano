@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-primary-color py-6 px-12 hiddenItem">
+  <section class="bg-secondary-color py-6 px-12 hiddenItem">
     <div class="container mx-auto text-center">
       <TitleColor
       title="Our Activities"
