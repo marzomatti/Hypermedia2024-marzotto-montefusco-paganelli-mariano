@@ -11,7 +11,7 @@
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <!-- Text section -->
         <div class="w-full md:w-1/3 pr-8 mb-8 md:mb-0 text-center md:text-left">
-          <h2 class="text-2xl font-bold text-blue mb-4">How We Can Help</h2>
+          <h2 class="text-2xl font-bold text-blue mb-4">How We Can Help:</h2>
           <p class="text-blue text-lg mb-4 font-bold">
             Our virtual assistant is here to support you with compassion and
             understanding.
