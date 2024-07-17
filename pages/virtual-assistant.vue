@@ -46,21 +46,20 @@
             v-if="fullScreenMode"
             @click="toggleFullscreen"
           />
+          <!-- Fullscreen button -->
+          <button
+            v-if="!fullScreenMode"
+            @click="toggleFullscreen"
+            class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-start border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md ml-2"
+          >
+            Fullscreen mode
+          </button>
           <!-- Chat messages -->
           <div
             ref="chatMessages"
             class="flex-1 bg-gray-100 rounded-3xl p-4 overflow-y-scroll"
             style="max-height: calc(100% - 60px)"
           >
-            <!-- Fullscreen button -->
-            <button
-              v-if="!fullScreenMode"
-              @click="toggleFullscreen"
-              class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2 absolute"
-            >
-              Fullscreen mode
-            </button>
-
             <div
               v-for="message in messages"
               :key="message.id"
@@ -133,9 +132,10 @@ const openai = new OpenAI({
 });
 
 const assistantId = config.public.openaiAssistantId;
+const securityAssistantId = config.public.openaiSecurityAssistantId;
 const answerAssistant = await openai.beta.assistants.retrieve(assistantId);
 const securityChecker = await openai.beta.assistants.retrieve(
-  "asst_PCpfYqu2jOKwfA5KOej2CXtZ"
+  securityAssistantId
 );
 const answerThread = await openai.beta.threads.create();
 const securityThread = await openai.beta.threads.create();
@@ -165,21 +165,14 @@ const sendMessage = async () => {
       questionToCheck,
       securityThread,
       securityChecker
-    ).catch((error) => {
-      console.error("Error getting answer from OpenAI:", error);
-      messages.value.push({
-        id: Date.now() + 1,
-        type: "answer",
-        content:
-          "I'm sorry, There was an error processing your request. Please try again later.",
-      });
-    });
-    console.log("isDangerous", isDangerous);
+    );
+
     if (isDangerous == "true" || isDangerous == "True") {
       messages.value.push({
         id: Date.now() + 1,
         type: "answer",
-        content: "I'm sorry, I can't answer that question.",
+        content:
+          "I'm sorry, I can't answer that. If you have any other questions related to domestic violence, feel free to ask.",
       });
       await nextTick();
       scrollToBottom();

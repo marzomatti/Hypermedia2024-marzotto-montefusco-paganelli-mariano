@@ -8,6 +8,7 @@ export default defineNuxtConfig({
       openaiAssistantId: process.env.OPENAI_ASSISTANT_ID,
       assetsUrl: process.env.ASSETS_URL,
       supabaseImagesUrl: process.env.SUPABASE_IMAGES,
+      openaiSecurityAssistantId: process.env.OPENAI_SECURITY_ASSISTANT_ID,
     },
   },
   devtools: { enabled: true },
