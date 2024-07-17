@@ -49,7 +49,7 @@
             <button
               v-if="!fullScreenMode"
               @click="toggleFullscreen"
-              class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2"
+              class="bg-transparent text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2"
             >
               Fullscreen mode
             </button>
