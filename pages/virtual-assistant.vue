@@ -343,5 +343,21 @@ input:focus {
 .fullscreen-button:hover {
   background-color: #003049;
   color: white;
+/* Fullscreen button styles */
+.fullscreen-button {
+  background-color: transparent;
+  color: #003049;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  align-self: flex-end;
+  border: #003049 2px solid;
+}
+
+.fullscreen-button:hover {
+  background-color: #003049;
+  color: white;
 }
 </style>
