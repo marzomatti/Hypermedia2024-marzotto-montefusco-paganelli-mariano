@@ -7,10 +7,10 @@
     />
 
     <!-- Main Content Section -->
-    <section class="bg-white py-12 px-12">
+    <section class="bg-white px-2 py-12 sd:px-12">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <!-- Text section -->
-        <div class="w-full md:w-1/3 pr-8 mb-8 md:mb-0 text-center md:text-left">
+        <div class="w-full md:w-1/3 px-6 md:pr-8 mb-8 md:mb-0 text-center md:text-left">
           <h2 class="text-2xl font-bold text-blue mb-4">How We Can Help:</h2>
           <p class="text-blue text-lg mb-4 font-bold">
             Our virtual assistant is here to support you with compassion and
@@ -33,7 +33,7 @@
           </p>
         </div>
         <div
-          class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md p-8 overflow-auto"
+          class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md sd:p-8 p-4 overflow-auto"
           style="min-height: 600px; max-height: 600px"
         >
           <!-- Chat messages -->
@@ -42,21 +42,38 @@
             class="flex-1 bg-gray-100 rounded-3xl p-4 overflow-y-scroll"
             style="max-height: calc(100% - 60px)"
           >
-            <div v-for="message in messages" :key="message.id" class="mb-4">
+            <div
+              v-for="message in messages"
+              :key="message.id"
+              class="mb-4 flex items-start"
+            >
+              <img
+                v-if="message.type === 'answer'"
+                :src="getImageLink('/virtual-assistant-icon.png')"
+                class="w-8 h-8 rounded-full mr-2 mt-2"
+                alt="Chatbot"
+              />
               <div
                 v-if="message.type === 'question'"
-                class="bg-red-100 text-red-900 p-3 rounded-lg shadow-md mb-2"
+                class="bg-red-100 text-red-900 p-3 rounded-lg shadow-md mb-2 flex-1"
               >
                 {{ message.content }}
               </div>
               <div
                 v-else-if="message.type === 'answer'"
                 id="response"
-                class="bg-orange-100 text-yellow-900 p-3 rounded-lg shadow-md mb-2"
+                class="bg-orange-100 text-yellow-900 p-3 rounded-lg shadow-md mb-2 flex-1"
                 v-html="message.content"
               ></div>
+              <img
+                v-if="message.type === 'question'"
+                :src="getImageLink('/virtual-assistant-user-icon.png')"
+                class="w-8 h-8 rounded-full ml-2 mt-2"
+                alt="User"
+              />
             </div>
           </div>
+
           <!-- Chat input -->
           <div class="flex mt-4 flex-col ch:flex-row justify-center">
             <input
@@ -84,12 +101,15 @@ import { ref, onMounted, nextTick } from "vue";
 import { OpenAI } from "openai";
 
 useHead({
-    title: "Virtual Assistant",
-    meta: [{
-        name: 'description',
-        content: "Chat with our virtual assistant for support and guidance on domestic violence. Get legal advice, find help, and understand your rights in a safe, compassionate space. In emergencies, contact authorities immediately."
-    }]
-})
+  title: "Virtual Assistant",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Chat with our virtual assistant for support and guidance on domestic violence. Get legal advice, find help, and understand your rights in a safe, compassionate space. In emergencies, contact authorities immediately.",
+    },
+  ],
+});
 
 const config = useRuntimeConfig();
 const openai = new OpenAI({
@@ -124,7 +144,8 @@ const sendMessage = async () => {
       messages.value.push({
         id: Date.now() + 1,
         type: "answer",
-        content: "I'm sorry, There was an error processing your request. Please try again later.",
+        content:
+          "I'm sorry, There was an error processing your request. Please try again later.",
       });
     });
     const htmlAnswer = convertResponseToHTML(answer).trim();
@@ -177,6 +198,11 @@ const scrollToBottom = () => {
 onMounted(() => {
   scrollToBottom();
 });
+
+function getImageLink(imageUrl) {
+  const config = useRuntimeConfig();
+  return `${config.public.supabaseImagesUrl}${imageUrl}`;
+}
 </script>
 
 <style scoped>
@@ -266,7 +292,6 @@ input:focus {
 }
 
 .bg-red-100 {
-    background-color: #ffcccc;
-  }
-
+  background-color: #ffcccc;
+}
 </style>
