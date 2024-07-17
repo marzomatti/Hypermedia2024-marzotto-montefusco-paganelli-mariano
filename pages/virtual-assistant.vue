@@ -112,7 +112,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick } from "vue";
+import { ref, onMounted, nextTick, watch, onUnmounted } from "vue";
 import { OpenAI } from "openai";
 
 useHead({
@@ -247,7 +247,6 @@ const scrollToBottom = () => {
 
 const toggleFullscreen = () => {
   const element = chatContainer.value;
-  fullScreenMode.value = !fullScreenMode.value;
   if (!document.fullscreenElement) {
     element.requestFullscreen().catch((err) => {
       console.error(
@@ -259,8 +258,25 @@ const toggleFullscreen = () => {
   }
 };
 
+const updateFullscreenMode = () => {
+  fullScreenMode.value = !!document.fullscreenElement;
+};
+
+watch(fullScreenMode, (newValue) => {
+  if (newValue && !document.fullscreenElement) {
+    chatContainer.value.requestFullscreen();
+  } else if (!newValue && document.fullscreenElement) {
+    document.exitFullscreen();
+  }
+});
+
 onMounted(() => {
   scrollToBottom();
+  document.addEventListener('fullscreenchange', updateFullscreenMode);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('fullscreenchange', updateFullscreenMode);
 });
 
 function getImageLink(imageUrl) {
@@ -268,6 +284,7 @@ function getImageLink(imageUrl) {
   return `${config.public.supabaseImagesUrl}${imageUrl}`;
 }
 </script>
+
 
 <style scoped>
 .page-title {
