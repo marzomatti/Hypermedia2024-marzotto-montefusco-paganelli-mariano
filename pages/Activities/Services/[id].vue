@@ -121,7 +121,7 @@
             @submit.prevent="submitForm"
             class="bg-white p-6 rounded-3xl shadow-lg h-full"
           >
-            <div class="grid grid-cols-1 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="form-group">
                 <label for="name" class="block text-blue font-bold mb-2"
                   >Name</label
@@ -149,20 +149,19 @@
                   placeholder="Doe"
                 />
               </div>
-
-              <div class="form-group">
-                <label for="email" class="block text-blue font-bold mb-2"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  id="email"
-                  v-model="form.email"
-                  required
-                  class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color"
-                  placeholder="example@mail.com"
-                />
-              </div>
+            </div>
+            <div class="form-group mt-4">
+              <label for="email" class="block text-blue font-bold mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                v-model="form.email"
+                required
+                class="w-full p-3 border rounded-3xl focus:border-primary-color focus:ring-primary-color"
+                placeholder="exaple@mail.com"
+              />
             </div>
 
             <div class="form-group relative mt-4">
@@ -204,7 +203,6 @@
                 </svg>
               </div>
             </div>
-
             <div class="form-group mt-4">
               <label for="message" class="block text-blue font-bold mb-2"
                 >Message</label
@@ -214,10 +212,9 @@
                 v-model="form.message"
                 required
                 class="w-full p-3 border rounded-3xl h-32 resize-none focus:border-primary-color focus:ring-primary-color"
-                placeholder="Explain here your request..."
+                placeholder="Write here your request..."
               ></textarea>
             </div>
-
             <button
               type="submit"
               class="w-full inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300"
