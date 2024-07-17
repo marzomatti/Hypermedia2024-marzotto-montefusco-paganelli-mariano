@@ -39,6 +39,14 @@
           class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md sd:p-8 p-4 overflow-auto"
           style="min-height: 600px; max-height: 600px"
         >
+        <!-- Fullscreen button -->
+        <button
+              v-if="!fullScreenMode"
+              @click="toggleFullscreen"
+              class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-start border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2"
+            >
+              Fullscreen mode
+            </button>
           <img
             :src="getImageLink('/close.png')"
             alt="close icon"
@@ -52,15 +60,6 @@
             class="flex-1 bg-gray-100 rounded-3xl p-4 overflow-y-scroll"
             style="max-height: calc(100% - 60px)"
           >
-            <!-- Fullscreen button -->
-            <button
-              v-if="!fullScreenMode"
-              @click="toggleFullscreen"
-              class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2 absolute"
-            >
-              Fullscreen mode
-            </button>
-
             <div
               v-for="message in messages"
               :key="message.id"
@@ -72,7 +71,7 @@
               ></div>
               <div
                 v-if="message.type === 'question'"
-                class="ml-auto bg-red-100 text-red-900 p-3 rounded-lg shadow-md mb-2 text-left"
+                class="ml-auto bg-red-100 text-red-900 p-3 rounded-lg shadow-md mb-2 text-left break-words"
               >
                 {{ message.content }}
               </div>
@@ -272,11 +271,11 @@ watch(fullScreenMode, (newValue) => {
 
 onMounted(() => {
   scrollToBottom();
-  document.addEventListener('fullscreenchange', updateFullscreenMode);
+  document.addEventListener("fullscreenchange", updateFullscreenMode);
 });
 
 onUnmounted(() => {
-  document.removeEventListener('fullscreenchange', updateFullscreenMode);
+  document.removeEventListener("fullscreenchange", updateFullscreenMode);
 });
 
 function getImageLink(imageUrl) {
@@ -284,7 +283,6 @@ function getImageLink(imageUrl) {
   return `${config.public.supabaseImagesUrl}${imageUrl}`;
 }
 </script>
-
 
 <style scoped>
 .page-title {
