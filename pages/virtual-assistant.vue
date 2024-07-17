@@ -173,7 +173,7 @@ const sendMessage = async () => {
           "I'm sorry, There was an error processing your request. Please try again later.",
       });
     });
-    console.log("isDangerous", isDangerous);
+    //onsole.log("isDangerous", isDangerous);
     if (isDangerous == "true" || isDangerous == "True") {
       messages.value.push({
         id: Date.now() + 1,
