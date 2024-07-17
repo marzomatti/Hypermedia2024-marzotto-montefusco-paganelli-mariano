@@ -33,9 +33,15 @@
           </p>
         </div>
         <div
+          ref="chatContainer"
           class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md sd:p-8 p-4 overflow-auto"
           style="min-height: 600px; max-height: 600px"
         >
+          <!-- Fullscreen button -->
+          <button @click="toggleFullscreen" class="fullscreen-button">
+            Fullscreen mode
+          </button>
+          
           <!-- Chat messages -->
           <div
             ref="chatMessages"
@@ -124,6 +130,7 @@ const thread = await openai.beta.threads.create();
 const currentQuestion = ref("");
 const messages = ref([]);
 const chatMessages = ref(null);
+const chatContainer = ref(null);
 
 const sendMessage = async () => {
   if (currentQuestion.value.trim() !== "") {
@@ -193,6 +200,17 @@ const getAnswerFromOpenAI = async (question) => {
 const scrollToBottom = () => {
   const container = chatMessages.value;
   container.scrollTop = container.scrollHeight;
+};
+
+const toggleFullscreen = () => {
+  const element = chatContainer.value;
+  if (!document.fullscreenElement) {
+    element.requestFullscreen().catch(err => {
+      console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+    });
+  } else {
+    document.exitFullscreen();
+  }
 };
 
 onMounted(() => {
@@ -293,5 +311,23 @@ input:focus {
 
 .bg-red-100 {
   background-color: #ffcccc;
+}
+
+/* Fullscreen button styles */
+.fullscreen-button {
+  background-color: white;
+  color: #003049;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  align-self: flex-end;
+  border: #003049 2px solid;
+}
+
+.fullscreen-button:hover {
+  background-color: #003049;
+  color: white
 }
 </style>
