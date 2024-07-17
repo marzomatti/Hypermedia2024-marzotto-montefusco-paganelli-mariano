@@ -39,22 +39,29 @@
           class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md sd:p-8 p-4 overflow-auto"
           style="min-height: 600px; max-height: 600px"
         >
-          <!-- Fullscreen button -->
-          <button v-if="!fullScreenMode"
-            @click="toggleFullscreen"
-            class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2"
-          >
-            Fullscreen mode
-          </button>
-
-          <img :src="getImageLink('/close.png')" alt="close icon" class="w-6 h-6 self-end m-2 mr-4 mb-4 cursor-pointer" v-if="fullScreenMode" @click="toggleFullscreen">
-
           <!-- Chat messages -->
           <div
             ref="chatMessages"
             class="flex-1 bg-gray-100 rounded-3xl p-4 overflow-y-scroll"
             style="max-height: calc(100% - 60px)"
           >
+            <!-- Fullscreen button -->
+            <button
+              v-if="!fullScreenMode"
+              @click="toggleFullscreen"
+              class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2"
+            >
+              Fullscreen mode
+            </button>
+
+            <img
+              :src="getImageLink('/close.png')"
+              alt="close icon"
+              class="w-6 h-6 self-end m-2 mr-4 mb-4 cursor-pointer"
+              v-if="fullScreenMode"
+              @click="toggleFullscreen"
+            />
+
             <div
               v-for="message in messages"
               :key="message.id"
@@ -320,10 +327,21 @@ input:focus {
   background-color: #ffcccc;
 }
 
-.chat {
-  display: inline-block;
-  width: auto;
-  height: auto;
-  word-wrap: break-word;
+/* Fullscreen button styles */
+.fullscreen-button {
+  background-color: transparent;
+  color: #003049;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  align-self: flex-end;
+  border: #003049 2px solid;
+}
+
+.fullscreen-button:hover {
+  background-color: #003049;
+  color: white;
 }
 </style>

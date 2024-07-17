@@ -38,7 +38,7 @@
           <!-- Mobile menu button -->
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="relative inline-flex items-center justify-center rounded-md bg-secondary-color p-2 text-white hover:bg-red-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+            class="relative inline-flex items-center justify-center rounded-md bg-secondary-color p-2 text-white hover:bg-red-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mr-2"
           >
             <span class="absolute -inset-0.5" />
             <span class="sr-only">Open main menu</span>

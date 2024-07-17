@@ -121,7 +121,7 @@
             @submit.prevent="submitForm"
             class="bg-white p-6 rounded-3xl shadow-lg h-full"
           >
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 gap-4">
               <div class="form-group">
                 <label for="name" class="block text-blue font-bold mb-2"
                   >Name</label
@@ -149,7 +149,8 @@
                   placeholder="Doe"
                 />
               </div>
-              <div class="form-group col-span-2">
+
+              <div class="form-group">
                 <label for="email" class="block text-blue font-bold mb-2"
                   >Email</label
                 >
@@ -163,6 +164,7 @@
                 />
               </div>
             </div>
+
             <div class="form-group relative mt-4">
               <label for="service" class="block text-blue font-bold mb-2"
                 >Service</label
@@ -202,6 +204,7 @@
                 </svg>
               </div>
             </div>
+
             <div class="form-group mt-4">
               <label for="message" class="block text-blue font-bold mb-2"
                 >Message</label
@@ -214,6 +217,7 @@
                 placeholder="Explain here your request..."
               ></textarea>
             </div>
+
             <button
               type="submit"
               class="w-full inline-block mt-6 border-2 border-secondary-color text-secondary-color px-6 py-3 rounded-full hover:bg-secondary-color hover:text-white transition duration-300"
