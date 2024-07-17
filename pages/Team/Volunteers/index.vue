@@ -16,7 +16,7 @@
           class="hiddenCard person-card bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-80 hover:scale-105"
         >
           <nuxt-link :to="`/team/volunteers/${person.id}`">
-            <img :data-src="getImageLink('/team/volunteers/' + person.image)" alt="Volunteer Photo" class="lazy w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
+            <img :data-lazy="getImageLink(person.image)" alt="Volunteer Photo" class="lazy w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
             <h3 class="text-xl font-semibold text-blue">{{ person.name }} {{ person.surname }}</h3>
             <p class="text-blue">{{ person.role }}</p>
           </nuxt-link>
@@ -43,55 +43,34 @@ useHead({
 const { data: volunteers, error, loading } = await useFetch('/api/volunteers');
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const index = parseInt(entry.target.dataset.index);
-        for (let i = index; i < index + 3; i++) {
-          if (i < document.querySelectorAll('.person-card').length) {
-            document.querySelectorAll('.person-card')[i].classList.add('show');
-            document.querySelectorAll('.person-card')[i].classList.remove('hiddenCard');
-          }
+        // Show the card
+        entry.target.classList.add('show');
+        entry.target.classList.remove('hiddenCard');
+        
+        // Load the image
+        const img = entry.target.querySelector('img');
+        if (img && img.dataset.lazy) {
+          img.src = img.dataset.lazy;
+          img.classList.add('lazy-loaded');
         }
-        observer.unobserve(entry.target);
       }
     });
   }, {
-    rootMargin: '0px',
-    threshold: 0.1
+    rootMargin: '100px',
+    threshold: 0.1,
   });
 
-  setTimeout(() => {
-    const hiddenElements = document.querySelectorAll('.person-card');
-    hiddenElements.forEach((element, index) => {
-      element.dataset.index = index;
-      observer.observe(element);
-    });
-
-    const imgObserver = new IntersectionObserver((entries, imgObserver) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          const src = img.getAttribute('data-src');
-          if (src) {
-            img.src = src;
-          }
-          img.classList.add('lazy-loaded');
-          imgObserver.unobserve(entry.target);
-        }
-      });
-    });
-
-    const imgs = document.querySelectorAll('.lazy');
-    imgs.forEach(img => {
-      imgObserver.observe(img);
-    });
-  }, 0);
+  document.querySelectorAll('.person-card').forEach(card => {
+    observer.observe(card);
+  });
 });
 
 function getImageLink(imageUrl){
   const config = useRuntimeConfig()
-  return `${config.public.supabaseImagesUrl}${imageUrl}`
+  return `${config.public.supabaseImagesUrl}/team/volunteers${imageUrl}`
 }
 
 const text ="Meet our dedicated volunteers who play a crucial role in supporting and advocating for women affected by violence. Our volunteers bring a diverse range of skills and a deep commitment to making a positive impact. They work tirelessly alongside our staff to provide comprehensive support and create a safe and empowering environment for all. We are grateful for their passion, dedication, and the invaluable contributions they make every day."
