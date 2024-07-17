@@ -46,20 +46,21 @@
             v-if="fullScreenMode"
             @click="toggleFullscreen"
           />
-          <!-- Fullscreen button -->
-          <button
-            v-if="!fullScreenMode"
-            @click="toggleFullscreen"
-            class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-start border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md ml-2"
-          >
-            Fullscreen mode
-          </button>
           <!-- Chat messages -->
           <div
             ref="chatMessages"
             class="flex-1 bg-gray-100 rounded-3xl p-4 overflow-y-scroll"
             style="max-height: calc(100% - 60px)"
           >
+            <!-- Fullscreen button -->
+            <button
+              v-if="!fullScreenMode"
+              @click="toggleFullscreen"
+              class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2 absolute"
+            >
+              Fullscreen mode
+            </button>
+
             <div
               v-for="message in messages"
               :key="message.id"
@@ -111,7 +112,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick } from "vue";
+import { ref, onMounted, nextTick, watch, onUnmounted } from "vue";
 import { OpenAI } from "openai";
 
 useHead({
@@ -132,10 +133,9 @@ const openai = new OpenAI({
 });
 
 const assistantId = config.public.openaiAssistantId;
-const securityAssistantId = config.public.openaiSecurityAssistantId;
 const answerAssistant = await openai.beta.assistants.retrieve(assistantId);
 const securityChecker = await openai.beta.assistants.retrieve(
-  securityAssistantId
+  "asst_PCpfYqu2jOKwfA5KOej2CXtZ"
 );
 const answerThread = await openai.beta.threads.create();
 const securityThread = await openai.beta.threads.create();
@@ -165,14 +165,21 @@ const sendMessage = async () => {
       questionToCheck,
       securityThread,
       securityChecker
-    );
-
-    if (isDangerous == "true" || isDangerous == "True") {
+    ).catch((error) => {
+      console.error("Error getting answer from OpenAI:", error);
       messages.value.push({
         id: Date.now() + 1,
         type: "answer",
         content:
-          "I'm sorry, I can't answer that. If you have any other questions related to domestic violence, feel free to ask.",
+          "I'm sorry, There was an error processing your request. Please try again later.",
+      });
+    });
+    console.log("isDangerous", isDangerous);
+    if (isDangerous == "true" || isDangerous == "True") {
+      messages.value.push({
+        id: Date.now() + 1,
+        type: "answer",
+        content: "I'm sorry, I can't answer that question.",
       });
       await nextTick();
       scrollToBottom();
@@ -240,7 +247,6 @@ const scrollToBottom = () => {
 
 const toggleFullscreen = () => {
   const element = chatContainer.value;
-  fullScreenMode.value = !fullScreenMode.value;
   if (!document.fullscreenElement) {
     element.requestFullscreen().catch((err) => {
       console.error(
@@ -252,8 +258,25 @@ const toggleFullscreen = () => {
   }
 };
 
+const updateFullscreenMode = () => {
+  fullScreenMode.value = !!document.fullscreenElement;
+};
+
+watch(fullScreenMode, (newValue) => {
+  if (newValue && !document.fullscreenElement) {
+    chatContainer.value.requestFullscreen();
+  } else if (!newValue && document.fullscreenElement) {
+    document.exitFullscreen();
+  }
+});
+
 onMounted(() => {
   scrollToBottom();
+  document.addEventListener('fullscreenchange', updateFullscreenMode);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('fullscreenchange', updateFullscreenMode);
 });
 
 function getImageLink(imageUrl) {
@@ -261,6 +284,7 @@ function getImageLink(imageUrl) {
   return `${config.public.supabaseImagesUrl}${imageUrl}`;
 }
 </script>
+
 
 <style scoped>
 .page-title {
