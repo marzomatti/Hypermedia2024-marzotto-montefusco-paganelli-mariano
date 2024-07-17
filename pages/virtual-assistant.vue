@@ -39,6 +39,13 @@
           class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md sd:p-8 p-4 overflow-auto"
           style="min-height: 600px; max-height: 600px"
         >
+        <img
+            :src="getImageLink('/close.png')"
+            alt="close icon"
+            class="w-6 h-6 self-end m-2 mr-4 mb-4 cursor-pointer"
+            v-if="fullScreenMode"
+            @click="toggleFullscreen"
+          />
           <!-- Chat messages -->
           <div
             ref="chatMessages"
@@ -49,18 +56,10 @@
             <button
               v-if="!fullScreenMode"
               @click="toggleFullscreen"
-              class="bg-transparent text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2"
+              class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2 absolute"
             >
               Fullscreen mode
             </button>
-
-            <img
-              :src="getImageLink('/close.png')"
-              alt="close icon"
-              class="w-6 h-6 self-end m-2 mr-4 mb-4 cursor-pointer"
-              v-if="fullScreenMode"
-              @click="toggleFullscreen"
-            />
 
             <div
               v-for="message in messages"
