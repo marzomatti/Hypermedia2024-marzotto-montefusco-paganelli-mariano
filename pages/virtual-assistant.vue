@@ -40,12 +40,14 @@
           style="min-height: 600px; max-height: 600px"
         >
           <!-- Fullscreen button -->
-          <button
+          <button v-if="!fullScreenMode"
             @click="toggleFullscreen"
-            class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white"
+            class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white shadow-md mr-2"
           >
             Fullscreen mode
           </button>
+
+          <img :src="getImageLink('/close.png')" alt="close icon" class="w-6 h-6 self-end m-2 mr-4 mb-4 cursor-pointer" v-if="fullScreenMode" @click="toggleFullscreen">
 
           <!-- Chat messages -->
           <div
@@ -132,6 +134,7 @@ const currentQuestion = ref("");
 const messages = ref([]);
 const chatMessages = ref(null);
 const chatContainer = ref(null);
+const fullScreenMode = ref(false);
 
 const sendMessage = async () => {
   if (currentQuestion.value.trim() !== "") {
@@ -205,6 +208,7 @@ const scrollToBottom = () => {
 
 const toggleFullscreen = () => {
   const element = chatContainer.value;
+  fullScreenMode.value = !fullScreenMode.value;
   if (!document.fullscreenElement) {
     element.requestFullscreen().catch((err) => {
       console.error(
