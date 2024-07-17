@@ -10,7 +10,9 @@
     <section class="bg-white px-2 py-12 sd:px-12">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <!-- Text section -->
-        <div class="w-full md:w-1/3 px-6 md:pr-8 mb-8 md:mb-0 text-center md:text-left">
+        <div
+          class="w-full md:w-1/3 px-6 md:pr-8 mb-8 md:mb-0 text-center md:text-left"
+        >
           <h2 class="text-2xl font-bold text-blue mb-4">How We Can Help:</h2>
           <p class="text-blue text-lg mb-4 font-bold">
             Our virtual assistant is here to support you with compassion and
@@ -38,10 +40,13 @@
           style="min-height: 600px; max-height: 600px"
         >
           <!-- Fullscreen button -->
-          <button @click="toggleFullscreen" class="fullscreen-button">
+          <button
+            @click="toggleFullscreen"
+            class="bg-white text-[#003049] py-2 px-4 rounded cursor-pointer mb-2 self-end border-2 border-[#003049] hover:bg-[#003049] hover:text-white"
+          >
             Fullscreen mode
           </button>
-          
+
           <!-- Chat messages -->
           <div
             ref="chatMessages"
@@ -51,32 +56,28 @@
             <div
               v-for="message in messages"
               :key="message.id"
-              class="mb-4 flex items-start"
+              class="mb-4 flex"
             >
-              <img
-                v-if="message.type === 'answer'"
-                :src="getImageLink('/virtual-assistant-icon.png')"
-                class="w-8 h-8 rounded-full mr-2 mt-2"
-                alt="Chatbot"
-              />
               <div
                 v-if="message.type === 'question'"
-                class="bg-red-100 text-red-900 p-3 rounded-lg shadow-md mb-2 flex-1"
+                class="sm:pl-28 pl-10"
+              ></div>
+              <div
+                v-if="message.type === 'question'"
+                class="ml-auto bg-red-100 text-red-900 p-3 rounded-lg shadow-md mb-2 text-right"
               >
                 {{ message.content }}
               </div>
               <div
                 v-else-if="message.type === 'answer'"
                 id="response"
-                class="bg-orange-100 text-yellow-900 p-3 rounded-lg shadow-md mb-2 flex-1"
+                class="bg-orange-100 text-yellow-900 p-3 rounded-lg shadow-md mb-2"
                 v-html="message.content"
               ></div>
-              <img
-                v-if="message.type === 'question'"
-                :src="getImageLink('/virtual-assistant-user-icon.png')"
-                class="w-8 h-8 rounded-full ml-2 mt-2"
-                alt="User"
-              />
+              <div
+                v-if="message.type === 'answer'"
+                class="sm:pr-28 pr-10"
+              ></div>
             </div>
           </div>
 
@@ -205,8 +206,10 @@ const scrollToBottom = () => {
 const toggleFullscreen = () => {
   const element = chatContainer.value;
   if (!document.fullscreenElement) {
-    element.requestFullscreen().catch(err => {
-      console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+    element.requestFullscreen().catch((err) => {
+      console.error(
+        `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+      );
     });
   } else {
     document.exitFullscreen();
@@ -313,21 +316,10 @@ input:focus {
   background-color: #ffcccc;
 }
 
-/* Fullscreen button styles */
-.fullscreen-button {
-  background-color: white;
-  color: #003049;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  align-self: flex-end;
-  border: #003049 2px solid;
-}
-
-.fullscreen-button:hover {
-  background-color: #003049;
-  color: white
+.chat {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  word-wrap: break-word;
 }
 </style>
