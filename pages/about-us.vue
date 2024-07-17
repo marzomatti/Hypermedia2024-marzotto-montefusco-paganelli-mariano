@@ -2,24 +2,31 @@
   <main>
     <div
       class="bg-no-repeat bg-top bg-cover w-full h-[45rem]"
-      :style="{ backgroundImage: `url(${config.public.supabaseImagesUrl}/stop.jpg)` }"
+      :style="{
+        backgroundImage: `url(${config.public.supabaseImagesUrl}/stop.jpg)`,
+      }"
     >
       <div
         class="flex flex-col justify-center items-center text-center px-4 lg:px-16 h-full bg-gray-600 bg-opacity-50"
       >
         <transition name="fade" mode="out-in">
-          <h1 v-if="showFirstText" class="text-4xl text-white py-8 md:py-32 md:text-5xl">
+          <h1
+            v-if="showFirstText"
+            class="text-4xl text-white py-8 md:py-32 md:text-5xl"
+          >
             No Woman Alone: Empowering Women, Ending Violence
           </h1>
         </transition>
         <transition name="fade" mode="out-in">
           <div
-            v-if="showFirstText" class="p-3 md:p-5 m-5 md:m-7 text-lg md:text-xl text-white bg-opacity-75 rounded-3xl"
+            v-if="showFirstText"
+            class="p-3 md:p-5 m-5 md:m-7 text-lg md:text-xl text-white bg-opacity-75 rounded-3xl"
           >
             At No Woman Alone, we are dedicated to providing a safe haven and
             comprehensive support for women affected by violence. Our mission is
-            to empower women through compassionate care, advocacy, and education,
-            helping them to rebuild their lives free from fear and abuse.
+            to empower women through compassionate care, advocacy, and
+            education, helping them to rebuild their lives free from fear and
+            abuse.
           </div>
         </transition>
       </div>
@@ -36,7 +43,7 @@
         <div
           v-for="(value, index) in values"
           :key="index"
-          class="hiddenItem max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
+          class="hiddenItem max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform  transition duration-500 hover:shadow-xl hover:scale-105"
           :style="{ backgroundColor: value.color }"
         >
           <div class="px-6 py-8 rounded-3xl">
@@ -58,7 +65,9 @@
       >
         Meet Our Expert Team
       </h1>
-      <div class="hiddenItem flex flex-wrap justify-center gap-20 items-center py-12">
+      <div
+        class="hiddenItem flex flex-wrap justify-center gap-20 items-center py-12"
+      >
         <img
           v-for="(image, index) in teamImages"
           :key="index"
@@ -92,7 +101,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue";
 
 useHead({
   title: "About Us",
@@ -109,34 +118,37 @@ const showFirstText = ref(false);
 
 const values = [
   {
-    title: 'Compassion',
-    description: 'Compassion is at the heart of everything we do. We believe in providing a supportive and understanding environment where women can feel safe and valued. Our team is dedicated to offering empathy and care to every individual we serve.',
-    color: '#ffcccc',
-    textColor: 'text-secondary-color'
+    title: "Compassion",
+    description:
+      "Compassion is at the heart of everything we do. We believe in providing a supportive and understanding environment where women can feel safe and valued. Our team is dedicated to offering empathy and care to every individual we serve.",
+    color: "#ffcccc",
+    textColor: "text-secondary-color",
   },
   {
-    title: 'Empowerment',
-    description: 'We are committed to empowering women by providing them with the tools and resources they need to regain control of their lives. Through education, support groups, and advocacy, we strive to help women build a future free from violence.',
-    color: '#ffffe6',
-    textColor: 'text-orange-300'
+    title: "Empowerment",
+    description:
+      "We are committed to empowering women by providing them with the tools and resources they need to regain control of their lives. Through education, support groups, and advocacy, we strive to help women build a future free from violence.",
+    color: "#ffffe6",
+    textColor: "text-orange-300",
   },
   {
-    title: 'Change',
-    description: 'Our goal is to bring about lasting change in our community. We work tirelessly to raise awareness, educate the public, and advocate for policies that protect women and prevent violence. Together, we can create a safer world for everyone.',
-    color: '#ffe6cc',
-    textColor: 'text-orange-200'
-  }
+    title: "Change",
+    description:
+      "Our goal is to bring about lasting change in our community. We work tirelessly to raise awareness, educate the public, and advocate for policies that protect women and prevent violence. Together, we can create a safer world for everyone.",
+    color: "#ffe6cc",
+    textColor: "text-orange-200",
+  },
 ];
 
 const teamImages = [
   {
-    src: '/about_2.jpg',
-    alt: 'Team Image 1'
+    src: "/about_2.jpg",
+    alt: "Team Image 1",
   },
   {
-    src: '/about_3.jpg',
-    alt: 'Team Image 2'
-  }
+    src: "/about_3.jpg",
+    alt: "Team Image 2",
+  },
 ];
 
 onMounted(() => {
@@ -144,47 +156,51 @@ onMounted(() => {
     showFirstText.value = true;
   }, 300);
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        entry.target.classList.remove('hiddenItem');
-        if (entry.target.tagName === 'IMG') {
-          const img = entry.target;
-          const src = img.getAttribute('data-src');
-          if (src) {
-            img.src = src;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          entry.target.classList.remove("hiddenItem");
+          if (entry.target.tagName === "IMG") {
+            const img = entry.target;
+            const src = img.getAttribute("data-src");
+            if (src) {
+              img.src = src;
+            }
+            img.classList.add("lazy-loaded");
           }
-          img.classList.add('lazy-loaded');
+          observer.unobserve(entry.target);
         }
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    rootMargin: '-20% 0px -10% 0px'
-  });
+      });
+    },
+    {
+      rootMargin: "-20% 0px -10% 0px",
+    }
+  );
 
-  const hiddenElements = document.querySelectorAll('.hiddenItem');
-  hiddenElements.forEach(element => {
+  const hiddenElements = document.querySelectorAll(".hiddenItem");
+  hiddenElements.forEach((element) => {
     observer.observe(element);
   });
 
-  const imgs = document.querySelectorAll('.lazy');
-  imgs.forEach(img => {
+  const imgs = document.querySelectorAll(".lazy");
+  imgs.forEach((img) => {
     observer.observe(img);
   });
 });
 
-const config = useRuntimeConfig()
-function getImageLink(imageUrl){
-  return `${config.public.supabaseImagesUrl}${imageUrl}`
+const config = useRuntimeConfig();
+function getImageLink(imageUrl) {
+  return `${config.public.supabaseImagesUrl}${imageUrl}`;
 }
 </script>
 
 <style scoped>
 .hiddenItem {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
   filter: blur(5px);
   transform: translateY(20px);
 }
@@ -212,4 +228,18 @@ function getImageLink(imageUrl){
 .fade-leave-to {
   opacity: 0;
 }
+
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.hover\:shadow-xl:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
 </style>
