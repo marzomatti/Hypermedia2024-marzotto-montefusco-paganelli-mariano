@@ -39,7 +39,7 @@
           class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md sd:p-8 p-4 overflow-auto"
           style="min-height: 600px; max-height: 600px"
         >
-        <img
+          <img
             :src="getImageLink('/close.png')"
             alt="close icon"
             class="w-6 h-6 self-end m-2 mr-4 mb-4 cursor-pointer"
@@ -133,8 +133,12 @@ const openai = new OpenAI({
 });
 
 const assistantId = config.public.openaiAssistantId;
-const assistant = await openai.beta.assistants.retrieve(assistantId);
-const thread = await openai.beta.threads.create();
+const answerAssistant = await openai.beta.assistants.retrieve(assistantId);
+const securityChecker = await openai.beta.assistants.retrieve(
+  "asst_PCpfYqu2jOKwfA5KOej2CXtZ"
+);
+const answerThread = await openai.beta.threads.create();
+const securityThread = await openai.beta.threads.create();
 
 const currentQuestion = ref("");
 const messages = ref([]);
@@ -156,7 +160,12 @@ const sendMessage = async () => {
     await nextTick();
     scrollToBottom();
 
-    const answer = await getAnswerFromOpenAI(question).catch((error) => {
+    const questionToCheck = "Prompt from user:" + question;
+    const isDangerous = await getAnswerFromOpenAI(
+      questionToCheck,
+      securityThread,
+      securityChecker
+    ).catch((error) => {
       console.error("Error getting answer from OpenAI:", error);
       messages.value.push({
         id: Date.now() + 1,
@@ -165,14 +174,38 @@ const sendMessage = async () => {
           "I'm sorry, There was an error processing your request. Please try again later.",
       });
     });
-    const htmlAnswer = convertResponseToHTML(answer).trim();
-    messages.value.push({
-      id: Date.now() + 1,
-      type: "answer",
-      content: htmlAnswer,
-    });
-    await nextTick();
-    scrollToBottom();
+    console.log("isDangerous", isDangerous);
+    if (isDangerous == "true" || isDangerous == "True") {
+      messages.value.push({
+        id: Date.now() + 1,
+        type: "answer",
+        content: "I'm sorry, I can't answer that question.",
+      });
+      await nextTick();
+      scrollToBottom();
+    } else {
+      const answer = await getAnswerFromOpenAI(
+        question,
+        answerThread,
+        answerAssistant
+      ).catch((error) => {
+        console.error("Error getting answer from OpenAI:", error);
+        messages.value.push({
+          id: Date.now() + 1,
+          type: "answer",
+          content:
+            "I'm sorry, There was an error processing your request. Please try again later.",
+        });
+      });
+      const htmlAnswer = convertResponseToHTML(answer).trim();
+      messages.value.push({
+        id: Date.now() + 1,
+        type: "answer",
+        content: htmlAnswer,
+      });
+      await nextTick();
+      scrollToBottom();
+    }
   }
 };
 
@@ -185,7 +218,7 @@ function convertResponseToHTML(response) {
   return html;
 }
 
-const getAnswerFromOpenAI = async (question) => {
+const getAnswerFromOpenAI = async (question, thread, assistant) => {
   const response = await openai.beta.threads.messages.create(thread.id, {
     role: "user",
     content: question,
