@@ -37,10 +37,7 @@
           class="w-full md:w-2/3 flex flex-col bg-white rounded-3xl shadow-md sd:p-8 p-4 overflow-auto"
           style="min-height: 600px; max-height: 600px"
         >
-          <!-- Fullscreen button -->
-          <button @click="toggleFullscreen" class="fullscreen-button">
-            Fullscreen mode
-          </button>
+ 
           
           <!-- Chat messages -->
           <div
@@ -48,6 +45,10 @@
             class="flex-1 bg-gray-100 rounded-3xl p-4 overflow-y-scroll"
             style="max-height: calc(100% - 60px)"
           >
+                   <!-- Fullscreen button -->
+                   <button @click="toggleFullscreen" class="fullscreen-button">
+            Fullscreen mode
+          </button>
             <div
               v-for="message in messages"
               :key="message.id"
@@ -315,7 +316,7 @@ input:focus {
 
 /* Fullscreen button styles */
 .fullscreen-button {
-  background-color: white;
+  background-color: transparent;
   color: #003049;
   padding: 10px 20px;
   border: none;
@@ -328,6 +329,6 @@ input:focus {
 
 .fullscreen-button:hover {
   background-color: #003049;
-  color: white
+  color: white;
 }
 </style>
