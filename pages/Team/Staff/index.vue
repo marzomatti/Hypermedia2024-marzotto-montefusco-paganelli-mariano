@@ -16,7 +16,7 @@
           class="hiddenCard person-card bg-white p-6 rounded-lg shadow-lg text-center transform transition-transform duration-80 hover:scale-105"
         >
           <nuxt-link :to="`/team/staff/${person.id}`">
-            <img :src="getImageLink(person.image)" alt="Staff Photo" class="lazy w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
+            <img :data-lazy="getImageLink(person.image)" alt="Staff Photo" class="lazy w-full h-auto object-cover rounded-lg mb-4 aspect-portrait">
             <h3 class="text-xl font-semibold text-blue">{{ person.name }} {{ person.surname }}</h3>
             <p class="text-blue">{{ person.role }}</p>
           </nuxt-link>
@@ -40,59 +40,36 @@ useHead({
   ],
 });
 
-useHead({
-  title: 'Staff',
-});
+
 const { data: staff, error, loading } = await useFetch('/api/staff');
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const index = parseInt(entry.target.dataset.index);
-        for (let i = index; i < index + 3; i++) {
-          if (i < document.querySelectorAll('.person-card').length) {
-            document.querySelectorAll('.person-card')[i].classList.add('show');
-            document.querySelectorAll('.person-card')[i].classList.remove('hiddenCard');
-          }
+        // Show the card
+        entry.target.classList.add('show');
+        entry.target.classList.remove('hiddenCard');
+        
+        // Load the image
+        const img = entry.target.querySelector('img');
+        if (img && img.dataset.lazy) {
+          img.src = img.dataset.lazy;
+          img.classList.add('lazy-loaded');
         }
-        observer.unobserve(entry.target);
       }
     });
   }, {
-    rootMargin: '0px',
-    threshold: 0.1
+    rootMargin: '100px',
+    threshold: 0.1,
   });
 
-  setTimeout(() => {
-    const hiddenElements = document.querySelectorAll('.person-card');
-    hiddenElements.forEach((element, index) => {
-      element.dataset.index = index;
-      observer.observe(element);
-    });
-
-    const imgObserver = new IntersectionObserver((entries, imgObserver) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          const src = img.getAttribute('data-src');
-          if (src) {
-            img.src = src;
-          }
-          img.classList.add('lazy-loaded');
-          imgObserver.unobserve(entry.target);
-        }
-      });
-    });
-
-    const imgs = document.querySelectorAll('.lazy');
-    imgs.forEach(img => {
-      imgObserver.observe(img);
-    });
-  }, 80);
+  document.querySelectorAll('.person-card').forEach(card => {
+    observer.observe(card);
+  });
 });
 
-const text = "Meet our dedicated staff committed to supportingand advocating for women affected by violence. Our team is composed of experienced professionals who are passionate about making a difference. Each member brings a unique set of skills and expertise to provide comprehensive support and create a safe and empowering environment for all. We are here to help, listen, and guide you every step of the way."
+const text = "Meet our dedicated staff committed to supporting and advocating for women affected by violence. Our team is composed of experienced professionals who are passionate about making a difference. Each member brings a unique set of skills and expertise to provide comprehensive support and create a safe and empowering environment for all. We are here to help, listen, and guide you every step of the way."
 
 function getImageLink(imageUrl){
   const config = useRuntimeConfig()
@@ -103,14 +80,8 @@ function getImageLink(imageUrl){
 <style scoped>
 .hiddenCard {
   opacity: 0;
-  transition: 0;
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
   filter: blur(5px);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .hiddenCard {
-    transition: all 1s ease-in-out;
-  }
 }
 
 .show {
@@ -139,7 +110,6 @@ function getImageLink(imageUrl){
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
-
 
 .aspect-portrait {
   aspect-ratio: 3 / 4;
