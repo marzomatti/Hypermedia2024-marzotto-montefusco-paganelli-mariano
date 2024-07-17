@@ -48,6 +48,7 @@ module.exports = {
         'screen-360': '360px',
       },
       screens: {
+        'xl': '1280px',
         'tl': '1131px', //custom screen size for logo title 
         'md': '865px', 
         'sv': '914px',
