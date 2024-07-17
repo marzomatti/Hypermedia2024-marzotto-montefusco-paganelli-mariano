@@ -36,7 +36,7 @@
         <div
           v-for="(value, index) in values"
           :key="index"
-          class="hiddenItem max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
+          class="hiddenItem max-w-sm rounded-3xl overflow-hidden shadow-lg m-4 transform  transition duration-500 hover:shadow-xl hover:scale-105"
           :style="{ backgroundColor: value.color }"
         >
           <div class="px-6 py-8 rounded-3xl">
@@ -212,4 +212,18 @@ function getImageLink(imageUrl){
 .fade-leave-to {
   opacity: 0;
 }
+
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.hover\:shadow-xl:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
 </style>
