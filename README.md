@@ -1,75 +1,76 @@
-# Nuxt 3 Minimal Starter
+# NoWomanAlone
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+**NoWomanAlone** is a web platform developed as part of a university project to simulate a real-world application providing support and resources to women who are victims of violence. Please note that this website is not intended for actual use, and the content, resources, and services presented are entirely fictional.
 
-## Setup
+[Link to the website](https://nowomanalone.vercel.app/)
 
-Make sure to install the dependencies:
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/8934b92e-b39b-4c4a-bf8a-4ef63cccb337/0f8c8538-6077-4e5b-bbab-b5d7d0d9fe55/image.png)
 
-```bash
-# npm
-npm install
+## Installation steps
 
-# pnpm
-pnpm install
+1. Clone the repository:
+    
+    ```bash
+    git clone https://github.com/marzomatti/Hypermedia2024-marzotto-montefusco-paganelli-mariano.git
+    ```
+    
+2. Install dependencies:
+    
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+    
+3. Start the development server:
+    
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+    
+    You can also run it with the `-o` flag to automatically open the project in your browser:
+    
+    ```bash
+    npm run dev -- -o
+    ```
 
-# yarn
-yarn install
+## Features
 
-# bun
-bun install
-```
+- **Services and Projects**: Explore detailed information about the support services we offer and the impactful projects we’ve created to assist women in need. These resources provide comprehensive guidance and access to vital tools.
+- **Meet Our Team**: Learn more about the dedicated individuals behind **NoWomanAlone**, each committed to providing assistance and advocating for women affected by violence.
+- **AI-Powered Chatbot**: Our platform includes an AI-powered chatbot, implemented using OpenAI, to provide immediate, discreet support for women experiencing domestic violence. The chatbot is designed to offer advice, answer questions, and guide users toward available resources, ensuring timely help in sensitive situations.
 
-## Development Server
+## Set up for Supabase
 
-Start the development server on `http://localhost:3000`:
+To enable database functionality with Supabase:
 
-```bash
-# npm
-npm run dev
+1. Install the Supabase module:
+    
+    ```bash
+    npm install @nuxtjs/supabase --save-dev
+    ```
+    
+2. Add the module to the `nuxt.config.js` file:
+    
+    ```javascript
+    export default defineNuxtConfig({
+      modules: ['@nuxtjs/supabase'],
+    })
+    ```
+    
+3. Add your `SUPABASE_URL` and `SUPABASE_KEY` in a `.env` file for local development:
+    
+    ```bash
+    SUPABASE_URL="<Your Supabase URL>"
+    SUPABASE_KEY="<Your Supabase API Key>"
+    ```
 
-# pnpm
-pnpm run dev
+## Deployment
 
-# yarn
-yarn dev
+We recommend deploying **NoWomanAlone** using [Vercel](https://vercel.com/), which can automatically build and deploy the project whenever changes are pushed to the main branch.
 
-# bun
-bun run dev
-```
+## Disclaimer
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This project is developed as part of a university course. The content, services, and resources presented on this website are entirely fictional and should not be relied upon for any real-world use. **NoWomanAlone** is not a functioning platform for providing support, and any data or services depicted here are part of a simulated environment for educational purposes only.
