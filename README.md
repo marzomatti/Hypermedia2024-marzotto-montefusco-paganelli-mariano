@@ -4,7 +4,8 @@
 
 [Link to the website](https://nowomanalone.vercel.app/)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/8934b92e-b39b-4c4a-bf8a-4ef63cccb337/0f8c8538-6077-4e5b-bbab-b5d7d0d9fe55/image.png)
+![Screenshot from 2024-10-21 22-47-47](https://github.com/user-attachments/assets/b4c81c4e-d2af-4496-b281-7b46d8655d11)
+
 
 ## Installation steps
 
