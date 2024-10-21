@@ -1,6 +1,7 @@
 # NoWomanAlone
 
 **NoWomanAlone** is a web platform developed as part of a university project to simulate a real-world application providing support and resources to women who are victims of violence. Please note that this website is not intended for actual use, and the content, resources, and services presented are entirely fictional.
+Grade: 30L/30
 
 [Link to the website](https://nowomanalone.vercel.app/)
 
